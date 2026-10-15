@@ -1,0 +1,4786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>Module:Infobox</title>
+    <ns>828</ns>
+    <id>10</id>
+    <revision><id>6651</id><timestamp>2025-11-12T21:09:15Z</timestamp><text>-- version 0.1.8 ... PLUS top image block modifications by Savage Alien
+
+--------------------------------------
+-- User settings, you can modify these
+--------------------------------------
+
+-- if you want to not always use divs in your wiki (as opposed to tables), you can change this default
+-- just remember to change it back each time you update from the main "branch" on the support wiki!
+-- you can also control it per infobox with `|useDivs=yes` or `|useDivs=no`
+local USE_DIVS = true -- `false` or `true`
+
+-- default value to show if a param is missing in some but not all tabs.
+-- set to `nil` (not in quotes) to remove such rows altogether in the tabs where they're missing
+local TABBED_NONEXIST = nil -- `''` or `nil` or `'N/A'` etc. Don't put nil in quotes.
+
+---------------------------------------------------------------------------
+-- Do not modify anything below this line unless you know what you're doing
+---------------------------------------------------------------------------
+
+local h = {}
+local p = {}
+local hooks = {}
+
+function p.arraymap(frame)
+	-- a lua implementation of Page Forms' arraymap
+	local args = h.overwrite()
+	local items = h.split(args[1], args[2] or ',')
+	for i, item in ipairs(items) do
+		items[i] = args[4]:gsub(args[3], item)
+	end
+	return table.concat(items, args[5] or ',')
+end
+
+function p.preprocess(frame)
+    return frame:preprocess(frame.args[1] or frame:getParent().args[1])
+end
+
+function p.main(frame)
+	h.registerHooks()
+	h.increment()
+	local args = h.overwrite()
+	local sep = args.sep or ','
+	h.castArgs(args, sep)
+	if h.castBool(args.setmainimage or 'yes') then
+    	h.setMainImage(args.images[1])
+	end
+    -- suggest to use HIDDENCAT here; will be used for maintenance &amp; gadget imports
+	return h.makeInfobox(args, sep), '[[Category:Pages with DRUID infoboxes]]'
+end
+
+function h.registerHooks()
+	if not mw.title.new('Module:Infobox/Hooks').exists then return end
+	hooks = require('Module:Infobox/Hooks')
+end
+
+function h.runHook(key, ...)
+	if hooks[key] then
+		hooks[key](...)
+	end
+end
+
+function h.increment()
+	-- optional use of VariablesLua for better compatibility
+	local VariablesLua = mw.ext.VariablesLua
+	if VariablesLua ~= nil then
+		h.counter = VariablesLua.var('DRUID_INFOBOX_ID', 0) + 1
+		VariablesLua.vardefine('DRUID_INFOBOX_ID', h.counter)
+		return
+	end
+		local res
+		-- try to fall back to normal Variables
+		res, h.counter = pcall(
+			function()
+				return mw.getCurrentFrame():callParserFunction('#var', {'DRUID_INFOBOX_ID', 0}) + 1
+			end
+		)
+		if res then
+			mw.getCurrentFrame():callParserFunction('#vardefine', {'DRUID_INFOBOX_ID', h.counter})
+		else
+			-- else use a random number so at least there's some unique id
+			h.counter = math.random(100000000000000000) -- random integer
+		end
+end
+
+function h.castArgs(args, sep)
+	h.runHook('onCastArgsStart', args, sep, args.kind)
+	args.tabs = h.split(args.tabs or args.image_labels, sep)
+	args.images = h.getImages(args, sep)
+	args.sections = h.split(args.sections, sep)
+	for _, section in ipairs(args.sections) do
+		if h.castBool(args[section .. '_isdata']) then
+			args[section .. 'Data'] = args[section]
+			args[section] = section .. 'Data'
+			args[section .. 'Data_nolabel'] = 'true' -- will be cast later
+		end
+		args[section] = h.split(args[section], sep)
+		args[section .. '_tabs'] = h.split(args[section .. '_tabs'], sep)
+		if #args.tabs &gt; 0 and #args[section .. '_tabs'] &gt; 0 then
+			error(('You cannot specify |tabs= and |%s= at the same time, please pick one'):format(section .. '_tabs'))
+		end
+	end
+	if args.useDivs then
+		USE_DIVS = h.castBool(args.useDivs)
+	end
+	-- this would be in the outer scope, but we're hiding it
+	h.entityType = USE_DIVS and 'div' or 'table' -- key of h.htmlEntities
+	h.runHook('onCastArgsEnd', args, sep, args.kind)
+	h.focusTab(args)
+end
+
+function h.getImages(args, sep)
+	if args.image and not args.images then
+		args.images = args.image
+	end
+	if args.images then
+		return h.split(args.images, sep)
+	end
+	if not args.tabs then return {} end
+	local ret = {}
+	for _, key in ipairs(args.tabs) do
+		if args[key .. '_image'] then
+			ret[#ret+1] = args[key .. '_image']
+		end
+	end
+	return ret
+end
+
+function h.setMainImage(file)
+	if h.counter &gt; 1 then return end
+    if not file then return end
+    local fileText = file:gsub('.-:', '')
+	fileText = fileText:gsub('^([^|%]]+).*', '%1')
+	-- setmainimage is guaranteed to exist on wiki.gg but may not exist on other wikis
+	-- it's not a crucial piece of functionality so we'll fail silently if it doesn't exist
+	pcall(function() mw.getCurrentFrame():callParserFunction{
+		name = '#setmainimage',
+		args = { fileText },
+	} end)
+end
+
+function h.focusTab(args)
+	local hasFocusedTab = false
+	if not args.tabs[1] then return end
+	for i, tab in ipairs(args.tabs) do
+		if h.castBool(args[tab .. '_focused']) then
+			hasFocusedTab = true
+			args[tab .. '_focused'] = true -- cast to bool
+		else
+			args[tab .. '_focused'] = false
+		end
+	end
+	if hasFocusedTab then return end
+	args[args.tabs[1] .. '_focused'] = true
+end
+
+function h.makeInfobox(args, sep)
+	local out = mw.html.create(h.getTag('container'))
+		:addClass('druid-infobox')
+		:addClass('druid-container')
+		:addClass('noexcerpt')
+		:addClass(args.class) -- warning: class can be nil, don't concat anything
+		:attr('id', args.id or ('druid-container-' .. h.counter))
+	h.runHook('onMakeOutputStart', out, args)
+	if args.kind then out:addClass('druid-container-' .. h.escape(args.kind)) end
+	h.printTitle(out, args)
+	h.printImages(out, args.images, args)
+	for _, section in ipairs(args.sections) do
+		-- cannot begin tagging here because we don't know if any applicable args are present
+		local cols = args[section .. '_columns']
+		local makeSection = cols and h.makeGridSection or h.makeSection
+		out:node(makeSection(section, args[section], args, tonumber(cols)))
+	end
+	h.runHook('onMakeOutputEnd', out, args)
+	-- category for gadget loading
+	return out, '[[Category:Pages with DRUID infoboxes]]'
+end
+
+function h.printTitle(out, args)
+	local tabs = args.tabs
+	if not tabs or #tabs == 0 then
+		h.printSimpleTitle(out, args)
+		return
+	end
+	if not h.hasComplexData('title', tabs, args) then
+		h.printSimpleTitle(out, args)
+		return
+	end
+	local node = h.printTitleWrapper(out)
+	h.printTabbedDataItem(node, 'title', tabs, args)
+end
+
+function h.printSimpleTitle(out, args)
+	if args.title then
+		local node = h.printTitleWrapper(out)
+		node:wikitext(args.title)
+	end
+end
+
+function h.printTitleWrapper(out)
+	return out:tag(h.getTag('titleOuter'))
+		:tag(h.getTag('titleInner'))
+			:addClass('druid-title')
+			:attr('colspan', 2)
+end
+
+function h.printTabbedDataItem(node, item, tabs, args)
+	-- hasData isn't used in the title case but we will need to track this
+	-- when we're printing section data later on
+	-- so we'll just track it always
+	local hasData = false
+	for i, label in ipairs(tabs) do
+		local div = node:tag('div')
+			:addClass('druid-toggleable-data')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:attr('data-druid-tab-key', label)
+			:attr('data-druid-class', args[label .. '_' .. item .. '_class'] or args[item .. '_class'])
+		if h.getTabbedContent(args, label, item) then
+			hasData = true
+			div:wikitext('\n\n' .. h.getTabbedContent(args, label, item))
+			div:addClass('druid-toggleable-data-nonempty')
+		else
+			div:addClass('druid-toggleable-data-empty')
+		end
+		
+		if args[label .. '_focused'] then div:addClass('focused') end
+	end
+	return hasData
+end
+
+function h.printImages(out, images, args)
+	if #images == 0 and #args.tabs == 0 then return end
+	-- burden is on the user to format this as an image. this should be done in the infobox template,
+	-- with something like |image={{#if:{{{image|}}}|[[File:{{{image|}}}{{!}}300px{{!}}link=]]}}
+	local td = out:tag(h.getTag('section'))
+		:addClass('druid-section-container')
+		:tag(h.getTag('cell'))
+		:attr('colspan', 2)
+	local tabs = args.tabs
+	local tabTexts = h.getImageTabTexts(tabs, images, args)
+	h.printTabs(td, tabs, tabTexts, false, args)
+	if #images == 0 then return end
+	if #images == 1 then
+		td:addClass('druid-main-image')
+			:tag('div')
+			:addClass('druid-main-image-file')
+			:wikitext(images[1])
+		if args.caption then
+			td:tag('div')
+				:addClass('druid-main-image-caption')
+				:wikitext(args.caption)
+		end
+		return
+	end
+	td:addClass('druid-main-images')
+	local imagesContainer = td:tag('div')
+		:addClass('druid-main-images-files')
+	for i, image in ipairs(images) do
+		local container = imagesContainer:tag('div')
+			:addClass('druid-main-image')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:attr('data-druid-tab-key', tabs[i])
+			container:tag('div')
+				:addClass('druid-main-image-file')
+				:wikitext(image)
+		local labelDisplay
+		local labelKey = tabs[i]
+		if labelKey then
+			labelDisplay = args[labelKey .. '_label'] or labelKey
+		else
+			labelDisplay = '[[Category:Infoboxes missing image labels]]Image ' .. i
+		end
+		if args[labelDisplay .. '_caption'] or args[labelKey .. '_caption'] then
+			container:tag('div')
+				:addClass('druid-main-image-caption')
+				:wikitext(args[labelDisplay .. '_caption'] or args[labelKey .. '_caption'])
+		end
+		if args[labelKey .. '_focused'] then
+			container:addClass('focused')
+		end
+	end
+end
+
+function h.getImageTabTexts(tabs, images, args)
+	if #tabs == 0 and #images &lt;= 1 then return {} end
+	local texts = {}
+	local i = 1
+	while images[i] or tabs[i] do
+		if tabs[i] then
+			texts[i] = args[tabs[i] .. '_label'] or tabs[i]
+		else
+			texts[i] = '[[Category:Infoboxes missing image labels]]Image ' .. i
+		end
+		i = i + 1
+	end
+	return texts
+end
+
+function h.printTabs(td, tabs, texts, isSection, args)
+	if #texts == 0 then return end
+	local container = td:tag('div')
+		:addClass('druid-main-images-labels')
+		:addClass('druid-tabs')
+	if isSection then
+		container:addClass('druid-section-tabs')
+	end
+	for i, item in ipairs(tabs) do
+		local label = container:tag('div')
+			:addClass('druid-main-images-label')
+			:addClass('druid-tab')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:wikitext(texts[i])
+			:attr('data-druid-tab-key', item)
+		if isSection then
+			label:addClass('druid-section-tab')
+		else
+			label:addClass('druid-title-tab')
+		end
+		if args[item .. '_focused'] then
+			label:addClass('focused')
+		end
+		-- this can be null, don't concat anything here
+		label:addClass(args[item .. '_class'])
+	end
+end
+
+function h.makeGridSection(section, sectionFields, args, numCols)
+	local numItems = h.countItems(sectionFields, section, args)
+	if numItems == 0 then return end
+	local node = mw.html.create(h.getTag('section'))
+		:addClass('druid-section-container')
+	h.printSectionHeader(node, section, args)
+	h.printSectionTabs(node, section, args)
+	local tr = node:tag(h.getTag('row'))
+		:attr('data-druid-section-row', h.escape(section))
+	if args[section .. '_collapsed'] then
+		tr:addClass('druid-collapsed')
+	end
+	local grid = tr:tag(h.getTag('cell'))
+		:attr('colspan', 2)
+		:addClass('druid-grid-section')
+		:addClass('druid-grid-section-' .. h.escape(section))
+		:addClass(args[section .. '_class']) -- warning: class can be nil, don't concat anything
+		:tag('div')
+			:addClass('druid-grid')
+	local row, col, i = 1, 1, 1
+	local sizeOfLastRow = numItems % numCols
+	local lcm = h.getNumGridCols(numItems, sizeOfLastRow, numCols)
+	grid:css('grid-template-columns', ('repeat(%s, 1fr)'):format(lcm))
+	local size = lcm / numCols
+	for _, item in ipairs(sectionFields) do
+		local node = mw.html.create('div')
+		local shouldPrint = h.printData(node, item, section, args)
+		if shouldPrint then
+			if i == numItems - sizeOfLastRow + 1 then
+				size = lcm / sizeOfLastRow
+			end
+			i = i + 1
+			local gStart = (col - 1) * size + 1
+			local gEnd = (col) * size + 1
+			local itemContainer = grid:tag('div')
+				:addClass('druid-grid-item')
+				:addClass('druid-grid-item-' .. h.escape(item))
+				:addClass(args[item .. '_class']) -- warning: class can be nil, don't concat anything
+				:css('grid-column', ('%s / %s'):format(gStart, gEnd))
+				:css('grid-row', row)
+			if not h.castBool(args[item .. '_nolabel']) then
+				h.printLabel(itemContainer:tag('div'), item, args)
+			end
+			itemContainer:node(node)
+			if col == numCols then
+				row = row + 1
+				col = 1
+			else
+				col = col + 1
+			end
+		end
+	end
+	return node
+end
+
+function h.makeSection(section, sectionFields, args)
+	if section == '' then return end -- bruteforce fix for trailing commas
+	local shouldPrint = false
+	local container = mw.html.create(h.getTag('section'))
+		:addClass('druid-section-container')
+		:addClass(args[section .. '_class']) -- warning: class can be nil, don't concat anything
+	h.printSectionHeader(container, section, args)
+	h.printSectionTabs(container, section, args)
+	for _, item in ipairs(sectionFields) do
+		local node = mw.html.create(h.getTag('cell'))
+		local shouldPrintItem = h.printData(node, item, section, args)
+		if shouldPrintItem then
+			shouldPrint = true
+			local tr = container:tag(h.getTag('row'))
+				:addClass('druid-row')
+				:addClass('druid-row-' .. h.escape(item))
+				:addClass(args[item .. '_class']) -- warning: class can be nil, don't concat anything
+				:attr('data-druid-section-row', h.escape(section))
+			if args[section .. '_collapsed'] then
+				tr:addClass('druid-collapsed')
+			end
+			if h.castBool(args[item .. '_wide']) or h.castBool(args[item .. '_nolabel']) then
+				node
+					:attr('colspan', 2)
+					:addClass('druid-data-wide')
+			else
+				h.printLabel(tr:tag(h.getTag('label')), item, args)
+			end
+			tr:node(node)
+		end
+	end
+	if not shouldPrint then return nil end
+	return container
+end
+
+function h.countItems(sectionFields, section, args)
+	local numItems = 0
+	for _, v in ipairs(sectionFields) do
+		-- we aren't actually printing here, but we're finding out if we should print anything
+		-- because we need the count of columns before we print anything in grid data
+		if h.printData(mw.html.create(), v, section, args) then
+			numItems = numItems + 1
+		end
+	end
+	return numItems
+end
+
+function h.getNumGridCols(numItems, sizeOfLastRow, numCols)
+	if not numCols then return numItems, 1 end
+	if numItems &lt; numCols then return numItems, 1 end
+	if sizeOfLastRow == 0 then
+		return numCols, 1
+	end
+	local a, b = sizeOfLastRow, numCols
+	while b ~= 0 do
+	    a, b = b, a % b
+	end
+	local lcm = sizeOfLastRow * numCols / a
+	return lcm
+end
+
+function h.printLabel(node, item, args)
+	return node
+		:addClass('druid-label')
+		:addClass('druid-label-' .. h.escape(item))
+		:wikitext(args[item .. '_display'] or args[item .. '_label'] or item)
+end
+
+function h.printData(node, item, section, args)
+	-- prints data to the node
+	-- and also returns whether the item is nonempty or not
+	local hasData = false
+	local sectionTabs = args[section .. '_tabs']
+	local tabs = args.tabs
+	if sectionTabs and #sectionTabs &gt; 0 then
+		tabs = sectionTabs
+	end
+	if not tabs or #tabs == 0 then
+		return h.printSimpleData(node, item, args)
+	end
+	if not h.hasComplexData(item, tabs, args) then
+		return h.printSimpleData(node, item, args)
+	end
+	hasData = hasData or h.printTabbedDataItem(node, item, tabs, args)
+	if hasData then
+		node:addClass('druid-data')
+	end
+	return hasData
+end
+
+function h.getTabbedContent(args, label, item)
+	return args[label .. '_' .. item] or args[item] or TABBED_NONEXIST
+end
+
+function h.printSimpleData(node, item, args)
+	if args[item] and type(args[item]) ~= 'string' then
+		error(("Invalid use of field %s as both a section and a data value"):format(item))
+	end
+	if not args[item] then return false end
+	node:addClass('druid-data')
+		:addClass('druid-data-' .. h.escape(item))
+		:addClass('druid-data-nonempty')
+		:wikitext('\n\n' .. args[item])
+	return true
+end
+
+function h.hasComplexData(item, tabs, args)
+	for _, v in ipairs(tabs) do
+		if args[v .. '_' .. item] then return true end
+	end
+	return false
+end
+
+function h.printSectionHeader(node, section, args)
+	if h.castBool(args[section .. '_nolabel']) then return end
+	local tr = node:tag(h.getTag('row'))
+		:attr('data-druid-section', h.escape(section))
+	local th = tr:tag(h.getTag('sectionTitle'))
+		:attr('colspan', 2)
+		:addClass('druid-section')
+		:addClass('druid-section-' .. h.escape(section))
+	if args[section .. '_collapsible'] or args[section .. '_collapsed'] then
+		tr:addClass('druid-collapsible')
+		if args[section .. '_collapsed'] then
+			tr:addClass('druid-collapsible-collapsed')
+		end
+	end
+	local emptySections = {}
+	for _, label in ipairs(args.tabs) do
+		local hasLabel = false
+		for _, item in ipairs(args[section] or {}) do
+			if h.getTabbedContent(args, label, item) then
+				hasLabel = true
+			end
+		end
+		if not hasLabel then emptySections[label] = true end
+	end
+	if not next(emptySections) then
+		th:wikitext(args[section .. '_label'] or section)
+		return
+	end
+	for i, label in ipairs(args.tabs) do
+		local div = th:tag('div')
+			:addClass('druid-toggleable-heading')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:wikitext(args[section .. '_label'] or section)
+		-- we are going to print the section content even in empty nodes
+		-- for compatibility with browsers without :has, where hiding empty rows won't happen
+		if emptySections[label] then
+			div:addClass('druid-toggleable-heading-empty')
+		end
+		if args[label .. '_focused'] then
+			div:addClass('focused')
+		end
+	end
+end
+
+function h.printSectionTabs(node, section, args)
+	local tabs = args[section .. '_tabs']
+	if not tabs or #tabs == 0 then return end
+	local tr = node:tag(h.getTag('sectionTabsOuter'))
+		:attr('data-druid-section', h.escape(section))
+	local th = tr:tag(h.getTag('sectionTabs'))
+		:attr('colspan', 2)
+		:addClass('druid-section-tabs')
+		:addClass('druid-section-tabs-' .. h.escape(section))
+	local texts = {}
+	for i, item in ipairs(tabs) do
+		texts[i] = args[item .. '_label'] or item
+	end
+	h.printTabs(th, tabs, texts, true, args)
+end
+
+----------------------------
+-- general utility functions
+----------------------------
+
+function h.overwrite()
+	-- this is a generic utility function that collects args from the invoke call &amp; the parent template.
+	-- normally, you merge args with parent template overwriting the invoke call, but
+	-- since we'll be putting markup/formatting into our invoke call,
+	-- we actually want to overwrite what the user sent.
+	local f = mw.getCurrentFrame()
+	local origArgs = f.args
+	local parentArgs = f:getParent().args
+
+	local args = {}
+	
+	for k, v in pairs(parentArgs) do
+		v = mw.text.trim(v)
+		if v ~= '' then
+			args[k] = v
+		end
+	end
+	
+	for k, v in pairs(origArgs) do
+		v = mw.text.trim(tostring(v))
+		if v ~= '' then
+			args[k] = v
+		end
+	end
+	
+	return args
+end
+
+-- generic utility functions
+-- these would normally be provided by other modules, but to make installation easy
+-- I'm including everything here
+
+function h.split(text, pattern, plain)
+	if not text then
+		return {}
+	end
+	local ret = {}
+	for m in h.gsplit(text, pattern, plain) do
+		ret[#ret+1] = m
+	end
+	return ret
+end
+
+function h.gsplit( text, pattern, plain )
+	if not pattern then pattern = ',' end
+	if not plain then
+		pattern = '%s*' .. pattern .. '%s*'
+	end
+	local s, l = 1, text:len()
+	return function ()
+		if s then
+			local e, n = text:find( pattern, s, plain )
+			local ret
+			if not e then
+				ret = text:sub( s )
+				s = nil
+			elseif n &lt; e then
+				-- Empty separator!
+				ret = text:sub( s, e )
+				if e &lt; l then
+					s = e + 1
+				else
+					s = nil
+				end
+			else
+				ret = e &gt; s and text:sub( s, e - 1 ) or ''
+				s = n + 1
+			end
+			return ret
+		end
+	end, nil, nil
+end
+
+-- char-set of characters to escape/replace
+local escapePattern = '[' -- required for pattern; do not remove.
+	.. ' '
+	.. '"'
+	.. "'"
+	.. "%?"
+	.. "%%"
+	.. "%["
+	.. "%]"
+	.. "{"
+	.. ']' -- required for pattern; do not remove.
+
+function h.escape(s)
+	s = s:gsub(escapePattern, '')
+	return s
+end
+
+
+-- normally I would make these constants at the top of the file
+-- but I don't want to mistake them with user-set constants
+h.boolFalse = { ['false'] = true, ['no'] = true, [''] = true, ['0'] = true, ['nil'] = true }
+
+function h.castBool(x)
+	if not x then return false end
+	return not h.boolFalse[tostring(x):lower()]
+end
+
+h.htmlEntities = {
+	table = {
+		container = 'table',
+		titleOuter = 'tr',
+		titleInner = 'th',
+		section = '',
+		sectionTitle = 'th',
+		sectionTabsOuter = 'tr',
+		sectionTabs = 'td',
+		row = 'tr',
+		label = 'th',
+		cell = 'td',
+	},
+	div = {
+		container = 'div',
+		titleOuter = 'div',
+		titleInner = 'div',
+		section = 'div',
+		sectionTitle = 'div',
+		sectionTabsOuter = 'div',
+		sectionTabs = 'div',
+		row = 'div',
+		label = 'div',
+		cell = 'div',
+	}
+}
+
+function h.getTag(key)
+	-- try not to totally fail here
+	return h.htmlEntities[h.entityType or 'div'][key]
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Infobox/doc</title>
+    <ns>828</ns>
+    <id>11</id>
+    <revision><id>19</id><timestamp>2025-07-02T00:03:09Z</timestamp><text>{{luadoc}}
+This module enables the creation of [[support:DRUID infoboxes|DRUID infoboxes]].</text></revision>
+  </page>
+  <page>
+    <title>Module:Navbox</title>
+    <ns>828</ns>
+    <id>12</id>
+    <revision><id>20</id><timestamp>2025-07-02T00:03:09Z</timestamp><text>-- version 1.2.4
+
+-- config table for RANGER.
+-- If you want to change the default config, DO NOT change it here,
+-- please do it via the `onLoadConfig` hook in [[Module:Navbox/Hooks]].
+local config = {
+	default_navbox_class = "navigation-not-searchable",   -- Base value of the `class` parameter.
+	default_title_class = nil,    -- Base value of the `title_class` parameter.
+	default_above_class = nil,    -- Base value of the `above_class` parameter.
+	default_below_class = nil,    -- Base value of the `below_class` parameter.
+	default_section_class =nil,   -- Base value of the `section_class` parameter.
+	default_header_class = nil,   -- Base value of the `header_class` parameter.
+	default_group_class = nil,    -- Base value of the `group_class` parameter.
+	default_list_class = 'hlist', -- Base value of the `list_class` parameter.
+	
+	default_header_state = nil, -- Base value of the `state` parameter.
+
+	editlink_hover_message_key = 'Navbox-edit-hover', -- The system message name for hover text of the edit icon. 
+	
+	custom_render_handle = nil, -- usually for debugging purposes only. if set, it should be a function accept 2 parameters: `dataTree` and `args`, and return a string as module output.
+}
+
+---------------------------------------------------------------------
+
+-- Argument alias.
+local CANONICAL_NAMES = {
+	['titlestyle'] = 'title_style',
+	['listclass'] = 'list_class',
+	['groupstyle'] = 'group_style',
+	['collapsible'] = 'state',
+	['editlink'] = 'meta',
+	['editlinks'] = 'meta',
+	['editicon'] = 'meta',
+	['edit_link'] = 'meta',
+	['edit_links'] = 'meta',
+	['edit_icon'] = 'meta',
+	['navbar'] = 'meta',
+	['name'] = 'template',
+	['evenodd'] = 'striped',
+	['class'] = 'navbox_class',
+	['css'] = 'navbox_style',
+	['style'] = 'navbox_style',
+	['group'] = '1:group',
+	['list'] = '1:list',
+}
+
+local DEFAULT_ARGS = {
+	['meta'] = true,
+}
+
+local STATES = {
+	['no'] = '',
+	['off'] = '',
+	['plain'] = '',
+	['collapsed'] = 'mw-collapsible mw-collapsed',
+	['expanded'] = 'mw-collapsible',
+}
+
+local BOOL_FALSE = {
+	['no'] = true,
+	['off'] = true,
+	['false'] = true,
+}
+
+local STRIPED = {
+	['odd'] = 'striped-odd',
+	['swap'] = 'striped-odd',
+	['y'] = 'striped-even',
+	['yes'] = 'striped-even',
+	['on'] = 'striped-even',
+	['even'] = 'striped-even',
+	['striped'] = 'striped-even',
+}
+
+local NAVBOX_CHILD_INDICATOR = '!!C$H$I$L$D!!'
+local NAVBOX_CHILD_INDICATOR_LENGTH = string.len( NAVBOX_CHILD_INDICATOR )
+
+local CLASS_PREFIX = 'ranger-'
+
+---------------------------------------------------------------------
+
+local p = {}
+local h = {} -- non-public
+local hooks = mw.title.new('Module:Navbox/Hooks').exists and require('Module:Navbox/Hooks') or {}
+
+---------------------------------------------------------------------
+
+-- For templates: {{#invoke:navbox|main|...}}
+function p.main(frame)
+	local args = p.mergeArgs(frame)
+	return p.build(args, true)
+end
+
+-- For modules: return require('module:navbox').build(args)
+-- By default this method will skip the arguments sanitizing phase 
+-- (and onSanitizeArgsStart/onSanitizeArgsEnd hooks).
+-- Set `doParseArgs` to true to do arguments sanitizing.
+-- If `customConfig` table is provided, it will be merged into default config table (after onLoadConfig()).
+-- If `customHooks` table is provided, all default hook handles will be overrided, unprovided hooks will be empty.
+function p.build(args, doParseArgs, customConfig, customHooks)
+	if customHooks then
+		hooks = customHooks
+	end
+	
+	if doParseArgs then 
+		args = h.parseArgs(args)
+	end
+
+	h.runHook('onLoadConfig', config, args)
+
+	if customConfig then
+		for k,v in pairs(customConfig) do
+			config[k] = v
+		end
+	end
+	
+	--merge default args
+	for k,v in pairs(DEFAULT_ARGS) do
+		if args[k] == nil then
+			args[k] = DEFAULT_ARGS[k]
+		end
+	end
+
+	h.runHook('onBuildTreeStart', args)
+	local dataTree = h.buildDataTree(args)
+	h.runHook('onBuildTreeEnd', dataTree, args)
+	
+	if type(config.custom_render_handle) == 'function' then
+		return config.custom_render_handle(dataTree, args)
+	else
+		return h.render(dataTree)
+	end
+end
+
+-- merge args from frame and frame:getParent()
+-- It may be used when creating custom wrapping navbox module.
+--
+-- For example, Module:PillNavbox
+--
+-- local RANGER = require('Module:Navbox')
+-- local p = {}
+-- function p.main(frame)
+--     return RANGER.build(RANGER.mergeArgs(frame), true, {
+--         default_navbox_class = 'pill', -- use "pill" style by default.
+--     })
+-- end
+-- return p
+--
+function p.mergeArgs(frame)
+	local inputArgs = {}
+	
+	for k, v in pairs(frame.args) do
+		v = mw.text.trim(tostring(v))
+		if v ~= '' then
+			inputArgs[k] = v
+		end
+	end
+	
+	for k, v in pairs(frame:getParent().args) do
+		v = mw.text.trim(v)
+		if v ~= '' then
+			inputArgs[k] = v
+		end
+	end
+	
+	return inputArgs
+end
+
+------------------------------------------------------------------------
+
+-- equivalent to mw.text.split(str, div, true) for non-empty separator, but can be over 60x faster, since the latter is Unicode-aware.
+-- Original version credit: http://richard.warburton.it.
+function h.explode(div, str)
+	if (div=='') then return nil end
+	local pos,arr = 0,{}
+	-- for each divider found
+	for st,sp in function() return string.find(str,div,pos,true) end do
+		arr[#arr+1] = string.sub(str,pos,st-1) -- Attach chars left of current divider
+		pos = sp+1 -- Jump past current divider
+	end
+	arr[#arr+1] = string.sub(str,pos) -- Attach chars right of last divider
+	return arr
+end
+
+function h.parseArgs(inputArgs)
+	h.runHook('onSanitizeArgsStart', inputArgs)
+	
+	local args = {}
+	
+	for k, v in pairs(inputArgs) do
+		if type(k) == 'string' then
+			-- all named args have already been trimmed
+			local key = h.normalizeKey(k)
+			args[key] = h.normalizeValue(key, v)
+		else
+			args[k] = mw.text.trim(v) -- keep number-index arguments (for {{navbox|child|...}})
+		end
+	end
+	
+	h.runHook('onSanitizeArgsEnd', args, inputArgs)
+	
+	return args
+end
+
+-- Normalize the name string of arguments.
+-- the normalized form is (index:)?name, in which:
+-- index is number index such as 1, 1.3, 1.2.45,
+-- name is in lowercase underscore-case, such as group, group_style
+-- e.g: header_state, 1.3:list_style
+-- the input argument name can be:
+-- * camel-case: listStyle, ListStyle
+-- * space separated: list style
+-- * prefix+index+postfix?, and can be in camel-case or space/hyphen separated or mixed: list 1 style, list1, list1Style, list1_style
+-- * index.name: 1.3.list
+-- * index_name: 1.3_list (Space separated are treated as underscore separated, therefore 1.3 list are vaild too)
+function h.normalizeKey(s)
+	-- camel-case to lowercase underscore-case
+	s = s:gsub('%l%f[%u]', '%0_') -- listStyle to list_style
+	s = (s:gsub(' ', '_')):lower() -- space to underscore 
+	s = s:gsub('%l%f[%d]', '%0_') -- group1* to group_1*
+	s = s:gsub('%d%f[%l]', '%0_') -- *1style to *1_style
+	
+	-- number format x_y_z to x.y.z
+	s = s:gsub('(%d)_%f[%d]', '%1%.')
+	
+	-- move index to the beginning:
+	-- group_1.2_style to 1.2:group_style
+	-- group_1 to 1:group
+	s = s:gsub('^([%l_]+)_([%d%.]+)', '%2:%1')
+	
+	-- support index.name and index_name:
+	-- 1.2.group / 1.2_group to 1.2:group
+	s = s:gsub('^([%d%.]+)[%._]%f[%l]', '%1:')
+	
+	-- now the key should be in normalized form, if the origin key is vaild
+
+	-- standardize *_css to *_style
+	s = s:gsub('_css$', '_style')
+	-- standardize *collapsible to *state
+	s = s:gsub('collapsible$', 'state')
+
+	-- standardize all aliases to the canonical name
+	return CANONICAL_NAMES[s] or s
+end
+
+function h.normalizeValue(k, v)
+	k = tostring(k)
+	if k:find('_style$') then
+		v = (v .. ';'):gsub(';;', ';')
+		return v
+	elseif k:find('state$') then
+		return STATES[v]
+	elseif k == 'striped' then
+		return STRIPED[v]
+	elseif k == 'meta' then
+		return not BOOL_FALSE[v]
+	elseif v:sub(1, 2) == '{|' or v:match('^[*:;#]') then
+		-- Applying nowrap to lines in a table does not make sense.
+		-- Add newlines to compensate for trim of x in |parm=x in a template.
+		return '\n' .. v ..'\n'
+	end
+	return v
+end
+
+-- parse arguments, convert them to structured data tree
+function h.buildDataTree(args)
+	-- parse args to a tree
+	local tree = h.buildTree(args)
+
+	-- build root navbox data
+	local data = h.buildNavboxData(tree.info)
+	
+	-- Recursively build section tree
+	if tree.children then
+		data.sections = h.buildSections(tree.children, {
+			listClass = h.mergeAttrs(args.list_class, config.default_list_class),
+			listStyle =  args.list_style,
+			groupClass = h.mergeAttrs(args.group_class, config.default_group_class),
+			groupStyle = args.group_style,
+			sectionClass = h.mergeAttrs(args.section_class, config.default_section_class),
+			sectionStyle = args.section_style,
+			headerClass = h.mergeAttrs(args.header_class, config.default_header_class),
+			headerStyle = args.header_style,
+			headerState = args.header_state or config.default_header_state,
+		})
+	end
+	if args[1] == 'child' then
+		data.CHILD_MODE = true
+	end
+
+	return data
+end
+
+function h.buildSections(list, defaults)
+	local sections = {}
+	local section = nil
+	for k, node in h.orderedPairs(list) do
+		local info = node.info or {}
+		--start a new section if needed
+		if info.header or not section then
+			section = { 
+				class = h.mergeAttrs(info.section_class, defaults.sectionClass),
+				style = h.mergeAttrs(info.section_style, defaults.sectionStyle),
+				body = {}
+			}
+			-- Section header if needed.
+			-- If the value of a `|header_n=` is two or more consecutive "-" characters (e.g. --, -----), 
+			-- it means start a new section without header, and the new section will be not collapsable.
+			if info.header and not string.match(info.header, '^%-%-+$') then
+				section.header = {
+					content = info.header,
+					class = h.mergeAttrs(info.header_class, defaults.headerClass),
+					style = h.mergeAttrs(info.header_style, defaults.headerStyle),
+				}
+				section.state = info.state or defaults.headerState or 'mw-collapsible'
+			end
+			sections[#sections+1] = section
+		end
+		-- above/below for this section
+		if info.above then
+			section.above = {
+				content = info.above,
+				class= h.mergeAttrs(info.above_class, config.default_above_class),
+				style = info.above_style,
+			}
+		end
+		if info.below then
+			section.below = {
+				content = info.below,
+				class= h.mergeAttrs(info.below_class, config.default_below_class),
+				style = info.below_style,
+			}
+		end
+		-- this group+list row
+		if info.group or info.list or node.children then
+			local row = {}
+			section.body[#section.body+1] = row
+			if info.group then
+				row.group = {
+					content = info.group,
+					class = h.mergeAttrs(info.group_class, defaults.groupClass),
+					style = h.mergeAttrs(info.group_style, defaults.groupStyle),
+				}
+			end
+			if info.list then
+				if string.sub(info.list, 1, NAVBOX_CHILD_INDICATOR_LENGTH) == NAVBOX_CHILD_INDICATOR then
+					-- it is from {{navbox|child| ... }}
+					row.sections = mw.text.jsonDecode(string.sub(info.list, NAVBOX_CHILD_INDICATOR_LENGTH+1))
+				else
+					row.list = {
+						content = info.list,
+						class = h.mergeAttrs(info.list_class, defaults.listClass),
+						style = h.mergeAttrs(info.list_style, defaults.listStyle),
+					}
+				end
+			end
+			-- sub-nodes, will override {{navbox|child| ... }}
+			if node.children then
+				row.sections = h.buildSections(node.children, defaults)
+			end
+		end
+	end
+	-- flatten if needed:
+	-- If a section has only one list with no content and no corresponding group but has sublists, these sublists will be moved to upper level.
+	for _, sect in ipairs(sections) do
+		if #sect.body == 1 then
+			local node = sect.body[1]
+			if not node.group and not node.list and node.sections and #node.sections == 1 and not node.sections[1].header then
+				sect.body = node.sections[1].body
+			end
+		end
+	end	
+	return sections
+end
+	
+function h.buildNavboxData(info)
+	local data = {
+		state = info.state or 'mw-collapsible', -- here we need a default value for empty input
+		striped = info.striped,
+		class = h.mergeAttrs(info.navbox_class, config.default_navbox_class),
+		style = info.navbox_style,
+	}
+	
+	-- data for titlebar
+	if info.title or info.meta or data.state ~= '' then
+		data.title = {
+			content = info.title,
+			class = h.mergeAttrs(info.title_class, config.default_title_class),
+			style = info.title_style,
+		}
+		if info.meta then
+			data.metaLinks = {
+				link = info.meta_link, -- will be used as [[$link|$text]]
+				url = info.meta_url,  -- will be used as [$url $text], only if there is no data.metaLinks.link
+				text = info.meta_text, --hovertext
+			}
+			if not info.meta_link and not info.meta_url then
+				-- default link target
+				local title = mw.title.new(info.template or mw.getCurrentFrame():getParent():getTitle(), 'Template')
+				if not title then
+					error('Invalid title ' .. info.template)
+				end
+				data.metaLinks.link = title.fullText
+			end
+			if not info.meta_text then
+				local msg = mw.message.new(config.editlink_hover_message_key)
+				data.metaLinks.text = msg:exists() and msg:plain() or 'View or edit this template'
+			end
+		end
+	end
+	
+	-- above/below
+	if info.above then
+		data.above = {
+			content = info.above,
+			class= h.mergeAttrs(info.above_class, config.default_above_class),
+			style = info.above_style,
+		}
+	end
+
+	if info.below then
+		data.below = {
+			content = info.below,
+			class= h.mergeAttrs(info.below_class, config.default_below_class),
+			style = info.below_style,
+		}
+	end
+	
+	return data
+end
+
+-- parse arguments, convert them into a tree based on their index
+-- each node on tree is { info = { #data for this node# }, children = {#children nodes#}  }
+function h.buildTree(args, defaults)
+	local tree = { info = {} }
+	local check = function(key, value)
+		local index, name = string.match(key, '^([%d%.]+):(.+)$')
+
+		-- no number index found, for root node
+		if not index then 
+			tree.info[key] = value
+			return
+		end
+
+		-- filter invalid number index
+		if string.match(index, '^%.') or string.match(index, '%.$') or string.match(index, '%.%.') then
+			return
+		end
+		
+		-- find the node that matches the index in the tree
+		local arr = h.explode('.', index)
+		local node = tree
+		for _, v in ipairs(arr) do
+			v = tonumber(v)
+			if not node.children then
+				node.children = {}
+			end
+			if not node.children[v] then 
+				node.children[v] = { info = {} }
+			end
+			node = node.children[v]
+		end
+		
+		node.info[name] = value
+	end
+	for k,v in pairs(args) do
+		check(k, v)
+	end
+	return tree
+end
+
+function h.render(data)
+	-- handle {{navbox|child|...}} syntax
+	if data.CHILD_MODE then
+		return NAVBOX_CHILD_INDICATOR..mw.text.jsonEncode(data.sections)
+	end
+
+	-----  normal case -----
+	
+	local out = mw.html.create()
+	
+	-- build navbox container
+	local navbox = out:tag('div')
+		:attr('role', 'navigation'):attr('aria-label', 'Navbox')
+		:addClass(CLASS_PREFIX..'navbox')
+		:addClass(data.class)
+		:addClass(data.striped)
+		:addClass(data.state)
+		:cssText(data.style)
+
+	--title bar
+	if data.title then
+		local titlebar = navbox:tag('div'):addClass(CLASS_PREFIX..'title')
+		titlebar:tag('div'):addClass('mw-collapsible-toggle-placeholder')
+		if data.metaLinks then
+			titlebar:node(h.renderMetaLinks(data.metaLinks))
+		end
+		if data.title then
+			titlebar:addClass(data.title.class):tag('div')
+			:addClass(CLASS_PREFIX..'title-text')
+			:addClass(data.title.class)
+			:cssText(data.title.style)
+			:wikitext(data.title.content)
+		end
+	end
+
+	--above
+	if data.above then
+		navbox:tag('div')
+		:addClass(CLASS_PREFIX..'above mw-collapsible-content')
+		:addClass(data.above.class)
+		:cssText(data.above.style)
+		:wikitext(data.above.content)
+		:attr('id', (not data.title) and mw.uri.anchorEncode(data.above.content) or nil) -- id for aria-labelledby attribute, if no title
+	end
+	
+	-- sections
+	if data.sections then
+		h.renderSections(data.sections, navbox, 0, true)
+	else
+		-- Insert a blank section for completely empty navbox to ensure it behaves correctly when collapsed.
+		if not data.above and not data.below then 
+			navbox:tag('div'):addClass(CLASS_PREFIX..'section mw-collapsible-content')
+		end
+	end
+
+	--below
+	if data.below then
+		navbox:tag('div')
+		:addClass(CLASS_PREFIX..'below mw-collapsible-content')
+		:addClass(data.below.class)
+		:cssText(data.below.style)
+		:wikitext(data.below.content)
+	end
+	return tostring(out)..'[[Category:Pages with navboxes]]' -- suggest to use HIDDENCAT here; will be used for maintenance &amp; gadget imports
+end
+
+function h.renderSections(data, container, level, even)
+	for i,sect in ipairs(data) do
+		--section box
+		local section = container:tag('div')
+			:addClass(CLASS_PREFIX..'section mw-collapsible-content')
+			:addClass(sect.class)
+			:addClass(sect.state)
+			:cssText(sect.style)
+		-- section header
+		if sect.header then
+			section:tag('div')
+			:addClass(CLASS_PREFIX..'header')
+			:addClass(sect.header.class)
+			:cssText(sect.header.style)
+			:tag('div'):addClass('mw-collapsible-toggle-placeholder'):done()
+			:tag('div'):addClass(CLASS_PREFIX..'header-text'):wikitext(sect.header.content)
+		end
+		-- above:
+		if sect.above then
+			section:tag('div')
+			:addClass(CLASS_PREFIX..'above mw-collapsible-content')
+			:addClass(sect.above.class)
+			:cssText(sect.above.style)
+			:wikitext(sect.above.content)
+		end
+		-- body: groups&amp;lists
+		local box = section:tag('div'):addClass(CLASS_PREFIX..'section-body mw-collapsible-content')
+		even = h.renderBody(sect.body, box, level, (level==0) and true or even) -- reset even status each section
+		-- below:
+		if sect.below then
+			section:tag('div')
+			:addClass(CLASS_PREFIX..'below mw-collapsible-content')
+			:addClass(sect.below.class)
+			:cssText(sect.below.style)
+			:wikitext(sect.below.content)
+		end
+	end
+	return even
+end
+
+
+function h.renderMetaLinks(info)
+	local box = mw.html.create('span'):addClass(CLASS_PREFIX..'meta')
+	local meta = box:tag('span'):addClass('nv nv-view')
+	
+	if info.link then 
+		meta:wikitext('[['..info.link..'|')
+			:tag('span'):wikitext(info.text):attr('title', info.text):done()
+			:wikitext(']]')
+	elseif info.url then
+		meta:wikitext('['..info.url..' ')
+			:tag('span'):wikitext(info.text):attr('title', info.text):done()
+			:wikitext(']')
+	end
+	
+	return box
+end
+
+function h.renderBody(info, box, level, even)
+	local count = 0
+	for _,v in h.orderedPairs(info) do
+		if v.group or v.list or v.sections then
+			count = count + 1
+			-- row container
+			local row = box:tag('div'):addClass(CLASS_PREFIX..'row')
+			-- group cell
+			if v.group or (v.sections and level &gt; 0 and not v.list) then
+				local groupCell = row:tag('div')
+					:addClass(CLASS_PREFIX..'group level-'..level)
+					:addClass((level &gt; 0) and CLASS_PREFIX..'subgroup' or nil)
+				local groupContentWrap = groupCell:tag('div'):addClass(CLASS_PREFIX..'wrap')
+				if v.group then
+					groupCell:addClass(v.group.class):cssText(v.group.style)
+					groupContentWrap:wikitext(v.group.content)
+				else
+					groupCell:addClass('empty')
+					row:addClass('empty-group-list')
+				end
+			else
+				row:addClass('empty-group')
+			end
+			-- list cell
+			local listCell = row:tag('div'):addClass(CLASS_PREFIX..'listbox')
+			if not v.list and not v.sections then
+				listCell:addClass('empty')
+				row:addClass('empty-list')
+			end
+			if v.list or (v.group and not v.sections) then
+				--listCell:node(h.renderList(v['list'] or '', k, level, args))
+				even = not even -- flip even/odd status
+				local cell = listCell:tag('div')
+				:addClass(CLASS_PREFIX..'wrap')
+				:addClass(even and CLASS_PREFIX..'even' or CLASS_PREFIX..'odd')
+				if v.list then
+					cell:addClass(v.list.class):cssText(v.list.style)
+					:tag('div'):addClass(CLASS_PREFIX..'list'):wikitext(v.list.content)
+				end
+			end
+			if v.sections then
+				local sublistBox = listCell:tag('div'):addClass(CLASS_PREFIX..'sublist level-'..level)
+				even = h.renderSections(v.sections, sublistBox, level+1, even)
+			end
+		end
+	end
+	if count &gt; 0 then
+		box:css('--count', count) -- for flex-grow
+	end
+	return even
+end
+
+-- pairs, but sort the keys alphabetically
+function h.orderedPairs(t, f)
+	local a = {}
+	for n in pairs(t) do table.insert(a, n) end
+	table.sort(a, f)
+	local i = 0      -- iterator variable
+	local iter = function ()   -- iterator function
+		i = i + 1
+		if a[i] == nil then return nil
+		else return a[i], t[a[i]]
+		end
+	end
+	return iter
+end
+
+-- For cascading parameters, such as style or class, they are merged in exact order (from general to specific). 
+-- Any parameter starting with multiple hyphens(minus signs) will terminate the cascade.
+-- An example:
+-- For group_1.1, its style is affected by parameters |group_1.1_style=... , |subgroup_level_1_style=... , and |subgroup_style=... .
+-- If we have |group_1.1_style= color:red; |subgroup_level_1_style= font-weight: bold; and |subgroup_style= color: green; ,
+-- the style of group_1.1 will be style="color:green; font-weight: bold; color: red;" ;
+-- if we have |group_1.1_style= -- color:red; |subgroup_level_1_style= font-weight: bold; and |subgroup_style= color: green; ,
+-- the style of group_1.1 will be style="color: red;" only, and the cascade is no longer performed for |subgroup_level_1_style and |subgroup_style.
+function h.mergeAttrs(...)
+	local trim = mw.text.trim
+	local s = ''
+	for i=1, select('#', ...) do
+		local v = trim(select(i, ...) or '')
+		local str = string.match(v, '^%-%-+(.*)$')
+		if str then
+			s = trim(str..' '..s)
+			break
+		else
+			s = trim(v..' '..s)
+		end
+	end
+	if s == '' then s = nil end
+	return s
+end
+
+function h.runHook(key, ...)
+	if hooks[key] then
+		hooks[key](...)
+	end
+end
+
+-----------------------------------------------
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:ArgsUtil</title>
+    <ns>828</ns>
+    <id>13</id>
+    <revision><id>4350</id><timestamp>2025-09-11T17:21:40Z</timestamp><text>local p = {}
+
+local bool_false = { ['false'] = true, ['no'] = true, [''] = true, ['0'] = true, ['nil'] = true }
+local bool_true = { ['true'] = true, ['yes'] = true }
+
+local lang = mw.getLanguage('en')
+
+function p.merge()
+	local f = mw.getCurrentFrame()
+	local origArgs = f.args
+	
+	local parent = f:getParent()
+	local parentArgs = parent and parent.args or {}
+
+	local args = {}
+	
+	for k, v in pairs(origArgs) do
+		v = mw.text.trim(tostring(v))
+		if v ~= '' then
+			args[k] = v
+		end
+	end
+	
+	for k, v in pairs(parentArgs) do
+		v = mw.text.trim(v)
+		if v ~= '' then
+			args[k] = v
+		end
+	end
+	
+	return args
+end
+
+function p.castAsBool(str)
+	if type(str) == 'boolean' then return str end
+	if not str or bool_false[lang:lc(str)] then
+		return false
+	end
+	return true
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:ArgsUtil/doc</title>
+    <ns>828</ns>
+    <id>14</id>
+    <revision><id>22</id><timestamp>2025-07-02T00:03:10Z</timestamp><text>This is a basic module for processing args. Usage:
+
+&lt;syntaxhighlight lang="lua"&gt;
+local util_args = require('Module:ArgsUtil')
+
+local p = {}
+
+function p.main(frame)
+  local args = util_args.merge() -- it is not necessary to pass a `frame` object; `merge` will generate its own
+  mw.logObject(args)
+  -- `args` now contains args passed via the template merged with defaults provided directly via the invoke.
+  -- anything the user sent via the template will be given priority.
+end
+
+return p
+&lt;/syntaxhighlight&gt;
+
+== Extending this module ==
+
+By design, {{ml|ArgsUtil}} is shipped with only a single function and no customization available; this simplifies documentation and covers nearly all use cases. An extended version of this module is available at [[support:Module:ArgsUtil|Module:ArgsUtil on the support wiki]] if you want additional functionality; and you can of course feel free to modify this module on your own wiki as needed.</text></revision>
+  </page>
+  <page>
+    <title>Module:Template link</title>
+    <ns>828</ns>
+    <id>15</id>
+    <revision><id>23</id><timestamp>2025-07-02T00:03:10Z</timestamp><text>-- This code is adapted from Wikipedia
+-- For the original, please see: https://en.wikipedia.org/wiki/Module:Template_link_general
+
+-- This implements Template:Tlg
+local getArgs = require('Module:ArgsUtil').merge
+local p = {}
+
+-- Is a string non-empty?
+local function _ne(s) 
+	return s ~= nil and s ~= ""
+end
+
+local nw = mw.text.nowiki
+
+local function addTemplate(s)
+	local i, _ = s:find(':', 1, true)
+	if i == nil then
+		return 'Template:' .. s
+	end
+	local ns = s:sub(1, i - 1)
+	if ns == '' or mw.site.namespaces[ns] then
+		return s
+	else
+		return 'Template:' .. s
+	end
+end
+
+local function trimTemplate(s)
+	local needle = 'template:'
+	if s:sub(1, needle:len()):lower() == needle then
+		return s:sub(needle:len() + 1)	
+	else
+		return s
+	end
+end
+
+local function linkTitle(args)
+	if _ne(args.nolink) then
+		return args[1]
+	end
+	
+	local titleObj
+	local titlePart = '[['
+	if args[1] then
+		-- This handles :Page and other NS
+		titleObj = mw.title.new(args[1], 'Template')
+	else
+		titleObj = mw.title.getCurrentTitle()
+	end
+	
+	titlePart = titlePart .. (titleObj ~= nil and titleObj.fullText or
+				addTemplate(args[1]))
+	
+	local textPart = args.alttext
+	if not _ne(textPart) then
+		if titleObj ~= nil then
+			textPart = titleObj:inNamespace("Template") and args[1] or titleObj.fullText
+		else
+			-- redlink
+			textPart = args[1]
+		end
+	end
+	
+	if _ne(args.subst) then
+		-- HACK: the ns thing above is probably broken
+		textPart = 'subst:' .. textPart
+	end
+	
+	if _ne(args.brace) then
+		textPart = nw('{{') .. textPart .. nw('}}')
+	elseif _ne(args.braceinside) then
+		textPart = nw('{') .. textPart .. nw('}')
+	end
+	
+	titlePart = titlePart .. '|' .. textPart .. ']]'
+	if _ne(args.braceinside) then
+		titlePart = nw('{') .. titlePart .. nw('}')
+	end
+	return titlePart
+end
+
+function p.main(frame)
+	local args = getArgs()
+	return p._main(args)
+end
+
+function p._main(args)
+	local bold = _ne(args.bold) or _ne(args.boldlink) or _ne(args.boldname)
+	local italic = _ne(args.italic) or _ne(args.italics)
+	local dontBrace = _ne(args.brace) or _ne(args.braceinside)
+	local code = _ne(args.code) or _ne(args.tt)
+	local show_result = _ne(args._show_result)
+	local expand = _ne(args._expand)
+	
+	-- Build the link part
+	local titlePart = linkTitle(args)
+	if bold then titlePart = "'''" .. titlePart .. "'''" end
+	if _ne(args.nowrapname) then titlePart = '&lt;span class="nowrap"&gt;' .. titlePart .. '&lt;/span&gt;' end
+	
+	-- Build the arguments
+	local textPart = ""
+	local textPartBuffer = "&amp;#124;"
+	local codeArguments = {}
+	local codeArgumentsString = ""
+	local i = 2
+	local j = 1
+	while args[i] do
+		local val = args[i]
+		if val ~= "" then
+			if _ne(args.nowiki) then
+				-- Unstrip nowiki tags first because calling nw on something that already contains nowiki tags will
+				-- mangle the nowiki strip marker and result in literal UNIQ...QINU showing up
+				val = nw(mw.text.unstripNoWiki(val))
+			end
+			local k, v = string.match(val, "(.*)=(.*)")
+			if not k then
+				codeArguments[j] = val
+				j = j + 1
+			else
+				codeArguments[k] = v
+			end
+			codeArgumentsString = codeArgumentsString .. textPartBuffer .. val
+			if italic then
+				val = '&lt;span style="font-style:italic;"&gt;' .. val .. '&lt;/span&gt;'
+			end
+			textPart = textPart .. textPartBuffer .. val
+		end
+		i = i + 1
+	end
+
+	-- final wrap
+	local ret = titlePart .. textPart
+	if not dontBrace then ret = nw('{{') .. ret .. nw('}}') end
+	if _ne(args.a) then ret = nw('*') .. '&amp;nbsp;' .. ret end
+	if _ne(args.kbd) then ret = '&lt;kbd&gt;' .. ret .. '&lt;/kbd&gt;' end
+	if code then
+		ret = '&lt;code&gt;' .. ret .. '&lt;/code&gt;'
+	elseif _ne(args.plaincode) then
+		ret = '&lt;code style="border:none;background:transparent;"&gt;' .. ret .. '&lt;/code&gt;'
+	end
+	if _ne(args.nowrap) then ret = '&lt;span class="nowrap"&gt;' .. ret .. '&lt;/span&gt;' end
+	
+	--[[ Wrap as html?? 
+	local span = mw.html.create('span')
+	span:wikitext(ret)
+	--]]
+	if _ne(args.debug) then ret = ret .. '\n&lt;pre&gt;' .. mw.text.encode(mw.dumpObject(args)) .. '&lt;/pre&gt;' end
+
+	if show_result then
+		local result = mw.getCurrentFrame():expandTemplate{title = addTemplate(args[1]), args = codeArguments}
+		ret = ret .. " → " .. result
+	end
+
+	if expand then
+		local query = mw.text.encode('{{' .. addTemplate(args[1]) .. string.gsub(codeArgumentsString, textPartBuffer, "|") .. '}}')
+		local url = mw.uri.fullUrl('special:ExpandTemplates', 'wpInput=' .. query)
+		mw.log()
+		ret = ret .. " [" .. tostring(url) .. "]"
+	end
+
+	return ret
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Template link/doc</title>
+    <ns>828</ns>
+    <id>16</id>
+    <revision><id>24</id><timestamp>2025-07-02T00:03:11Z</timestamp><text>{{From Wikipedia|Module:Template link general}}</text></revision>
+  </page>
+  <page>
+    <title>Module:Main page</title>
+    <ns>828</ns>
+    <id>17</id>
+    <revision><id>25</id><timestamp>2025-07-02T00:03:11Z</timestamp><text>local p = {}
+local h = {}
+
+-- merge args from frame and frame:getParent()
+function h.mergeArgs(frame)
+	local inputArgs = {}
+	
+	for k, v in pairs(frame.args) do
+		v = mw.text.trim(tostring(v))
+		if v ~= '' then
+			inputArgs[k] = v
+		end
+	end
+	
+	for k, v in pairs(frame:getParent().args) do
+		v = mw.text.trim(v)
+		if v ~= '' then
+			inputArgs[k] = v
+		end
+	end
+	
+	return inputArgs
+end
+
+--------------------------------------------------------------------
+
+function p.main(frame)
+
+	local args = h.mergeArgs(frame)
+
+	-- use the rootpage parameter if given, otherwise use the current page name
+	local rootpage = args['rootpage'] or mw.title.getCurrentTitle().fullText
+		
+	local layouts = {'desktop', 'tablet', 'mobile'}
+	for _,layout in pairs(layouts) do
+		-- collapse consecutive line breaks and spaces, then trim
+		-- we need to check for permutations of " \n" because trim can't clean that up if it's in the middle of the string
+		args[layout] = mw.text.trim(args[layout]):gsub("\n\n+", "\n"):gsub("  +", " "):gsub(" \n", "\n"):gsub("\n ", "\n")
+	end
+	
+	-- parse the arguments into CSS variables that contain legal syntax for grid-template-areas
+	local desktop = "--main-page-layout--desktop: '" .. string.gsub(args['desktop'], '\n', "' '") .. "';"
+	local tablet =  "--main-page-layout--tablet: '"  .. string.gsub(args['tablet' ], '\n', "' '") .. "';"
+	local mobile =  "--main-page-layout--mobile: '"  .. string.gsub(args['mobile' ], '\n', "' '") .. "';"
+	
+	-- grid-template-columns overrides
+	local desktop_cols = mw.text.trim(string.gsub(args['desktop-columns'] or '', ';', ''))
+	local  tablet_cols = mw.text.trim(string.gsub(args[ 'tablet-columns'] or '', ';', ''))
+	local  mobile_cols = mw.text.trim(string.gsub(args[ 'mobile-columns'] or '', ';', ''))
+	
+	-- set the variables used by grid-template-columns
+	if desktop_cols ~= '' then
+		desktop = desktop .. '--main-page-layout-columns--desktop: '.. desktop_cols ..';'
+	end
+	if tablet_cols ~= '' then
+		tablet = tablet .. '--main-page-layout-columns--tablet: '.. tablet_cols ..';'
+	end
+	if mobile_cols ~= '' then
+		mobile = mobile .. '--main-page-layout-columns--mobile: '.. mobile_cols ..';'
+	end
+
+	local boxes = {} -- list of all boxes as a simple list, used to set the order of appearance
+	local seen_boxes = {} -- list of all boxes as a k:v pair, used to filter out duplicates
+	local boxes_in_layout = {} -- list of layouts, then list of all boxes in that layout
+	local missing_boxes = {} -- list of layouts, then list of boxes that are *not* included in that layout
+	
+	-- add every box referenced in the layout rules once
+	function parse_layout(layout)
+		for _,name in pairs(mw.text.split(mw.text.trim(args[layout]), '%s')) do
+			if not seen_boxes[name] then
+				boxes[#boxes+1] = name -- table with numerical keys for set html order
+				seen_boxes[name] = true
+			end
+			boxes_in_layout[layout][name] = true
+		end
+	end
+	
+	-- loop through the layouts the first time to set up the box lists
+	for _,layout in pairs(layouts) do
+		boxes_in_layout[layout] = {}
+		missing_boxes[layout] = {}
+		parse_layout(layout)
+	end
+	
+	-- then loop through the layouts a second time because we need to compare those completed lists to check for missing boxes
+	for _,layout in pairs(layouts) do
+		for _,name in pairs(boxes) do
+			if boxes_in_layout[layout][name] ~= true then
+				mw.addWarning( 'WARNING: the \"' .. name .. '\" box is missing in the ' .. layout .. ' layout. If this is intentional, you can ignore this warning.')
+				missing_boxes[layout][name] = true	
+			end
+		end
+	end
+	
+	-- start our mp-container wrapper, and add our variables from earlier as inline styles to declare them
+	-- the rootpage is added to the dataset so it's easily accessible by mp-edit-links.js and it doesn't need to make its own API call
+	local output = mw.html.create()
+	local container = output:tag('div'):attr('id', 'mp-container'):cssText(desktop .. tablet .. mobile):attr('data-rootpage', rootpage)
+	
+	-- loop through boxes and add the relevant main page subpages into the output
+	for _,box in pairs(boxes) do
+		mw.ext.VariablesLua.vardefine('imp-variable-id', box) -- using a vardefine lets us pass this directly to the template without going through the user-facing box
+		
+		local pre_vardefine = ''
+		for _,layout in pairs(layouts) do
+			pre_vardefine = pre_vardefine .. (missing_boxes[layout][box] and '0' or '1') .. ','
+		end
+		-- formatted as a psuedo-bitmask to reduce variable usage, "&lt;display-on-destop&gt;, &lt;display-on-tablet&gt;, &lt;display-on-mobile&gt;," each value is 0 or 1 (trailing comma is insignificant)
+		-- expected to be used with #explode in the template receiving the variable
+		mw.ext.VariablesLua.vardefine('imp-variable-display-box', pre_vardefine)
+		
+		if mw.title.new(rootpage .. '/' .. box).exists then
+			container:wikitext(frame:expandTemplate{ title = ':' .. rootpage .. '/' .. box})
+		else
+			container:wikitext(frame:expandTemplate{ title = 'Main page box/missing', args = { box, rootpage = rootpage}}) -- See [[Template:Main page box/missing]]
+		end
+	end
+	
+	return output
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Navbox/Hooks</title>
+    <ns>828</ns>
+    <id>18</id>
+    <revision><id>26</id><timestamp>2025-07-02T00:03:12Z</timestamp><text>-- as of Module:Navbox version 1.2.2
+
+local p = {}
+---------------------------------------------------
+
+-- Runs before RANGER does args sanitizing
+-- `inputArgs` is the merged input arguments from the template (frame.args + frame:getParent().args)
+function p.onSanitizeArgsStart(inputArgs)
+end
+
+-- Runs after RANGER does args sanitizing
+-- `args` parameter is the sanitized arguments table with normalized keys (in lowercase underscore-case with canonical names) and normalized values.
+function p.onSanitizeArgsEnd(args, inputArgs)
+end
+
+-- Runs when RANGER loads config table (after onSanitizeArgsEnd and before onBuildTreeStart)
+-- `config` parameter is the default config table.
+-- `args` parameter is the sanitized arguments table (has not yet merged the DEFAUT_ARGS table).
+function p.onLoadConfig(config, args)
+end
+
+-- Runs before RANGER converts sanitized arguments table to structured data tree
+-- `args` parameter is the sanitized arguments table that has the DEFAUT_ARGS merged.
+function p.onBuildTreeStart(args)
+end
+
+-- Runs after RANGER converts sanitized arguments table to structured data tree
+-- `tree` parameter is the structured data.
+-- `args` parameter is the sanitized arguments table.
+function p.onBuildTreeEnd(tree, args)
+end
+
+---------------------------------------------------
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Navbox/doc</title>
+    <ns>828</ns>
+    <id>19</id>
+    <revision><id>27</id><timestamp>2025-07-02T00:03:12Z</timestamp><text>This module is used by [[Template:Navbox]].</text></revision>
+  </page>
+  <page>
+    <title>Module:Badges</title>
+    <ns>828</ns>
+    <id>697</id>
+    <revision><id>10175</id><timestamp>2026-08-13T21:31:55Z</timestamp><text>local util = require('Module:ArgsUtil')
+
+local p = {}
+
+local function getAllBadges()
+	local badges = {}
+
+	local rows = mw.ext.cargo.query('Badges', 'name', {
+		['limit'] = 'max',
+		['orderBy'] = 'name',
+	})
+
+	for _, row in ipairs(rows) do
+		table.insert(badges, row.name)
+	end
+
+	return badges
+end
+
+local function f(i)
+	return i:lower()
+		:gsub('_', ' ')
+end
+
+local positiveStatuses = {
+	['y'] = true,
+	['yes'] = true,
+	['1'] = true,
+}
+
+local function parseBadgeArg(raw, all)
+	local tokens
+	if raw == 'all' then
+		tokens = all
+	else
+		tokens = mw.text.split(raw or '', ',', true)
+		for i = 1, #tokens do
+			tokens[i] = mw.text.trim(tokens[i])
+		end
+	end
+
+	local isNegateMode = false
+	local unlocked = {}
+
+	for _, token in ipairs(tokens) do
+		if token ~= '' then
+			local name, status = token:match('^(.-)%s*:%s*(.-)$')
+			if name then
+				name = mw.text.trim(name)
+				status = positiveStatuses[mw.text.trim(status):lower()]
+			else
+				local prefix = token:sub(1,1)
+				if prefix ~= '-' then
+					name = token
+					status = true
+				else
+					if not isNegateMode then
+						-- Set all values to true
+						isNegateMode = true
+						for _, badge in ipairs(all) do
+							unlocked[f(badge)] = true
+						end
+					end
+
+					name = token:sub(2)
+					status = false
+				end
+			end
+
+			unlocked[f(name)] = status == true
+		end
+	end
+
+	mw.logObject(unlocked)
+
+	return unlocked
+end
+
+function p.main(frame)
+	frame = frame or mw.getCurrentFrame()
+	local args = util.merge()
+
+	local badges = getAllBadges()
+	local unlockedLookup = parseBadgeArg(
+		mw.text.trim(args[1] or ''),
+		badges
+	)
+
+	local size = args.size or '48px'
+	local perRow = tonumber(args.perRow) or 6
+
+	local unlockedCount = 0
+	local items = {}
+
+	for _, badge in ipairs(badges) do
+		local isUnlocked = unlockedLookup[f(badge)] == true
+		local locked = isUnlocked and '0' or '1'
+		if isUnlocked then
+			unlockedCount = unlockedCount + 1
+		end
+		table.insert(items, '{{Badge|' .. badge .. '|locked=' .. locked ..'|link=0|size=' .. size .. '}}')
+	end
+
+	local container = mw.html.create('div')
+		:addClass('badge-list')
+		:css('max-width', 'calc(' .. perRow .. ' * ' .. size .. ')')
+		:css('margin', '0 auto')
+		:css('text-align', 'center')
+		:wikitext(table.concat(items, ''))
+
+	local out = {}
+	table.insert(out, tostring(mw.html.create('p')
+		:wikitext(unlockedCount .. ' / ' .. #badges .. ' Unlocked')
+		:attr('style', 'text-align:center')))
+	table.insert(out, tostring(container))
+	table.insert(out, '&lt;div style="height: 0.7em"&gt;&lt;/div&gt;')
+
+	return frame:preprocess(table.concat(out, ''))
+end
+
+function p.all(frame)
+	local args = util.merge()
+	local all = getAllBadges()
+
+	local mode = mw.text.trim(args[1] or '')
+	if mode then
+		local prefix = ''
+		local suffix = ''
+
+		if mode == '1' then
+			prefix = '-'
+		elseif mode == '2' then
+			suffix = ':0'
+		end
+
+		for i, badge in ipairs(all) do
+			all[i] = prefix .. badge .. suffix
+		end
+	end
+
+	return table.concat(all, ', ')
+end
+
+function p.isComplete(frame)
+	frame = frame or mw.getCurrentFrame()
+	local args = util.merge()
+	local badges = getAllBadges()
+	local unlockedLookup = parseBadgeArg(
+		mw.text.trim(args[1] or ''),
+		badges
+	)
+	for _, badge in ipairs(badges) do
+		if unlockedLookup[f(badge)] ~= true then
+			return 'no'
+		end
+	end
+	return 'yes'
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:List</title>
+    <ns>828</ns>
+    <id>1017</id>
+    <revision><id>2125</id><timestamp>2025-08-19T18:31:57Z</timestamp><text>-- This module outputs different kinds of lists. At the moment, bulleted,
+-- unbulleted, horizontal, ordered, and horizontal ordered lists are supported.
+
+local libUtil = require('libraryUtil')
+local checkType = libUtil.checkType
+local mTableTools = require('Module:TableTools')
+
+local p = {}
+
+local listTypes = {
+	['bulleted'] = true,
+	['unbulleted'] = true,
+	['horizontal'] = true,
+	['ordered'] = true,
+	['horizontal_ordered'] = true
+}
+
+function p.makeListData(listType, args)
+	-- Constructs a data table to be passed to p.renderList.
+	local data = {}
+
+	-- Classes
+	data.classes = {}
+	if listType == 'horizontal' or listType == 'horizontal_ordered' then
+		table.insert(data.classes, 'hlist hlist-separated')
+	elseif listType == 'unbulleted' then
+		table.insert(data.classes, 'plainlist')
+	end
+	table.insert(data.classes, args.class)
+
+	-- Main div style
+	data.style = args.style
+
+	-- Indent for horizontal lists
+	if listType == 'horizontal' or listType == 'horizontal_ordered' then
+		local indent = tonumber(args.indent)
+		indent = indent and indent * 1.6 or 0
+		if indent &gt; 0 then
+			data.marginLeft = indent .. 'em'
+		end
+	end
+	
+	-- List style types for ordered lists
+	-- This could be "1, 2, 3", "a, b, c", or a number of others. The list style
+	-- type is either set by the "type" attribute or the "list-style-type" CSS
+	-- property.
+	if listType == 'ordered' or listType == 'horizontal_ordered' then 
+		data.listStyleType = args.list_style_type or args['list-style-type']
+		data.type = args['type']
+
+		-- Detect invalid type attributes and attempt to convert them to
+		-- list-style-type CSS properties.
+		if data.type 
+			and not data.listStyleType
+			and not tostring(data.type):find('^%s*[1AaIi]%s*$')
+		then
+			data.listStyleType = data.type
+			data.type = nil
+		end
+	end
+	
+	-- List tag type
+	if listType == 'ordered' or listType == 'horizontal_ordered' then
+		data.listTag = 'ol'
+	else
+		data.listTag = 'ul'
+	end
+
+	-- Start number for ordered lists
+	data.start = args.start
+	if listType == 'horizontal_ordered' then
+		-- Apply fix to get start numbers working with horizontal ordered lists.
+		local startNum = tonumber(data.start)
+		if startNum then
+			data.counterReset = 'listitem ' .. tostring(startNum - 1)
+		end
+	end
+
+	-- List style
+	 -- ul_style and ol_style are included for backwards compatibility. No
+	 -- distinction is made for ordered or unordered lists.
+	data.listStyle = args.list_style
+
+	-- List items
+	-- li_style is included for backwards compatibility. item_style was included
+	-- to be easier to understand for non-coders.
+	data.itemStyle = args.item_style or args.li_style
+	data.items = {}
+	for i, num in ipairs(mTableTools.numKeys(args)) do
+		local item = {}
+		item.content = args[num]
+		item.style = args['item' .. tostring(num) .. '_style']
+			or args['item_style' .. tostring(num)]
+		item.value = args['item' .. tostring(num) .. '_value']
+			or args['item_value' .. tostring(num)]
+		table.insert(data.items, item)
+	end
+	
+	return data
+end
+
+function p.renderList(data)
+	-- Renders the list HTML.
+	
+	-- Return the blank string if there are no list items.
+	if type(data.items) ~= 'table' or #data.items &lt; 1 then
+		return ''
+	end
+	
+	-- Render the main div tag.
+	local root = mw.html.create('div')
+	for i, class in ipairs(data.classes or {}) do
+		root:addClass(class)
+	end
+	root:css{['margin-left'] = data.marginLeft}
+	if data.style then
+		root:cssText(data.style)
+	end
+
+	-- Render the list tag.
+	local list = root:tag(data.listTag or 'ul')
+	list
+		:attr{start = data.start, type = data.type}
+		:css{
+			['counter-reset'] = data.counterReset,
+			['list-style-type'] = data.listStyleType
+		}
+	if data.listStyle then
+		list:cssText(data.listStyle)
+	end
+
+	-- Render the list items
+	for i, t in ipairs(data.items or {}) do
+		local item = list:tag('li')
+		if data.itemStyle then
+			item:cssText(data.itemStyle)
+		end
+		if t.style then
+			item:cssText(t.style)
+		end
+		item
+			:attr{value = t.value}
+			:wikitext(t.content)
+	end
+
+	return tostring(root)
+end
+
+function p.renderTrackingCategories(args)
+	local isDeprecated = false -- Tracks deprecated parameters.
+	for k, v in pairs(args) do
+		k = tostring(k)
+		if k:find('^item_style%d+$') or k:find('^item_value%d+$') then
+			isDeprecated = true
+			break
+		end
+	end
+	local ret = ''
+	if isDeprecated then
+		ret = ret .. '[[Category:List templates with deprecated parameters]]'
+	end
+	return ret
+end
+
+function p.makeList(listType, args)
+	if not listType or not listTypes[listType] then
+		error(string.format(
+			"bad argument #1 to 'makeList' ('%s' is not a valid list type)",
+			tostring(listType)
+		), 2)
+	end
+	checkType('makeList', 2, args, 'table')
+	local data = p.makeListData(listType, args)
+	local list = p.renderList(data)
+	local trackingCategories = p.renderTrackingCategories(args)
+	return list .. trackingCategories
+end
+
+for listType in pairs(listTypes) do
+	p[listType] = function (frame)
+		local mArguments = require('Module:Arguments')
+		local origArgs = mArguments.getArgs(frame)
+		-- Copy all the arguments to a new table, for faster indexing.
+		local args = {}
+		for k, v in pairs(origArgs) do
+			args[k] = v
+		end
+		return p.makeList(listType, args)
+	end
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:TableTools</title>
+    <ns>828</ns>
+    <id>1018</id>
+    <revision><id>2126</id><timestamp>2025-08-19T18:32:49Z</timestamp><text>--[[
+------------------------------------------------------------------------------------
+--                               TableTools                                       --
+--                                                                                --
+-- This module includes a number of functions for dealing with Lua tables.        --
+-- It is a meta-module, meant to be called from other Lua modules, and should     --
+-- not be called directly from #invoke.                                           --
+------------------------------------------------------------------------------------
+--]]
+
+local libraryUtil = require('libraryUtil')
+
+local p = {}
+
+-- Define often-used variables and functions.
+local floor = math.floor
+local infinity = math.huge
+local checkType = libraryUtil.checkType
+
+--[[
+------------------------------------------------------------------------------------
+-- isPositiveInteger
+--
+-- This function returns true if the given value is a positive integer, and false
+-- if not. Although it doesn't operate on tables, it is included here as it is
+-- useful for determining whether a given table key is in the array part or the
+-- hash part of a table.
+------------------------------------------------------------------------------------
+--]]
+function p.isPositiveInteger(v)
+	if type(v) == 'number' and v &gt;= 1 and floor(v) == v and v &lt; infinity then
+		return true
+	else
+		return false
+	end
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- isNan
+--
+-- This function returns true if the given number is a NaN value, and false
+-- if not. Although it doesn't operate on tables, it is included here as it is
+-- useful for determining whether a value can be a valid table key. Lua will
+-- generate an error if a NaN is used as a table key.
+------------------------------------------------------------------------------------
+--]]
+function p.isNan(v)
+	if type(v) == 'number' and tostring(v) == '-nan' then
+		return true
+	else
+		return false
+	end
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- shallowClone
+--
+-- This returns a clone of a table. The value returned is a new table, but all
+-- subtables and functions are shared. Metamethods are respected, but the returned
+-- table will have no metatable of its own.
+------------------------------------------------------------------------------------
+--]]
+function p.shallowClone(t)
+	local ret = {}
+	for k, v in pairs(t) do
+		ret[k] = v
+	end
+	return ret
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- removeDuplicates
+--
+-- This removes duplicate values from an array. Non-positive-integer keys are
+-- ignored. The earliest value is kept, and all subsequent duplicate values are
+-- removed, but otherwise the array order is unchanged.
+------------------------------------------------------------------------------------
+--]]
+function p.removeDuplicates(t)
+	checkType('removeDuplicates', 1, t, 'table')
+	local isNan = p.isNan
+	local ret, exists = {}, {}
+	for i, v in ipairs(t) do
+		if isNan(v) then
+			-- NaNs can't be table keys, and they are also unique, so we don't need to check existence.
+			ret[#ret + 1] = v
+		else
+			if not exists[v] then
+				ret[#ret + 1] = v
+				exists[v] = true
+			end
+		end	
+	end
+	return ret
+end			
+
+--[[
+------------------------------------------------------------------------------------
+-- numKeys
+--
+-- This takes a table and returns an array containing the numbers of any numerical
+-- keys that have non-nil values, sorted in numerical order.
+------------------------------------------------------------------------------------
+--]]
+function p.numKeys(t)
+	checkType('numKeys', 1, t, 'table')
+	local isPositiveInteger = p.isPositiveInteger
+	local nums = {}
+	for k, v in pairs(t) do
+		if isPositiveInteger(k) then
+			nums[#nums + 1] = k
+		end
+	end
+	table.sort(nums)
+	return nums
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- affixNums
+--
+-- This takes a table and returns an array containing the numbers of keys with the
+-- specified prefix and suffix. For example, for the table
+-- {a1 = 'foo', a3 = 'bar', a6 = 'baz'} and the prefix "a", affixNums will
+-- return {1, 3, 6}.
+------------------------------------------------------------------------------------
+--]]
+function p.affixNums(t, prefix, suffix)
+	checkType('affixNums', 1, t, 'table')
+	checkType('affixNums', 2, prefix, 'string', true)
+	checkType('affixNums', 3, suffix, 'string', true)
+
+	local function cleanPattern(s)
+		-- Cleans a pattern so that the magic characters ()%.[]*+-?^$ are interpreted literally.
+		s = s:gsub('([%(%)%%%.%[%]%*%+%-%?%^%$])', '%%%1')
+		return s
+	end
+
+	prefix = prefix or ''
+	suffix = suffix or ''
+	prefix = cleanPattern(prefix)
+	suffix = cleanPattern(suffix)
+	local pattern = '^' .. prefix .. '([1-9]%d*)' .. suffix .. '$'
+
+	local nums = {}
+	for k, v in pairs(t) do
+		if type(k) == 'string' then			
+			local num = mw.ustring.match(k, pattern)
+			if num then
+				nums[#nums + 1] = tonumber(num)
+			end
+		end
+	end
+	table.sort(nums)
+	return nums
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- numData
+--
+-- Given a table with keys like ("foo1", "bar1", "foo2", "baz2"), returns a table
+-- of subtables in the format 
+-- { [1] = {foo = 'text', bar = 'text'}, [2] = {foo = 'text', baz = 'text'} }
+-- Keys that don't end with an integer are stored in a subtable named "other".
+-- The compress option compresses the table so that it can be iterated over with
+-- ipairs.
+------------------------------------------------------------------------------------
+--]]
+function p.numData(t, compress)
+	checkType('numData', 1, t, 'table')
+	checkType('numData', 2, compress, 'boolean', true)
+	local ret = {}
+	for k, v in pairs(t) do
+		local prefix, num = mw.ustring.match(tostring(k), '^([^0-9]*)([1-9][0-9]*)$')
+		if num then
+			num = tonumber(num)
+			local subtable = ret[num] or {}
+			if prefix == '' then
+				-- Positional parameters match the blank string; put them at the start of the subtable instead.
+				prefix = 1
+			end
+			subtable[prefix] = v
+			ret[num] = subtable
+		else
+			local subtable = ret.other or {}
+			subtable[k] = v
+			ret.other = subtable
+		end
+	end
+	if compress then
+		local other = ret.other
+		ret = p.compressSparseArray(ret)
+		ret.other = other
+	end
+	return ret
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- compressSparseArray
+--
+-- This takes an array with one or more nil values, and removes the nil values
+-- while preserving the order, so that the array can be safely traversed with
+-- ipairs.
+------------------------------------------------------------------------------------
+--]]
+function p.compressSparseArray(t)
+	checkType('compressSparseArray', 1, t, 'table')
+	local ret = {}
+	local nums = p.numKeys(t)
+	for _, num in ipairs(nums) do
+		ret[#ret + 1] = t[num]
+	end
+	return ret
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- sparseIpairs
+--
+-- This is an iterator for sparse arrays. It can be used like ipairs, but can
+-- handle nil values.
+------------------------------------------------------------------------------------
+--]]
+function p.sparseIpairs(t)
+	checkType('sparseIpairs', 1, t, 'table')
+	local nums = p.numKeys(t)
+	local i = 0
+	local lim = #nums
+	return function ()
+		i = i + 1
+		if i &lt;= lim then
+			local key = nums[i]
+			return key, t[key]
+		else
+			return nil, nil
+		end
+	end
+end
+
+--[[
+------------------------------------------------------------------------------------
+-- size
+--
+-- This returns the size of a key/value pair table. It will also work on arrays,
+-- but for arrays it is more efficient to use the # operator.
+------------------------------------------------------------------------------------
+--]]
+function p.size(t)
+	checkType('size', 1, t, 'table')
+	local i = 0
+	for k in pairs(t) do
+		i = i + 1
+	end
+	return i
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Arguments</title>
+    <ns>828</ns>
+    <id>1019</id>
+    <revision><id>2127</id><timestamp>2025-08-19T18:33:26Z</timestamp><text>-- This module provides easy processing of arguments passed to Scribunto from
+-- #invoke. It is intended for use by other Lua modules, and should not be
+-- called from #invoke directly.
+
+local libraryUtil = require('libraryUtil')
+local checkType = libraryUtil.checkType
+
+local arguments = {}
+
+-- Generate four different tidyVal functions, so that we don't have to check the
+-- options every time we call it.
+
+local function tidyValDefault(key, val)
+	if type(val) == 'string' then
+		val = val:match('^%s*(.-)%s*$')
+		if val == '' then
+			return nil
+		else
+			return val
+		end
+	else
+		return val
+	end
+end
+
+local function tidyValTrimOnly(key, val)
+	if type(val) == 'string' then
+		return val:match('^%s*(.-)%s*$')
+	else
+		return val
+	end
+end
+
+local function tidyValRemoveBlanksOnly(key, val)
+	if type(val) == 'string' then
+		if val:find('%S') then
+			return val
+		else
+			return nil
+		end
+	else
+		return val
+	end
+end
+
+local function tidyValNoChange(key, val)
+	return val
+end
+
+local function matchesTitle(given, title)
+	local tp = type( given )
+	return (tp == 'string' or tp == 'number') and mw.title.new( given ).prefixedText == title
+end
+
+local translate_mt = { __index = function(t, k) return k end }
+
+function arguments.getArgs(frame, options)
+	checkType('getArgs', 1, frame, 'table', true)
+	checkType('getArgs', 2, options, 'table', true)
+	frame = frame or {}
+	options = options or {}
+
+	--[[
+	-- Set up argument translation.
+	--]]
+	options.translate = options.translate or {}
+	if getmetatable(options.translate) == nil then
+		setmetatable(options.translate, translate_mt)
+	end
+	if options.backtranslate == nil then
+		options.backtranslate = {}
+		for k,v in pairs(options.translate) do
+			options.backtranslate[v] = k
+		end
+	end
+	if options.backtranslate and getmetatable(options.backtranslate) == nil then
+		setmetatable(options.backtranslate, {
+			__index = function(t, k)
+				if options.translate[k] ~= k then
+					return nil
+				else
+					return k
+				end
+			end
+		})
+	end
+
+	--[[
+	-- Get the argument tables. If we were passed a valid frame object, get the
+	-- frame arguments (fargs) and the parent frame arguments (pargs), depending
+	-- on the options set and on the parent frame's availability. If we weren't
+	-- passed a valid frame object, we are being called from another Lua module
+	-- or from the debug console, so assume that we were passed a table of args
+	-- directly, and assign it to a new variable (luaArgs).
+	--]]
+	local fargs, pargs, luaArgs
+	if type(frame.args) == 'table' and type(frame.getParent) == 'function' then
+		if options.wrappers then
+			--[[
+			-- The wrappers option makes Module:Arguments look up arguments in
+			-- either the frame argument table or the parent argument table, but
+			-- not both. This means that users can use either the #invoke syntax
+			-- or a wrapper template without the loss of performance associated
+			-- with looking arguments up in both the frame and the parent frame.
+			-- Module:Arguments will look up arguments in the parent frame
+			-- if it finds the parent frame's title in options.wrapper;
+			-- otherwise it will look up arguments in the frame object passed
+			-- to getArgs.
+			--]]
+			local parent = frame:getParent()
+			if not parent then
+				fargs = frame.args
+			else
+				local title = parent:getTitle():gsub('/sandbox$', '')
+				local found = false
+				if matchesTitle(options.wrappers, title) then
+					found = true
+				elseif type(options.wrappers) == 'table' then
+					for _,v in pairs(options.wrappers) do
+						if matchesTitle(v, title) then
+							found = true
+							break
+						end
+					end
+				end
+
+				-- We test for false specifically here so that nil (the default) acts like true.
+				if found or options.frameOnly == false then
+					pargs = parent.args
+				end
+				if not found or options.parentOnly == false then
+					fargs = frame.args
+				end
+			end
+		else
+			-- options.wrapper isn't set, so check the other options.
+			if not options.parentOnly then
+				fargs = frame.args
+			end
+			if not options.frameOnly then
+				local parent = frame:getParent()
+				pargs = parent and parent.args or nil
+			end
+		end
+		if options.parentFirst then
+			fargs, pargs = pargs, fargs
+		end
+	else
+		luaArgs = frame
+	end
+
+	-- Set the order of precedence of the argument tables. If the variables are
+	-- nil, nothing will be added to the table, which is how we avoid clashes
+	-- between the frame/parent args and the Lua args.
+	local argTables = {fargs}
+	argTables[#argTables + 1] = pargs
+	argTables[#argTables + 1] = luaArgs
+
+	--[[
+	-- Generate the tidyVal function. If it has been specified by the user, we
+	-- use that; if not, we choose one of four functions depending on the
+	-- options chosen. This is so that we don't have to call the options table
+	-- every time the function is called.
+	--]]
+	local tidyVal = options.valueFunc
+	if tidyVal then
+		if type(tidyVal) ~= 'function' then
+			error(
+				"bad value assigned to option 'valueFunc'"
+					.. '(function expected, got '
+					.. type(tidyVal)
+					.. ')',
+				2
+			)
+		end
+	elseif options.trim ~= false then
+		if options.removeBlanks ~= false then
+			tidyVal = tidyValDefault
+		else
+			tidyVal = tidyValTrimOnly
+		end
+	else
+		if options.removeBlanks ~= false then
+			tidyVal = tidyValRemoveBlanksOnly
+		else
+			tidyVal = tidyValNoChange
+		end
+	end
+
+	--[[
+	-- Set up the args, metaArgs and nilArgs tables. args will be the one
+	-- accessed from functions, and metaArgs will hold the actual arguments. Nil
+	-- arguments are memoized in nilArgs, and the metatable connects all of them
+	-- together.
+	--]]
+	local args, metaArgs, nilArgs, metatable = {}, {}, {}, {}
+	setmetatable(args, metatable)
+
+	local function mergeArgs(tables)
+		--[[
+		-- Accepts multiple tables as input and merges their keys and values
+		-- into one table. If a value is already present it is not overwritten;
+		-- tables listed earlier have precedence. We are also memoizing nil
+		-- values, which can be overwritten if they are 's' (soft).
+		--]]
+		for _, t in ipairs(tables) do
+			for key, val in pairs(t) do
+				if metaArgs[key] == nil and nilArgs[key] ~= 'h' then
+					local tidiedVal = tidyVal(key, val)
+					if tidiedVal == nil then
+						nilArgs[key] = 's'
+					else
+						metaArgs[key] = tidiedVal
+					end
+				end
+			end
+		end
+	end
+
+	--[[
+	-- Define metatable behaviour. Arguments are memoized in the metaArgs table,
+	-- and are only fetched from the argument tables once. Fetching arguments
+	-- from the argument tables is the most resource-intensive step in this
+	-- module, so we try and avoid it where possible. For this reason, nil
+	-- arguments are also memoized, in the nilArgs table. Also, we keep a record
+	-- in the metatable of when pairs and ipairs have been called, so we do not
+	-- run pairs and ipairs on the argument tables more than once. We also do
+	-- not run ipairs on fargs and pargs if pairs has already been run, as all
+	-- the arguments will already have been copied over.
+	--]]
+
+	metatable.__index = function (t, key)
+		--[[
+		-- Fetches an argument when the args table is indexed. First we check
+		-- to see if the value is memoized, and if not we try and fetch it from
+		-- the argument tables. When we check memoization, we need to check
+		-- metaArgs before nilArgs, as both can be non-nil at the same time.
+		-- If the argument is not present in metaArgs, we also check whether
+		-- pairs has been run yet. If pairs has already been run, we return nil.
+		-- This is because all the arguments will have already been copied into
+		-- metaArgs by the mergeArgs function, meaning that any other arguments
+		-- must be nil.
+		--]]
+		if type(key) == 'string' then
+			key = options.translate[key]
+		end
+		local val = metaArgs[key]
+		if val ~= nil then
+			return val
+		elseif metatable.donePairs or nilArgs[key] then
+			return nil
+		end
+		for _, argTable in ipairs(argTables) do
+			local argTableVal = tidyVal(key, argTable[key])
+			if argTableVal ~= nil then
+				metaArgs[key] = argTableVal
+				return argTableVal
+			end
+		end
+		nilArgs[key] = 'h'
+		return nil
+	end
+
+	metatable.__newindex = function (t, key, val)
+		-- This function is called when a module tries to add a new value to the
+		-- args table, or tries to change an existing value.
+		if type(key) == 'string' then
+			key = options.translate[key]
+		end
+		if options.readOnly then
+			error(
+				'could not write to argument table key "'
+					.. tostring(key)
+					.. '"; the table is read-only',
+				2
+			)
+		elseif options.noOverwrite and args[key] ~= nil then
+			error(
+				'could not write to argument table key "'
+					.. tostring(key)
+					.. '"; overwriting existing arguments is not permitted',
+				2
+			)
+		elseif val == nil then
+			--[[
+			-- If the argument is to be overwritten with nil, we need to erase
+			-- the value in metaArgs, so that __index, __pairs and __ipairs do
+			-- not use a previous existing value, if present; and we also need
+			-- to memoize the nil in nilArgs, so that the value isn't looked
+			-- up in the argument tables if it is accessed again.
+			--]]
+			metaArgs[key] = nil
+			nilArgs[key] = 'h'
+		else
+			metaArgs[key] = val
+		end
+	end
+
+	local function translatenext(invariant)
+		local k, v = next(invariant.t, invariant.k)
+		invariant.k = k
+		if k == nil then
+			return nil
+		elseif type(k) ~= 'string' or not options.backtranslate then
+			return k, v
+		else
+			local backtranslate = options.backtranslate[k]
+			if backtranslate == nil then
+				-- Skip this one. This is a tail call, so this won't cause stack overflow
+				return translatenext(invariant)
+			else
+				return backtranslate, v
+			end
+		end
+	end
+
+	metatable.__pairs = function ()
+		-- Called when pairs is run on the args table.
+		if not metatable.donePairs then
+			mergeArgs(argTables)
+			metatable.donePairs = true
+		end
+		return translatenext, { t = metaArgs }
+	end
+
+	local function inext(t, i)
+		-- This uses our __index metamethod
+		local v = t[i + 1]
+		if v ~= nil then
+			return i + 1, v
+		end
+	end
+
+	metatable.__ipairs = function (t)
+		-- Called when ipairs is run on the args table.
+		return inext, t, 0
+	end
+
+	return args
+end
+
+return arguments</text></revision>
+  </page>
+  <page>
+    <title>Module:CosmeticItem</title>
+    <ns>828</ns>
+    <id>1606</id>
+    <revision><id>3679</id><timestamp>2025-09-06T15:25:00Z</timestamp><text>local p = {}
+
+-- "  In programming, we do things not because they are easy,
+--    but because we thought they were going to be easy.       "
+function p.makeText(frame)
+	local pName = frame.args[1]
+	local pType = frame.args[2]
+	local pText = frame.args.text
+	local pLink = frame.args.link
+	local pFlink = frame.args.flink
+	local pSize = frame.args.size
+	
+	local linkText
+	if pText and pText ~= "" then
+		linkText = pText
+	else
+		linkText = pName
+		if pType and pType ~= "" and pType ~= "Accessory" then
+			linkText = linkText .. " " .. pType
+		end
+	end
+	
+	local link
+	if pLink and pLink ~= "" then
+	    link = pLink
+	else
+	    link = linkText
+	end
+	
+	local fileName = pFlink
+	if not fileName or fileName == "" then
+		if not pType or pType == "" then
+			fileName = pName -- Name
+		else
+			if pType == "Outfit" then
+			    fileName = "Outfit_Shorts"
+			    if pName and pName ~= "" then
+			        fileName = pName .. "_" .. fileName -- Name_Outfit_Shorts
+			    end
+			else
+				fileName = pType .. "_" .. pName -- Eyes_Name
+			end
+		end
+	end
+	fileName = fileName .. ".png"
+	
+	local wikiFile = "[[File:" .. fileName .. "|" .. pSize .. "|link=" .. link .. "]]"
+	local wikiLink = "[[" .. link .. "|" .. linkText .. "]]"
+	local wikiText = wikiFile .. "&amp;nbsp;" .. wikiLink
+	
+	return wikiText
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Infobox item</title>
+    <ns>828</ns>
+    <id>1746</id>
+    <revision><id>10414</id><timestamp>2026-08-15T00:32:35Z</timestamp><text>local util_args = require('Module:ArgsUtil')
+
+local function parseTitle( title, tab )
+	local text = title.fullText
+
+	if tab ~= 'Regular' and tab ~= 'Normal' then
+		text = text .. ' (' .. tab .. ')'
+	end
+
+	return text
+end
+
+local function parseArg( frame, tab, args, value )
+	-- Try to handle any plain numbers
+	local number = tonumber(value)
+	if number ~= nil then
+		return number
+	end
+
+	-- Try to handle #var
+	local var = value:match('^#var:(.+)$')
+	if var ~= nil then
+		return frame:callParserFunction('#var', var)
+	end
+
+	-- Try to handle any literal values (Surrounded in "quotes")
+	local quoted = value:match('^"(.*)"$')
+	if quoted ~= nil then
+		return quoted
+	end
+
+	-- Try to get any 'Tab_Value' if a tab is defined
+	-- Lastly fall back to a default value
+	return args[tab .. '_' .. value] or args[value]
+end
+
+local function parseArgs( frame, tab, args, values )
+	for _, value in ipairs(mw.text.split(values, ',', true)) do
+		-- Get the first valid value from the values
+		local parsed = parseArg(frame, tab, args, mw.text.trim(value))
+		if parsed ~= nil then
+			return parsed
+		end
+	end
+
+	return ''
+end
+
+local p = {}
+
+function p.store(frame)
+	local title = mw.title.getCurrentTitle()
+
+	-- Only store when in the main namespace
+	if title.namespace ~= 0 then
+		mw.addWarning('Infobox not stored to Cargo due to namespace')
+		return
+	end
+
+	frame = frame or mw.getCurrentFrame()
+
+	local args = util_args.merge() -- Get parent args
+	local fields = frame.args -- Get only #invoke args
+	local tabs = {}
+	if args.tabs and util_args.castAsBool(args['multi_item'] or '') then
+		for _, value in ipairs(mw.text.split(args.tabs, ',', true)) do
+			table.insert(tabs, mw.text.trim(value))
+		end
+	else
+		table.insert(tabs, 'Regular')
+	end
+
+	-- Iterate over the tabs (Individual items per page to store)
+	for _, tab in ipairs(tabs) do
+		mw.log(tab)
+
+		local fieldValues = {}
+
+		for field, values in pairs(fields) do
+			fieldValues[field] = parseArgs(frame, tab, args, values)
+		end
+
+		fieldValues.display = parseTitle(title, tab)
+		fieldValues._table = 'Items'
+
+		local copy  = { '' }
+		for key, val in pairs(fieldValues) do
+			copy[key] = tostring(val)
+		end
+
+		mw.logObject(copy)
+		frame:callParserFunction('#cargo_store', copy)
+	end
+	
+	return ''
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:VersionSort</title>
+    <ns>828</ns>
+    <id>2279</id>
+    <revision><id>6987</id><timestamp>2025-11-17T07:12:24Z</timestamp><text>local p = {}
+local h = {}
+local cargo = mw.ext.cargo
+
+-- Simple split on period, should work well for versions.
+function h.splitOnPeriod(s)
+	local result = {}
+	local left = 1
+	local right = s:find(".", left, true)
+	while right do
+		table.insert(result, s:sub(left, right - 1))
+		left = right + 1
+		right = s:find(".", left, true)
+	end
+	table.insert(result, s:sub(left))
+	return result
+end
+
+function h.compareVersions(rowA, rowB)
+	local partsA = h.splitOnPeriod(rowA.patchVersion)
+	local partsB = h.splitOnPeriod(rowB.patchVersion)
+	
+	for i = 1, math.min(#partsA, #partsB) do
+		if partsA[i] ~= partsB[i] then
+			local numA = tonumber(partsA[i])
+			local numB = tonumber(partsB[i])
+			if numA and numB then
+				return numA &gt; numB
+			else
+				return partsA[i] &gt; partsB[i]
+			end
+		end
+	end
+	return false
+end
+
+function p.main(frame)
+	local query = cargo.query("Versions", "patchVersion,releaseDate")
+	table.sort(query, h.compareVersions)
+	
+	local result = {}
+	for i, v in ipairs(query) do
+		table.insert(result, frame:expandTemplate { title = "Game version row", args = { version = v.patchVersion, date = v.releaseDate, sortValue = i } })
+	end
+	return table.concat(result, "\n")
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:道具說明欄</title>
+    <ns>828</ns>
+    <id>2479</id>
+    <revision><id>8308</id><timestamp>2026-02-05T15:13:35Z</timestamp><text>local util_args = require('Module:ArgsUtil')
+
+local function parseTitle( title, tab )
+	local text = title.fullText
+
+	if tab ~= 'Regular' and tab ~= 'Normal' then
+		text = text .. ' (' .. tab .. ')'
+	end
+
+	return text
+end
+
+local function parseArg( tab, args, value )
+	-- Try to handle any plain numbers
+	local number = tonumber(value)
+	if number ~= nil then
+		return number
+	end
+
+	-- Try to handle any literal values (Surrounded in "quotes")
+	local quoted = value:match('^"(.*)"$')
+	if quoted ~= nil then
+		return quoted
+	end
+
+	-- Try to get any 'Tab_Value' if a tab is defined
+	-- Lastly fall back to a default value
+	return args[tab .. '_' .. value] or args[value]
+end
+
+local function parseArgs( tab, args, values )
+	for _, value in ipairs(mw.text.split(values, ',', true)) do
+		-- Get the first valid value from the values
+		local parsed = parseArg(tab, args, mw.text.trim(value))
+		if parsed ~= nil then
+			return parsed
+		end
+	end
+
+	return ''
+end
+
+local p = {}
+
+function p.store(frame)
+	local title = mw.title.getCurrentTitle()
+
+	-- Only store when in the main namespace
+	if title.namespace ~= 0 then
+		mw.addWarning('Infobox not stored to Cargo due to namespace')
+		return
+	end
+
+	frame = frame or mw.getCurrentFrame()
+
+	local args = util_args.merge() -- Get parent args
+	local fields = frame.args -- Get only #invoke args
+	local tabs = {}
+	if args.tabs and util_args.castAsBool(args['multi_item'] or '') then
+		for _, value in ipairs(mw.text.split(args.tabs, ',', true)) do
+			table.insert(tabs, mw.text.trim(value))
+		end
+	else
+		table.insert(tabs, 'Regular')
+	end
+
+	-- Iterate over the tabs (Individual items per page to store)
+	for _, tab in ipairs(tabs) do
+		mw.log(tab)
+
+		local fieldValues = {}
+
+		for field, values in pairs(fields) do
+			fieldValues[field] = parseArgs(tab, args, values)
+		end
+
+		fieldValues.display = parseTitle(title, tab)
+		fieldValues._table = 'ItemsZH'
+
+		local copy  = { '' }
+		for key, val in pairs(fieldValues) do
+			copy[key] = tostring(val)
+		end
+
+		mw.logObject(copy)
+		frame:callParserFunction('#cargo_store', copy)
+	end
+	
+	return ''
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:說明欄</title>
+    <ns>828</ns>
+    <id>2483</id>
+    <revision><id>8183</id><timestamp>2026-01-19T02:09:37Z</timestamp><text>-- version 0.1.8 ... PLUS top image block modifications by Savage Alien
+
+--------------------------------------
+-- User settings, you can modify these
+--------------------------------------
+
+-- if you want to not always use divs in your wiki (as opposed to tables), you can change this default
+-- just remember to change it back each time you update from the main "branch" on the support wiki!
+-- you can also control it per infobox with `|useDivs=yes` or `|useDivs=no`
+local USE_DIVS = true -- `false` or `true`
+
+-- default value to show if a param is missing in some but not all tabs.
+-- set to `nil` (not in quotes) to remove such rows altogether in the tabs where they're missing
+local TABBED_NONEXIST = nil -- `''` or `nil` or `'N/A'` etc. Don't put nil in quotes.
+
+---------------------------------------------------------------------------
+-- Do not modify anything below this line unless you know what you're doing
+---------------------------------------------------------------------------
+
+local h = {}
+local p = {}
+local hooks = {}
+
+function p.arraymap(frame)
+	-- a lua implementation of Page Forms' arraymap
+	local args = h.overwrite()
+	local items = h.split(args[1], args[2] or ',')
+	for i, item in ipairs(items) do
+		items[i] = args[4]:gsub(args[3], item)
+	end
+	return table.concat(items, args[5] or ',')
+end
+
+function p.preprocess(frame)
+    return frame:preprocess(frame.args[1] or frame:getParent().args[1])
+end
+
+function p.main(frame)
+	h.registerHooks()
+	h.increment()
+	local args = h.overwrite()
+	local sep = args.sep or ','
+	h.castArgs(args, sep)
+	if h.castBool(args.setmainimage or 'yes') then
+    	h.setMainImage(args.images[1])
+	end
+    -- suggest to use HIDDENCAT here; will be used for maintenance &amp; gadget imports
+	return h.makeInfobox(args, sep), '[[Category:Pages with DRUID infoboxes]]'
+end
+
+function h.registerHooks()
+	if not mw.title.new('Module:Infobox/Hooks').exists then return end
+	hooks = require('Module:Infobox/Hooks')
+end
+
+function h.runHook(key, ...)
+	if hooks[key] then
+		hooks[key](...)
+	end
+end
+
+function h.increment()
+	-- optional use of VariablesLua for better compatibility
+	local VariablesLua = mw.ext.VariablesLua
+	if VariablesLua ~= nil then
+		h.counter = VariablesLua.var('DRUID_INFOBOX_ID', 0) + 1
+		VariablesLua.vardefine('DRUID_INFOBOX_ID', h.counter)
+		return
+	end
+		local res
+		-- try to fall back to normal Variables
+		res, h.counter = pcall(
+			function()
+				return mw.getCurrentFrame():callParserFunction('#var', {'DRUID_INFOBOX_ID', 0}) + 1
+			end
+		)
+		if res then
+			mw.getCurrentFrame():callParserFunction('#vardefine', {'DRUID_INFOBOX_ID', h.counter})
+		else
+			-- else use a random number so at least there's some unique id
+			h.counter = math.random(100000000000000000) -- random integer
+		end
+end
+
+function h.castArgs(args, sep)
+	h.runHook('onCastArgsStart', args, sep, args.kind)
+	args.tabs = h.split(args.tabs or args.image_labels, sep)
+	args.images = h.getImages(args, sep)
+	args.sections = h.split(args.sections, sep)
+	for _, section in ipairs(args.sections) do
+		if h.castBool(args[section .. '_isdata']) then
+			args[section .. 'Data'] = args[section]
+			args[section] = section .. 'Data'
+			args[section .. 'Data_nolabel'] = 'true' -- will be cast later
+		end
+		args[section] = h.split(args[section], sep)
+		args[section .. '_tabs'] = h.split(args[section .. '_tabs'], sep)
+		if #args.tabs &gt; 0 and #args[section .. '_tabs'] &gt; 0 then
+			error(('You cannot specify |tabs= and |%s= at the same time, please pick one'):format(section .. '_tabs'))
+		end
+	end
+	if args.useDivs then
+		USE_DIVS = h.castBool(args.useDivs)
+	end
+	-- this would be in the outer scope, but we're hiding it
+	h.entityType = USE_DIVS and 'div' or 'table' -- key of h.htmlEntities
+	h.runHook('onCastArgsEnd', args, sep, args.kind)
+	h.focusTab(args)
+end
+
+function h.getImages(args, sep)
+	if args.image and not args.images then
+		args.images = args.image
+	end
+	if args.images then
+		return h.split(args.images, sep)
+	end
+	if not args.tabs then return {} end
+	local ret = {}
+	for _, key in ipairs(args.tabs) do
+		if args[key .. '_image'] then
+			ret[#ret+1] = args[key .. '_image']
+		end
+	end
+	return ret
+end
+
+function h.setMainImage(file)
+	if h.counter &gt; 1 then return end
+    if not file then return end
+    local fileText = file:gsub('.-:', '')
+	fileText = fileText:gsub('^([^|%]]+).*', '%1')
+	-- setmainimage is guaranteed to exist on wiki.gg but may not exist on other wikis
+	-- it's not a crucial piece of functionality so we'll fail silently if it doesn't exist
+	pcall(function() mw.getCurrentFrame():callParserFunction{
+		name = '#setmainimage',
+		args = { fileText },
+	} end)
+end
+
+function h.focusTab(args)
+	local hasFocusedTab = false
+	if not args.tabs[1] then return end
+	for i, tab in ipairs(args.tabs) do
+		if h.castBool(args[tab .. '_focused']) then
+			hasFocusedTab = true
+			args[tab .. '_focused'] = true -- cast to bool
+		else
+			args[tab .. '_focused'] = false
+		end
+	end
+	if hasFocusedTab then return end
+	args[args.tabs[1] .. '_focused'] = true
+end
+
+function h.makeInfobox(args, sep)
+	local out = mw.html.create(h.getTag('container'))
+		:addClass('druid-infobox')
+		:addClass('druid-container')
+		:addClass('noexcerpt')
+		:addClass(args.class) -- warning: class can be nil, don't concat anything
+		:attr('id', args.id or ('druid-container-' .. h.counter))
+	h.runHook('onMakeOutputStart', out, args)
+	if args.kind then out:addClass('druid-container-' .. h.escape(args.kind)) end
+	h.printTitle(out, args)
+	h.printImages(out, args.images, args)
+	for _, section in ipairs(args.sections) do
+		-- cannot begin tagging here because we don't know if any applicable args are present
+		local cols = args[section .. '_columns']
+		local makeSection = cols and h.makeGridSection or h.makeSection
+		out:node(makeSection(section, args[section], args, tonumber(cols)))
+	end
+	h.runHook('onMakeOutputEnd', out, args)
+	-- category for gadget loading
+	return out, '[[Category:Pages with DRUID infoboxes]]'
+end
+
+function h.printTitle(out, args)
+	local tabs = args.tabs
+	if not tabs or #tabs == 0 then
+		h.printSimpleTitle(out, args)
+		return
+	end
+	if not h.hasComplexData('title', tabs, args) then
+		h.printSimpleTitle(out, args)
+		return
+	end
+	local node = h.printTitleWrapper(out)
+	h.printTabbedDataItem(node, 'title', tabs, args)
+end
+
+function h.printSimpleTitle(out, args)
+	if args.title then
+		local node = h.printTitleWrapper(out)
+		node:wikitext(args.title)
+	end
+end
+
+function h.printTitleWrapper(out)
+	return out:tag(h.getTag('titleOuter'))
+		:tag(h.getTag('titleInner'))
+			:addClass('druid-title')
+			:attr('colspan', 2)
+end
+
+function h.printTabbedDataItem(node, item, tabs, args)
+	-- hasData isn't used in the title case but we will need to track this
+	-- when we're printing section data later on
+	-- so we'll just track it always
+	local hasData = false
+	for i, label in ipairs(tabs) do
+		local div = node:tag('div')
+			:addClass('druid-toggleable-data')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:attr('data-druid-tab-key', label)
+			:attr('data-druid-class', args[label .. '_' .. item .. '_class'] or args[item .. '_class'])
+		if h.getTabbedContent(args, label, item) then
+			hasData = true
+			div:wikitext('\n\n' .. h.getTabbedContent(args, label, item))
+			div:addClass('druid-toggleable-data-nonempty')
+		else
+			div:addClass('druid-toggleable-data-empty')
+		end
+		
+		if args[label .. '_focused'] then div:addClass('focused') end
+	end
+	return hasData
+end
+
+function h.printImages(out, images, args)
+	if #images == 0 and #args.tabs == 0 then return end
+	-- burden is on the user to format this as an image. this should be done in the infobox template,
+	-- with something like |image={{#if:{{{image|}}}|[[File:{{{image|}}}{{!}}300px{{!}}link=]]}}
+	local td = out:tag(h.getTag('section'))
+		:addClass('druid-section-container')
+		:tag(h.getTag('cell'))
+		:attr('colspan', 2)
+	local tabs = args.tabs
+	local tabTexts = h.getImageTabTexts(tabs, images, args)
+	h.printTabs(td, tabs, tabTexts, false, args)
+	if #images == 0 then return end
+	if #images == 1 then
+		td:addClass('druid-main-image')
+			:tag('div')
+			:addClass('druid-main-image-file')
+			:wikitext(images[1])
+		if args.caption then
+			td:tag('div')
+				:addClass('druid-main-image-caption')
+				:wikitext(args.caption)
+		end
+		return
+	end
+	td:addClass('druid-main-images')
+	local imagesContainer = td:tag('div')
+		:addClass('druid-main-images-files')
+	for i, image in ipairs(images) do
+		local container = imagesContainer:tag('div')
+			:addClass('druid-main-image')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:attr('data-druid-tab-key', tabs[i])
+			container:tag('div')
+				:addClass('druid-main-image-file')
+				:wikitext(image)
+		local labelDisplay
+		local labelKey = tabs[i]
+		if labelKey then
+			labelDisplay = args[labelKey .. '_label'] or labelKey
+		else
+			labelDisplay = '[[Category:Infoboxes missing image labels]]Image ' .. i
+		end
+		if args[labelDisplay .. '_caption'] or args[labelKey .. '_caption'] then
+			container:tag('div')
+				:addClass('druid-main-image-caption')
+				:wikitext(args[labelDisplay .. '_caption'] or args[labelKey .. '_caption'])
+		end
+		if args[labelKey .. '_focused'] then
+			container:addClass('focused')
+		end
+	end
+end
+
+function h.getImageTabTexts(tabs, images, args)
+	if #tabs == 0 and #images &lt;= 1 then return {} end
+	local texts = {}
+	local i = 1
+	while images[i] or tabs[i] do
+		if tabs[i] then
+			texts[i] = args[tabs[i] .. '_label'] or tabs[i]
+		else
+			texts[i] = '[[Category:Infoboxes missing image labels]]Image ' .. i
+		end
+		i = i + 1
+	end
+	return texts
+end
+
+function h.printTabs(td, tabs, texts, isSection, args)
+	if #texts == 0 then return end
+	local container = td:tag('div')
+		:addClass('druid-main-images-labels')
+		:addClass('druid-tabs')
+	if isSection then
+		container:addClass('druid-section-tabs')
+	end
+	for i, item in ipairs(tabs) do
+		local label = container:tag('div')
+			:addClass('druid-main-images-label')
+			:addClass('druid-tab')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:wikitext(texts[i])
+			:attr('data-druid-tab-key', item)
+		if isSection then
+			label:addClass('druid-section-tab')
+		else
+			label:addClass('druid-title-tab')
+		end
+		if args[item .. '_focused'] then
+			label:addClass('focused')
+		end
+		-- this can be null, don't concat anything here
+		label:addClass(args[item .. '_class'])
+	end
+end
+
+function h.makeGridSection(section, sectionFields, args, numCols)
+	local numItems = h.countItems(sectionFields, section, args)
+	if numItems == 0 then return end
+	local node = mw.html.create(h.getTag('section'))
+		:addClass('druid-section-container')
+	h.printSectionHeader(node, section, args)
+	h.printSectionTabs(node, section, args)
+	local tr = node:tag(h.getTag('row'))
+		:attr('data-druid-section-row', h.escape(section))
+	if args[section .. '_collapsed'] then
+		tr:addClass('druid-collapsed')
+	end
+	local grid = tr:tag(h.getTag('cell'))
+		:attr('colspan', 2)
+		:addClass('druid-grid-section')
+		:addClass('druid-grid-section-' .. h.escape(section))
+		:addClass(args[section .. '_class']) -- warning: class can be nil, don't concat anything
+		:tag('div')
+			:addClass('druid-grid')
+	local row, col, i = 1, 1, 1
+	local sizeOfLastRow = numItems % numCols
+	local lcm = h.getNumGridCols(numItems, sizeOfLastRow, numCols)
+	grid:css('grid-template-columns', ('repeat(%s, 1fr)'):format(lcm))
+	local size = lcm / numCols
+	for _, item in ipairs(sectionFields) do
+		local node = mw.html.create('div')
+		local shouldPrint = h.printData(node, item, section, args)
+		if shouldPrint then
+			if i == numItems - sizeOfLastRow + 1 then
+				size = lcm / sizeOfLastRow
+			end
+			i = i + 1
+			local gStart = (col - 1) * size + 1
+			local gEnd = (col) * size + 1
+			local itemContainer = grid:tag('div')
+				:addClass('druid-grid-item')
+				:addClass('druid-grid-item-' .. h.escape(item))
+				:addClass(args[item .. '_class']) -- warning: class can be nil, don't concat anything
+				:css('grid-column', ('%s / %s'):format(gStart, gEnd))
+				:css('grid-row', row)
+			if not h.castBool(args[item .. '_nolabel']) then
+				h.printLabel(itemContainer:tag('div'), item, args)
+			end
+			itemContainer:node(node)
+			if col == numCols then
+				row = row + 1
+				col = 1
+			else
+				col = col + 1
+			end
+		end
+	end
+	return node
+end
+
+function h.makeSection(section, sectionFields, args)
+	if section == '' then return end -- bruteforce fix for trailing commas
+	local shouldPrint = false
+	local container = mw.html.create(h.getTag('section'))
+		:addClass('druid-section-container')
+		:addClass(args[section .. '_class']) -- warning: class can be nil, don't concat anything
+	h.printSectionHeader(container, section, args)
+	h.printSectionTabs(container, section, args)
+	for _, item in ipairs(sectionFields) do
+		local node = mw.html.create(h.getTag('cell'))
+		local shouldPrintItem = h.printData(node, item, section, args)
+		if shouldPrintItem then
+			shouldPrint = true
+			local tr = container:tag(h.getTag('row'))
+				:addClass('druid-row')
+				:addClass('druid-row-' .. h.escape(item))
+				:addClass(args[item .. '_class']) -- warning: class can be nil, don't concat anything
+				:attr('data-druid-section-row', h.escape(section))
+			if args[section .. '_collapsed'] then
+				tr:addClass('druid-collapsed')
+			end
+			if h.castBool(args[item .. '_wide']) or h.castBool(args[item .. '_nolabel']) then
+				node
+					:attr('colspan', 2)
+					:addClass('druid-data-wide')
+			else
+				h.printLabel(tr:tag(h.getTag('label')), item, args)
+			end
+			tr:node(node)
+		end
+	end
+	if not shouldPrint then return nil end
+	return container
+end
+
+function h.countItems(sectionFields, section, args)
+	local numItems = 0
+	for _, v in ipairs(sectionFields) do
+		-- we aren't actually printing here, but we're finding out if we should print anything
+		-- because we need the count of columns before we print anything in grid data
+		if h.printData(mw.html.create(), v, section, args) then
+			numItems = numItems + 1
+		end
+	end
+	return numItems
+end
+
+function h.getNumGridCols(numItems, sizeOfLastRow, numCols)
+	if not numCols then return numItems, 1 end
+	if numItems &lt; numCols then return numItems, 1 end
+	if sizeOfLastRow == 0 then
+		return numCols, 1
+	end
+	local a, b = sizeOfLastRow, numCols
+	while b ~= 0 do
+	    a, b = b, a % b
+	end
+	local lcm = sizeOfLastRow * numCols / a
+	return lcm
+end
+
+function h.printLabel(node, item, args)
+	return node
+		:addClass('druid-label')
+		:addClass('druid-label-' .. h.escape(item))
+		:wikitext(args[item .. '_display'] or args[item .. '_label'] or item)
+end
+
+function h.printData(node, item, section, args)
+	-- prints data to the node
+	-- and also returns whether the item is nonempty or not
+	local hasData = false
+	local sectionTabs = args[section .. '_tabs']
+	local tabs = args.tabs
+	if sectionTabs and #sectionTabs &gt; 0 then
+		tabs = sectionTabs
+	end
+	if not tabs or #tabs == 0 then
+		return h.printSimpleData(node, item, args)
+	end
+	if not h.hasComplexData(item, tabs, args) then
+		return h.printSimpleData(node, item, args)
+	end
+	hasData = hasData or h.printTabbedDataItem(node, item, tabs, args)
+	if hasData then
+		node:addClass('druid-data')
+	end
+	return hasData
+end
+
+function h.getTabbedContent(args, label, item)
+	return args[label .. '_' .. item] or args[item] or TABBED_NONEXIST
+end
+
+function h.printSimpleData(node, item, args)
+	if args[item] and type(args[item]) ~= 'string' then
+		error(("Invalid use of field %s as both a section and a data value"):format(item))
+	end
+	if not args[item] then return false end
+	node:addClass('druid-data')
+		:addClass('druid-data-' .. h.escape(item))
+		:addClass('druid-data-nonempty')
+		:wikitext('\n\n' .. args[item])
+	return true
+end
+
+function h.hasComplexData(item, tabs, args)
+	for _, v in ipairs(tabs) do
+		if args[v .. '_' .. item] then return true end
+	end
+	return false
+end
+
+function h.printSectionHeader(node, section, args)
+	if h.castBool(args[section .. '_nolabel']) then return end
+	local tr = node:tag(h.getTag('row'))
+		:attr('data-druid-section', h.escape(section))
+	local th = tr:tag(h.getTag('sectionTitle'))
+		:attr('colspan', 2)
+		:addClass('druid-section')
+		:addClass('druid-section-' .. h.escape(section))
+	if args[section .. '_collapsible'] or args[section .. '_collapsed'] then
+		tr:addClass('druid-collapsible')
+		if args[section .. '_collapsed'] then
+			tr:addClass('druid-collapsible-collapsed')
+		end
+	end
+	local emptySections = {}
+	for _, label in ipairs(args.tabs) do
+		local hasLabel = false
+		for _, item in ipairs(args[section] or {}) do
+			if h.getTabbedContent(args, label, item) then
+				hasLabel = true
+			end
+		end
+		if not hasLabel then emptySections[label] = true end
+	end
+	if not next(emptySections) then
+		th:wikitext(args[section .. '_label'] or section)
+		return
+	end
+	for i, label in ipairs(args.tabs) do
+		local div = th:tag('div')
+			:addClass('druid-toggleable-heading')
+			:addClass('druid-toggleable')
+			:attr('data-druid', h.counter .. '-' .. i)
+			:wikitext(args[section .. '_label'] or section)
+		-- we are going to print the section content even in empty nodes
+		-- for compatibility with browsers without :has, where hiding empty rows won't happen
+		if emptySections[label] then
+			div:addClass('druid-toggleable-heading-empty')
+		end
+		if args[label .. '_focused'] then
+			div:addClass('focused')
+		end
+	end
+end
+
+function h.printSectionTabs(node, section, args)
+	local tabs = args[section .. '_tabs']
+	if not tabs or #tabs == 0 then return end
+	local tr = node:tag(h.getTag('sectionTabsOuter'))
+		:attr('data-druid-section', h.escape(section))
+	local th = tr:tag(h.getTag('sectionTabs'))
+		:attr('colspan', 2)
+		:addClass('druid-section-tabs')
+		:addClass('druid-section-tabs-' .. h.escape(section))
+	local texts = {}
+	for i, item in ipairs(tabs) do
+		texts[i] = args[item .. '_label'] or item
+	end
+	h.printTabs(th, tabs, texts, true, args)
+end
+
+----------------------------
+-- general utility functions
+----------------------------
+
+function h.overwrite()
+	-- this is a generic utility function that collects args from the invoke call &amp; the parent template.
+	-- normally, you merge args with parent template overwriting the invoke call, but
+	-- since we'll be putting markup/formatting into our invoke call,
+	-- we actually want to overwrite what the user sent.
+	local f = mw.getCurrentFrame()
+	local origArgs = f.args
+	local parentArgs = f:getParent().args
+
+	local args = {}
+	
+	for k, v in pairs(parentArgs) do
+		v = mw.text.trim(v)
+		if v ~= '' then
+			args[k] = v
+		end
+	end
+	
+	for k, v in pairs(origArgs) do
+		v = mw.text.trim(tostring(v))
+		if v ~= '' then
+			args[k] = v
+		end
+	end
+	
+	return args
+end
+
+-- generic utility functions
+-- these would normally be provided by other modules, but to make installation easy
+-- I'm including everything here
+
+function h.split(text, pattern, plain)
+	if not text then
+		return {}
+	end
+	local ret = {}
+	for m in h.gsplit(text, pattern, plain) do
+		ret[#ret+1] = m
+	end
+	return ret
+end
+
+function h.gsplit( text, pattern, plain )
+	if not pattern then pattern = ',' end
+	if not plain then
+		pattern = '%s*' .. pattern .. '%s*'
+	end
+	local s, l = 1, text:len()
+	return function ()
+		if s then
+			local e, n = text:find( pattern, s, plain )
+			local ret
+			if not e then
+				ret = text:sub( s )
+				s = nil
+			elseif n &lt; e then
+				-- Empty separator!
+				ret = text:sub( s, e )
+				if e &lt; l then
+					s = e + 1
+				else
+					s = nil
+				end
+			else
+				ret = e &gt; s and text:sub( s, e - 1 ) or ''
+				s = n + 1
+			end
+			return ret
+		end
+	end, nil, nil
+end
+
+-- char-set of characters to escape/replace
+local escapePattern = '[' -- required for pattern; do not remove.
+	.. ' '
+	.. '"'
+	.. "'"
+	.. "%?"
+	.. "%%"
+	.. "%["
+	.. "%]"
+	.. "{"
+	.. ']' -- required for pattern; do not remove.
+
+function h.escape(s)
+	s = s:gsub(escapePattern, '')
+	return s
+end
+
+
+-- normally I would make these constants at the top of the file
+-- but I don't want to mistake them with user-set constants
+h.boolFalse = { ['false'] = true, ['no'] = true, [''] = true, ['0'] = true, ['nil'] = true }
+
+function h.castBool(x)
+	if not x then return false end
+	return not h.boolFalse[tostring(x):lower()]
+end
+
+h.htmlEntities = {
+	table = {
+		container = 'table',
+		titleOuter = 'tr',
+		titleInner = 'th',
+		section = '',
+		sectionTitle = 'th',
+		sectionTabsOuter = 'tr',
+		sectionTabs = 'td',
+		row = 'tr',
+		label = 'th',
+		cell = 'td',
+	},
+	div = {
+		container = 'div',
+		titleOuter = 'div',
+		titleInner = 'div',
+		section = 'div',
+		sectionTitle = 'div',
+		sectionTabsOuter = 'div',
+		sectionTabs = 'div',
+		row = 'div',
+		label = 'div',
+		cell = 'div',
+	}
+}
+
+function h.getTag(key)
+	-- try not to totally fail here
+	return h.htmlEntities[h.entityType or 'div'][key]
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:MapTimer/data</title>
+    <ns>828</ns>
+    <id>2877</id>
+    <revision><id>10387</id><timestamp>2026-08-14T18:39:54Z</timestamp><text>return {
+	ResetHourUTC = 17, -- 5PM UTC = 10AM PST
+	ResetMinuteUTC = 0,
+	ResetYear = 2026,
+	ResetMonth = 8,
+	ResetDay = 13,
+
+	BiomeData = {
+		airport = { name = 'Airport' },
+		alpine = { name = 'Alpine' },
+		caldera = { name = 'Caldera' },
+		kiln = { name = 'Kiln' },
+		mesa = { name = 'Mesa' },
+		peak = { name = 'Peak', page = 'Peak (biome)' },
+		roots = { name = 'Roots' },
+		beach = { name = 'Shore' },
+		shore = { name = 'Shore' },
+		tropics = { name = 'Tropics' },
+		gloom = { name = 'Gloom' },
+		citadel = { name = 'Citadel' },
+		beach = { name = 'Shore' },
+	},
+
+	BiomeVariations = {
+		-- Level_5 from 2026-08-13 to 2026-08-14
+		{ 'shore', 'tropics', 'alpine', 'gloom', 'citadel' },
+		-- Level_6 from 2026-08-14 to 2026-08-15
+		{ 'shore', 'roots', 'alpine', 'gloom', 'citadel' },
+		-- Level_7 from 2026-08-15 to 2026-08-16
+		{ 'shore', 'roots', 'mesa', 'gloom', 'citadel' },
+		-- Level_8 from 2026-08-16 to 2026-08-17
+		{ 'shore', 'tropics', 'mesa', 'gloom', 'citadel' },
+		-- Level_9 from 2026-08-17 to 2026-08-18
+		{ 'shore', 'roots', 'alpine', 'gloom', 'citadel' },
+		-- Level_10 from 2026-08-18 to 2026-08-19
+		{ 'shore', 'roots', 'mesa', 'gloom', 'citadel' },
+		-- Level_11 from 2026-08-19 to 2026-08-20
+		{ 'shore', 'tropics', 'alpine', 'gloom', 'citadel' },
+		-- Level_0 from 2026-08-20 to 2026-08-21
+		{ 'shore', 'tropics', 'alpine', 'gloom', 'citadel' },
+		-- Level_1 from 2026-08-21 to 2026-08-22
+		{ 'shore', 'roots', 'mesa', 'gloom', 'citadel' },
+		-- Level_2 from 2026-08-22 to 2026-08-23
+		{ 'shore', 'tropics', 'mesa', 'gloom', 'citadel' },
+		-- Level_3 from 2026-08-23 to 2026-08-24
+		{ 'shore', 'roots', 'alpine', 'gloom', 'citadel' },
+		-- Level_4 from 2026-08-24 to 2026-08-25
+		{ 'shore', 'tropics', 'mesa', 'gloom', 'citadel' },
+	},
+}</text></revision>
+  </page>
+  <page>
+    <title>Module:MapTimer</title>
+    <ns>828</ns>
+    <id>2878</id>
+    <revision><id>10396</id><timestamp>2026-08-14T18:55:07Z</timestamp><text>local data = mw.loadData( 'Module:MapTimer/data' )
+local htmlencodeMap = {
+	['&gt;'] = '&amp;gt;',
+	['&lt;'] = '&amp;lt;',
+	['&amp;'] = '&amp;amp;',
+	['"'] = '&amp;quot;',
+}
+
+
+local function htmlEncode( s )
+	return string.gsub( s, '[&lt;&gt;&amp;"]', htmlencodeMap )
+end
+
+
+local function printAttributes()
+	local encodedData = mw.text.jsonEncode( data )
+	return string.format( 'data-config="%s"', htmlEncode( encodedData ) )
+end
+
+
+return {
+	printAttributes = printAttributes,
+}</text></revision>
+  </page>
+  <page>
+    <title>Module:Healthbar</title>
+    <ns>828</ns>
+    <id>2898</id>
+    <revision><id>10506</id><timestamp>2026-08-15T15:18:04Z</timestamp><text>-- Order effects in the order that they appear on the bar
+local effects = {
+	'Weight',
+	'Hunger',
+	'Injury',
+	'Heat',
+	'Curse',
+	'Thorns',
+	'Spores',
+
+	-- Unknown sorting
+	'Arrow',
+	'Cold',
+	'Drowsy',
+	'Flytrap',
+	'Petrify',
+	'Poison',
+	'Web',
+}
+
+local function main(args)
+	local total = 0
+	local cast = {}
+
+	for _, effect in pairs(effects) do
+		local val = tonumber(args[effect])
+		if val then
+			table.insert(cast, {
+				['name'] = effect,
+				['amount'] = val,
+			})
+
+			total = total + val
+		end
+	end
+
+	local icons = mw.html.create('div')
+		:addClass('template-healthbar-icons')
+	local bar = mw.html.create('div')
+		:addClass('template-healthbar-effects')
+
+	local function add(status, amount)
+		if amount &lt;= 0 then
+			return
+		end
+
+		local perc = tostring(amount) .. '%'
+		local icon = icons:tag('div')
+			:css('width', perc)
+
+		if status then
+			local lc = status:lower()
+			icon:wikitext('[[File:Status ' .. status .. '.png|28px|link=Stamina bar#' .. status .. '|class=scout_status_' .. lc .. ']]')
+			status = lc
+		else
+			status = 'stamina'
+		end
+
+		bar:tag('div')
+			:addClass('template-healthbar-' .. status)
+			:css('width', perc)
+	end
+
+	-- Add normal stamina
+	add(nil, 100 - total)
+
+	-- Add other status effects
+	for _, data in ipairs(cast) do
+		add(data.name, data.amount)
+	end
+
+	return mw.html.create('div')
+		:addClass('template-healthbar')
+		:node(icons)
+		:node(bar)
+end
+
+local util = require('Module:ArgsUtil')
+local module = {}
+
+function module.test(input)
+	return main(input or {})
+end
+
+function module.main(frame)
+	frame = frame or mw.getCurrentFrame()
+	return main(util.merge())
+end
+
+return module</text></revision>
+  </page>
+  <page>
+    <title>Module:Loot table</title>
+    <ns>828</ns>
+    <id>2942</id>
+    <revision><id>11700</id><timestamp>2026-09-07T01:11:10Z</timestamp><text>local p = {}
+
+local SLOTS = {
+	Regular = {{n = 1, q = 2/3}, {n = 2, q = 1/3}},
+	Big     = {{n = 2, q = 2/3}, {n = 3, q = 1/3}},
+	["Explorer's"] = {{n = 2, q = 1}},
+	-- (not needed for Ancient Luggage and Statue)
+	Clown   = {{n = 6, q = 1}},
+}
+-- n: number of slots
+-- q: probability of those slots being selected
+
+-- tab order
+local BIOMES = { "Shore", "Tropics", "Roots", "Alpine", "Mesa", "Caldera/Kiln", "Gloom/Citadel" }
+
+-- DATA
+-- Regular and Big Luggage, grouped by biome:
+local REGULAR_LUGGAGE_ITEMS = {
+
+	Shore = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Tropics = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Antidote", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Lantern", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Roots = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Antidote", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Parasol", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Alpine = {
+		{ "Heat Pack", 100 },
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Lantern", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Mesa = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Sunscreen", 20 },
+		{ "Parasol", 20 },
+		{ "Airline Food", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Dynamite", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Big Lollipop", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	["Caldera/Kiln"] = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	["Gloom/Citadel"] = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Candlestick", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+	},
+}
+
+-- Explorer's Luggage
+local EXPLORERS_LUGGAGE_ITEMS = {
+	{ "Energy Drink", 35 },
+	{ "Rope Spool", 35 },
+	{ "First Aid Kit", 20 },
+	{ "Piton", 20 },
+	{ "Chain Launcher", 15 },
+	{ "Fanny Pack", 15 },
+	{ "Glider", 6 },
+	{ "Jetpack", 6 },
+	{ "Rescue Claw", 15 },
+	{ "Rope Cannon", 15 },
+}
+
+-- Ancient Luggage
+local ANCIENT_LUGGAGE_ITEMS = {
+	{ "Anti-Rope Cannon", 15 },
+	{ "Anti-Rope Spool", 15 },
+	{ "Anti-Zooka", 15 },
+	{ "Book of Bones", 15 },
+	{ "Bugle of Friendship", 15 },
+	{ "Cure-All", 15 },
+	{ "Cursed Skull", 15 },
+	{ "Faerie Lantern", 15 },
+	{ "Pandora's Lunchbox", 15 },
+	{ "Ritual Dagger", 15 },
+	{ "Scout Effigy", 15 },
+	{ "Scoutmaster's Bugle", 6 },
+}
+
+-- Clown Luggage
+local CLOWN_LUGGAGE_ITEMS = {
+	{ "Yellow Berrynana Peel", 50 },
+	{ "Balloon", 20 },
+	{ "Bugle", 20 },
+	{ "Parasol", 20 },
+	{ "Big Lollipop", 15 },
+	{ "Dynamite", 15 },
+	{ "Balloon Bunch", 6 },
+	{ "Rocketpack", 6 },
+	{ "Scout Cannon", 6 },
+}
+
+-- Ancient Statue
+local ANCIENT_STATUE_ITEMS = {
+	{ "Anti-Rope Cannon", 15 },
+	{ "Anti-Rope Spool", 15 },
+	{ "Anti-Zooka", 15 },
+	{ "Book of Bones", 15 },
+	{ "Bugle of Friendship", 15 },
+	{ "Cure-All", 15 },
+	{ "Faerie Lantern", 15 },
+	{ "Pandora's Lunchbox", 15 },
+	{ "Ritual Dagger", 15 },
+	{ "Scout Effigy", 15 },
+	{ "Scoutmaster's Bugle", 6 },
+}
+
+-- items unavailable in solo runs:
+local SOLO_EXCLUSIONS = {
+	"Ritual Dagger", "Cursed Skull", "Scout Effigy", "Bugle of Friendship", "Fanny Pack", "Blowgun"
+}
+
+
+-- MATH
+-- pFrac here is the item's TRUE probability of being selected for a slot,
+-- i.e. weight / totalWeight of its list -- NOT the raw weight itself.
+-- This makes the math correct regardless of what the list's weights sum to.
+local function totalChancePercent(pFrac, slotsDist)
+	local total = 0
+	for _, slot in ipairs(slotsDist) do
+		total = total + slot.q * (1 - (1 - pFrac) ^ slot.n)
+	end
+	return total * 100
+end
+
+local function averagePerBox(pFrac, slotsDist)
+	local expectedN = 0
+	for _, slot in ipairs(slotsDist) do
+		expectedN = expectedN + slot.q * slot.n
+	end
+	return pFrac * expectedN
+end
+
+
+local function probItemInNDraws(itemsWithWeights, itemIndex, totalWeight, n)
+	local wi = itemsWithWeights[itemIndex][2]
+	local T = totalWeight
+
+	if n &lt;= 0 then
+		return 0
+	end
+
+	local prob = wi / T
+
+	if n &gt;= 2 then
+		for j, itemJ in ipairs(itemsWithWeights) do
+			if j ~= itemIndex then
+				local wj = itemJ[2]
+				prob = prob + (wj / T) * (wi / (T - wj))
+			end
+		end
+	end
+
+	if n &gt;= 3 then
+		for j, itemJ in ipairs(itemsWithWeights) do
+			if j ~= itemIndex then
+				local wj = itemJ[2]
+				for l, itemL in ipairs(itemsWithWeights) do
+					if l ~= itemIndex and l ~= j then
+						local wl = itemL[2]
+						prob = prob + (wj / T) * (wl / (T - wj)) * (wi / (T - wj - wl))
+					end
+				end
+			end
+		end
+	end
+	return prob
+end
+
+local function totalChancePercentNoDupes(itemsWithWeights, itemIndex, totalWeight, slotsDist)
+	local total = 0
+	for _, slot in ipairs(slotsDist) do
+		total = total + slot.q * probItemInNDraws(itemsWithWeights, itemIndex, totalWeight, slot.n)
+	end
+	return total * 100
+end
+
+
+-- FORMATTING
+local function trimZeros(s)
+	if s:find("%.") then
+		s = s:gsub("0+$", ""):gsub("%.$", "")
+	end
+	return s
+end
+
+local function fmtPercent(x, decimals)
+	return trimZeros(string.format("%." .. decimals .. "f", x)) .. "%"
+end
+
+
+-- TABLE BUILDING
+local function sortByChance(items)
+	local sorted = {}
+	for i, item in ipairs(items) do
+		sorted[i] = item
+	end
+	table.sort(sorted, function(a, b)
+		if a[2] ~= b[2] then
+			return a[2] &gt; b[2]
+		end
+		return a[1] &lt; b[1]
+	end)
+	return sorted
+end
+
+-- notes (refs) for column headers.
+local NOTE_CHANCE_PER_SLOT = "Item spawn odds per luggage slot."
+local NOTE_TOTAL_CHANCE_NO_DUPES = "Chance of the item appearing in the box, accounting for the number of slots the box can have and the changing pool of items (no duplicates in Regular and Big Luggage)."
+local NOTE_TOTAL_CHANCE = "Chance of at least one copy of the item appearing in the box, accounting for the number of slots the box has."
+local NOTE_COUNT_PER_BOX = "Average number of copies found per box, accounting for the number of slots the box can have."
+
+local REF_GROUP = "n"
+
+local function headerWithNote(frame, label, refName, noteText, showNotes, dim)
+	local labelHtml = label
+	if dim then
+		labelHtml = '&lt;span style="opacity: 0.7;"&gt;' .. label .. "&lt;/span&gt;"
+	end
+	if not showNotes then
+		return labelHtml
+	end
+	local refHtml = frame:extensionTag{ name = "ref", args = { name = refName, group = REF_GROUP }, content = noteText }
+	return labelHtml .. refHtml
+end
+
+-- build for luggages that CAN roll duplicates (Explorer's, Clown)
+-- shows Chance per slot, Total chance, and Avg. count per box
+local function buildFullTable(frame, items, slotsDist, caption, showNotes)
+	local sorted = sortByChance(items)
+
+	local totalWeight = 0
+	for _, item in ipairs(sorted) do
+		totalWeight = totalWeight + item[2]
+	end
+
+	local out = { '{| class="wikitable sortable mw-collapsible"' }
+	if caption then table.insert(out, "|+ " .. caption) end
+
+	local header = '! style="min-width: 130px;" | Item'
+		.. " !! " .. headerWithNote(frame, "Chance per slot", "cps", NOTE_CHANCE_PER_SLOT, showNotes, true)
+		.. " !! " .. headerWithNote(frame, "Total chance", "tot", NOTE_TOTAL_CHANCE, showNotes, false)
+		.. " !! " .. headerWithNote(frame, "Avg. count per box", "apb", NOTE_COUNT_PER_BOX, showNotes, false)
+	table.insert(out, header)
+
+	for _, item in ipairs(sorted) do
+		local name, weight = item[1], item[2]
+		local pFrac = weight / totalWeight
+		local itemCell = frame:expandTemplate{ title = "Item", args = { name } }
+		table.insert(out, "|-")
+		table.insert(out, "| " .. itemCell)
+		table.insert(out, '| &lt;span style="opacity: 0.7;"&gt;' .. fmtPercent(pFrac * 100, 1) .. "&lt;/span&gt;")
+		table.insert(out, "| " .. fmtPercent(totalChancePercent(pFrac, slotsDist), 1))
+		table.insert(out, "| " .. trimZeros(string.format("%.2f", averagePerBox(pFrac, slotsDist))))
+	end
+	table.insert(out, "|}")
+	return table.concat(out, "\n")
+end
+
+-- build for luggages that CANNOT roll duplicates (Regular, Big)
+-- shows Chance per slot and Total chance
+local function buildFullTableNoDupes(frame, items, slotsDist, caption, showNotes)
+	local sorted = sortByChance(items)
+	local totalWeight = 0
+	for _, item in ipairs(sorted) do
+		totalWeight = totalWeight + item[2]
+	end
+
+	local out = { '{| class="wikitable sortable mw-collapsible"' }
+	if caption then table.insert(out, "|+ " .. caption) end
+
+	local header = '! style="min-width: 130px;" | Item'
+		.. " !! " .. headerWithNote(frame, "Chance per slot", "cps", NOTE_CHANCE_PER_SLOT, showNotes, true)
+		.. " !! " .. headerWithNote(frame, "Total chance", "tot-nodupe", NOTE_TOTAL_CHANCE_NO_DUPES, showNotes, false)
+	table.insert(out, header)
+
+	for i, item in ipairs(sorted) do
+		local name, weight = item[1], item[2]
+		local itemCell = frame:expandTemplate{ title = "Item", args = { name } }
+		table.insert(out, "|-")
+		table.insert(out, "| " .. itemCell)
+		table.insert(out, '| &lt;span style="opacity: 0.7;"&gt;' .. fmtPercent(weight / totalWeight * 100, 1) .. "&lt;/span&gt;")
+		table.insert(out, "| " .. fmtPercent(totalChancePercentNoDupes(sorted, i, totalWeight, slotsDist), 1))
+	end
+	table.insert(out, "|}")
+	return table.concat(out, "\n")
+end
+
+-- item exclusion for solo runs (see SOLO_EXCLUSIONS)
+local function excludeAndRenormalize(items, excludeNames)
+	local excludeSet = {}
+	for _, name in ipairs(excludeNames) do
+		excludeSet[name] = true
+	end
+
+	local totalWeight, excludedWeight = 0, 0
+	for _, item in ipairs(items) do
+		totalWeight = totalWeight + item[2]
+		if excludeSet[item[1]] then
+			excludedWeight = excludedWeight + item[2]
+		end
+	end
+
+	local out = {}
+	for _, item in ipairs(items) do
+		if not excludeSet[item[1]] then
+			table.insert(out, { item[1], item[2] / (totalWeight - excludedWeight) * 100 })
+		end
+	end
+	return out
+end
+
+-- true if any item in the list is affected by SOLO_EXCLUSIONS
+local function hasSoloExclusion(items)
+	local excludeSet = {}
+	for _, name in ipairs(SOLO_EXCLUSIONS) do
+		excludeSet[name] = true
+	end
+	for _, item in ipairs(items) do
+		if excludeSet[item[1]] then
+			return true
+		end
+	end
+	return false
+end
+
+-- Wraps any single table builder with Co-op/Solo tabs, renormalizing the item weights for the Solo tab
+local function withSoloCoopTabs(frame, buildFn, items, caption)
+	if not hasSoloExclusion(items) then
+		return buildFn(items, caption)
+	end
+
+	local solo = excludeAndRenormalize(items, SOLO_EXCLUSIONS)
+
+	local out = { "&lt;tabber&gt;" }
+	table.insert(out, "Co-op=")
+	table.insert(out, buildFn(items, caption .. " - Co-op"))
+	table.insert(out, "|-|")
+	table.insert(out, "Solo=")
+	table.insert(out, buildFn(solo, caption .. " - Solo"))
+	table.insert(out, "&lt;/tabber&gt;")
+	return table.concat(out, "\n")
+end
+
+-- build for Ancient Luggage/Statue 
+-- shows Item and Chance
+local function buildAncientTable(frame, items, caption)
+	local totalWeight = 0
+	for _, item in ipairs(items) do
+		totalWeight = totalWeight + item[2]
+	end
+
+	local out = {
+		'{| class="wikitable sortable mw-collapsible"',
+		"|+ " .. caption,
+		'! style="min-width: 130px;" | Item !! Chance',
+	}
+	for _, item in ipairs(sortByChance(items)) do
+		local name, weight = item[1], item[2]
+		local chance = weight / totalWeight * 100
+		local itemCell = frame:expandTemplate{ title = "Item", args = { name } }
+		table.insert(out, "|-")
+		table.insert(out, "| " .. itemCell)
+		table.insert(out, "| " .. fmtPercent(chance, 1))
+	end
+	table.insert(out, "|}")
+	return table.concat(out, "\n")
+end
+
+local function buildBiomeTabs(frame, biomeItemsFn, caption, slotsDist, showNotes)
+	local out = { "&lt;tabber&gt;" }
+	for i, biome in ipairs(BIOMES) do
+		if i &gt; 1 then table.insert(out, "|-|") end
+		table.insert(out, biome .. "=")
+		table.insert(out, buildFullTableNoDupes(frame, biomeItemsFn(biome), slotsDist, caption .. " Luggage Items - " .. biome, showNotes))
+	end
+	table.insert(out, "&lt;/tabber&gt;")
+	return frame:preprocess(table.concat(out, "\n"))
+end
+
+-- outer tabs Co-op/Solo (for Regular/Big)
+local function buildTabbedTable(frame, luggageType, caption, showNotes)
+	local slotsDist = SLOTS[luggageType]
+
+	local anyExcluded = false
+	for _, biome in ipairs(BIOMES) do
+		if hasSoloExclusion(REGULAR_LUGGAGE_ITEMS[biome]) then
+			anyExcluded = true
+			break
+		end
+	end
+
+	local coopItemsFn = function(biome) return REGULAR_LUGGAGE_ITEMS[biome] end
+	if not anyExcluded then
+		return buildBiomeTabs(frame, coopItemsFn, caption, slotsDist, showNotes)
+	end
+
+	local soloItemsFn = function(biome) return excludeAndRenormalize(REGULAR_LUGGAGE_ITEMS[biome], SOLO_EXCLUSIONS) end
+
+	local out = { "&lt;tabber&gt;" }
+	table.insert(out, "Co-op=")
+	table.insert(out, buildBiomeTabs(frame, coopItemsFn, caption, slotsDist, showNotes))
+	table.insert(out, "|-|")
+	table.insert(out, "Solo=")
+	table.insert(out, buildBiomeTabs(frame, soloItemsFn, caption, slotsDist, showNotes))
+	table.insert(out, "&lt;/tabber&gt;")
+	return table.concat(out, "\n")
+end
+
+-- REQUEST FUNCTIONS
+local BUILDERS = {
+	regular = { needsPreprocess = true, run = function(frame, showNotes) return buildTabbedTable(frame, "Regular", "Regular", showNotes) end },
+	big = { needsPreprocess = true, run = function(frame, showNotes) return buildTabbedTable(frame, "Big", "Big", showNotes) end },
+	["explorer's"] = { needsPreprocess = true, run = function(frame, showNotes)
+		local build = function(items, caption) return buildFullTable(frame, items, SLOTS["Explorer's"], caption, showNotes) end
+		return withSoloCoopTabs(frame, build, EXPLORERS_LUGGAGE_ITEMS, "Explorer's Luggage Items")
+	end },
+	clown = { needsPreprocess = true, run = function(frame, showNotes)
+		local build = function(items, caption) return buildFullTable(frame, items, SLOTS.Clown, caption, showNotes) end
+		return withSoloCoopTabs(frame, build, CLOWN_LUGGAGE_ITEMS, "Clown Luggage Items")
+	end },
+	ancient = { needsPreprocess = true, run = function(frame)
+		local build = function(items, caption) return buildAncientTable(frame, items, caption) end
+		return withSoloCoopTabs(frame, build, ANCIENT_LUGGAGE_ITEMS, "Ancient Luggage Items")
+	end },
+	["ancient statue"] = { needsPreprocess = true, run = function(frame)
+		local build = function(items, caption) return buildAncientTable(frame, items, caption) end
+		return withSoloCoopTabs(frame, build, ANCIENT_STATUE_ITEMS, "Ancient Statue Items")
+	end },
+}
+
+function p.main(frame)
+	local args = frame.args
+	if not args[1] and frame:getParent() then
+		args = frame:getParent().args
+	end
+
+	local ltype = args[1] and mw.text.trim(args[1])
+	if not ltype or ltype == "" then
+		return '&lt;strong class="error"&gt;Loot table: give a type, e.g. {{Loot table|Regular Luggage}}&lt;/strong&gt;'
+	end
+
+	local lowered = ltype:lower()
+	local key
+	if lowered == "ancient statue" then
+		key = lowered
+	elseif lowered:match("^ancient statue%s+luggage$") then
+		key = nil -- "Ancient Statue" is not a luggage; reject the "...Luggage" form
+	else
+		local stripped, hadLuggage = lowered:gsub("%s*luggage%s*$", "")
+		stripped = mw.text.trim(stripped)
+		key = (hadLuggage &gt; 0 and stripped ~= "") and stripped or nil
+	end
+
+	local entry = key and BUILDERS[key]
+	if not entry then
+		return '&lt;strong class="error"&gt;Loot table: unknown type "' .. ltype .. "\" (Regular Luggage, Big Luggage, Explorer's Luggage, Clown Luggage, Ancient Luggage, Ancient Statue)&lt;/strong&gt;"
+	end
+
+	-- "notes=false" disables (foot)notes for that table call
+	local notesArg = args.notes and mw.text.trim(args.notes):lower()
+	local showNotes = notesArg ~= "false"
+
+	local result = entry.run(frame, showNotes)
+
+	if entry.needsPreprocess then
+		return frame:preprocess(result)
+	end
+	return result
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>Module:Loot table/doc</title>
+    <ns>828</ns>
+    <id>2945</id>
+    <revision><id>11072</id><timestamp>2026-08-22T03:50:12Z</timestamp><text>&lt;small&gt;''[https://peak.wiki.gg/wiki/Module:Loot_table/doc?action=edit Edit] this documentation at [[Module:Loot_table/doc]].''&lt;/small&gt;
+
+Module for [[Template:Loot table]] - [[Luggage]] and [[Ancient Statue]] loot tables.
+
+== Dependencies ==
+* [[Template:Item]]
+* &lt;code&gt;&lt;nowiki&gt;&lt;tabber&gt;&lt;/nowiki&gt;&lt;/code&gt;
+* &lt;code&gt;&lt;nowiki&gt;&lt;ref&gt;&lt;/nowiki&gt;&lt;/code&gt;
+
+== Formulas ==
+
+=== Legend ===
+* &lt;code&gt;wi&lt;/code&gt;/&lt;code&gt;wj&lt;/code&gt;/&lt;code&gt;wl&lt;/code&gt;: item's raw weight (e.g. Trail Mix's weight is '''50''' for Regular/Big Luggage in the Shore biome). &lt;code&gt;i&lt;/code&gt; is the item in question; &lt;code&gt;j&lt;/code&gt; and &lt;code&gt;l&lt;/code&gt; are placeholders for '''any other item''' in the pool, used for no-duplicates chance calculation.
+* &lt;code&gt;T&lt;/code&gt;: total weight of a pool. The weights are relative and &lt;code&gt;T&lt;/code&gt; varies by list (e.g. '''500''' for Regular/Big Luggage in Shore, '''156''' for Ancient Statue). For the no duplicates formula &lt;code&gt;T&lt;/code&gt; shrinks as items are drawn and removed from the pool for the rest of that box's slots.
+* &lt;code&gt;C&lt;/code&gt;: item's chance of being drawn for one slot (''pFrac'' in the code). Calculated as &lt;code&gt;C = wi / T&lt;/code&gt;. For example Trail Mix has '''50''' weight for Regular/Big Luggage in the Shore, Shore's &lt;code&gt;T&lt;/code&gt; is '''500''', so &lt;code&gt;C = 50 / 500 = 0.10&lt;/code&gt;.
+* &lt;code&gt;n&lt;/code&gt;: one of the slot counts a box can have (e.g. '''2''' or '''3''' for Big Luggage). Each &lt;code&gt;n&lt;/code&gt; has its own probability &lt;code&gt;q&lt;/code&gt; of being the one chosen.
+* &lt;code&gt;q&lt;/code&gt;: probability the box rolls &lt;code&gt;n&lt;/code&gt; slots.
+
+=== Total chance ===
+----
+'''Total chance''' is the chance of at least one copy of an item spawning inside a luggage, with multiple possible luggage slots taken into account. It's equal to the sum over every possible &lt;code&gt;n&lt;/code&gt; of:
+: &lt;code&gt;q * (1 - (1 - C)^n)&lt;/code&gt;
+Used for luggage types that '''can''' roll duplicates (Explorer's, Clown). Implemented as ''totalChancePercent'' in the code.
+
+=== Total chance (no duplicates) ===
+----
+Used for luggage types that '''cannot''' roll duplicates (Regular and Big Luggage). Once an item is drawn, it's removed from the pool for the rest of that box's slot draws, so later slots pick from a smaller pool.
+
+For an item to end up in a Regular or Big Luggage, it needs to be drawn on '''any one''' of the slots. So it's Total chance is: 
+[The chance it's drawn 1st] + [the chance it's drawn 2nd (from the smaller pool) if it wasn't drawn 1st] (+ [the chance it's drawn 3rd if it wasn't drawn 1st or 2nd] ).
+
+The chance for an item to be drawn at least once in &lt;code&gt;n&lt;/code&gt; slots is:
+* &lt;code&gt;n = 1&lt;/code&gt;: &lt;code&gt;wi / T&lt;/code&gt; - also known as &lt;code&gt;C&lt;/code&gt;.
+&lt;div style="margin-top:0.8em" /&gt;
+* &lt;code&gt;n = 2&lt;/code&gt;: &lt;code&gt;wi / T + Σⱼ (wj / T) * (wi / (T - wj))&lt;/code&gt; - two separate ways item &lt;code&gt;i&lt;/code&gt; can end up drawn, added together: either it's drawn ''first'' (&lt;code&gt;wi / T&lt;/code&gt;), or some other item &lt;code&gt;j&lt;/code&gt; is drawn first (removing &lt;code&gt;wj&lt;/code&gt; from the pool) and &lt;code&gt;i&lt;/code&gt; is then drawn ''second'' from the smaller pool.
+&lt;div style="margin-top:0.8em" /&gt;
+* &lt;code&gt;n = 3&lt;/code&gt;: &lt;code&gt;wi / T + Σⱼ (wj / T) * (wi / (T - wj)) + Σⱼ Σₗ (wj / T) * (wl / (T - wj)) * (wi / (T - wj - wl))&lt;/code&gt; - same idea, with the third way &lt;code&gt;i&lt;/code&gt; can be drawn added: 
+** Item &lt;code&gt;i&lt;/code&gt; is drawn ''first'',
+** '''or''' it's drawn ''second'', after &lt;code&gt;j&lt;/code&gt;, 
+** '''or''' it's drawn ''third'', after &lt;code&gt;j&lt;/code&gt; then &lt;code&gt;l&lt;/code&gt; are drawn first and second in that order (each removed from the pool before the next draw).
+
+'''Total chance (no duplicates)''' is equal to the sum over every possible &lt;code&gt;n&lt;/code&gt; of:
+: &lt;code&gt;q * (chance above for that n)&lt;/code&gt;
+Implemented as ''probItemInNDraws'' (the per-&lt;code&gt;n&lt;/code&gt; chance above) and ''totalChancePercentNoDupes'' (the weighted sum across all &lt;code&gt;n&lt;/code&gt;) in the code.
+
+=== Avg. count per box ===
+----
+'''Avg. count per box''' is the average count f an item expected to be found. It's equal to &lt;code&gt;C * average(n)&lt;/code&gt;. Implemented as ''averagePerBox'' in the code.
+
+=== Chance / Chance per slot ===
+----
+'''Chance''' or '''Chance per slot''' is the probability of an item appearing in ''one'' slot (item's normalized share of its pool as a percentage), equal to &lt;code&gt;C * 100&lt;/code&gt;.
+Unlike Total chance, the sum of this column's values is expected to be 100%. Small deviations (max ±0.5) in the displayed tables are the consequence of rounding.
+
+== Table Display ==
+Percentage columns are rounded to one decimal place and Avg. count per is rounded to two. Trailing zeros are trimmed.
+&lt;br&gt;
+&lt;br&gt;</text></revision>
+  </page>
+  <page>
+    <title>Module:Luggage table</title>
+    <ns>828</ns>
+    <id>3010</id>
+    <revision><id>11036</id><timestamp>2026-08-22T00:08:06Z</timestamp><text>return require [[Module:Loot table]]</text></revision>
+  </page>
+  <page>
+    <title>Module:Luggage table/doc</title>
+    <ns>828</ns>
+    <id>3011</id>
+    <revision><id>11038</id><timestamp>2026-08-22T00:08:06Z</timestamp><text>#REDIRECT [[Module:Loot table/doc]]</text></revision>
+  </page>
+  <page>
+    <title>Module:Patch</title>
+    <ns>828</ns>
+    <id>3170</id>
+    <revision><id>12111</id><timestamp>2026-10-06T18:18:58Z</timestamp><text>local p = {}
+
+-- Helper function to trim whitespace
+local function trim(s)
+    return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+function p.main(frame)
+    -- Get args
+    local args = frame:getParent().args
+    local rawList = args[2] or ""
+    
+    if trim(rawList) == "" then
+        return ""
+    end
+
+    -- Process list
+    local items = {}
+    for line in rawList:gmatch("[^\r\n]+") do
+        local cleaned = trim(line)
+        if cleaned ~= "" then
+            -- Match asterisks + content
+            local stars, content = cleaned:match("^(%*+)%s*(.*)")
+            if stars then
+                table.insert(items, { depth = #stars, text = trim(content) })
+            else
+                -- Fallback for lines without an asterisk
+                table.insert(items, { depth = 1, text = cleaned })
+            end
+        end
+    end
+
+    -- Single entry: Output goes inline (same line)
+    if #items == 1 then
+        return " " .. items[1].text .. "&lt;br&gt;"
+    end
+
+    -- Multiple entries: Output a bullet list
+    local output = {}
+    for _, item in ipairs(items) do
+        local indent = string.rep("*", item.depth)
+        table.insert(output, indent .. " " .. item.text)
+    end
+
+    -- Prefixed newline so MW parses the first bullet correctly
+    return "\n" .. table.concat(output, "\n")
+end
+
+return p</text></revision>
+  </page>
+</dump>

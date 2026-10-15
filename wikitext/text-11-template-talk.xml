@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>Template talk:Infobox item</title>
+    <ns>11</ns>
+    <id>1383</id>
+    <revision><id>7707</id><timestamp>2025-12-20T06:26:48Z</timestamp><text>== [Bug] Poisonous shrooms' poison isn't red in the infobox ==
+
+Cache purge has no effect. Changing the value to a negative one also has no effect. [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 08:27, 28 August 2025 (UTC)
+
+:I think this is an issue because the coloring is being done by the non-poisonous value (Which is 0 or "positive"), and doesn't change for the poisonous value. Either way @[[User:SavageAlien|SavageAlien]] hopefully to fix (I'm not very great with DRUID infoboxes)? [[User:TheElm|TheElm]] ([[User talk:TheElm|talk]]) 17:14, 28 August 2025 (UTC)
+:I'll need some time to setup hooks for this to work properly with tabs [[User:SavageAlien|SavageAlien]] ([[User talk:SavageAlien|talk]]) 23:20, 28 August 2025 (UTC)
+
+== Adding additional cooked effects to template ==
+
+Currently, the only cooked effects that are supported are hunger and bonus stamina. Some consumable items have changes to additional stats after being cooked. These shouldn't be too hard to add to template. Examples include:
+* Cooked [[Mandrake]] removes 25 Curse
+* Cooked [[Medicinal Root]] removes an additional 20 Spore and 20 Poison
+
+Additionally, some foods have negative base effects removed after cooking. I am not sure how indicating this would be best in the template. Would it be best to specify a negative amount so that the total displayed is zero or perhaps the Cooking notes should be displayed? Examples of cooked items that no longer have their base negative effect are:
+* Cooking [[Pink Berrynana]], [[Green Crispberry]], [[Green Kingberry]], [[Yellow Kingberry]] removes the poison effect
+* Cooking [[Shroomberry|Shroomberries]] removes the spore effect
+* Cooking [[Prickleberry|Prickleberries]] removes the thorn effect
+
+There are also some items with effects that stand out a bit more. The [[Blowgun]] changes from applying Drowsy to Heat after cooking. A cooked [[Book of Bones]] removes curse although the base effect of an uncooked Book of Bones depends on whether the player is a skeleton. [[User:Pulse daemon|Pulse daemon]] ([[User talk:Pulse daemon|talk]]) 06:26, 20 December 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>Template talk:Item</title>
+    <ns>11</ns>
+    <id>1610</id>
+    <revision><id>3696</id><timestamp>2025-09-06T17:10:40Z</timestamp><text>== Pick your poison ==
+
+It seems like I have reached the PEAK (haha get it?) of CSS:
+# Using &lt;code&gt;display: inline-flex&lt;/code&gt; on a span (and probably div also) breaks linktrails because they are no longer in the same HTML node (I guess... though I have confirmed reverting the span fixes the issue);
+# Not using it causes unwanted wrapping between the icon and the text.
+
+I have spent an ''ungodly'' amount of time (mostly locally using the dev tools) trying to keep the icon and the first word of the text on the same line, but no matter what arcane CSS spells I utter or what sorts of Unicode word joiners I use, it's all in vain. So it seems like we need to choose between sane word wrapping and having linktrails. Oh well.
+
+Unless a CSS archwizard shows up with some forbidden dark magic, I'm out of ideas. [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 17:10, 6 September 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>Template talk:Stub</title>
+    <ns>11</ns>
+    <id>1764</id>
+    <revision><id>4307</id><timestamp>2025-09-11T11:16:58Z</timestamp><text>== No way to specify custom messages ==
+
+I think it's pretty important that the stub template, as well as other infobox templates like it, be updated to allow passing in a custom message, in order to clarify what it is for. For example, you see the standard stub preamble, followed by the custom message, perhaps on a new line and italicised. [[User:Jack5Official|Jack5Official]] ([[User talk:Jack5Official|talk]]) 11:16, 11 September 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>Template talk:Loot table</title>
+    <ns>11</ns>
+    <id>3129</id>
+    <revision><id>11701</id><timestamp>2026-09-07T01:13:58Z</timestamp><text>== Blowgun in solo tables ==
+
+Blowgun is in the solo tables for Luggage and Big Luggage, despite that not being the case [[User:ASillyFish|ASillyFish]] ([[User talk:ASillyFish|talk]]) 23:23, 6 September 2026 (UTC)
+
+:Fixed, thanks for pointing it out. [[User:PLord|PLord]] ([[User talk:PLord|talk]]) 01:13, 7 September 2026 (UTC)</text></revision>
+  </page>
+</dump>

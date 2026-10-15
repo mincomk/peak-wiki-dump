@@ -1,0 +1,4671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>User:Nixinova</title>
+    <ns>2</ns>
+    <id>977</id>
+    <revision><id>1892</id><timestamp>2025-08-16T00:25:51Z</timestamp><text>Hi, I'm '''Nixinova''', an avid wiki editor!</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland</title>
+    <ns>2</ns>
+    <id>1355</id>
+    <revision><id>11153</id><timestamp>2026-08-23T21:41:57Z</timestamp><text>{{Infobox user
+| Name = Alex
+| Status = Around
+| Languages = English, Russian
+| Pronouns = He/him
+| Service = Editor&lt;br&gt;[[Special:ListFiles/Aw4yland|Photographer]]&lt;br&gt;Dataminer
+| Joined = August 21, 2025
+| Sash = 8
+}}
+
+PEAKer with more than 100 hours in-game &lt;small&gt;(a sizeable portion of them is me staring into Unity Explorer's menus, though...)&lt;/small&gt; since July 10, 2025. Certified over-engineer.
+
+Same username in the wiki Discord.
+
+----
+
+&lt;small&gt;Username is A+[[wikipedia:Wayland_(protocol)|wayland]], not Away+land, by the way.&lt;/small&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:ASillyFish</title>
+    <ns>2</ns>
+    <id>1520</id>
+    <revision><id>11268</id><timestamp>2026-08-27T02:13:52Z</timestamp><text>{{Infobox user
+| Name = fish
+| Status = Active
+| Languages = English
+| Sash = 9
+| Best = 44:44
+| Badges = all
+}}
+[[File:thescoutthatisme-peak2.png|thumb|It's me!|left]]
+hello! i'm fish! 70 time mountain climber and counting! i like pages with good TRIVIAs and GALLERYs!
+
+
+and always remember:
+
+
+&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;'''NEVER ABANDON A FRIEND IN NEED!'''&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;
+
+&lt;small&gt;&lt;small&gt;unless it's ''really'' funny :3&lt;/small&gt;&lt;/small&gt;
+
+
+
+
+
+&lt;gallery&gt;
+File:Thescoutthatisme-1-2.jpg|an old photo. bad hair day...
+File:thescoutthatisme-peak.png|i fogged the mirror sorgy
+File:thescoutthatisonthebigscreen.png|cute dress
+File:thescoutthatisunderthestars.png|aren't the stars pretty?
+&lt;/gallery&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/common.css</title>
+    <ns>2</ns>
+    <id>1592</id>
+    <revision><id>3571</id><timestamp>2025-09-04T21:45:53Z</timestamp><text>.view-light {
+	--wiki-content-text-color: #413B2F; /* Darken text to pass WCAG AAA contrast test */
+}
+
+/* For use with images with no background. */
+.transparent-image-bg {
+	/* .thumbimage overrides background color, so marking it
+	 as important. There's gotta be a better way of doing
+	 this, though. */
+	background-color: #DFDAC2 !important;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/</title>
+    <ns>2</ns>
+    <id>1609</id>
+    <revision><id>6100</id><timestamp>2025-11-07T23:21:14Z</timestamp><text></text></revision>
+  </page>
+  <page>
+    <title>User:Jack5Official</title>
+    <ns>2</ns>
+    <id>1765</id>
+    <revision><id>11579</id><timestamp>2026-09-03T11:51:53Z</timestamp><text>{{infobox user
+| Name = Jack5
+| image = Passport HUD.png
+| Caption = 
+| Joined = September 10, 2025
+| Status = Around
+| Pronouns = He/Him
+| Aliases = 
+| Service = Editor, Photographer
+| Discord = jack5
+| Languages = English
+
+| Sash = 6
+| Best = 52:41
+| Peaks = 24&lt;br/&gt;&lt;span style="color: grey;"&gt;+2 Grapple Mode&lt;br/&gt;+3 5+ players&lt;/span&gt;&lt;br/&gt;(1 through [[Nadir]])
+| Badges = Beachcomber,Trailblazer,Nomad,Volcanology,Participation,Happy Camper,Resourcefulness,Peak,Arborist,Esoterica,High Altitude,Plunderer,Alpinist,Survivalist,Lone Wolf,First Aid,Cooking,Animal Serenading,Balloon,Clutch,Bing Bong,Bouldering,Mentorship,Cool Cucumber,Foraging,Hasty,Daredevil,Naturalist,Leave No Trace,Astronomy,Endurance,Gourmand,Forestry,Megaentomology,Bookworm,Tread Lightly,Bundled Up,Toxicology,Emergency Preparedness,Calcium Intake,Web Security,Aeronautics,Wanderer,Medieval History,Rule Zero
+}}
+= Photography =
+I play {{peak_game}} solo as well as with my group of Discord friends, and I figured a great way to contribute to this wiki would be to snap some pictures of the things I/we get up to, saving only the best and most wiki-relevant screenshots, as well as cleaning them up for wiki use. If you want, you can check out [https://peak.wiki.gg/wiki/Special:ListFiles?limit=500&amp;user=Jack5Official all my uploaded photos], but below are a couple of my favourites.
+
+&lt;gallery&gt;
+File:Scouts tower.png|This [[Scout]] tower just sort of happened, had to take a picture.
+File:Crossed arms while pointing.png|Me and Major Hawk10 looking all gangster [[Emotes|emoting and pointing at the same time]].
+File:Airport photo booth photos.png|Our troop [[1.30.a|dillydallying]] like real Scouts do. Glitch got a bit too eager at the end.
+File:Bing Bong being held at Airport.png|Zeroman95's new best friend: {{item|Bing Bong}}.
+File:Tropics roots.png|Zeroman95's big adventure atop a [[Tropics#Giant Roots|Giant Root]].
+File:Scout physics bug.png|This really was the perfect time for his [[Scout#Trivia|arms to bug out]].
+File:Scoutmaster far away.png|My very first sighting of the [[Scoutmaster Myres|Scoutmaster]]. Granted, I had to intentionally go looking for him.
+File:Scout skeleton T-posing.png|[https://youtube.com/watch?v=4rE6eiSB5UA Da na NA na NA na...]
+File:Blowgun aiming.png|I've got you in my {{item|Blowgun}} sights, buddy...
+File:Scout and Ghost size comparison.png|Both of these guys have seen better days.
+File:Piton grabbed on ground.png|Chillin' out, maxin', relaxin' all cool on a {{item|Piton}}.
+File:The Kiln unconscious in lava.png|My opinion of [[The Kiln]].
+File:Bing Bong at Peak.png|Saving the old mute Bing Bong on [[Ascent 3]]. My secret? Smooth 80s music.
+File:Ending cutscene in helicopter 1 player.png|Me when the delusions hit hard.
+File:Ending cutscene with skeleton.png|I regret using {{item|The Book of Bones}}.
+File:Scouting Report 1 player peaked.png|My personal best time (achieved for the {{badge|Speed Climber}}) which I'm unlikely to try and improve.
+&lt;/gallery&gt;
+
+== Tutorial ==
+
+Because I use Linux, I use a convoluted method for taking screenshots that most people shouldn't use. This tutorial is for myself, but also other Linux users. If you're a Windows user, [[Meta:Image guide|here are the instructions for you]].
+
+In order to get the highest possible quality screenshots of the game, in my Steam settings I have &lt;code&gt;In Game &gt; Save an external copy of my screenshots&lt;/code&gt; turned on. Then, from the pictures I take in-game, I choose the best ones to crop and remove the crosshair from before uploading them.
+
+I crop and remove the crosshair from screenshots using [[wikipedia:GIMP|GIMP]]. Depending on where the crosshair is placed, I may be able to get away with using the '''Paintbrush''', but if not, I have to hope that I can use the '''Clone Tool''' to patch it out and still keep the picture looking real. I use the following brush settings:
+
+* Brush: &lt;code&gt;2. Hardness 050&lt;/code&gt;
+* Size: &lt;code&gt;5.00&lt;/code&gt;
+* Aspect Ratio: &lt;code&gt;0.00&lt;/code&gt;
+* Angle: &lt;code&gt;0.00&lt;/code&gt;
+* Spacing: &lt;code&gt;10.00&lt;/code&gt;
+* Hardness: &lt;code&gt;0.00&lt;/code&gt;
+* Force: &lt;code&gt;50.00&lt;/code&gt;
+
+I wish there was a way to disable the [[heads up display]] without installing any mods, it would make taking these screenshots a lot easier.
+
+{{clear}}
+
+= Ideas =
+{{Ambox
+| color = #ff4d00
+| icon = Guidebook Locations.png
+| title = Fictional Content
+| message = The material presented here is purely fictional and does not exist in {{peak_game}}, nor may it be added in the future.
+| tiny = 
+| date = 
+| class = 
+}}
+== Realism ==
+[[File:Guidebook HowTo.png|right|240px]]
+'''Realism''' is an optional modifier for all [[Ascents]] that is toggled via a checkbox which appears when using the [[Airport#Kiosks|Gate Kiosk]].
+
+When Realism is turned on, the [[heads up display]] is completely disabled apart from the game version number, ascent information, {{item|Backpack}} menu and pause menu, hiding [[Scout|player names]], the [[stamina bar]] and player [[inventories]]. Players must rely entirely on the sound cues and vignettes shown by the game to determine how much stamina they have and are using. In particular:
+
+* The sound effect when beginning to use {{bonus}} still plays. Climbing speed is used to determine the point at which a [[Scout]] is about to run out of stamina.
+* {{hunger}} produces subtle stomach growling, which grows louder and more frequent the hungrier a Scout is.
+* {{injury}} produces the sound of a heartbeat, which grows more aggressive the more hurt a Scout is, but its speed is dependent on external factors.
+* {{poison}} is displayed as a purple vignette.
+* {{cold}} is displayed as a light blue vignette.
+* {{heat}} is displayed as an orange vignette.
+* {{thorns}} appear along the side of the screen while on a Scout.
+* {{drowsy}} is displayed as an eyelid overlay, which blinks and begins to close as a Scout grows tired.
+* {{curse}} is displayed as [[wikipedia:Macular degeneration|macular degeneration]] overlays, which appear and disappear slowly and infrequently, causing the screen to warp. With high levels of Curse, more of these overlays appear.
+
+[[Island]] summits completed with Realism enabled are listed as a separate item in the [[Accolades]] menu, underneath total summits. Alive players that are rescued from the [[Peak]] with Realism enabled gain the '''Crescendo Badge'''. Doing so on Ascent 7 grants the '''Survivor Badge'''.
+
+&lt;!-- can be played on any difficulty setting. This mode removes the Survivor auras usually shown around players through walls. Also, halos for items or weapons only appear if you are close enough to do their action (such as grabbing a weapon or pressing a switch). Realism mode also includes a damage penalty for body shots. Rescue closets are removed, making the defibrillator the only way to revive dead Survivors until you reach the safe house, where they will respawn for the next round. Witches kill instantly on any difficulty except Easy and no longer receive bonus damage from point-blank shotgun blasts, making crowning impossible. Speech bubbles over the Survivors are disabled when speaking via the microphone, although the speech bubble still appears above the character's icon. Overall, this gameplay mode was created to take the teamwork factor that made the Left 4 Dead series famous to the next level. Realism can also be played by creating your own lobby. --&gt;
+
+== The Chained ==
+{{Infobox
+| Name = The Chained
+| image = Scout physics bug.png
+| Type = [[NPC]] ([[:Category:Enemies|Hostile]])
+}}
+''(Editor's note: I am very surprised by how close this idea of mine came to what was eventually implemented in [[Roots]], that being [[Zombies]].)''
+
+'''The Chained''' is a hostile [[NPC]] in {{peak_game}}. It can be encountered in any region 2 or 3 [[biome]] (e.g. [[Tropics]], [[Alpine]], [[Mesa]]) and appears in both singleplayer and multiplayer. The Chained puts pressure on a [[Scout]] troop by encouraging its members to separate. It has two behavioural states: '''passive''' and '''active'''.
+
+=== Gameplay ===
+
+==== Spawning ====
+
+At the beginning of a game, there is a 10% chance The Chained will be set to spawn, either in region 2 or 3 (both equally likely). From then, if on the biome The Chained should spawn in, half or more of the Scout troop have reached the vertical climb portion of the biome, and no environmental hazard (e.g. [[rain]], [[blizzard]], [[Mesa#Sun|hot sun]]) is active, it will spawn in the '''passive''' state.
+
+==== Passive state ====
+
+The Chained spawns out in the open in a position that is not being observed by any player, and will immediately begin to walk and climb (with infinite stamina) towards the closest Scout on the vertical climb. While in its passive state, The Chained takes on the appearance of a random Scout not yet on the vertical climb (or the lone Scout in single-player), with the exception of slightly washed-out skin colour, pupil-less eyes, a {{item|Chain Launcher}} in its crooked, locked-in-place hands, and chains that extend from its hands down its back. It keeps its head low and faces towards Scouts to hide these telltale signs of its presence. In multiplayer, if all players stop observing it before it enters its active state, it will despawn.
+
+==== Active state ====
+
+The Chained will enter its '''active''' state if:
+
+* It gets too close to a Scout.
+* In multiplayer, it is observed for 5 seconds total (before despawning).
+* In single-player, it has been 5 seconds after it was first observed.
+
+In the active state, The Chained raises its head, begins to let out a haunting screech and gains the ability to climb along any surface regardless of orientation. While a player is observing it or is very close to it, they will steadily be inflicted with {{curse}}. The amount of Curse applied by The Chained depletes only when not observing it nor close to it.
+
+If The Chained is unable to quickly reach its targets due to vertical distance, it will fire its Chain Launcher (once only) in the direction of one of its targets, having a high chance of hitting and pinning them temporarily if they are in its line of sight, and will climb up the chain before resuming its standard active behaviour.
+
+Once all players are far enough from The Chained so as to not hear its screeching anymore, it will despawn.</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Pink Berrynana</title>
+    <ns>2</ns>
+    <id>1802</id>
+    <revision><id>4445</id><timestamp>2025-09-14T12:02:33Z</timestamp><text>{{Infobox item
+| Name = Pink Berrynana
+| Title = Pink Berrynana
+| Type = Natural food
+| Tabs = Normal, Colorblind
+| images = Pink Berrynana.png, Pink Berrynana CB.png
+| Biome = Tropics
+| Hunger = -15
+| Weight = 2.5
+| Poison = 15
+}}
+
+{{Infobox item
+| Name = Pink Berrynana Peel
+| Title = Pink Berrynana Peel
+| Type = Item
+| images = Pink Berrynana Peel.png, Pink Berrynana Peel CB.png
+| tabs = Normal, Colorblind 
+| Biome = Tropics
+| Weight = 2.5
+| Source = Pink Berrynana
+}}</text></revision>
+  </page>
+  <page>
+    <title>User:Elin</title>
+    <ns>2</ns>
+    <id>1825</id>
+    <revision><id>6387</id><timestamp>2025-11-11T01:10:01Z</timestamp><text>__FORCETOC__
+{{Cleanup}}
+'''Food''' in {{Peak game}} can be consumed to reduce {{Hunger}} or gain {{Bonus}}. Some foods are {{Poison|label=poisonous}}, while others have additional effects, such as healing {{Injury}} or removing {{Heat}}.
+
+Players can forage for various [[#Natural food|natural foods]], such as fruits, [[#Mushrooms|mushrooms]], or find [[#Packaged food|packaged food]] in [[Luggage]].
+
+Food can be [[Cooking|cooked]] to double the amount of [[hunger]] restored and increase its [[bonus stamina]].
+
+The tables below list every food item obtainable in the game, including their nutritional properties, weight, additional effects, and other notes.
+
+== Natural food ==
+Natural food can be found in almost every [[biome]]. It can be used to earn the {{badge|Naturalist}}. Mystical items, such as the {{Item|Cure-All}} and {{Item|Pandora's Lunchbox}}, are also safe for the badge.
+
+{| class="wikitable sortable"
+! rowspan="2" class="unsortable" | Icon
+! rowspan="2" | Name
+! rowspan="2" | Hunger
+! rowspan="2" | Hunger&lt;br&gt;(when cooked)
+! rowspan="2" | Bonus Stamina
+! rowspan="2" | Bonus Stamina&lt;br&gt;(when cooked)
+! rowspan="2" | Weight
+! rowspan="2" | Poison
+! colspan="2" | Hunger-to-Weight ratio&lt;br&gt;(cooked)
+! rowspan="2" class="unsortable" | Location
+! rowspan="2" class="unsortable" | Notes
+|-
+!Base
+!Ascent 3
+|-
+| {{icon|Half-Coconut|size=64px}}
+| [[Half-Coconut]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2.7
+|
+* [[Shore]]
+* [[Tropics]]
+|
+* '''Source:''' Breaking a large {{Item|Coconut}} gives 2x [[Half-Coconut|Half-Coconuts]].
+* Removes {{Heat|12}}.
+|-
+| {{icon|Red Crispberry|size=64px}}
+| [[Red Crispberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-2|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2
+|
+* [[Shore]]
+* [[Tropics]]
+|
+|-
+| {{icon|Yellow Crispberry|size=64px}}
+| [[Yellow Crispberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-2|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|6|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2
+|
+* [[Shore]]
+* [[Tropics]]
+|
+|-
+| {{icon|Green Crispberry|size=64px}}
+| [[Green Crispberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-2|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="negEffect" style="text-align: center;" | {{Poison|4|label=}}
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2
+|
+* [[Shore]]
+* [[Tropics]]
+|
+* After 2 seconds, inflicts {{Poison|4}} over 4 seconds.
+|-
+| {{icon|Honeycomb|size=64px}}
+| [[Honeycomb]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|20|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|30|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+|
+* [[Tropics]]
+|
+* '''Source:''' Breaking a {{Item|Beehive}} gives 4x [[Honeycomb|Honeycombs]].
+|-
+| {{icon|Scorchberry|size=64px}}
+| [[Scorchberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+|
+* [[Tropics]]
+|
+* Inflicts {{Heat|10}}.
+|-
+| {{icon|Purple Kingberry|size=64px}}
+| [[Purple Kingberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-24|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|14|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|21|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 8
+|
+* [[Tropics]]
+|
+|-
+| {{icon|Yellow Kingberry|size=64px}}
+| [[Yellow Kingberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-24|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| class="negEffect" style="text-align: center;" | {{Poison|10|label=}}
+| style="text-align: center;" | 12
+| style="text-align: center;" | 8
+|
+* [[Tropics]]
+|
+* After 3 seconds, inflicts {{Poison|10}} over 10 seconds.
+|-
+| {{icon|Green Kingberry|size=64px}}
+| [[Green Kingberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-24|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| class="negEffect" style="text-align: center;" | {{Poison|2|label=}}
+| style="text-align: center;" | 12
+| style="text-align: center;" | 8
+|
+* [[Tropics]]
+|
+* Inflicts {{Poison|2}} immediately.
+|-
+| {{icon|Yellow Berrynana|size=64px}}
+| [[Yellow Berrynana]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+* [[Tropics]]
+|
+* Produces a {{Item|Yellow Berrynana Peel}} after eating.
+|-
+| {{icon|Pink Berrynana|size=64px}}
+| [[Pink Berrynana]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="negEffect" style="text-align: center;" | {{Poison|6|label=}}
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+* [[Tropics]]
+|
+* Produces a {{Item|Pink Berrynana Peel}} after eating.
+* After 2 seconds, inflicts {{Poison|6}} over 6 seconds.
+|-
+| {{icon|Blue Berrynana|size=64px}}
+| [[Blue Berrynana]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-24|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 24
+| style="text-align: center;" | 12
+|
+* [[Tropics]]
+|
+* Produces a {{Item|Blue Berrynana Peel}} after eating.
+|-
+| {{icon|Brown Berrynana|size=64px}}
+| [[Brown Berrynana]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|6|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+* [[Tropics]]
+|
+* Produces a {{Item|Brown Berrynana Peel}} after eating.
+|-
+| {{icon|Yellow Clusterberry|size=64px}}
+| [[Yellow Clusterberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|6|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+|
+* [[Tropics]]
+|
+|-
+| {{icon|Red Clusterberry|size=64px}}
+| [[Red Clusterberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+|
+* [[Tropics]]
+|
+* Heals {{Injury|8}}.
+|-
+| {{icon|Black Clusterberry|size=64px}}
+| [[Black Clusterberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-16|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 16
+| style="text-align: center;" | 8
+|
+* [[Tropics]]
+|
+|-
+| {{icon|Orange Winterberry|size=64px}}
+| [[Orange Winterberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+* [[Alpine]]
+|
+* Removes {{Heat|12}}.
+|-
+| {{icon|Yellow Winterberry|size=64px}}
+| [[Yellow Winterberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-24|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|14|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|21|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 24
+| style="text-align: center;" | 12
+|
+* [[Alpine]]
+* [[Mesa]]
+|
+* Removes {{Heat|20}}.
+* Heals {{Injury|8}}.
+|-
+| {{icon|Red Prickleberry|size=64px}}
+| [[Red Prickleberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+* [[Mesa]]
+|
+* Inflicts {{Thorns|4}}.
+* Removes {{Heat|4}}.
+|-
+| {{icon|Gold Prickleberry|size=64px}}
+| [[Gold Prickleberry]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+* [[Mesa]]
+|
+* Inflicts {{Thorns|4}}.
+* Removes {{Heat|4}}.
+* Heals {{Injury|4}}.
+|-
+| {{icon|Medicinal Root|size=64px}}
+| [[Medicinal Root]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-2|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2
+|
+* [[Shore]]
+* [[Tropics]]
+|
+* Removes {{Poison|10}}.
+* Heals {{Injury|4}}.
+|-
+| {{icon|Marshmallow|size=64px}}
+| [[Marshmallow]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-16|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 16
+| style="text-align: center;" | 8
+|
+* [[Campfire|Campfires]]
+|
+|-
+| {{icon|Egg|size=64px}}
+| [[Egg]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 6
+| style="text-align: center;" | 4
+|
+* [[Caldera]]
+|
+* '''Source:''' Made upon breaking a {{Item|Big Egg}}.
+|-
+| {{icon|Cooked Bird|size=64px}}
+| [[Cooked Bird]]
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Hunger|-16|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|4|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 4
+| style="text-align: center;" | 3.2
+| style="text-align: center;" | &amp;mdash;
+|
+* '''Source:''' Has a 10% chance to spawn from a {{Item|Big Egg}} instead of an {{Item|Egg}}.
+|-
+| {{icon|Tick|size=64px}}
+| [[Tick]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-16|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 16
+| style="text-align: center;" | 8
+|
+* [[Tropics]]
+|
+* Inflicts {{Poison}} over time until removed.
+* Consuming does not inflict poison.
+|-
+| id="Cooked Scorpion" | {{icon|Scorpion|size=64px}}
+| Cooked [[Scorpion]]
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+|
+* [[Mesa]]
+|
+* Obtained by [[cooking]] a [[scorpion]] manually or with a {{Item|Dynamite}} explosion.
+* Cannot be eaten raw.
+|-
+| {{icon|Cure-All|size=64px}}
+| [[Cure-All]]
+| colspan="2" class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | 12
+| style="text-align: center;" | 8
+|
+* [[Ancient Statue]]
+* [[Ancient Luggage]]
+|
+* Has 3 uses ({{Hunger|-24}} in total).
+* Removes a certain amount of negative [[Stamina bar|effects]], including {{Curse}} (see the full page for details).
+|-
+| {{icon|Pandora's Lunchbox|size=64px}}
+| [[Pandora's Lunchbox]]
+| colspan="2" style="text-align: center;" | Random
+| colspan="2" style="text-align: center;" | No bonuses from cooking.
+| style="text-align: center;" | {{Weight|1|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | &amp;mdash;
+|
+* [[Ancient Statue]]
+* [[Ancient Luggage]]
+|
+* Has 3 uses.
+* Randomizes the user's [[Stamina bar|status effects]].
+* No bonus effects from cooking.
+|}
+
+== Packaged food ==
+Packaged food is found inside [[Luggage]]. Consuming any packaged food prevents the players from earning the {{Badge|Naturalist}} in the same run.
+
+{| class="wikitable sortable"
+! rowspan="2" class="unsortable" | Icon
+! rowspan="2" | Food
+! rowspan="2" | Hunger
+! rowspan="2" | Hunger&lt;br&gt;(when cooked)
+! rowspan="2" | Bonus Stamina
+! rowspan="2" | Bonus Stamina&lt;br&gt;(when cooked)
+! rowspan="2" | Weight
+! colspan="2" | Hunger-to-Weight ratio&lt;br&gt;(cooked)
+! rowspan="2" class="unsortable" | Notes
+|-
+! Base
+! Ascent 3
+|-
+| {{icon|Airline Food|size=64px}}
+| [[Airline Food]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-16|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-32|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|16|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|24|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| style="text-align: center;" | 16
+| style="text-align: center;" | 10.7
+|
+|-
+| {{icon|Big Lollipop|size=64px}}
+| [[Big Lollipop]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-2|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2
+|
+* Grants infinite [[stamina]] temporarily.
+* Inflicts {{Drowsy|13}} over 10 seconds afterwards.
+|-
+| {{icon|Energy Drink|size=64px}}
+| [[Energy Drink]]
+| class="" style="text-align: center;" | &amp;mdash;
+| class="" style="text-align: center;" | &amp;mdash;
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | &amp;mdash;
+|
+* Removes {{Drowsy|40}}
+* Removes {{Heat|12}}
+* Grants a temporary speed boost.
+* Inflicts {{Drowsy|10}} afterwards.
+|-
+| {{icon|Granola Bar|size=64px}}
+| [[Granola Bar]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|8|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|12|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+|
+|-
+| {{icon|Scout Cookies|size=64px}}
+| [[Scout Cookies]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|6|label=}}
+| style="text-align: center;" | {{Weight|2|label=}}
+| style="text-align: center;" | 16
+| style="text-align: center;" | 10.7
+|
+* Has 4 uses (total {{Hunger|-16}} if uncooked, {{Hunger|-32}} if cooked).
+|-
+| {{icon|Sports Drink|size=64px}}
+| [[Sports Drink]]
+| class="" style="text-align: center;" | &amp;mdash;
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|12|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|18|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | &amp;mdash;
+| style="text-align: center;" | &amp;mdash;
+|
+* Removes {{Heat|80}}
+|-
+| {{icon|Trail Mix|size=64px}}
+| [[Trail Mix]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| class="posEffect" style="text-align: center;" | {{Bonus|6|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+|
+|}
+
+== Mushrooms ==
+Mushroom spawn locations are predetermined by the [[Island|seed]], although the same location may spawn a different number of mushrooms (including none) every time a run is started.
+
+Mushrooms are considered natural food and thus are safe for the {{Badge|Naturalist}}.
+
+{| class="wikitable sortable"
+! rowspan="2" class="unsortable" | Icon&lt;br&gt;(normal)
+! rowspan="2" class="unsortable" | Icon&lt;br&gt;(poisonous)
+! rowspan="2" | Mushroom
+! rowspan="2" | Hunger
+! rowspan="2" | Hunger&lt;br&gt;(when cooked)
+! rowspan="2" | Bonus Stamina
+! rowspan="2" | Bonus Stamina&lt;br&gt;(when cooked)
+! rowspan="2" | Weight
+! colspan="2" | Hunger-to-Weight ratio&lt;br&gt;(cooked)
+! rowspan="2" | Poison&lt;br&gt;(for poisonous)
+! rowspan="2" | Poison delay
+! rowspan="2" | Poison time
+! rowspan="2" class="unsortable" | Location
+|-
+! Base
+! Ascent 3
+|-
+| style="text-align: center;" | {{icon|Bugle Shroom|size=64px}}
+| style="text-align: center;" | {{icon|Bugle Shroom Poison|size=64px|link=Bugle Shroom}}
+| [[Bugle Shroom]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-6|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-12|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 12
+| style="text-align: center;" | 6
+| style="text-align: center;" |{{Poison|8|label=}}
+| style="text-align: center;" | 10 seconds
+| style="text-align: center;" | 8 seconds
+|
+* [[Shore]]
+* [[Tropics]]
+* [[Mesa]]
+|-
+| style="text-align: center;" | {{icon|Button Shroom|size=64px}}
+| style="text-align: center;" | {{icon|Button Shroom Poison|size=64px|link=Button Shroom}}
+| [[Button Shroom]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+| style="text-align: center;" |{{Poison|12|label=}}
+| style="text-align: center;" | 10 seconds
+| style="text-align: center;" | 12 seconds
+|
+* [[Shore]]
+* [[Tropics]]
+* [[Mesa]]
+|-
+| style="text-align: center;" | {{icon|Chubby Shroom|size=64px}}
+| style="text-align: center;" | {{na}}
+| [[Chubby Shroom]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-8|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 8
+| style="text-align: center;" | 4
+| colspan="3" style="text-align: center;" |No poisonous variant.
+|
+* [[Shore]]
+* [[Tropics]]
+* [[Mesa]]
+|-
+| style="text-align: center;" | {{icon|Cluster Shroom|size=64px}}
+| style="text-align: center;" | {{icon|Cluster Shroom Poison|size=64px|link=Cluster Shroom}}
+| [[Cluster Shroom]]
+| class="posEffect" style="text-align: center;" | {{Hunger|-2|label=}}
+| class="posEffect" style="text-align: center;" | {{Hunger|-4|label=}}
+| class="" style="text-align: center;" | &amp;mdash;
+| class="posEffect" style="text-align: center;" | {{Bonus|4|label=}}
+| style="text-align: center;" | {{Weight|1|label=}}
+| style="text-align: center;" | 4
+| style="text-align: center;" | 2
+| style="text-align: center;" |{{Poison|16|label=}}
+| style="text-align: center;" | 10 seconds
+| style="text-align: center;" | 16 seconds
+|
+* [[Shore]]
+* [[Tropics]]
+* [[Mesa]]
+|}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Template:Infobox item</title>
+    <ns>2</ns>
+    <id>1946</id>
+    <revision><id>4870</id><timestamp>2025-09-25T16:11:34Z</timestamp><text>&lt;includeonly&gt;&lt;!--
+
+--&gt;{{#vardefine:pageName|{{#titleparts:{{PAGENAME}}}}&lt;!-- --&gt;}}&lt;!--
+--&gt;{{#vardefine:itemType|}}&lt;!--
+--&gt;{{#vardefine:itemType|{{#lstprep:{{#var:itemType}}|,|{{{Type|}}}}}&lt;!-- --&gt;}}&lt;!--
+--&gt;{{#vardefine:itemType|{{#lstapp:{{#var:itemType}}|,|Item}}&lt;!-- --&gt;}}&lt;!--
+--&gt;{{#vardefine:itemType|{{#lstuniq:{{#var:itemType}}|,|,}}}}&lt;!--
+
+/// Infobox begins
+--&gt;{{#invoke:Infobox|main
+ | kind		=
+ | sep		= ,
+ | title	= {{#or:{{{Name|}}}|{{{Title|}}}|{{#var:pageName}}&lt;!-- --&gt;}}
+ | images	= {{#if: {{{images|}}}
+    | {{#arraymap:{{{images|}}}|,|@@@@|[[File:@@@@|192px]]|,}}
+    | [[File:{{#or:{{{image|}}}|{{#var:pageName}}.png}}|192px]] }}
+ | tabs	= {{#arraymap:{{{tabs|}}}|,|@@@@|@@@@|,}}
+ | sections = Description, General, Food, Attributes, Benefit note
+
+&lt;!-- Description --&gt;
+ | Description			= Desc
+ | Description_nolabel	= true
+ | Desc					= {{{desc|}}}
+ | Desc_nolabel			= true
+
+&lt;!-- General --&gt;
+ | General	= Type, Rarity, Biome, Location, Source, Uses, Weight
+ | Type		= &lt;!--
+		--&gt;&lt;ul class="hlist tags"&gt;&lt;!--
+		--&gt;{{#arraymap:{{#var:itemType}}|,|@@@@|&lt;!--
+		--&gt;&lt;li&gt;{{nowrap|class=tag|[[@@@@|@@@@]]}}&lt;/li&gt;&lt;!--
+		--&gt;|}}&lt;/ul&gt;
+ | Rarity	= {{#if:{{{Rarity|}}}|[[{{{Rarity|}}}]]}}
+ | Biome	= {{#if:{{{Biome|}}}|&lt;!-- --&gt;&lt;ul style="list-style:none; margin:0; padding;0"&gt;{{#arraymap:{{{Biome|}}}|,|@@@@|&lt;li&gt;[[@@@@]]&lt;/li&gt;|}}&lt;/ul&gt;&lt;!-- --&gt;|}}
+ | Location = {{#if:{{{Location|}}}|&lt;!-- --&gt;&lt;ul style="list-style:none; margin:0; padding;0"&gt;{{#arraymap:{{{Location|}}}|,|@@@@|&lt;li&gt;@@@@&lt;/li&gt;|}}&lt;/ul&gt;&lt;!-- --&gt;|}}
+ | Source	= {{#if:{{{Source|}}}|&lt;!-- --&gt;&lt;ul style="list-style:none; margin:0; padding;0"&gt;{{#arraymap:{{{Source|}}}|,|@@@@|&lt;li&gt;[[@@@@]]&lt;/li&gt;|\n}}&lt;/ul&gt;&lt;!-- --&gt;|}}
+ | Uses		= {{#if:{{{Uses|}}}|{{{Uses|}}}x}}
+ | Weight	= {{#if:{{{Weight|}}}|{{Weight|{{{Weight|}}}|label=&lt;!-- --&gt;}}&lt;!-- --&gt;|}}
+
+ &lt;!-- Food Stats --&gt;
+ | Food = Hunger, HungerCooked, Bonus, BonusCooked
+ | Food_columns = 2
+
+ | Hunger = {{#if: {{{Hunger|}}}
+     | {{Hunger|{{{Hunger}}}}}
+	 | {{#if: {{{HungerCooked|}}}|{{na}}}}
+	 }}
+ | Hunger_label = Normal&lt;br&gt;&amp;nbsp;&lt;!-- this is bullshit but i don't care. --&gt;
+
+ | HungerCooked = {{#if:{{{HungerCooked|}}} | {{Hunger|{{{HungerCooked}}}}}
+	 | {{#if:{{{Hunger|}}}| {{Hunger|{{#expr:{{formatnum:{{{Hunger}}}|R}} * 2}} }}}}
+	 }}
+ | HungerCooked_label = Hunger&lt;br&gt;&lt;small&gt;(when cooked)&lt;/small&gt;
+
+ | Bonus = {{#if:{{{Bonus|}}}|{{Bonus|{{{Bonus}}}}}|{{na}}}}
+ | Bonus_label = Bonus stamina&lt;br&gt;&amp;nbsp;
+ 
+ | BonusCooked = {{#if:{{{BonusCooked|}}} | {{Bonus|{{{BonusCooked}}}}}
+	 | {{Bonus| {{#if:{{{Bonus|}}}|{{#expr:{{formatnum:{{{Bonus}}}|R}} * 1.5}}|10}} }}
+	 }}
+ | BonusCooked_label = Bonus stamina&lt;br&gt;&lt;small&gt;(when cooked)&lt;/small&gt;
+
+&lt;!-- Attribute Stats --&gt;
+ | Attributes = Heat, Cold, Poison, Drowsy, Damage, Injury, Thorns, Curse
+ | Attributes_columns = 4
+ | Attributes_label = Status effects
+
+ | Heat_class = {{#ifexpr: {{#or:{{{Heat|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Heat = {{#if:{{{Heat|}}}|&lt;!-- --&gt;{{Heat|{{{Heat|}}}|label=}}&lt;!-- --&gt;|}}
+ | Cold_class = {{#ifexpr: {{#or:{{{Cold|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Cold = {{#if:{{{Cold|}}}|&lt;!-- --&gt;{{Cold|{{{Cold|}}}|label=}}&lt;!-- --&gt;|}}
+ | Poison_class = {{#ifexpr: {{#or:{{{Poison|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Poison = {{#if:{{{Poison|}}}|&lt;!-- --&gt;{{Poison|{{{Poison|}}}|label=}}&lt;!-- --&gt;|}}
+ | Poisonous_Poison = {{#if:{{{Poisonous_Poison|}}}|&lt;!-- --&gt;{{Poison|{{{Poisonous_Poison|}}}|label=}}&lt;!-- --&gt;|}}
+ | Drowsy_class = {{#ifexpr: {{#or:{{{Drowsy|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Drowsy = {{#if:{{{Drowsy|}}}|&lt;!-- --&gt;{{Drowsy|{{{Drowsy|}}}|label=}}&lt;!-- --&gt;|}}
+ | Damage_label = Injury
+ | Damage = {{#if:{{{Damage|}}}|&lt;!-- --&gt;{{Damage|{{{Damage|}}}|label=}}&lt;!-- --&gt;|}}
+ | Injury_class = {{#ifexpr: {{#or:{{{Injury|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Injury = {{#if:{{{Injury|}}}|&lt;!-- --&gt;{{Injury|{{{Injury|}}}|label=}}&lt;!-- --&gt;|}}
+ | Thorns_class = {{#ifexpr: {{#or:{{{Thorns|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Thorns = {{#if:{{{Thorns|}}}|&lt;!-- --&gt;{{Thorns|{{{Thorns|}}}|label=}}&lt;!-- --&gt;|}}
+ | Curse_class = {{#ifexpr: {{#or:{{{Curse|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Curse =  {{#if:{{{Curse|}}}|&lt;!-- --&gt;{{Curse|{{{Curse|}}}|label=}}&lt;!-- --&gt;|}}
+
+ | Benefit note_isdata = yes
+ | Benefit note_nolabel = yes
+}}&lt;!--
+
+/// Categories
+--&gt;{{#switch:{{lc:{{{Type|}}}}}
+	| mushroom
+	| packaged food
+	| natural food	= [[Category:Food]] }}&lt;!--
+--&gt;{{#arraymap:{{#var:itemType}}|,|@@@@|[[Category:@@@@]]|}}&lt;!--
+
+/// Cargo Declare and Store
+/// (commenting this out because I'm not yet sure what should go into the DB)
+--&gt;&lt;!--{{#invoke: Infobox_item|store
+ |type     = Type
+ |rarity   = Rarity
+ |biome    = Biome
+ |location = Location
+ |source   = Source
+ |uses     = Uses, 1
+ |cold     = Cold, 0
+ |curse    = Curse, 0
+ |drowsy   = Drowsy, 0
+ |heat     = Heat, 0
+ |hunger   = Hunger, 0
+ |injury   = Injury, Damage, 0
+ |poison   = Poison, 0
+ |thorns   = Thorns, 0
+ |weight   = Weight, 0
+}}--&gt;&lt;!--
+
+--&gt;&lt;/includeonly&gt;&lt;!-- --&gt;&lt;noinclude&gt;&lt;!--
+
+/// Documentation
+--&gt;
+{{User:Aw4yland/sandbox/Template:Infobox item
+| Title = No bonus
+| image = Airline Food.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| Hunger = -10
+| Injury = -20
+| Curse = 10
+}}
+{{Clear}}
+
+{{User:Aw4yland/sandbox/Template:Infobox item
+| Title = Yes bonus
+| image = Airline Food.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| Hunger = -10
+| Bonus = 30
+| Injury = -20
+| Curse = 10
+}}
+{{Clear}}
+
+{{User:Aw4yland/sandbox/Template:Infobox item
+| Title = Cooked birb
+| image = Cooked Bird.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| HungerCooked = -80
+| Injury = -20
+| Curse = 10
+}}
+{{Clear}}
+
+{{User:Aw4yland/sandbox/Template:Infobox item
+| Title = All at once (manual)
+| Desc = cooked values are supplied manually
+| image = Cooked Bird.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| Hunger = -10
+| HungerCooked = -80
+| Bonus = 20
+| BonusCooked = 100
+| Injury = -20
+| Curse = 10
+}}
+{{Clear}}
+
+{{User:Aw4yland/sandbox/Template:Infobox item
+| Title = All at once (auto)
+| Desc = cooked values are caclulated (hunger * 2, bonus * 1.5)
+| image = Cooked Bird.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| Hunger = -10
+| Bonus = 20
+| Injury = -20
+| Curse = 10
+}}
+{{Clear}}
+
+{{User:Aw4yland/sandbox/Template:Infobox item
+| Title = Non-food
+| image = Rope Spool.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| Injury = -20
+| Curse = 10
+}}
+{{Clear}}
+&lt;/noinclude&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Template:Infobox item2</title>
+    <ns>2</ns>
+    <id>1947</id>
+    <revision><id>4873</id><timestamp>2025-09-25T18:16:33Z</timestamp><text>&lt;includeonly&gt;&lt;!--
+
+--&gt;{{#vardefine:pageName|{{#titleparts:{{PAGENAME}}}}&lt;!-- --&gt;}}&lt;!--
+--&gt;{{#vardefine:itemType|}}&lt;!--
+--&gt;{{#vardefine:itemType|{{#lstprep:{{#var:itemType}}|,|{{{Type|}}}}}&lt;!-- --&gt;}}&lt;!--
+--&gt;{{#vardefine:itemType|{{#lstapp:{{#var:itemType}}|,|Item}}&lt;!-- --&gt;}}&lt;!--
+--&gt;{{#vardefine:itemType|{{#lstuniq:{{#var:itemType}}|,|,}}}}&lt;!--
+--&gt;{{#vardefine:hungerCooked|{{#or: {{{HungerCooked|}}} | {{#if: {{{Hunger|}}} | {{#expr: {{formatnum: {{{Hunger}}}|R}} * 2 }} }} }} }}&lt;!--
+--&gt;{{#vardefine:bonusCooked|{{#ifeq: {{{BonusCooked|}}} | 0 || {{{BonusCooked|{{#if: {{{Bonus|}}} | {{#expr: {{formatnum:{{{Bonus}}}|R}} * 1.5 }} | 10 }}}}} }}}}&lt;!--
+
+/// Infobox begins
+--&gt;{{#invoke:Infobox|main
+ | kind		=
+ | sep		= ,
+ | title	= {{#or:{{{Name|}}}|{{{Title|}}}|{{#var:pageName}}&lt;!-- --&gt;}}
+ | images	= {{#if: {{{images|}}}
+    | {{#arraymap:{{{images|}}}|,|@@@@|[[File:@@@@|192px]]|,}}
+    | [[File:{{#or:{{{image|}}}|{{#var:pageName}}.png}}|192px]] }}
+ | tabs	= {{#arraymap:{{{tabs|}}}|,|@@@@|@@@@|,}}
+ | sections = Description, General, Food, Attributes, Benefit note
+
+&lt;!-- Description --&gt;
+ | Description			= Desc
+ | Description_nolabel	= true
+ | Desc					= {{{desc|}}}
+ | Desc_nolabel			= true
+
+&lt;!-- General --&gt;
+ | General	= Type, Rarity, Biome, Location, Source, Uses, Weight
+ | Type		= &lt;!--
+		--&gt;&lt;ul class="hlist tags"&gt;&lt;!--
+		--&gt;{{#arraymap:{{#var:itemType}}|,|@@@@|&lt;!--
+		--&gt;&lt;li&gt;{{nowrap|class=tag|[[@@@@|@@@@]]}}&lt;/li&gt;&lt;!--
+		--&gt;|}}&lt;/ul&gt;
+ | Rarity	= {{#if:{{{Rarity|}}}|[[{{{Rarity|}}}]]}}
+ | Biome	= {{#if:{{{Biome|}}}|&lt;!-- --&gt;&lt;ul style="list-style:none; margin:0; padding;0"&gt;{{#arraymap:{{{Biome|}}}|,|@@@@|&lt;li&gt;[[@@@@]]&lt;/li&gt;|}}&lt;/ul&gt;&lt;!-- --&gt;|}}
+ | Location = {{#if:{{{Location|}}}|&lt;!-- --&gt;&lt;ul style="list-style:none; margin:0; padding;0"&gt;{{#arraymap:{{{Location|}}}|,|@@@@|&lt;li&gt;@@@@&lt;/li&gt;|}}&lt;/ul&gt;&lt;!-- --&gt;|}}
+ | Source	= {{#if:{{{Source|}}}|&lt;!-- --&gt;&lt;ul style="list-style:none; margin:0; padding;0"&gt;{{#arraymap:{{{Source|}}}|,|@@@@|&lt;li&gt;[[@@@@]]&lt;/li&gt;|\n}}&lt;/ul&gt;&lt;!-- --&gt;|}}
+ | Uses		= {{#if:{{{Uses|}}}|{{{Uses|}}}x}}
+ | Weight	= {{#if:{{{Weight|}}}|{{Weight|{{{Weight|}}}|label=&lt;!-- --&gt;}}&lt;!-- --&gt;|}}
+
+ &lt;!-- Food Stats --&gt;
+ | Food = Hunger, Bonus
+ 
+ | Hunger_label = [[File:Status Hunger.png|24px|class=scout_status_hunger|link=]] [[Hunger]]
+ | Hunger = {{#if: {{{Hunger|}}}{{{HungerCooked|}}} &lt;!-- hack "if at least one is not empty" --&gt;|
+     {{#if: {{{Hunger|}}} | '''{{{Hunger}}}''' | {{na}} }} }} &lt;small&gt;(normal)&lt;/small&gt;&lt;br&gt;&lt;!--
+	 --&gt;'''{{#var:hungerCooked}}''' &lt;small&gt;(when [[Cooking|cooked]])&lt;/small&gt;
+
+ | Bonus_label = [[File:Status Bonus stamina.png|24px|class=scout_status_bonus_stamina|link=]] [[Bonus stamina|Bonus&lt;br&gt;stamina]]
+ | Bonus = {{#ifeq: {{{BonusCooked|}}} | 0 || {{#if: {{{Bonus|}}} | '''{{{Bonus}}}''' | {{na}}}} &lt;small&gt;(normal)&lt;/small&gt;&lt;br&gt;'''{{#var:bonusCooked}}''' &lt;small&gt;(when [[Cooking|cooked]])&lt;/small&gt;}}
+ &lt;!-- This is a hack to hide bonus completely when BonusCooked=0.
+ Should work well enough for current use cases though. It'll only break
+ when you need cooking an item makes it give 0 bonus (which is currently never). --&gt;
+
+&lt;!-- Attribute Stats --&gt;
+ | Attributes = Heat, Cold, Poison, Drowsy, Damage, Injury, Thorns, Curse
+ | Attributes_columns = 4
+ | Attributes_label = Status effects
+
+ | Heat_class = {{#ifexpr: {{#or:{{{Heat|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Heat = {{#if:{{{Heat|}}}|&lt;!-- --&gt;{{Heat|{{{Heat|}}}|label=}}&lt;!-- --&gt;|}}
+ | Cold_class = {{#ifexpr: {{#or:{{{Cold|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Cold = {{#if:{{{Cold|}}}|&lt;!-- --&gt;{{Cold|{{{Cold|}}}|label=}}&lt;!-- --&gt;|}}
+ | Poison_class = {{#ifexpr: {{#or:{{{Poison|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Poison = {{#if:{{{Poison|}}}|&lt;!-- --&gt;{{Poison|{{{Poison|}}}|label=}}&lt;!-- --&gt;|}}
+ | Poisonous_Poison = {{#if:{{{Poisonous_Poison|}}}|&lt;!-- --&gt;{{Poison|{{{Poisonous_Poison|}}}|label=}}&lt;!-- --&gt;|}}
+ | Drowsy_class = {{#ifexpr: {{#or:{{{Drowsy|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Drowsy = {{#if:{{{Drowsy|}}}|&lt;!-- --&gt;{{Drowsy|{{{Drowsy|}}}|label=}}&lt;!-- --&gt;|}}
+ | Damage_label = Injury
+ | Damage = {{#if:{{{Damage|}}}|&lt;!-- --&gt;{{Damage|{{{Damage|}}}|label=}}&lt;!-- --&gt;|}}
+ | Injury_class = {{#ifexpr: {{#or:{{{Injury|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Injury = {{#if:{{{Injury|}}}|&lt;!-- --&gt;{{Injury|{{{Injury|}}}|label=}}&lt;!-- --&gt;|}}
+ | Thorns_class = {{#ifexpr: {{#or:{{{Thorns|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Thorns = {{#if:{{{Thorns|}}}|&lt;!-- --&gt;{{Thorns|{{{Thorns|}}}|label=}}&lt;!-- --&gt;|}}
+ | Curse_class = {{#ifexpr: {{#or:{{{Curse|}}}| 0 }} &gt; 0 | negEffect | posEffect }}
+ | Curse =  {{#if:{{{Curse|}}}|&lt;!-- --&gt;{{Curse|{{{Curse|}}}|label=}}&lt;!-- --&gt;|}}
+
+ | Benefit note_isdata = yes
+ | Benefit note_nolabel = yes
+}}&lt;!--
+
+/// Categories
+--&gt;{{#switch:{{lc:{{{Type|}}}}}
+	| mushroom
+	| packaged food
+	| natural food	= [[Category:Food]] }}&lt;!--
+--&gt;{{#arraymap:{{#var:itemType}}|,|@@@@|[[Category:@@@@]]|}}&lt;!--
+
+/// Cargo Declare and Store
+/// (commenting this out because I'm not yet sure what should go into the DB)
+--&gt;&lt;!--{{#invoke: Infobox_item|store
+ |type     = Type
+ |rarity   = Rarity
+ |biome    = Biome
+ |location = Location
+ |source   = Source
+ |uses     = Uses, 1
+ |cold     = Cold, 0
+ |curse    = Curse, 0
+ |drowsy   = Drowsy, 0
+ |heat     = Heat, 0
+ |hunger   = Hunger, 0
+ |injury   = Injury, Damage, 0
+ |poison   = Poison, 0
+ |thorns   = Thorns, 0
+ |weight   = Weight, 0
+}}--&gt;&lt;!--
+
+--&gt;&lt;/includeonly&gt;&lt;!-- --&gt;&lt;noinclude&gt;&lt;!--
+
+/// Documentation
+--&gt;
+{{User:Aw4yland/sandbox/Template:Infobox item2
+| Title = Food Item
+| image = Airline Food.png
+| Type = Packaged food
+| Rarity = Rare
+| Weight = 2.5
+| Injury = -20
+| Curse = 10
+| Hunger = -30
+| HungerCooked = -10
+| Bonus = 20
+}}
+{{Clear}}
+&lt;/noinclude&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Exter-15</title>
+    <ns>2</ns>
+    <id>1988</id>
+    <revision><id>5121</id><timestamp>2025-10-07T03:14:54Z</timestamp><text>Discord name: exter_15
+Discord ID: 513421636037246977</text></revision>
+  </page>
+  <page>
+    <title>User:Nugget</title>
+    <ns>2</ns>
+    <id>2032</id>
+    <revision><id>5414</id><timestamp>2025-11-02T00:26:02Z</timestamp><text>{{Infobox item|Hunger=1000|image=Frisbee texture.png|Uses=1|Curse=50|Name=N u g g e t|Rarity=Ridiculously Rare}}</text></revision>
+  </page>
+  <page>
+    <title>User:Alex4401</title>
+    <ns>2</ns>
+    <id>2033</id>
+    <revision><id>8074</id><timestamp>2026-01-12T16:31:31Z</timestamp><text>{{Infobox user
+| Name      =
+| Status    =
+| Service   =
+| Joined    =
+| Languages =
+| Pronouns  =
+
+| Sash    = 1
+| Peaks   = 1
+| Best    = 1:35:05
+| Badges  = Peak,Beachcomber,Trailblazer,Volcanology,Foraging,Esoterica,Bing Bong,Arborist,Nomad
+}}</text></revision>
+  </page>
+  <page>
+    <title>User:Josapr</title>
+    <ns>2</ns>
+    <id>2181</id>
+    <revision><id>5767</id><timestamp>2025-11-06T03:14:04Z</timestamp><text>=== Hello! ===
+I'm familiar with basic wiki editing, and am interested in making sure information is accurate, and up-to-date. Looking to learn how to acquire game statistics, in order to help with that.</text></revision>
+  </page>
+  <page>
+    <title>User:Cheems723</title>
+    <ns>2</ns>
+    <id>2199</id>
+    <revision><id>9821</id><timestamp>2026-08-13T09:15:57Z</timestamp><text>{{Infobox user
+| Name = AsquiD
+| Status = Active
+| Languages = English
+| Service = Editor
+| Joined = November 6th, 2025
+| Sash = 9
+| Peaks = 19
+| Badges = Alpinist,Animal Serenading,Arborist,Balloon,Beachcomber,Bing Bong,Bouldering,Cooking,Emergency Preparedness,Endurance,Esoterica,First Aid,Foraging,Gourmand,Happy Camper,High Altitude,Knot Tying,Leave No Trace,Lone Wolf,Mycology,Naturalist,Peak,Plunderer,Speed Climber,Survivalist,Toxicology,Trailblazer,Volcanology,Bookworm,Mentorship,Astronomy,Megaentomology,Cool Cucumber,Aeronautics,Nomad,Sun Hat,Daredevil,Needlepoint,24 Karat,Resourcefulness,Ultimate,Advanced Mycology, Applied Esoterica,Bundled Up,Calcium Intake,Clutch,Cryptogastronomy,Disaster Response,Forestry,Competitive Eating,Mycoacrobatics,Participation,Tread Lightly,Undead Encounter,Web Security,Rule Zero, Medieval History,Wanderer,Well Rested,Last Resort,Bellringer,Exorcist,Hang Gliding
+}}
+Hi.&lt;br&gt;
+I'm an achievement hunter in Peak, and enjoy sharing knowledge that I gain from playing. 
+
+== Contributions ==
+=====Additions=====
+* Tips and trivia sections on the [[Mandrake|Man]]&lt;nowiki/&gt;[[Mandrake|drake page]].
+*{{Item|size=18px|Mandrake}} item to the table of [[Natural food]][[Natural food|s]] on the [[Food|Food page]].
+*{{Item|size=18px|Rescue Claw}} item to the [[Equipment|Equipment page]].
+* {{Item|size=18px|Checkpoint Flag}} item to the [[Equipment|Equipment page]].
+* {{Item|size=18px|Fortified Milk}} item to the table of [[Packaged|Packaged food]] on the [[Food|Food page]].
+* {{Item|size=18px|Cloud Fungus}} and {{Item|size=18px|Bounce Fungus}} items to the [[Equipment|Equipment page]].
+* {{Item|size=18px|Warp Fungus}} page
+
+Completed ascent 8 
+
+I do my best :)</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Item list</title>
+    <ns>2</ns>
+    <id>2211</id>
+    <revision><id>6446</id><timestamp>2025-11-11T10:16:04Z</timestamp><text>{| class="wikitable sortable"
+! rowspan="2" class="unsortable" | Icon
+! rowspan="2" | Name
+! rowspan="2" | {{Hunger}}&lt;br&gt;(raw)
+! rowspan="2" | {{Hunger}}&lt;br&gt;([[cooked]])
+! rowspan="2" | {{Weight}}
+! rowspan="2" | Stamina&lt;br&gt;(raw)
+! rowspan="2" | Stamina&lt;br&gt;([[cooked]])
+! colspan="2" | Hunger-to-weight&lt;br&gt;ratios
+! rowspan="2" | Negatives
+! rowspan="2" class="unsortable" | Source
+! rowspan="2" class="unsortable" | Notes
+|-
+! Base !! [[Ascent 3]]
+{{#cargo_query:table=Items
+| fields = display, type, -TRIM(hunger)=hunger, -TRIM(hunger)*2=hungerCooked, weight, bonus, -2*TRIM(hunger)/TRIM(weight)=ratioBase, ROUND(-2*TRIM(hunger)/(TRIM(weight)+2.5),2)=ratioAscent3, poison, spores, source, listNotes
+| where = removed IS NULL AND type HOLDS "Natural food" AND (poison IS NULL or poison &gt; 0) AND (spores IS NULL or spores &gt; 0)
+| format = template
+| template = User:Aw4yland/sandbox/Template:Food list row
+| named args = yes
+| delimiter = \n
+}}
+|-
+| style="text-align:center" | {{Icon|Pandora's Lunchbox|size=64px}}
+| style="text-align:center" | [[Pandora's Lunchbox]]
+| style="text-align:center" colspan="2" | ''Random''
+| style="text-align:center" | {{Weight|{{#cargo_query:table=Items|fields=2.5*ROUND(TRIM(weight)/2.5)|where = display = "Pandora's Lunchbox"}}|label=}}
+| style="text-align:center" colspan="2" | ''Random''
+| style="text-align:center" colspan="2" | &amp;mdash;
+| style="text-align:center" | ''Random''
+|
+* [[Ancient Luggage]]
+* [[Ancient Statue]]
+| {{#cargo_query:table=Items|fields=listNotes|where=display="Pandora's Lunchbox"}}
+|}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Template:Food list row</title>
+    <ns>2</ns>
+    <id>2214</id>
+    <revision><id>6544</id><timestamp>2025-11-11T14:59:31Z</timestamp><text>|-
+| class="unsortable" style="text-align:center" | {{Icon|{{{display}}}|size=64px}}
+| style="text-align:center" | [[{{{display}}}]]
+| style="text-align:center" | {{#if:{{{hunger|}}} | {{Hunger|{{{hunger}}}|label=}} | &amp;mdash;}}
+| style="text-align:center" | {{#if:{{{hungerCooked|}}} | {{Hunger|{{{hungerCooked}}}|label=}} | &amp;mdash;}}
+| style="text-align:center" | {{Weight|{{{weight}}}|label=}}
+| style="text-align:center" | {{#if:{{{bonus|}}} | {{Bonus|{{{bonus}}}|label=}} | &amp;mdash;}}
+| style="text-align:center" | {{Bonus|{{#if: {{{bonus}}} | {{#expr: {{{bonus}}} * 1.5}} | 10}}|label=}}
+| style="text-align:center" | {{{ratioBase}}}
+| style="text-align:center" | {{{ratioAscent3}}}
+| style="text-align:center" | {{{poison|}}} {{{spores|}}} {{#expr: {{{poison|}}} &gt; 0}}
+| class="unsortable" | &lt;ul&gt;{{#arraymap:{{{source|}}}|,|@@@@|&lt;li&gt;[[@@@@]]&lt;/li&gt;|}}&lt;/ul&gt;
+| class="unsortable" |
+{{{listNotes|}}}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Badges</title>
+    <ns>2</ns>
+    <id>2220</id>
+    <revision><id>6319</id><timestamp>2025-11-10T16:24:21Z</timestamp><text>'''Badges''', also known as '''Accolades''' and '''Achievements''', are granted to players of {{Peak game}} upon completing certain actions. Once obtained, they are displayed on the [[Scout]]'s equipped [[sash]]. Every badge has an associated reward [[cosmetic]] item.
+
+A full list of badges can be viewed in-game on the Accolades screen accessible via the pause menu. Hovering over a badge shows its name and description. Badges which are not yet unlocked are greyed out, with their names replaced with question marks. The player's current [[sash]] and successful expeditions count are also shown.
+
+All badges can be earned under all difficulties, including [[Ascents|Tenderfoot]].{{Confirm}}&lt;!-- What about Undead Encounter? --&gt;
+
+&lt;p class="badge-list-title"&gt;PEAK Badges&lt;/p&gt;
+&lt;div class="badge-list"&gt;
+&lt;ul&gt;
+&lt;li&gt;[[File:Participation Badge.png|80px|link=Participation Badge]][[Participation Badge|Participation]]&lt;/li&gt;
+&lt;li&gt;[[File:Beachcomber Badge.png|80px|link=Beachcomber Badge]][[Beachcomber Badge|Beachcomber]]&lt;/li&gt;
+&lt;li&gt;[[File:Trailblazer Badge.png|80px|link=Trailblazer Badge]][[Trailblazer Badge|Trailblazer]]&lt;/li&gt;
+&lt;li&gt;[[File:Alpinist Badge.png|80px|link=Alpinist Badge]][[Alpinist Badge|Alpinist]]&lt;/li&gt;
+&lt;li&gt;[[File:Volcanology Badge.png|80px|link=Volcanology Badge]][[Volcanology Badge|Volcanology]]&lt;/li&gt;
+&lt;li&gt;[[File:Peak Badge.png|80px|link=Peak Badge]][[Peak Badge|Peak]]&lt;/li&gt;
+&lt;li&gt;[[File:Cooking Badge.png|80px|link=Cooking Badge]][[Cooking Badge|Cooking]]&lt;/li&gt;
+&lt;li&gt;[[File:Happy Camper Badge.png|80px|link=Happy Camper Badge]][[Happy Camper Badge|Happy Camper]]&lt;/li&gt;
+&lt;li&gt;[[File:Bouldering Badge.png|80px|link=Bouldering Badge]][[Bouldering Badge|Bouldering]]&lt;/li&gt;
+&lt;li&gt;[[File:Toxicology Badge.png|80px|link=Toxicology Badge]][[Toxicology Badge|Toxicology]]&lt;/li&gt;
+&lt;li&gt;[[File:Foraging Badge.png|80px|link=Foraging Badge]][[Foraging Badge|Foraging]]&lt;/li&gt;
+&lt;li&gt;[[File:Esoterica Badge.png|80px|link=Esoterica Badge]][[Esoterica Badge|Esoterica]]&lt;/li&gt;
+&lt;li&gt;[[File:Lone Wolf Badge.png|80px|link=Lone Wolf Badge]][[Lone Wolf Badge|Lone Wolf]]&lt;/li&gt;
+&lt;li&gt;[[File:Clutch Badge.png|80px|link=Clutch Badge]][[Clutch Badge|Clutch]]&lt;/li&gt;
+&lt;li&gt;[[File:Balloon Badge.png|80px|link=Balloon Badge]][[Balloon Badge|Balloon]]&lt;/li&gt;
+&lt;li&gt;[[File:Leave No Trace Badge.png|80px|link=Leave No Trace Badge]][[Leave No Trace Badge|Leave No Trace]]&lt;/li&gt;
+&lt;li&gt;[[File:Hasty Badge.png|80px|link=Hasty Badge]][[Hasty Badge|Hasty]]&lt;/li&gt;
+&lt;li&gt;[[File:Bing Bong Badge.png|80px|link=Bing Bong Badge]][[Bing Bong Badge|Bing Bong]]&lt;/li&gt;
+&lt;li&gt;[[File:Naturalist Badge.png|80px|link=Naturalist Badge]][[Naturalist Badge|Naturalist]]&lt;/li&gt;
+&lt;li&gt;[[File:Gourmand Badge.png|80px|link=Gourmand Badge]][[Gourmand Badge|Gourmand]]&lt;/li&gt;
+&lt;li&gt;[[File:Mycology Badge.png|80px|link=Mycology Badge]][[Mycology Badge|Mycology]]&lt;/li&gt;
+&lt;li&gt;[[File:First Aid Badge.png|80px|link=First Aid Badge]][[First Aid Badge|First Aid]]&lt;/li&gt;
+&lt;li&gt;[[File:Survivalist Badge.png|80px|link=Survivalist Badge]][[Survivalist Badge|Survivalist]]&lt;/li&gt;
+&lt;li&gt;[[File:Animal Serenading Badge.png|80px|link=Animal Serenading Badge]][[Animal Serenading Badge|Animal Serenading]]&lt;/li&gt;
+&lt;li&gt;[[File:Arborist Badge.png|80px|link=Arborist Badge]][[Arborist Badge|Arborist]]&lt;/li&gt;
+&lt;li&gt;[[File:Mentorship Badge.png|80px|link=Mentorship Badge]][[Mentorship Badge|Mentorship]]&lt;/li&gt;
+&lt;li&gt;[[File:Knot Tying Badge.png|80px|link=Knot Tying Badge]][[Knot Tying Badge|Knot Tying]]&lt;/li&gt;
+&lt;li&gt;[[File:Emergency Preparedness Badge.png|80px|link=Emergency Preparedness Badge]][[Emergency Preparedness Badge|Emergency Preparedness]]&lt;/li&gt;
+&lt;li&gt;[[File:High Altitude Badge.png|80px|link=High Altitude Badge]][[High Altitude Badge|High Altitude]]&lt;/li&gt;
+&lt;li&gt;[[File:Plunderer Badge.png|80px|link=Plunderer Badge]][[Plunderer Badge|Plunderer]]&lt;/li&gt;
+&lt;li&gt;[[File:Bookworm Badge.png|80px|link=Bookworm Badge]][[Bookworm Badge|Bookworm]]&lt;/li&gt;
+&lt;li&gt;[[File:Endurance Badge.png|80px|link=Endurance Badge]][[Endurance Badge|Endurance]]&lt;/li&gt;
+&lt;li&gt;[[File:Nomad Badge.png|80px|link=Nomad Badge]][[Nomad Badge|Nomad]]&lt;/li&gt;
+&lt;li&gt;[[File:Ultimate Badge.png|80px|link=Ultimate Badge]][[Ultimate Badge|Ultimate]]&lt;/li&gt;
+&lt;li&gt;[[File:Cool Cucumber Badge.png|80px|link=Cool Cucumber Badge]][[Cool Cucumber Badge|Cool Cucumber]]&lt;/li&gt;
+&lt;li&gt;[[File:Needlepoint Badge.png|80px|link=Needlepoint Badge]][[Needlepoint Badge|Needlepoint]]&lt;/li&gt;
+&lt;li&gt;[[File:Aeronautics Badge.png|80px|link=Aeronautics Badge]][[Aeronautics Badge|Aeronautics]]&lt;/li&gt;
+&lt;li&gt;[[File:24 Karat Badge.png|80px|link=24 Karat Badge]][[24 Karat Badge|24 Karat]]&lt;/li&gt;
+&lt;li&gt;[[File:Resourcefulness Badge.png|80px|link=Resourcefulness Badge]][[Resourcefulness Badge|Resourcefulness]]&lt;/li&gt;
+&lt;li&gt;[[File:Daredevil Badge.png|80px|link=Daredevil Badge]][[Daredevil Badge|Daredevil]]&lt;/li&gt;
+&lt;li&gt;[[File:Megaentomology Badge.png|80px|link=Megaentomology Badge]][[Megaentomology Badge|Megaentomology]]&lt;/li&gt;
+&lt;li&gt;[[File:Astronomy Badge.png|80px|link=Astronomy Badge]][[Astronomy Badge|Astronomy]]&lt;/li&gt;
+&lt;li&gt;[[File:Bundled Up Badge.png|80px|link=Bundled Up Badge]][[Bundled Up Badge|Bundled Up]]&lt;/li&gt;
+&lt;li&gt;[[File:Forestry Badge.png|80px|link=Forestry Badge]][[Forestry Badge|Forestry]]&lt;/li&gt;
+&lt;li&gt;[[File:Tread Lightly Badge.png|80px|link=Tread Lightly Badge]][[Tread Lightly Badge|Tread Lightly]]&lt;/li&gt;
+&lt;li&gt;[[File:Web Security Badge.png|80px|link=Web Security Badge]][[Web Security Badge|Web Security]]&lt;/li&gt;
+&lt;li&gt;[[File:Undead Encounter Badge.png|80px|link=Undead Encounter Badge]][[Undead Encounter Badge|Undead Encounter]]&lt;/li&gt;
+&lt;li&gt;[[File:Advanced Mycology Badge.png|80px|link=Advanced Mycology Badge]][[Advanced Mycology Badge|Advanced Mycology]]&lt;/li&gt;
+&lt;li&gt;[[File:Disaster Response Badge.png|80px|link=Disaster Response Badge]][[Disaster Response Badge|Disaster Response]]&lt;/li&gt;
+&lt;li&gt;[[File:Calcium Intake Badge.png|80px|link=Calcium Intake Badge]][[Calcium Intake Badge|Calcium Intake]]&lt;/li&gt;
+&lt;li&gt;[[File:Competitive Eating Badge.png|80px|link=Competitive Eating Badge]][[Competitive Eating Badge|Competitive Eating]]&lt;/li&gt;
+&lt;li&gt;[[File:Applied Esoterica Badge.png|80px|link=Applied Esoterica Badge]][[Applied Esoterica Badge|Applied Esoterica]]&lt;/li&gt;
+&lt;li&gt;[[File:Mycoacrobatics Badge.png|80px|link=Mycoacrobatics Badge]][[Mycoacrobatics Badge|Mycoacrobatics]]&lt;/li&gt;
+&lt;li&gt;[[File:Cryptogastronomy Badge.png|80px|link=Cryptogastronomy Badge]][[Cryptogastronomy Badge|Cryptogastronomy]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+== Badge details ==
+{| class="wikitable sortable"
+ ! class="unsortable" | Icon
+ ! Badge
+ ! class="unsortable" |  Criteria
+ ! Reward
+|-
+ | id="24 Karat Badge" | {{Badge|24 Karat|link=0|size=64px}}
+ | 24 Karat Badge
+ | Offer The [[Kiln]] a worthy sacrifice.
+Steps {{c|contains spoilers}}:
+# {{Spoiler|While in the [[Mesa]], locate the entrance to the [[Tomb]].}}
+#{{Spoiler|Navigate the parkour puzzle and collect the [[Ancient Idol]] at the end.}}
+# {{Spoiler|Carry the idol to the [[Kiln]] where it must be dropped into the lava. All living players receive this badge when the idol is destroyed, regardless of who threw it into the lava.}}
+ | {{Item|Bing Bong Hat|label=Bing Bong Beanie}}
+|-
+ | id="Advanced Mycology Badge" | {{Badge|Advanced Mycology|link=0|size=64px}}
+ | Advanced Mycology Badge
+ | Try all 5 types of [[Shroomberry]] in a single expedition.
+
+* When a player feeds another, the feeding player receives credit towards the badge.
+* Granted immediately upon eating your 5th type.
+| {{Item|Hat Antlers|link=Antlers|label=Antlers}}
+|-
+ | id="Aeronautics Badge" | {{Badge|Aeronautics|link=0|size=64px}}
+ | Aeronautics Badge
+ | Achieve flight.
+
+* Requires a total of six {{Item|Balloon}}s, individual or from {{Item|Balloon Bunch}}.
+** Equip all six balloons and float to receive the badge.
+| {{Item|Astronaut Helmet|link=Astronaut Helmet|label=Astronaut}} &lt;br&gt; {{Item|Astronaut Outfit}}
+|-
+ | id="Alpinist Badge" | {{Badge|Alpinist|link=0|size=64px}}
+ | Alpinist Badge
+ | Climb past the [[ALPINE]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Aviator Cap|link=Aviator Cap|label=Aviator Hat}}
+|-
+ | id="Animal Serenading Badge" | {{Badge|Animal Serenading|link=0|size=64px}}
+ | Animal Serenading Badge
+ | Play the {{Item|Bugle}} for a [[Capybara]].
+
+* Capybaras are found in the [[Alpine]] and [[Mesa]].
+* {{Item|Bugle of Friendship}} or {{Item|Scoutmaster's Bugle}} can also used for this badge.
+ | {{Item|Kril Hat|link=Kril Hat|label=Crab Hat}}
+|-
+ | id="Applied Esoterica Badge" | {{Badge|Applied Esoterica|link=0|size=64px}}
+ | Applied Esoterica Badge
+ | Ressurect a friend using [[The Book of Bones|unholy means]].
+
+* Granted to the player who performs the resurrection
+| {{Item|Fit SkeleOnesie|link=Skeleton Onesie|label=Skeleton Onesie}}
+|-
+ | id="Arborist Badge" | {{Badge|Arborist|link=0|size=64px}}
+ | Arborist Badge
+ | Reach the top of a really big tree.
+
+* Big trees are found in the [[Tropics]].
+* Granted immediately upon reaching the top of the largest bough.
+ | {{Item|Eyes Realistic|link=Realistic Eyes|label=Real Eyes}}
+|-
+ | id="Astronomy Badge" | {{Badge|Astronomy|link=0|size=64px}}
+ | Astronomy Badge
+ | Look a little too closely at the blazing sun.
+
+* Use the {{Item|Binoculars}} to look at the sun in the [[Mesa]].
+ | {{Item|Accessory Matrix Glasses|label=Matrix Glasses|link=Matrix Glasses}}
+|-
+ | id="Balloon Badge" | {{Badge|Balloon|link=0|size=64px}}
+ | Balloon Badge
+ | Escape the [[island]] without taking fall damage.
+
+* Granted to any living players who did not take fall damage, even if they were resurrected during the expedition.
+| {{Item|Russell's Outfit Shorts|link=Russell's Outfit|label=Balloon Outfit}}
+|-
+ | id="Beachcomber Badge" | {{Badge|Beachcomber|link=0|size=64px}}
+ | Beachcomber Badge
+ | Climb past the [[SHORE]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Straw Hat}}
+|-
+ | id="Bing Bong Badge" | {{Badge|Bing Bong|link=0|size=64px}}
+ | Bing Bong Badge
+ | Escape the [[island]] with {{Item|Bing Bong}}.
+
+* All players, alive or dead, earn this Badge when escaping so long as one living player has Bing Bong in their invenroty.
+ | {{Item|Propeller Hat}}
+|-
+ | id="Bookworm Badge" | {{Badge|Bookworm|link=0|size=64px}}
+ | Bookworm Badge
+ | Read all of [[Scoutmaster Myres]]'s journal entries.
+
+* {{Item|Scroll}}s can randomly be found at Campfires. Each subsequent scroll that a player opens will be the next page that the player who opened it requires. If three scrolls have previously been obtained, the journal 4 will be found.
+* Obtained immediately upon opening the final scroll.
+ | {{Item|Accessory Broken Glasses|label=Broken Glasses|link=Broken Glasses}}
+|-
+ | id="Bouldering Badge" | {{Badge|Bouldering|link=0|size=64px}}
+ | Bouldering Badge
+ | Place 10 {{Item|Piton|label=Pitons}}.
+
+* Tracked across multiple expeditions.
+* Granted immediately upon placing your 10th total Piton.
+| {{Item|Eyes Starry|link=Starry Eyes|label=Anime Eyes}}
+|-
+ | id="Bundled Up Badge" | {{Badge|Bundled Up|link=0|size=64px}}
+ | Bundled Up Badge
+ | Climb past the [[ALPINE]] without ever having more than 20% {{Cold}}.
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{item|Fit Ice Blue|link=Ice Blue|label=Ice Blue}} &lt;br&gt; {{item|Fit Ice Pink|link=Ice Pink|label=Ice Pink}}
+|-
+ | id="Calcium Intake Badge" | {{Badge|Calcium Intake|link=0|size=64px}}
+ | Calcium Intake Badge
+ | Block 100 total damage with the [[Fortified Milk]].
+
+* "Damage" refers to any affliction besides {{Weight}}.
+
+* Tracked across multiple expeditions.
+* Granted immediately upon blocking the final required damage.
+| {{Item|Accessory ThirdEye|link=Third Eye|label=Third Eye}}
+|-
+ | id="Clutch Badge" | {{Badge|Clutch|link=0|size=64px}}
+ | Clutch Badge
+ | Revive 3 [[scout]]s in a single expedition.
+* A single player revived multiple times counts multiple times for this badge.
+* Granted immediately upon reviving your third scout.
+ | {{Item|Sailor's Hat|link=Sailor's Hat|label=Sailor Hat}}
+|-
+ | id="Competitive Eating Badge" | {{Badge|Competitive Eating|link=0|size=64px}}
+ | Competitive Eating Badge
+ | Eat 3 [[Hot Dog]]s in 5 seconds or less.
+
+* Granted immediately upon eating the final hot dog.
+| {{Item|Hat DrinkHat|link=Drink Hat|label=Drink Hat}}
+|-
+ | id="Cooking Badge" | {{Badge|Cooking|link=0|size=64px}}
+ | Cooking Badge
+ | Cook 20 meals at campfires.
+
+* Tracked across multiple expeditions.
+* Any item cooked at a campfire adds to the progress for this badge, regardless of if it is edible.
+* Granted immediately upon cooking your 20th item.
+| {{Item|Chef's Hat|link=Chef's Hat|label=Chef Hat}}
+|-
+ | id="Cool Cucumber Badge" | {{Badge|Cool Cucumber|link=0|size=64px}}
+ | Cool Cucumber Badge
+ | Climb past the [[MESA]] without ever having more than 10% {{Heat}}.
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Gallon Hat}}
+{{Item|Cowboy Outfit}}
+ |-
+ | id="Cryptogastronomy Badge" | {{Badge|Cryptogastronomy|link=0|size=64px}}
+ | Cryptogastronomy Badge
+ | Cook and eat a [[Mandrake]].
+
+* Immediately granted to a player who eats or is fed a cooked mandrake.
+| {{Item|Hat Sprout|link=Sprout Hat|label=Sprout Hat}}
+|-
+ | id="Daredevil Badge" | {{Badge|Daredevil|link=0|size=64px}}
+ | Daredevil Badge
+ | Shoot across the [[MESA]] canyon in a {{Item|Scout Cannon}}.
+
+* Immediately granted to a player who lands within the target zone after being launched from the cannon.
+| {{Item|Racing Helmet}}
+|-
+ | id="Disaster Response Badge" | {{Badge|Disaster Response|link=0|size=64px}}
+ | Disaster Response Badge
+ | Pull an unconscious friend 30m with the [[Rescue Claw]].
+
+* Immediately granted to the player using the item.
+| {{Item|Hat ClimbingHelmet|link=Climbing Helmet|label=Climbing Helmet}}
+{{Item|Fit Climber|link=Climber Outfit|label=Climber Outfit}}
+|-
+ | id="Emergency Preparedness Badge" | {{Badge|Emergency Preparedness|link=0|size=64px}}
+ | Emergency Preparedness Badge
+ | Heal an unconscious friend with an item to save them from death.
+
+* Immediately granted upon using an item that reduces an unconscious player's total afflictions below 100.
+* Only applies to direct item applications. Items like the {{Item|Faerie Lantern}} or {{Item|Remedy Fungus}} will not grant this badge.
+| {{Item|Sailor's Outfit Shorts|link=Sailor's Outfit|label=Sailor Outfit}}
+|-
+ | id="Endurance Badge" | {{Badge|Endurance|link=0|size=64px}}
+ | Endurance Badge
+ | Climb 50m upwards without touching the ground.
+
+* Granted immediately upon reaching the 50m mark.
+* The player must climb the full length, grabbing onto a {{Item|Piton}} or other climbing tool qualifies as touching the ground.
+| {{Item|Ninja Headband}}
+|-
+ | id="Esoterica Badge" | {{Badge|Esoterica|link=0|size=64px}}
+ | Esoterica Badge
+ | Obtain a [[mystical item]].
+
+* Granted immediately upon picking up the item.
+| {{Item|Wizard Hat}}
+|-
+ | id="First Aid Badge" | {{Badge|First Aid|link=0|size=64px}}
+ | First Aid Badge
+ | Heal your friends for 100 points of {{Injury}} in a single expedition.
+
+* Granted to the healing player.
+* Only counts direct item applications. Usage of items like the {{Item|Faerie Lantern}} or {{Item|Remedy Fungus}} will not count towards this badge.
+| {{Item|Medic Helmet|link=Medic Helmet|label=Medic Hat}}
+|-
+ | id="Foraging Badge" | {{Badge|Foraging|link=0|size=64px}}
+ | Foraging Badge
+ | Eat 5 different berries in one expedition.
+* Counts unique items, i.e. a {{Item|Green Crispberry}} is considered a different berry from a {{Item|Red Crispberry}}.
+* {{Item|Red Shroomberry|label=Shroomberries}} count towards this badge.
+* Feeding a berry to another scout counts towards your own badge progress, rather than theirs.
+* Granted immediately upon eating the final berry.
+ | {{Item|Mouth Tongue|link=Tongue Mouth|label=Wacky Mouth}}
+|-
+ | id="Forestry Badge" | {{Badge|Forestry|link=0|size=64px}}
+ | Forestry Badge
+ | Climb past the [[ROOTS]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Hat Gnome|link=Gnome Hat|label=Gnome Hat}}
+{{Item|Fit Gnome|link=Gnome Outfit|label=Gnome Outfit}}
+|-
+ | id="Gourmand Badge" | {{Badge|Gourmand|link=0|size=64px}}
+ | Gourmand Badge
+ | Escape the [[island]] after cooking and eating a {{Item|Half-Coconut}}, {{Item|Honeycomb}}, {{Item|Yellow Winterberry}}, and an {{Item|Egg}}.
+
+* Feeding another player one of the required items adds towards your own progress rather than the fed player's.
+* The item must have been cooked at least once by any means. Well-Done, Burnt, and Incinerated items also count towards the badge.
+* Granted upon escaping the island alive after meeting the requirements.
+| {{Item|Mouth Aggro|label=Aggro Mouth|link=Aggro Mouth}} &lt;br&gt; {{Item|Eyes Monster|link=Monster Eyes|label=Aggro Eyes}}
+|-
+ | id="Happy Camper Badge" | {{Badge|Happy Camper|link=0|size=64px}}
+ | Happy Camper Badge
+ | Receive 5 [[Morale Boost|Morale Boosts]] from [[Campfire|campfires]].
+
+* Granted immediately upon receiving the final Morale Boost.
+* Granted to any living player in range.
+| {{Item|School Uniform Shorts|link=School Uniform|label=Cookie Outfit}}
+|-
+ | id="Hasty Badge" | {{Badge|Hasty|link=0|size=64px}}
+ | Hasty Badge
+ | Escape the [[island]] in under an hour.
+* Escaping in an hour ''exactly'' also counts.
+* Granted to all living players at the end of a qualifying expedition.
+ | {{Item|Messenger Cap|link=Messenger Cap|label=Courier Hat}}
+|-
+ | id="High Altitude Badge" | {{Badge|High Altitude|link=0|size=64px}}
+ | High Altitude Badge
+ | Climb 5000m in total.
+
+* A single expedition is {{formatnum:1920}}m.
+* Progress is counted in 5m increments.
+* No progress is given before reaching 25m.
+* Granted immediately upon reaching the required height.
+ | {{Item|Headband|link=Headband|label=Bandana}}
+|-
+ | id="Knot Tying Badge" | {{Badge|Knot Tying|link=0|size=64px}}
+ | Knot Tying Badge
+ | Place 100m of [[rope]] in a single expedition.
+
+* This includes {{Item|Rope Spool}}, {{Item|Anti-Rope Spool}}, {{Item|Rope Cannon}}, and {{Item|Anti-Rope Cannon}}.
+* Both rope spools have 12.5m of rope. Both rope cannons have 7.5m of rope.
+* Granted immediately upon placing the final required rope.
+| {{Item|Accessory Ribbon Bow|link=Ribbon Bow|label=Bow}}
+|-
+ | id="Leave No Trace Badge" | {{Badge|Leave No Trace|link=0|size=64px}}
+ | Leave No Trace Badge
+ | Escape the island without placing anything on the mountain.
+* Avoid using any item that requires being placed or mounted to a surface, including {{Item|Rope Spool}} and {{Item|Rope Cannon}} and their [[Anti-Rope]] variants), {{Item|Piton}}, {{Item|Portable Stove}}, {{Item|Scout Cannon}}, and {{Item|Scout Effigy}}.
+* Thrown items such as the  {{Item|Shelf Fungus}} and {{Item|Magic Bean}} are safe for this achievement.
+* Granted to all living players upon escaping the island if none of the prohibited items were used.
+ | {{Item|Accessory Incognito Face|link=Incognito Face|label=Groucho}}
+|-
+ | id="Lone Wolf Badge" | {{Badge|Lone Wolf|link=0|size=64px}}
+ | Lone Wolf Badge
+ | Escape the [[island]] in a solo expedition.
+ | {{Item|Wolf Ears}}
+|-
+ | id="Megaentomology Badge" | {{Badge|Megaentomology|link=0|size=64px}}
+ | Megaentomology Badge
+ | Survive an [[Antlion]] attack.
+* Requires taking damage from an Antlion and then escaping alive by walking some distance away from the antlion mound.
+ | {{Item|Accessory Scar2|link=Scar 2|label=Scar 2}}
+|-
+ | id="Mentorship Badge" | {{Badge|Mentorship|link=0|size=64px}}
+ | Mentorship Badge
+ | Have a 1-on-1 with the [[Scoutmaster Myres|Scoutmaster]].
+
+* Granted immediately upon being within a certain range of the scoutmaster while holding their aggro.
+| {{Item|Eyes Inverted|label=Inverted Eyes|link=Inverted Eyes}}
+|-
+ | id="Mycoacrobatics Badge" | {{Badge|Mycoacrobatics|link=0|size=64px}}
+ | Mycoacrobatics Badge
+ | Bounce up 40m off a [[Bounce Fungus|mushroom]].
+
+* Works with any mushroom you can bounce off.
+
+* Granted immediately upon bouncing the required height.
+
+* Climbing 40m up a vine or chain after bouncing off a mushroom will also work.
+| {{Item|Hat Fairy|link=Fairy Hat|label=Fairy Hat}}
+{{Item|Fit Fairy|link=Fairy Outfit|label=Fairy Outfit}}
+|-
+ | id="Mycology Badge" | {{Badge|Mycology|link=0|size=64px}}
+ | Mycology Badge
+ | Eat four different non-toxic [[Food#Mushrooms|mushrooms]] in a single expedition.
+
+* Feeding another player counts towards your own count instead of theirs.
+* {{Item|Red Shroomberry|label=Shroomberries}} do not count towards this badge.
+* Granted immediately upon eating the final [[Mushroom]].
+| {{Item|Mushroom Cap|link=Mushroom Cap|label=Mushroom Hat}}
+|-
+ | id="Naturalist Badge" | {{Badge|Naturalist|link=0|size=64px}}
+ | Naturalist Badge
+ | Escape the [[island]] without eating any [[packaged food]].
+* Any [[natural food]] is safe for this badge, including {{Item|Cure-All}}, {{Item|Pandora's Lunchbox}}, {{Item|Marshmallow}}s, and {{Item|Hot Dog}}.
+* Feeding another player counts towards your own badge progress, rather than theirs.
+* Granted to any living players who meet the requirements after escaping the island.
+ | {{Item|Flower Garland|link=Flower Garland|label=Midsummer Hat}}
+|-
+ | id="Needlepoint Badge" | {{Badge|Needlepoint|link=0|size=64px}}
+ | Needlepoint Badge
+ | Have a lot of [[Cactus|Cactuses]] stuck to you.
+
+* Requires sticking five {{Item|Cactus|label=Cacti}} to the player, which will cause loss of consciousness. The cacti can either be picked off at the last moment solo or with the help of other players.
+* A cactus held in hand does not count towards this badge.
+ | {{Item|Sun Hat}}
+|-
+ | id="Nomad Badge" | {{Badge|Nomad|link=0|size=64px}}
+ | Nomad Badge
+ | Climb past the [[MESA]].
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Desert Hat}}
+|-
+ | id="Participation Badge" | {{Badge|Participation|link=0|size=64px}}
+ | Participation Badge
+ | Have a friend escape the [[island]] without you.
+
+* Granted to all dead players upon escaping the island.
+| {{Item|Castaway Outfit Shorts|link=Castaway Outfit|label=Castaway Outfit}}
+|-
+ | id="Peak Badge" | {{Badge|Peak|link=0|size=64px}}
+ | Peak Badge
+ | Reach [[Peak (biome)|The Peak]].
+
+* Granted to all living players upon escaping the island.
+| {{Item|Stetson Hat|link=Stetson Hat|label=Scoutmaster Hat}}
+|-
+ | id="Plunderer Badge" | {{Badge|Plunderer|link=0|size=64px}}
+ | Plunderer Badge
+ | Open 15 [[Luggage]]s in a single expedition.
+
+* Granted to a player immediately after opening their 15th luggage.
+| {{Item|Accessory Eyepatch|label=Eyepatch|link=Eyepatch}}
+|-
+ | id="Resourcefulness Badge" | {{Badge|Resourcefulness|link=0|size=64px}}
+ | Resourcefulness Badge
+ | Give in to your hunger.
+
+* Requires [[cannibalism]] or eating a {{item|Cooked Bird}} with cannibalism disabled.
+ | {{Item|Mouth Labu|label=Labu Mouth|link=Labu Mouth}}
+|-
+ | id="Survivalist Badge" | {{Badge|Survivalist|link=0|size=64px}}
+ | Survivalist Badge
+ | Escape the [[island]] without ever losing consciousness.
+
+* Losing consciousness for any reason disqualifies you for this badge, not just dying.
+* Granted to each living player who meets the requirement upon escaping the island.
+| {{Item|Scoutmaster Outfit Shorts|link=Scoutmaster Outfit|label=Scoutmaster Outfit}}
+|-
+ | id="Tread Lightly Badge" | {{Badge|Tread Lightly|link=0|size=64px}}
+ | Tread Lightly Badge
+ | Climb past the [[ROOTS]] without ever having more than 25% spores.
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Hat PlagueDoctor|link=Plague Doctor Hat|label=Plague Doctor Hat}}
+{{Item|Fit PlagueDoctor|link=Plague Doctor Outfit|label=Plague Doctor Outfit}}
+|-
+ | id="Toxicology Badge" | {{Badge|Toxicology|link=0|size=64px}}
+ | Toxicology Badge
+ | Restore 200 total {{poison}} by using items.
+
+* Can be completed during the course of multiple expeditions.
+* Healing another player counts to your own badge progress, not theirs.
+* Granted immediately upon reaching the required total.
+ | {{Item|Mouth Vampire|link=Vampire Fangs|label=Vamp}}
+|-
+ | id="Trailblazer Badge" | {{Badge|Trailblazer|link=0|size=64px}}
+ | Trailblazer Badge
+ | Climb past the [[TROPICS]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Pith Helmet|label=Fedora|link=Fedora}}
+|-
+ | id="Ultimate Badge" | {{Badge|Ultimate|link=0|size=64px}}
+ | Ultimate Badge
+ | Catch a {{Item|Flying Disc}} from 100m away.
+
+* Granted upon picking up a qualifying disc.
+* A disc that lands in water is not considered to have touched the ground, allowing the badge to be obtained in a solo expedition.
+| {{Item|Visor}}
+|-
+ | id="Undead Encounter Badge" | {{Badge|Undead Encounter|link=0|size=64px}}
+ | Undead Encounter Badge
+ | Cure yourself from a [[zombie]] bite.
+
+* Granted to a player who is bitten by a zombie after they have {{Spores|0}}.
+| {{Item|Hat Pumpkin|link=Pumpkin Hat|label=Pumpkin Hat}}
+|-
+ | id="Volcanology Badge" | {{Badge|Volcanology|link=0|size=64px}}
+ | Volcanology Badge
+ | Climb past the [[CALDERA]].
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Tropical Outfit Shorts|link=Tropical Outfit|label=Tropical Outfit}}
+|-
+ | id="Web Security Badge" | {{Badge|Web Security|link=0|size=64px}}
+ | Web Security Badge
+ | Escape a [[spider]]'s web and survive.
+
+* Granted to the player immediately upon escaping the web.
+| {{Item|Hat Mummy|link=Mummy Hat|label=Mummy Hat}}
+{{Item|Fit Mummy|link=Mummy Outfit|label=Mummy Outfit}}
+|-
+|}
+
+== Original badges ==
+'''Original badges''' consist of all the badges introduced before the [[Mesa]] update ([[1.20.a]]). Obtaining all the original badges unlocks the {{Item|Hat Crown|link=Crown|label=Crown}}. The original badges take up the first two rows on the Accolades screen, from {{Badge|Participation}} to {{Badge|Endurance}}, inclusive.
+
+{{Collapsible block
+| title = List of the original badges
+| content =
+  {{Hlist
+  | class = inline
+  | {{Badge|Participation}}
+  | {{Badge|Beachcomber}}
+  | {{Badge|Trailblazer}}
+  | {{Badge|Alpinist}}
+  | {{Badge|Volcanology}}
+  | {{Badge|Peak}}
+  | {{Badge|Cooking}}
+  | {{Badge|Happy Camper}}
+  | {{Badge|Bouldering}}
+  | {{Badge|Toxicology}}
+  | {{Badge|Foraging}}
+  | {{Badge|Esoterica}}
+  | {{Badge|Lone Wolf}}
+  | {{Badge|Clutch}}
+  | {{Badge|Balloon}}
+  | {{Badge|Leave No Trace}}
+  | {{Badge|Hasty}}
+  | {{Badge|Bing Bong}}
+  | {{Badge|Naturalist}}
+  | {{Badge|Gourmand}}
+  | {{Badge|Mycology}}
+  | {{Badge|First Aid}}
+  | {{Badge|Survivalist}}
+  | {{Badge|Animal Serenading}}
+  | {{Badge|Arborist}}
+  | {{Badge|Mentorship}}
+  | {{Badge|Knot Tying}}
+  | {{Badge|Emergency Preparedness}}
+  | {{Badge|High Altitude}}
+  | {{Badge|Plunderer}}
+  | {{Badge|Bookworm}}
+  | {{Badge|Endurance}}
+  }}
+}}
+
+== Patch history ==
+{{patch|1.0|
+* Introduced. }}
+{{patch|1.20.a|
+* Added 10 new badges to collect!
+** 24 Karat Badge, Aeronautics Badge, Astronomy Badge, Cool Cucumber Badge, Daredevil Badge, Megaentomology Badge, Needlepoint Badge, Nomad Badge, Resourcefulness Badge, Ultimate Badge. }}
+{{patch|1.30.a|
+* Added Bundled Up Badge. }}
+{{patch|1.40.a|
+* Added 11 new badges to earn, each with associated cosmetics to unlock as rewards! }}
+
+[[Category:PEAK]]</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/styles.css</title>
+    <ns>2</ns>
+    <id>2221</id>
+    <revision><id>6312</id><timestamp>2025-11-10T15:43:59Z</timestamp><text>.badge-list {
+	--gap: 10px;
+}
+
+.badge-list &gt; ul {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	margin: 2px;
+	gap: var(--gap);
+}
+
+.badge-list &gt; ul &gt; li {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+	text-align: center;
+	box-sizing: border-box;
+	flex: max(calc((100% / 8) - var(--gap)), 5em) 1 1;
+	outline: 0px solid var(--wiki-content-link-color);
+	transition: 0.1s ease-in;
+}
+
+.badge-list &gt; ul &gt; li:hover {
+	background-color: color-mix(in srgb, var(--wiki-content-link-color) 20%, transparent);
+}
+
+.badge-list &gt; ul &gt; li:hover a {
+	text-decoration: underline;
+}
+
+.badge-list &gt; ul &gt; li &gt; a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	flex: 1 1 auto;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+.badge-list &gt; ul &gt; li &gt; a:first-child {
+	height: 100%;
+}
+
+.badge-list &gt; ul &gt; li &gt; a:last-child:not(:first-child) {
+	height: unset;
+}
+
+.badge-list.stretch,
+.badge-list.stretch &gt; ul {
+	height: 100%;
+}
+
+.badge-list.side-image li {
+	flex-flow: row nowrap;
+}
+
+.badge-list.plain &gt; ul &gt; li {
+	outline-color: transparent;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/common.css</title>
+    <ns>2</ns>
+    <id>2222</id>
+    <revision><id>6313</id><timestamp>2025-11-10T15:45:47Z</timestamp><text>.badge-list {
+	--gap: 10px;
+}
+
+.badge-list &gt; ul {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	margin: 2px;
+	gap: var(--gap);
+}
+
+.badge-list &gt; ul &gt; li {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+	text-align: center;
+	box-sizing: border-box;
+	flex: max(calc((100% / 8) - var(--gap)), 5em) 1 1;
+	outline: 0px solid var(--wiki-content-link-color);
+	transition: 0.1s ease-in;
+}
+
+.badge-list &gt; ul &gt; li:hover {
+	background-color: color-mix(in srgb, var(--wiki-content-link-color) 20%, transparent);
+}
+
+.badge-list &gt; ul &gt; li:hover a {
+	text-decoration: underline;
+}
+
+.badge-list &gt; ul &gt; li &gt; a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	flex: 1 1 auto;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+.badge-list &gt; ul &gt; li &gt; a:first-child {
+	height: 100%;
+}
+
+.badge-list &gt; ul &gt; li &gt; a:last-child:not(:first-child) {
+	height: unset;
+}
+
+.badge-list.stretch,
+.badge-list.stretch &gt; ul {
+	height: 100%;
+}
+
+.badge-list.side-image li {
+	flex-flow: row nowrap;
+}
+
+.badge-list.plain &gt; ul &gt; li {
+	outline-color: transparent;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Badges/styles.css</title>
+    <ns>2</ns>
+    <id>2224</id>
+    <revision><id>6320</id><timestamp>2025-11-10T16:24:45Z</timestamp><text>.badge-list-title {
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--wiki-content-heading-font-family);
+    font-size: 200%;
+}
+
+.badge-list {
+    --gap: 10px;
+    text-align: center;
+    font-family: var(--wiki-content-heading-font-family);
+    font-size: 130%;
+}
+
+.badge-list &gt; ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin: 2px;
+    gap: var(--gap);
+}
+
+.badge-list &gt; ul &gt; li {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    text-align: center;
+    box-sizing: border-box;
+    flex: max(calc((100% / 8) - var(--gap)), 5em) 1 1;
+    outline: 1px solid var(--wiki-content-text-mix-color);
+    transition: 0.1s ease-in;
+}
+
+.badge-list &gt; ul &gt; li:hover {
+    background-color: color-mix(in srgb, var(--wiki-content-link-color) 20%, transparent);
+    outline: 1px solid var(--wiki-content-link-color);
+}
+
+.badge-list &gt; ul &gt; li:hover a {
+    text-decoration: none;
+    color: var(--wiki-content-link-color);
+}
+
+.badge-list &gt; ul &gt; li &gt; a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    padding: 5px;
+    color: var(--wiki-content-text-color);
+}
+
+.badge-list &gt; ul &gt; li &gt; a:first-child {
+    height: 100%;
+}
+
+.badge-list.stretch,
+.badge-list.stretch &gt; ul {
+    height: 100%;
+}
+
+.badge-list.side-image li {
+    flex-flow: row nowrap;
+}
+
+.badge-list.plain &gt; ul &gt; li {
+    outline-color: transparent;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Food</title>
+    <ns>2</ns>
+    <id>2240</id>
+    <revision><id>6993</id><timestamp>2025-11-17T22:24:26Z</timestamp><text>{{Ambox
+| title = Work-in-progress prototype
+| icon = Steam Emoticon - PEAKpoint.png
+| color = DodgerBlue
+| message = This page is a prototype which will (hopefully) some day replace the old [[Food]] page. Feel free to edit or discuss.
+}}
+__FORCETOC__
+'''Food''' in {{Peak game}} can be consumed to reduce {{Hunger}} or gain {{Bonus}}. Some foods are {{Poison|label=poisonous}}, while others have additional effects, such as healing {{Injury}} or removing {{Heat}}.
+
+Players can forage for various [[#Natural food|natural foods]], such as fruits, [[#Mushrooms|mushrooms]], or find [[#Packaged food|packaged food]] in [[Luggage]].
+
+Food can be [[Cooking|cooked]] to double the amount of [[hunger]] restored and increase its [[bonus stamina]].
+
+The tables below list every food item obtainable in the game, including their nutritional properties, weight, additional effects, and other notes.
+
+== List of food ==
+{| class="wikitable sortable"
+! rowspan="2" class="unsortable" | Icon
+! rowspan="2" | Name
+! rowspan="2" | [[Hunger]]&lt;br&gt;(raw)
+! rowspan="2" | [[Hunger]]&lt;br&gt;(cooked)
+! rowspan="2" | [[Weight]]
+! rowspan="2" | [[Stamina]]&lt;br&gt;(raw)
+! rowspan="2" | [[Stamina]]&lt;br&gt;(cooked)
+! colspan="2" | Hunger-to-weight&lt;br&gt;ratios
+! rowspan="2" | Negatives
+! rowspan="2" class="unsortable" | Biome
+! rowspan="2" | Type
+! rowspan="2" class="unsortable" | Notes
+|-
+! Base !! [[Ascent 3|Ascent 3+]]
+{{#cargo_query:table=Items
+| fields = display, type, hunger, TRIM(hunger)*2=hungerCooked, weight, bonus, -2*TRIM(hunger)/TRIM(weight)=ratioBase, ROUND(-2*TRIM(hunger)/(TRIM(weight)+2.5),2)=ratioAscent3, poison, spores, biome=source, listNotes
+| where = removed IS NULL AND (type HOLDS "Natural food" OR type HOLDS "Mushroom" OR type HOLDS "Berry" OR type HOLDS "Packaged food")
+| format = template
+| template = Food list row
+| named args = yes
+| delimiter = \n
+}}
+|}
+
+== Mystical items ==
+Some [[mystical item]]s may also restore hunger. Consuming any of them does not prevent the {{Badge|Naturalist}} from being obtained in the same expedition.
+* {{Item|Cure-All}}
+* {{Item|Pandora's Lunchbox}}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Template:Food list row/Mushroom</title>
+    <ns>2</ns>
+    <id>2241</id>
+    <revision><id>6494</id><timestamp>2025-11-11T13:00:42Z</timestamp><text>|-
+| class="unsortable" style="text-align:center" | {{Icon|{{{display}}}|size=64px}}
+| style="text-align:center" | [[{{{display}}}]]
+| style="text-align:center" | {{#if:{{{hunger|}}} | {{Hunger|{{{hunger}}}|label=}} | &amp;mdash;}}
+| style="text-align:center" | {{Hunger|{{{hungerCooked}}}|label=}}
+| style="text-align:center" | {{Weight|{{{weight}}}|label=}}
+| style="text-align:center" | {{#if:{{{bonus|}}} | {{Bonus|{{{bonus}}}|label=}} | &amp;mdash;}}
+| style="text-align:center" | {{Bonus|{{#if: {{{bonus}}} | {{#expr: {{{bonus}}} * 1.5}} | 10}}|label=}}
+| style="text-align:center" | {{{ratioBase}}}
+| style="text-align:center" | {{{ratioAscent3}}}
+| style="text-align:center" | {{#if:{{{poison|}}}{{{spores|}}} | {{#if: {{{poison|}}} | {{Poison|{{{poison}}}|label=}}}}{{#if: {{{spores|}}} | {{Spores|{{{spores}}}|label=}}}} | &amp;mdash;}}
+| class="unsortable" | &lt;ul&gt;{{#arraymap:{{{source|}}}|,|@@@@|&lt;li&gt;[[@@@@]]&lt;/li&gt;|}}&lt;/ul&gt;
+| class="unsortable" |
+{{{listNotes|}}}</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox</title>
+    <ns>2</ns>
+    <id>2242</id>
+    <revision><id>6554</id><timestamp>2025-11-11T15:26:48Z</timestamp><text>{| class="wikitable"
+{{Food list row
+| display = Blue Shroomberry
+| type = Natural food, Item, Test
+| hunger = -10
+| hungerCooked = -20
+| weight = 2.5
+| ratioBase = 1
+| ratioAscent3 = 1
+| bonus =
+| source = Tropics
+| listNotes =
+* Note
+| poison = 5
+| spores = 5
+}}
+|-
+{{Food list row
+| display = Blue Shroomberry
+| type = Berry
+| hunger = -10
+| hungerCooked = -20
+| weight = 2.5
+| ratioBase = 1
+| ratioAscent3 = 1
+| bonus =
+| source = Tropics
+| listNotes =
+* Note
+| poison = 5
+}}
+|-
+{{Food list row
+| display = Blue Shroomberry
+| type = Mushroom
+| hunger = -10
+| hungerCooked = -20
+| weight = 2.5
+| ratioBase = 1
+| ratioAscent3 = 1
+| bonus =
+| source = Tropics
+| listNotes =
+* Note
+| spores = 5
+}}
+|-
+{{Food list row
+| display = Blue Shroomberry
+| type = Item
+| hunger = -10
+| hungerCooked = -20
+| weight = 2.5
+| ratioBase = 1
+| ratioAscent3 = 1
+| bonus =
+| source = Tropics
+| listNotes =
+* Note
+}}
+|-
+{{Food list row
+| display = Blue Shroomberry
+| type = Test
+| hunger = -10
+| hungerCooked = -20
+| weight = 2.5
+| ratioBase = 1
+| ratioAscent3 = 1
+| bonus =
+| source = Tropics
+| listNotes =
+* Note
+| poison = -15
+| spores = 10
+}}
+|}</text></revision>
+  </page>
+  <page>
+    <title>User:Kaylenlol</title>
+    <ns>2</ns>
+    <id>2250</id>
+    <revision><id>7491</id><timestamp>2025-12-07T11:59:30Z</timestamp><text>[[Category:Infobox templates]]
+HEYA!!
+
+i love peak and figuring out new features :3{{infobox user
+| Name = itseztic
+| Caption = I LOVE MY BOYFRIEND
+| Joined = August 20th 2025
+| Status = Active
+| Pronouns = He/Him
+| Service = Editor
+| Sash = 6
+| Peaks = 19
+| Badges = Alpinist,Animal Serenading,Arborist,Balloon,Beachcomber,Bing Bong,Bouldering,Cooking,Emergency Preparedness,Endurance,Esoterica,First Aid,Foraging,Gourmand,Happy Camper,High Altitude,Knot Tying,Leave No Trace,Lone Wolf,Mycology,Naturalist,Peak,Plunderer,Speed Climber,Survivalist,Toxicology,Trailblazer,Volcanology,Bookworm,Mentorship,Astronomy,Megaentomology,Cool Cucumber,Aeronautics,Nomad,Sun Hat,Daredevil,Needlepoint,24 Karat,Resourcefulness,Ultimate,Advanced Mycology, Applied Esoterica,Bundled Up,Calcium Intake,Clutch,Cryptogastronomy,Disaster Response,Forestry,Competitive Eating,Mycoacrobatics,Participation,Tread Lightly,Undead Encounter,Web Security
+}}
+meow meow meow :3</text></revision>
+  </page>
+  <page>
+    <title>User:MegaScience</title>
+    <ns>2</ns>
+    <id>2270</id>
+    <revision><id>6847</id><timestamp>2025-11-16T01:49:26Z</timestamp><text>Hello! Yes that's all I've written here.</text></revision>
+  </page>
+  <page>
+    <title>User:PLord</title>
+    <ns>2</ns>
+    <id>2271</id>
+    <revision><id>9719</id><timestamp>2026-08-12T23:57:53Z</timestamp><text>{{infobox user
+| image = 
+| Joined = 24.09.2025
+| Status = around
+| Pronouns = 
+| Service = Editor
+| Discord = plord
+| Languages = 
+| Sash = Mule
+| Best = 
+| Peaks = 12
+| Badges =
+24 Karat:0, Advanced Mycology:0, Aeronautics:0, Alpinist:1, Animal Serenading:1, Applied Esoterica:0,
+Arborist:1, Archery:0, Astronomy:1, Balloon:1, Beachcomber:1, Bellringer:0,
+Bing Bong:1, Bookworm:1, Bouldering:1, Bundled Up:1, Calcium Intake:1, Clutch:1,
+Competitive Eating:0, Cooking:1, Cool Cucumber:1, Cryptogastronomy:0, Daredevil:0, Disaster Response:0,
+Emergency Preparedness:1, Endurance:1, Esoterica:1, Exorcist:0, First Aid:1, Foraging:1,
+Forestry:1, Gourmand:0, Hang Gliding:0, Happy Camper:1, High Altitude:1, Jester:0,
+Knot Tying:1, Last Resort:0, Leave No Trace:1, Lone Wolf:1, Medieval History:0, Megaentomology:0,
+Mentorship:0, Mycoacrobatics:1, Mycology:1, Naturalist:0, Needlepoint:0, Nomad:1,
+Participation:1, Peak:1, Plunderer:1, Resourcefulness:1, Rule Zero:0, Speed Climber:0,
+Survivalist:1, Toxicology:0, Trailblazer:1, Tread Lightly:1, Ultimate:1, Undead Encounter:1,
+Volcanology:1, Wanderer:1, Web Security:1, Well Rested:0
+}}
+Files uploaded by me:
+'''[[Special:ListFiles/PLord|File list]]'''
+All of my subpages:
+{{Special:PrefixIndex/{{FULLPAGENAME}}/|stripprefix=1}}</text></revision>
+  </page>
+  <page>
+    <title>User:MegaScience/sandbox</title>
+    <ns>2</ns>
+    <id>2273</id>
+    <revision><id>6877</id><timestamp>2025-11-16T08:49:14Z</timestamp><text>&lt;div style="--c1: #FF0000; --c2: #FF9900; --c3: #CCFF00; --c4: #33FF00; --c5: #00FF66; --c6: #00FFFF; --c7: #0066FF; --c8: #3300FF; --c9: #CC00FF; --c10: #FF0099; --rb: var(--c1), var(--c2), var(--c3), var(--c4), var(--c5), var(--c6), var(--c7), var(--c8), var(--c9), var(--c10); --tilt: 13deg; --itilt: calc(var(--tilt) * -1); --sb: 10px; --2xsb: calc(var(--sb) * 2); --pos: 0px 0px; font-family: var(--wiki-content-heading-font-family); font-size: 10em; text-align: center; -webkit-text-stroke-width: var(--sb); paint-order: stroke fill; transform: rotate(var(--tilt)); border: var(--2xsb) dashed transparent; border-radius: 100vmax; background-image: linear-gradient(var(--itilt), var(--rb)), linear-gradient(var(--tilt), var(--rb)); background-origin: border-box; background-clip: content-box, border-box; filter: blur(3px) drop-shadow(var(--pos) var(--sb) var(--c1)) drop-shadow(var(--pos) calc(var(--sb) * 2) var(--c2)) drop-shadow(var(--pos) calc(var(--sb) * 3) var(--c3)) drop-shadow(var(--pos) calc(var(--sb) * 4) var(--c4)) drop-shadow(var(--pos) calc(var(--sb) * 5) var(--c5)) drop-shadow(var(--pos) calc(var(--sb) * 6) var(--c6)) drop-shadow(var(--pos) calc(var(--sb) * 7) var(--c7)) drop-shadow(var(--pos) calc(var(--sb) * 8) var(--c8)) drop-shadow(var(--pos) calc(var(--sb) * 9) var(--c9)) drop-shadow(var(--pos) calc(var(--sb) * 10) var(--c10)); opacity: 0.1; pointer-events: none; user-select: none; z-index: -1000;"&gt;'''''&lt;span style="color: var(--c1); -webkit-text-stroke-color: var(--c6);"&gt;T&lt;/span&gt;&lt;span style="color: var(--c2); -webkit-text-stroke-color: var(--c7);"&gt;h&lt;/span&gt;&lt;span style="color: var(--c3); -webkit-text-stroke-color: var(--c8);"&gt;e&lt;/span&gt; &lt;span style="color: var(--c4); -webkit-text-stroke-color: var(--c9);"&gt;S&lt;/span&gt;&lt;span style="color: var(--c5); -webkit-text-stroke-color: var(--c10);"&gt;a&lt;/span&gt;&lt;span style="color: var(--c6); -webkit-text-stroke-color: var(--c1);"&gt;n&lt;/span&gt;&lt;span style="color: var(--c7); -webkit-text-stroke-color: var(--c2);"&gt;d&lt;/span&gt;&lt;span style="color: var(--c8); -webkit-text-stroke-color: var(--c3);"&gt;b&lt;/span&gt;&lt;span style="color: var(--c9); -webkit-text-stroke-color: var(--c4);"&gt;o&lt;/span&gt;&lt;span style="color: var(--c10); -webkit-text-stroke-color: var(--c5);"&gt;x&lt;/span&gt;'''''&lt;/div&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:MegaScience/sandbox/Template:Location</title>
+    <ns>2</ns>
+    <id>2274</id>
+    <revision><id>6873</id><timestamp>2025-11-16T08:13:38Z</timestamp><text>&lt;!--{{#vardefine:whereLC|{{lc:{{{1|undefined}}}}}}}
+{{#switch: {{#var:whereLC}}
+ | airport = [[Airport]]
+ | shore = [[Shore]]
+ | tropics
+ | tropic = [[Tropics]]
+ | roots
+ | root = [[Roots]]
+ | alpine = [[Alpine]]
+ | mesa = [[Mesa]]
+ | caldera = [[Caldera]]
+ | the kiln
+ | kiln = [[The Kiln]]
+ | peak = [[Peak (biome)|Peak (Biome)]]
+ | crash site = [[Shore#Crash Site|Crash Site]]
+ | undefined
+ | #default = &lt;span style="color: red; font-style: italic; border: 1px solid red; border-radius: 20px; padding: 3px;"&gt;Location was invalid.&lt;/span&gt;
+}}--&gt;&lt;includeonly&gt;{{#switch: {{lc:{{{1|undefined}}}}}
+    | airport = [[Airport]]
+    | shore = [[Shore]]
+    | tropics
+    | tropic = [[Tropics]]
+    | roots
+    | root = [[Roots]]
+    | alpine = [[Alpine]]
+    | mesa = [[Mesa]]
+    | caldera = [[Caldera]]
+    | the kiln
+    | kiln = [[The Kiln]]
+    | peak = [[Peak (biome)|Peak (Biome)]]
+    | crash site = [[Shore#Crash Site|Crash Site]]
+    | undefined
+    | #default = &lt;span style="color: red; font-style: italic; border: 1px solid red; border-radius: 20px; padding: 3px;"&gt;Location was invalid.&lt;/span&gt;
+}}&lt;/includeonly&gt;&lt;noinclude&gt;{{Documentation|User:MegaScience/sandbox/Template:Location/doc}}&lt;/noinclude&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:MegaScience/sandbox/Template:Location/doc</title>
+    <ns>2</ns>
+    <id>2276</id>
+    <revision><id>6876</id><timestamp>2025-11-16T08:41:29Z</timestamp><text>'''Template:Location''' creates a link in a unified format directing to a particular [[Locations|location]].
+
+== Parameters ==
+
+{| class="wikitable"
+! Parameter !! Locations !! Example Code !! Example Output !! Notes
+|-
+| 1 || &lt;pre&gt;Airport, Shore, Tropics, Roots, Alpine, Mesa, Caldera, The Kiln, Peak, Crash Site&lt;/pre&gt; || &lt;syntaxhighlight lang="wikitext"&gt;{{Location|Crash Site}}&lt;/syntaxhighlight&gt; || {{#ifeq:{{SUBPAGENAME}}|doc|{{{{#titleparts:{{FULLPAGENAME}}|-1}}|Crash Site}}|{{{{FULLPAGENAME}}|Crash Site}}}} || (Required) &lt;br&gt; A [[Locations|location]] within the game.
+|-
+|}
+
+== Copyable Code ==
+&lt;syntaxhighlight lang="wikitext"&gt;{{Location|LOCATION}}&lt;/syntaxhighlight&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Aw4yland/sandbox/Updates</title>
+    <ns>2</ns>
+    <id>2281</id>
+    <revision><id>6986</id><timestamp>2025-11-17T07:11:19Z</timestamp><text>{| class="wikitable sortable"
+! Version
+! Release date
+{{#invoke:VersionSort|main}}
+|}</text></revision>
+  </page>
+  <page>
+    <title>User:Demosomfolk</title>
+    <ns>2</ns>
+    <id>2286</id>
+    <revision><id>7040</id><timestamp>2025-11-18T14:51:04Z</timestamp><text>bing bong</text></revision>
+  </page>
+  <page>
+    <title>User:Bbiochemist/sandbox/Food</title>
+    <ns>2</ns>
+    <id>2292</id>
+    <revision><id>7127</id><timestamp>2025-11-25T13:12:40Z</timestamp><text>{{Ambox
+| title = Work in progress
+| icon = Steam Emoticon - PEAKpoint.png
+| color = DodgerBlue
+| message = This page is an attempt to rearrange and add contents to the original [[Food]] page.
+}}
+__FORCETOC__
+'''Food''' in {{Peak game}} refers to consumable items that reduce {{Hunger}} and/or add {{Bonus}} when used. [[Equipment#Mystical Items|Mythical Items]] that could pratically reduce {{Hunger}} (e.g. {{Item|Cure-All}}) are ''not'' disscussed here. 
+
+== Usage ==
+Food items can be used by holding {{Key|mouse|left}}'''left click''' while holding in hand. [eating time placeholder, lack of data]. Most foods are single-use, except {{Item|Scout Cookies}}, which have 4 uses in total. The main use of foods is to restore stamina by reducing {{Hunger}}. Most foods reduce certain amount of {{Hunger}}, but some foods, like {{Item|Sports Drink}}, do not. All cooked food and some uncooked food also add {{Bonus}} to [[Stamina bar]].
+
+Some foods, like {{Item|Scorchberry}} and {{Item|Medicinal Root}}, inflict or remove additional [[Stamina bar#Status effects|status effects]]. {{Poison}}, {{Spores}}, {{Heat}}, {{Thorns}} and {{Drowsy}} may be obtained from foods. When a food item 
+
+Some foods have special effects when used. 
+
+The effects of all foods are listed below. 
+
+== Cooking ==
+[[Cooking]] food is a way to improve the food's quality. Cooked food always reduce more {{Hunger}} and add more {{Bonus}} than its uncooked version (if exists). Cooking can also remove hazardous effects, like {{Poison}} or {{Spores}}, from certain foods that have them. So in terms of nutritious values, it's always a good idea to cook the food before eating if available. However, [[Cooking#Cooking stages|overcooking]] could make foods' quality worse by lowering {{Hunger}} values and adding {{Poison}} to them. Certain food like {{Item|Energy Drink}} reacts differently after cooking, which may backfire in some circumstances.
+
+== Sources ==
+Foods can be obtained in two major ways in game: naturally generated in the world or found inside luggages. 
+
+=== Naturally generated ===
+- generation
+
+- special not directly consumable food items
+
+- physcal/interactions
+
+A major source of foods is foraging for foods generated on the [[Island]]. Different types of foods can be found in different [[Biomes]]. Most naturally generated foods, especially [[Berries]], are gerenated in specific locations. For example, [[Crispberry|Crispberries]] only appear in the bushes. The foods' spawn locations are determined by the seed [not confirmed], but the numbers of items (can be 0) are not consistent in different runs.
+
+[y/n table of food-biomes]
+
+{| class="wikitable sortable" style="text-align: center;color:#000000;"
+|+
+!class="unsortable"|
+![[Shore]]
+![[Tropics]]
+![[Roots]]
+![[Alpine]]
+![[Mesa]]
+![[Caldera]]
+![[The Kiln]]
+![[Peak (biome)|Peak]]
+|-
+|{{Item|Half-Coconut}}
+|style='background-color:#ffff44;'|✓
+|style='background-color:#ffff44;'|✓
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ffff44;'|✓
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|-
+|{{Item|Green Crispberry}}
+|style='background-color:#44ff44;'|✓
+|style='background-color:#44ff44;'|✓
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|-
+|{{Item|Red Crispberry}}
+|style='background-color:#44ff44;'|✓
+|style='background-color:#44ff44;'|✓
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|-
+|{{Item|Yellow Crispberry}}
+|style='background-color:#44ff44;'|✓
+|style='background-color:#44ff44;'|✓
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|style='background-color:#ff4444;'|🞪
+|-
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|}
+
+=== Luggages ===
+{| class="wikitable sortable"
+|+
+! rowspan="2" class="unsortable" |
+! rowspan="2" |[[Rarity]]
+! colspan="2" |Spawn Rate
+|-
+![[Regular Luggage|Regular]]/[[Big Luggage]]&lt;br/&gt;(in [[Caldera]]/[[The Kiln]])&lt;ref&gt;The spawn pool of Regular/Big luggages depends on the biome. Some items' spawning rate could have a 2% difference in different biomes. The spawn rate in Caldera/The Kiln is used in this table, since most biome-specific items do not spawn there.&lt;/ref&gt;
+![[Explorer Luggage]]
+|-
+|{{Item|Sports Drink}}
+|Uncommon
+|10.10%
+|N/A
+|-
+|{{Item|Trail Mix}}
+|Uncommon
+|10.10%
+|N/A
+|-
+|{{Item|Energy Drink}}
+|Rare
+|6.10%
+|15.7%
+|-
+|{{Item|Granola Bar}}
+|Rare
+|6.10%
+|N/A
+|-
+|{{Item|Fortified Milk}}
+|Rare
+|6.10%
+|N/A
+|-
+|{{Item|Airline Food}}
+|Legendary
+|3.00%
+|N/A
+|-
+|{{Item|Big Lollipop}}
+|Legendary
+|3.00%
+|7.8%
+|-
+|{{Item|Scout Cookies}}
+|Legendary
+|3.00%
+|N/A
+|}
+
+=== Special ===
+
+== Food types ==
+
+=== Berries ===
+
+=== Mushrooms ===
+
+=== Packaged foods ===
+
+== Food list ==
+
+== Badges ==
+Some [[badges]] are related to foods. Among them, some requires eating a certain set of food in a single expedition, and others restict the type of food the player can eat in the expedition. All food-related badges are listed below.
+{| class="wikitable"
+!Icon
+!Name
+!'''Description'''
+|-
+| id="Advanced_Mycology_Badge" |{{Badge|Advanced Mycology|link=0|size=64px}}
+|Advanced Mycology Badge
+|Try all 5 types of [[Shroomberry]] in a single expedition.
+|-
+|{{Badge|Calcium Intake|link=0|size=64px}}
+|Calcium Intake Badge
+|Block 100 total damage with the [[Fortified Milk]].
+|-
+|{{Badge|Competitive Eating|link=0|size=64px}}
+|Competitive Eating Badge
+|Eat 3 [[Hot Dog|Hot Dogs]] in 5 seconds or less.
+|-
+|{{Badge|Cryptogastronomy|link=0|size=64px}}
+|Cryptogastronomy Badge
+|Cook and eat a [[Mandrake]].
+|-
+|{{Badge|Foraging|link=0|size=64px}}
+|Foraging Badge
+|Eat 5 different berries in one expedition.
+|-
+|{{Badge|Gourmand|link=0|size=64px}}
+|Gourmand Badge
+|Escape the [[island]] after cooking and eating a {{Item|Half-Coconut}}, {{Item|Honeycomb}}, {{Item|Yellow Winterberry}}, and an {{Item|Egg}}.
+|-
+|{{Badge|Mycology|link=0|size=64px}}
+|Mycology Badge
+|Eat four different non-toxic [[Food#Mushrooms|mushrooms]] in a single expedition.
+|-
+|{{Badge|Naturalist|link=0|size=64px}}
+|Naturalist Badge
+|Escape the [[island]] without eating any [[packaged food]].
+|}</text></revision>
+  </page>
+  <page>
+    <title>User:Nicotam</title>
+    <ns>2</ns>
+    <id>2295</id>
+    <revision><id>7082</id><timestamp>2025-11-19T17:34:02Z</timestamp><text>Hi! I'm a random guy changing time to time this wiki.</text></revision>
+  </page>
+  <page>
+    <title>User:BryleBaligad</title>
+    <ns>2</ns>
+    <id>2318</id>
+    <revision><id>7486</id><timestamp>2025-12-06T19:58:09Z</timestamp><text>test</text></revision>
+  </page>
+  <page>
+    <title>User:CameoAppearance</title>
+    <ns>2</ns>
+    <id>2334</id>
+    <revision><id>11867</id><timestamp>2026-09-13T04:53:24Z</timestamp><text>{{Infobox user
+| Name = CameoAppearance
+| Status = Around
+| Pronouns = They/Them
+| Joined = November 8, 2025
+| Service = Editor, Photographer
+| Languages = English
+
+| Sash = 8
+| Best = 47:32
+| Badges = 24 Karat,Advanced Mycology,Aeronautics,Alpinist,Animal Serenading,Applied Esoterica,Arborist,Archery,Astronomy,Balloon,Beachcomber,Bellringer,Bing Bong,Bookworm,Bouldering,Bundled Up,Calcium Intake,Clutch,Competitive Eating,Cool Cucumber,Cooking,Cryptogastronomy,Daredevil,Disaster Response,Emergency Preparedness,Endurance,Esoterica,Exorcist,First Aid,Foraging,Forestry,Gourmand,Hang Gliding,Happy Camper,Hasty,High Altitude,Jester,Knot Tying,Lone Wolf,Leave No Trace,Medieval History,Megaentomology,Mentorship,Mycoacrobatics,Mycology,Naturalist,Needlepoint,Nomad,Participation,Peak,Plunderer,Resourcefulness,Rule Zero,Survivalist,Trailblazer,Toxicology,Tread Lightly,Undead Encounter,Ultimate,Volcanology,Wanderer,Web Security,Well Rested
+}}
+
+I am Cam. Cam I am.
+
+I mostly make small tweaks and elaborations and bring the wiki up to date with my in-game experience, but for the moment I do play PEAK a lot.
+
+= Images =
+&lt;gallery&gt;
+File:Berries2.png|I found two whole bushes of crispberries at the Peak. Here's one of them!
+File:AlpineCrispberries.png|Another berry sighting. Same run.
+File:RootsScorchberry.png|I didn't even know scorchberries could spawn in Roots.
+File:TooManyBeetles.png|Me getting stunlocked by beetles. They only left me alone after accidentally shoving me out of reach.
+File:BouncyMushroomZombie.png|Having a nice time jumping up and down with a zombie, until the wind blew us off and they bit me.
+File:Your backpack cannot help you now.png|Here I am after passing out from a series of falls and then sliding off a ledge while unconscious.
+File:Concert sky in the Mesa.png|The bugleno$ made for some really nice views if you carried it past the Shore.
+File:Concert sky in the Alpine.png|The Alpine looked great with the multicoloured sky.
+File:Hotspring Scorchberries uncropped.png|The rare sight of Scorchberries at the hot spring. Unfortunately we died not long afterwards.
+File:Alpine scorchberries.png|Close-up of the berries.
+File:FaerieLanternLit.png|Me using a Faerie Lantern to burn off a bunch of spores.
+File:Box of Bing Bongs.png|A shipment of Bing Bongs lost in transit.
+File:Clown Luggage.png|Some Clown Luggage lying around in the Alpine.
+File:MulticoloredPeak.png|The beautiful multicolored mountain that appears when the Tropics' grass is purple.
+File:Fireworks.png|I like to set off rocketpacks and watch the fireworks.
+&lt;/gallery&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Foxee3567</title>
+    <ns>2</ns>
+    <id>2406</id>
+    <revision><id>7915</id><timestamp>2026-01-04T11:48:18Z</timestamp><text>Hey there!
+
+I'm Foxee, creator of some of the Category:......... pages in this wiki!
+
+Youtube: https://youtube.com/@foxee3567?si=AgvNgWyWaJRBFUj8</text></revision>
+  </page>
+  <page>
+    <title>User:Hxky</title>
+    <ns>2</ns>
+    <id>2540</id>
+    <revision><id>8416</id><timestamp>2026-02-16T05:14:46Z</timestamp><text>{{Infobox user|Status=Active|Languages=English|Pronouns=They/Them|Service=Editor|Joined=February 14, 2026 {{c|Peak Wiki}}|Sash=8|Badges=24 Karat, Aeronautics, Alpinist, Animal Serenading, Arborist, Astronomy, Balloon, Beachcomber, Bing Bong, Bookworm, Bouldering, Cooking, Cool Cucumber, Daredevil, Emergency Preparedness, Endurance, Esoterica, Foraging, Gourmand, Happy Camper, High Altitude, Knot Tying, Leave No Trace, Lone Wolf, Megaentomology, Mentorship, Mycology, Naturalist, Nomad, Peak, Plunderer, Speed Climber, Survivalist, Toxicology, Trailblazer, Volcanology, Cryptogastronomy, Mycoacrobatics, Tread Lightly, Forestry, Advanced Mycology, Undead Encounter, Web Security, Calcium Intake, Bundled Up, Competitive Eating}}
+Enjoyer of many things, including Peak.</text></revision>
+  </page>
+  <page>
+    <title>User:Lmutt090</title>
+    <ns>2</ns>
+    <id>2553</id>
+    <revision><id>8545</id><timestamp>2026-03-10T17:38:04Z</timestamp><text>I like playing this game quite a bit... If I remember something being able to happen then I will write it down on the wiki page... PLEASE BE SURE TO CHECK MY GRAMMER as I am typically on this wiki while I'm half asleep...
+
+need anything? use the talk page :3</text></revision>
+  </page>
+  <page>
+    <title>User:AKAPEN-POWA</title>
+    <ns>2</ns>
+    <id>2562</id>
+    <revision><id>11065</id><timestamp>2026-08-22T03:23:28Z</timestamp><text>i mostly do things on the to-do list as well as changes i just feel like doing.{{Infobox user
+| Name = AKAPEN_POWA
+| image = AKAPEN_POWA.png
+| Status = around
+| Joined = Jan 28, 2026
+| Service = Editor
+| Discord = akapen_powa
+| Languages = English
+| Sash = 9
+| Best = 45:03
+| Peaks = 44
+| Badges = all
+}}
+
+here's some of the stuff i've done:
+
+-went through every patch notes page and added term links
+
+-added tips to the ascent page
+
+-un-stubbed a few pages
+
+-minor edits to some pages to remove fluff, fix grammar, add details, etc
+
+-added "interpretation" to amulet pages
+
+-made many many redirect pages 
+
+
+
+i try not to completely remove others' work even if it's 'bad.'
+
+also..please be patient with me if i make mistakes...i'm still learning how to do certain things, especially with the editor interface</text></revision>
+  </page>
+  <page>
+    <title>User:EliteDangerGamer-77</title>
+    <ns>2</ns>
+    <id>2566</id>
+    <revision><id>11229</id><timestamp>2026-08-25T21:00:23Z</timestamp><text>Just someone who likes to climb mountains, either by myself or with my friends.{{Infobox user
+| Name = EliteDangerGamer
+| Sash = 9
+| Best = Can't remember precisely, but it was Day 5
+| Peaks = 26
+| Badges = 24 Karat, Aeronautics, Alpinist, Animal Serenading, Arborist, Astronomy, Balloon, Beachcomber, Bing Bong, Bookworm, Bouldering, Clutch, Cooking, Cool Cucumber, Daredevil, Emergency Preparedness, Endurance, Esoterica, First Aid, Foraging, Gourmand, Happy Camper, High Altitude, Knot Tying, Leave No Trace, Lone Wolf, Megaentomology, Mentorship, Mycology, Naturalist, Needlepoint, Nomad, Participation, Peak, Plunderer, Resourcefulness, Speed Climber, Survivalist, Toxicology, Trailblazer, Ultimate, Volcanology, Cryptogastronomy, Mycoacrobatics, Tread Lightly, Competitive Eating, Applied Esoterica, Disaster Response, Forestry, Advanced Mycology, Undead Encounter, Web Security, Calcium Intake, Bundled Up, Rule Zero, Wanderer, Medieval History, Last Resort, Hang Gliding, Hasty, Well Rested, Exorcist
+| Status = Active
+| Aliases = Elite, EDG
+}}</text></revision>
+  </page>
+  <page>
+    <title>User:Minejango2/common.css</title>
+    <ns>2</ns>
+    <id>2589</id>
+    <revision><id>8653</id><timestamp>2026-04-02T16:26:39Z</timestamp><text>:root {
+	--wiki-content-heading-font-family:'Darumadrop One', '빙그레체', 'Gaegu', 'Linux Libertine', 'Georgia', 'Times', serif;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:LittleGhost03/sandbox</title>
+    <ns>2</ns>
+    <id>2607</id>
+    <revision><id>9003</id><timestamp>2026-08-11T01:09:03Z</timestamp><text>{{Main page box/start
+ | title = Next island reset:
+ | style = text-align: center;
+}}&lt;!--
+
+--&gt;&lt;div class="peakTimer-container"&gt;
+	&lt;div class="peakTimer"&gt;&lt;!-- 
+		--&gt;&lt;span class="peakMapClock"&gt;loading...&lt;/span&gt;&lt;!-- 
+--&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;!--
+--&gt;&lt;hr&gt;
+&lt;div class="peakTimerTable" data-biome-variant=""&gt;Today's biomes: &lt;div class=""&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;!--
+
+--&gt;{{Main page box/end}}&lt;noinclude&gt;[[Category:Main page boxes]]&lt;/noinclude&gt;&lt;!-- don't edit this line --&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Alex4401/test</title>
+    <ns>2</ns>
+    <id>2879</id>
+    <revision><id>10397</id><timestamp>2026-08-14T18:59:20Z</timestamp><text>{{Main page box/start
+ | title = Next island reset:
+ | style = text-align: center;
+}}&lt;!--
+
+--&gt;&lt;div class="peakTimer-wrapper" {{#invoke:MapTimer|printAttributes}}&gt;&lt;!--
+	--&gt;&lt;div class="peakTimer-container"&gt;&lt;!--
+		--&gt;&lt;div class="peakTimer"&gt;&lt;!-- 
+			--&gt;&lt;span class="peakMapClock"&gt;loading...&lt;/span&gt;&lt;!-- 
+		--&gt;&lt;/div&gt;&lt;!--
+	--&gt;&lt;/div&gt;&lt;!--
+	--&gt;&lt;hr&gt;&lt;!--
+	--&gt;&lt;div class="peakTimerTable" data-biome-variant="{{Current|map-rotation}}"&gt;&lt;!--
+		--&gt;Today's biomes: &lt;div class="peakTimerLower"&gt;&lt;/div&gt;&lt;!--
+	--&gt;&lt;/div&gt;&lt;!--
+--&gt;&lt;/div&gt;&lt;!--
+
+--&gt;{{Main page box/end}}&lt;noinclude&gt;[[Category:Main page boxes]]&lt;/noinclude&gt;&lt;!-- don't edit this line --&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:Cygnus</title>
+    <ns>2</ns>
+    <id>2893</id>
+    <revision><id>11673</id><timestamp>2026-09-06T07:31:04Z</timestamp><text>{{Infobox user
+| Name = Cygnus
+| Status = around
+| Pronouns = she/her
+| Aliases = Sydney
+| Discord = cygd
+| Sash = 9
+| Best = 23:15
+| Peaks = 171
+| Badges = all
+}}I like PEAK a lot. I have over 200 hours in the game and my hardest completion in it is Ascent 15 from pooblives's 13 Downright Dastardly Ascents mod (Pre-2.0). My favorite item is the rescue claw. :)</text></revision>
+  </page>
+  <page>
+    <title>User:Maskaa</title>
+    <ns>2</ns>
+    <id>3054</id>
+    <revision><id>11301</id><timestamp>2026-08-27T18:44:20Z</timestamp><text>{{Infobox user
+| Status = Active
+| Languages = English, Finnish
+| Pronouns = He/him
+| Joined = August 27th, 2026
+| Sash = 9
+| Badges = all
+}}
+
+I'm pretty new to wiki stuff but like helping out with factuality and language. Please let me know if I happen to make rash edits or break conventions. Feel free to also otherwise message me through the talk page.</text></revision>
+  </page>
+  <page>
+    <title>User:Daxxpurpura</title>
+    <ns>2</ns>
+    <id>3057</id>
+    <revision><id>12029</id><timestamp>2026-09-24T04:59:40Z</timestamp><text>{{infobox user
+| image = DaxxpurpuraPEAK.png
+| Joined = Aug 19, 2026
+| Status = Active
+| Pronouns = He/Him
+| Discord = daxxpurpura
+| Languages = Spanish, English
+| Sash = Scoutmaster
+| Best = {{na}}
+| Peaks = 45
+| Badges = all
+}}
+== English ==
+Hi! I'm Daxx :3
+
+I've been playing {{Peak game}} since July 2025 and I've already got over 400 hours in! &lt;span style="color:gray;"&gt;(Probably half of that was spent testing my mods but whatever)&lt;/span&gt;
+
+I'm a modder and I've created [https://thunderstore.io/c/peak/p/Daxxpurpura/ 4 mods for PEAK], &lt;span style="color:gray;"&gt;although they might be broken because of [[2.0.a|The Final Ascent]] update.&lt;/span&gt; One of them was a submission for the 2025 Halloween Mod-jam and it won 2nd place! I'm also in the process of adding new badges to the [https://thunderstore.io/c/peak/p/Snosz/CommunityBadges/ Community Badges] mod, because in my opinion, with all the new stuff [[2.0.a|The Final Ascent]] brought, there was a lot of potential for many more badges.
+
+I'm "translating" (I'd say adapting) this wiki into Spanish (LatAm), although at a slow pace because I'm doing it all myself :(
+
+== Español ==
+¡Hola! Soy Daxx :3
+
+Empecé a jugar ''[[Peak (game)/es-419|PEAK]]'' desde julio de 2025 y ya tengo más de 400 horas! &lt;span style="color: gray;"&gt;(Probablemente la mitad de ese tiempo me la pasé testeando mis mods pero da igual)&lt;/span&gt;
+
+Soy modder y creé [https://thunderstore.io/c/peak/p/Daxxpurpura/ 4 mods para PEAK], &lt;span style="color: gray;"&gt;aunque puede que estén rotos por la actualización [[2.0.a|El Ascenso Final]].&lt;/span&gt; ¡Uno de ellos participó en la Mod-jam de Halloween de 2025 y ganó el segundo lugar! También estoy en el proceso de añadir nuevas insignias al mod [https://thunderstore.io/c/peak/p/Snosz/CommunityBadges/ Community Badges], ya que en mi opinión, con todas las cosas que añadió [[2.0.a|El Ascenso Final]], había mucho potencial para más insignias.
+
+Estoy "traduciendo" (más bien adaptando) esta wiki al Español (LatAm), aunque a un ritmo lento debido a que lo estoy haciendo solo :(</text></revision>
+  </page>
+  <page>
+    <title>User:LegsTheCat</title>
+    <ns>2</ns>
+    <id>3068</id>
+    <revision><id>11377</id><timestamp>2026-08-29T02:22:09Z</timestamp><text>I'm alive... I think
+
+{{Infobox user
+| Name = LegsTheCat
+| image = LegsTheCatPeak.jpg
+| Status = around
+| Pronouns = He/Him
+| Joined = January 1, 2026
+| Discord = legsthecat
+| Sash = Scoutmaster
+| Peaks = 16
+| Badges = 24 Karat:1, Advanced Mycology:1, Aeronautics:1, Alpinist:1, Animal Serenading:1, Applied Esoterica:1,
+Arborist:1, Archery:1, Astronomy:1, Balloon:1, Beachcomber:1, Bellringer:1,
+Bing Bong:1, Bookworm:1, Bouldering:1, Bundled Up:1, Calcium Intake:1, Clutch:1,
+Competitive Eating:1, Cooking:1, Cool Cucumber:1, Cryptogastronomy:1, Daredevil:1, Disaster Response:1,
+Emergency Preparedness:1, Endurance:1, Esoterica:1, Exorcist:1, First Aid:1, Foraging:1,
+Forestry:1, Gourmand:1, Hang Gliding:1, Happy Camper:1, High Altitude:1, Jester:1,
+Knot Tying:1, Last Resort:1, Leave No Trace:1, Lone Wolf:1, Medieval History:1, Megaentomology:1,
+Mentorship:1, Mycoacrobatics:1, Mycology:1, Naturalist:1, Needlepoint:1, Nomad:1,
+Participation:1, Peak:1, Plunderer:1, Resourcefulness:1, Rule Zero:1, SpeedClimber:1,
+Survivalist:1, Toxicology:1, Trailblazer:1, Tread Lightly:1, Ultimate:1, Undead Encounter:1,
+Volcanology:1, Wanderer:1, Web Security:1, Well Rested:1, Hasty:1
+}}</text></revision>
+  </page>
+  <page>
+    <title>User:Lemondoge1/common.css</title>
+    <ns>2</ns>
+    <id>3145</id>
+    <revision><id>11799</id><timestamp>2026-09-09T21:20:18Z</timestamp><text>.spoiler-content {
+	all: revert;
+}
+.spoiler-content &gt; * {
+	all: revert;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:Afroksilanthi</title>
+    <ns>2</ns>
+    <id>3165</id>
+    <revision><id>12076</id><timestamp>2026-09-27T06:09:42Z</timestamp><text></text></revision>
+  </page>
+  <page>
+    <title>User:TheElm</title>
+    <ns>2</ns>
+    <id>483</id>
+    <revision><id>10534</id><timestamp>2026-08-15T19:45:35Z</timestamp><text>{{Infobox user
+| Name      = Greg
+| Status    = Active
+| Service   =
+| Joined    = &lt;!--
+  Joined wiki.gg
+--&gt;{{#time:M j, Y|September 28th, 2023}}&lt;br/&gt;&lt;sup&gt;(wiki.gg)&lt;/sup&gt;&lt;br/&gt;&lt;!--
+  PEAK wiki
+--&gt;{{#time:M j, Y|July 20th, 2025}}&lt;br/&gt;&lt;sup&gt;(PEAK wiki)&lt;/sup&gt;
+| Languages = English
+| Pronouns  = He/him
+
+| Sash    = 7
+| Peaks   = 59
+| Best    = 42:47
+| Badges  = -Bellringer, -Last Resort
+}}
+{{Ambox
+ |icon = Guidebook Scoutmaster.png
+ |title = Never break rule #0!
+ |message = [[Scoutmaster Myres]] reminds you to never leave a friend behind!
+}}
+
+Hi there! I'm TheElm
+
+I picked up PEAK on June 17th, a day after release! It's a ton of fun and I'm happy that this wiki has come together so stylishly
+
+Never leave a friend behind! &lt;sup&gt;Just use the {{Item|Scoutmaster's Bugle}}&lt;/sup&gt;
+
+=== Personal Peaking Rules ===
+
+&lt;ol start="0"&gt;
+&lt;li&gt;Never leave a friend behind&lt;/li&gt;
+&lt;li&gt;Rule #0 applies to {{Item|Bing Bong}} too!&lt;/li&gt;
+&lt;/ol&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:SavageAlien</title>
+    <ns>2</ns>
+    <id>857</id>
+    <revision><id>2990</id><timestamp>2025-08-26T20:31:49Z</timestamp><text>{{Infobox user
+| Name = Savage Alien
+| Status = Active
+| Service = Administrator, Editor, Templates
+| Languages = English
+}}
+
+Can be contacted on Discord as &lt;code&gt;savagealien&lt;/code&gt; .
+
+* [[Pickaxe]]
+* [[Red Prickleberry]]
+* [[Balloon]]
+* [[Balloon Bunch]]
+* [[Scout Cannon]] 
+* [[Parasol]]
+* [[Sunscreen]]
+* [[Aloe Vera]]
+* [[Dynamite]]
+* [[Ancient Idol]]
+* [[Thorn]]
+* [[Strange Gem]]
+* [[Tomb]]
+* [[Cactus]]
+* [[Scorpion]]</text></revision>
+  </page>
+  <page>
+    <title>User:SavvyBot</title>
+    <ns>2</ns>
+    <id>972</id>
+    <revision><id>2245</id><timestamp>2025-08-20T23:47:22Z</timestamp><text>{{Infobox user
+| Name = SavvyBot
+| Status = bot
+| Languages = English
+}}
+
+Bot account for [[User:SavageAlien]]</text></revision>
+  </page>
+  <page>
+    <title>User:Sonryhenge</title>
+    <ns>2</ns>
+    <id>1341</id>
+    <revision><id>2974</id><timestamp>2025-08-26T14:28:46Z</timestamp><text>Hey, just puttering around here and adding some nice categories. If you disagree with something I've added or changed be sure to let me know on my talk page :)</text></revision>
+  </page>
+  <page>
+    <title>User:RyeLucario</title>
+    <ns>2</ns>
+    <id>1342</id>
+    <revision><id>2975</id><timestamp>2025-08-26T14:34:46Z</timestamp><text>Hi, my name is Rye! And I'm actually a House sparrow, not a Lucario. Old username I registered months ago moment...
+
+I love Peak, and I'm trying to build up as much of the pages still needed as I can for others to build off of. :3</text></revision>
+  </page>
+  <page>
+    <title>User:RayKoopa</title>
+    <ns>2</ns>
+    <id>1493</id>
+    <revision><id>10842</id><timestamp>2026-08-18T19:36:28Z</timestamp><text>{{Infobox user
+| Status = Active
+| image = Frog.png
+| Languages = English
+| Service = Editor
+| Joined = August 30, 2025
+| Sash = 9
+| Best = 0:46:31
+| Peaks = 75
+| Badges = 24 Karat, Advanced Mycology, Aeronautics, Alpinist, Animal Serenading, Applied Esoterica, Arborist, Archery, Astronomy, Balloon, Beachcomber, Bellringer, Bing Bong, Bookworm, Bouldering, Bundled Up, Calcium Intake, Clutch, Competitive Eating, Cooking, Cool Cucumber, Cryptogastronomy, Daredevil, Disaster Response, Emergency Preparedness, Endurance, Esoterica, Exorcist, First Aid, Foraging, Forestry, Gourmand, Hang Gliding, Happy Camper, Hasty, High Altitude, Jester, Knot Tying, Last Resort, Leave No Trace, Lone Wolf, Medieval History, Megaentomology, Mentorship, Mycoacrobatics, Mycology, Naturalist, Needlepoint, Nomad, Participation, Peak, Plunderer, Resourcefulness, Rule Zero, Speed Climber, Survivalist, Toxicology, Trailblazer, Tread Lightly, Ultimate, Undead Encounter, Volcanology, Wanderer, Web Security, Well Rested
+}}</text></revision>
+  </page>
+  <page>
+    <title>User:RSMind12</title>
+    <ns>2</ns>
+    <id>1498</id>
+    <revision><id>9803</id><timestamp>2026-08-13T07:47:40Z</timestamp><text>{{Infobox user
+| image = RS_Mind.png
+| Status = Active
+| Discord = RS_Mind
+| Languages = English
+| Pronouns = He/him
+| Service = Editor
+| Joined = August 19, 2025
+| Sash = 9
+| Badges = all
+}}
+
+I specialize in reading the game's code and comparing the differences in said code between versions. Most of my edits are correcting misinformation based on what I can find there. You can contact me via talk pages or through my Discord: RS_Mind.</text></revision>
+  </page>
+  <page>
+    <title>User:TangeHina/Curse-darkmode.css</title>
+    <ns>2</ns>
+    <id>1512</id>
+    <revision><id>3424</id><timestamp>2025-09-03T12:45:05Z</timestamp><text>body.scout_status_curse img {
+  filter: drop-shadow(0 0 4px #ffffff);
+}</text></revision>
+  </page>
+  <page>
+    <title>User:Thremitt</title>
+    <ns>2</ns>
+    <id>2197</id>
+    <revision><id>5951</id><timestamp>2025-11-07T00:05:34Z</timestamp><text>{{infobox user
+| Status = Active
+| Languages = English,&lt;br&gt;Portuguese (Brazilian)
+| Pronouns = She/Her
+| Joined = October 25th, 2025
+| PEAK Stats = a
+| Sash = 2
+| Badges = Beachcomber, Trailblazer, Forestry, Alpinist, Nomad, Volcanology, Peak, Cooking, Happy Camper, Bouldering, Toxicology, Foraging, Esoterica, Lone Wolf, Bing Bong, First Aid, Survivalist, Animal Serenading, Arborist, Emergency Preparedness, High Altitude, Plunderer, Bookworm, Endurance, Needlepoint, Aeronautics, Daredevil, Tread lightly, Undead Encounter
+}}
+
+I'm a PEAKer with a fairly decent ammount of hours in the game since October 25th, 2025.
+
+You can contact me via Discord (thremit)
+
+== Accomplishments ==
+* Made the page for the [[Rescue Claw]]
+&lt;small&gt; That's it &lt;/small&gt;
+
+== Trivia ==
+* My favorite item is the [[Bugle of Friendship]]
+* I joined on patch {{patch|1.34.a}}
+&lt;small&gt; This is filler &lt;/small&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:TZP</title>
+    <ns>2</ns>
+    <id>2213</id>
+    <revision><id>6176</id><timestamp>2025-11-08T06:29:38Z</timestamp><text>[[File:Modded peaker tzp.png|left|thumb|i love climbing stuff]]</text></revision>
+  </page>
+  <page>
+    <title>User:PLord/sandbox</title>
+    <ns>2</ns>
+    <id>2218</id>
+    <revision><id>8999</id><timestamp>2026-08-10T21:26:40Z</timestamp><text>{{#vardefine:version|{{Current|version}}}}&lt;!--
+--&gt;{{Main page box/start
+ | title = Latest updates
+}}&lt;!--
+
+/ Start - Update grid container for current Season and Patch
+--&gt;&lt;div class="placeholder" style="text-align: center; height: 100%"&gt;&lt;!--
+
+/ Start - Current Patch
+--&gt;&lt;div class="placeholder" style="    display: flex;    width: 100%;    justify-content: center;    height: 100%;    align-content: center;    flex-wrap: wrap; gap: .5rem;"&gt;&lt;!--
+
+	--&gt;&lt;div class="placeholder updateImage" style="align-content: center;"&gt;[[File:Peak Badge.png|32px]]&lt;/div&gt;&lt;!--
+	--&gt;&lt;div class="mplaceholder" style="    display: flex;    align-content: center;    flex-wrap: wrap;&gt;&lt;!--
+		--&gt;&lt;span&gt;&lt;!--
+		
+		--&gt;&lt;big&gt;'''[[{{#var:version}}|Patch {{#var:version}}]]'''&lt;/big&gt; &lt;!--
+		
+		--&gt;({{#time:M j, Y| {{#cargo_query:tables=Versions | fields= Versions.releaseDate | where= Versions.patchVersion="{{#var:version}}"|no html}} }})&lt;!--
+		
+		--&gt;&lt;/span&gt;&lt;!--
+	--&gt;&lt;/div&gt;&lt;!--
+	
+--&gt;&lt;/div&gt;&lt;!-- 
+/ End - Current Patch
+
+--&gt;&lt;/div&gt;&lt;!--
+/ End - Update grid box container
+
+--&gt;{{Main page box/end}}&lt;noinclude&gt;[[Category:Main page boxes]]&lt;/noinclude&gt;&lt;!-- don't edit this line --&gt;
+
+&lt;syntaxhighlight lang="wikitext"&gt;
+{{#vardefine:version|{{Current|version}}}}&lt;!--
+--&gt;{{Main page box/start
+ | title = Latest updates
+}}&lt;!--
+
+/ Start - Update grid container for current Season and Patch
+--&gt;&lt;div class="placeholder" style="text-align: center; height: 100%"&gt;&lt;!--
+
+/ Start - Current Patch
+--&gt;&lt;div class="placeholder" style="    display: flex;    width: 100%;    justify-content: center;    height: 100%;    align-content: center;    flex-wrap: wrap; gap: .5rem;"&gt;&lt;!--
+
+	--&gt;&lt;div class="placeholder updateImage" style="align-content: center;"&gt;[[File:Peak Badge.png|32px]]&lt;/div&gt;&lt;!--
+	--&gt;&lt;div class="mplaceholder" style="    display: flex;    align-content: center;    flex-wrap: wrap;&gt;&lt;!--
+		--&gt;&lt;span&gt;&lt;!--
+		
+		--&gt;&lt;big&gt;'''[[{{#var:version}}|Patch {{#var:version}}]]'''&lt;/big&gt; &lt;!--
+		
+		--&gt;({{#time:M j, Y| {{#cargo_query:tables=Versions | fields= Versions.releaseDate | where= Versions.patchVersion="{{#var:version}}"|no html}} }})&lt;!--
+		
+		--&gt;&lt;/span&gt;&lt;!--
+	--&gt;&lt;/div&gt;&lt;!--
+	
+--&gt;&lt;/div&gt;&lt;!-- 
+/ End - Current Patch
+
+--&gt;&lt;/div&gt;&lt;!--
+/ End - Update grid box container
+
+--&gt;{{Main page box/end}}&lt;noinclude&gt;[[Category:Main page boxes]]&lt;/noinclude&gt;&lt;!-- don't edit this line --&gt;
+&lt;/syntaxhighlight&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:PLord/sandbox/Badges</title>
+    <ns>2</ns>
+    <id>2219</id>
+    <revision><id>6330</id><timestamp>2025-11-10T18:29:59Z</timestamp><text>__NOTOC__
+'''Badges''', also known as '''Accolades''' and '''Achievements''', are granted to players of {{Peak game}} upon completing certain actions. Once obtained, they are displayed on the [[Scout]]'s equipped [[sash]]. Every badge has an associated reward [[cosmetic]] item.
+
+A full list of badges can be viewed in-game on the Accolades screen accessible via the pause menu. Hovering over a badge shows its name and description. Badges which are not yet unlocked are greyed out, with their names replaced with question marks. The player's current [[sash]] and successful expeditions count are also shown.
+
+All badges can be earned under all difficulties, including [[Ascents|Tenderfoot]].{{Confirm}}&lt;!-- What about Undead Encounter? --&gt;
+
+
+{{Main page box/start
+| title = Badges
+| class = centered-content
+}}
+&lt;div class="badge-list"&gt;
+&lt;ul&gt;
+&lt;li&gt;[[File:Participation Badge.png|80px|link=Participation Badge]][[Participation Badge|Participation]]&lt;/li&gt;
+&lt;li&gt;[[File:Beachcomber Badge.png|80px|link=Beachcomber Badge]][[Beachcomber Badge|Beachcomber]]&lt;/li&gt;
+&lt;li&gt;[[File:Trailblazer Badge.png|80px|link=Trailblazer Badge]][[Trailblazer Badge|Trailblazer]]&lt;/li&gt;
+&lt;li&gt;[[File:Alpinist Badge.png|80px|link=Alpinist Badge]][[Alpinist Badge|Alpinist]]&lt;/li&gt;
+&lt;li&gt;[[File:Volcanology Badge.png|80px|link=Volcanology Badge]][[Volcanology Badge|Volcanology]]&lt;/li&gt;
+&lt;li&gt;[[File:Peak Badge.png|80px|link=Peak Badge]][[Peak Badge|Peak]]&lt;/li&gt;
+&lt;li&gt;[[File:Cooking Badge.png|80px|link=Cooking Badge]][[Cooking Badge|Cooking]]&lt;/li&gt;
+&lt;li&gt;[[File:Happy Camper Badge.png|80px|link=Happy Camper Badge]][[Happy Camper Badge|Happy Camper]]&lt;/li&gt;
+&lt;li&gt;[[File:Bouldering Badge.png|80px|link=Bouldering Badge]][[Bouldering Badge|Bouldering]]&lt;/li&gt;
+&lt;li&gt;[[File:Toxicology Badge.png|80px|link=Toxicology Badge]][[Toxicology Badge|Toxicology]]&lt;/li&gt;
+&lt;li&gt;[[File:Foraging Badge.png|80px|link=Foraging Badge]][[Foraging Badge|Foraging]]&lt;/li&gt;
+&lt;li&gt;[[File:Esoterica Badge.png|80px|link=Esoterica Badge]][[Esoterica Badge|Esoterica]]&lt;/li&gt;
+&lt;li&gt;[[File:Lone Wolf Badge.png|80px|link=Lone Wolf Badge]][[Lone Wolf Badge|Lone Wolf]]&lt;/li&gt;
+&lt;li&gt;[[File:Clutch Badge.png|80px|link=Clutch Badge]][[Clutch Badge|Clutch]]&lt;/li&gt;
+&lt;li&gt;[[File:Balloon Badge.png|80px|link=Balloon Badge]][[Balloon Badge|Balloon]]&lt;/li&gt;
+&lt;li&gt;[[File:Leave No Trace Badge.png|80px|link=Leave No Trace Badge]][[Leave No Trace Badge|Leave No Trace]]&lt;/li&gt;
+&lt;li&gt;[[File:Hasty Badge.png|80px|link=Hasty Badge]][[Hasty Badge|Hasty]]&lt;/li&gt;
+&lt;li&gt;[[File:Bing Bong Badge.png|80px|link=Bing Bong Badge]][[Bing Bong Badge|Bing Bong]]&lt;/li&gt;
+&lt;li&gt;[[File:Naturalist Badge.png|80px|link=Naturalist Badge]][[Naturalist Badge|Naturalist]]&lt;/li&gt;
+&lt;li&gt;[[File:Gourmand Badge.png|80px|link=Gourmand Badge]][[Gourmand Badge|Gourmand]]&lt;/li&gt;
+&lt;li&gt;[[File:Mycology Badge.png|80px|link=Mycology Badge]][[Mycology Badge|Mycology]]&lt;/li&gt;
+&lt;li&gt;[[File:First Aid Badge.png|80px|link=First Aid Badge]][[First Aid Badge|First Aid]]&lt;/li&gt;
+&lt;li&gt;[[File:Survivalist Badge.png|80px|link=Survivalist Badge]][[Survivalist Badge|Survivalist]]&lt;/li&gt;
+&lt;li&gt;[[File:Animal Serenading Badge.png|80px|link=Animal Serenading Badge]][[Animal Serenading Badge|Animal Serenading]]&lt;/li&gt;
+&lt;li&gt;[[File:Arborist Badge.png|80px|link=Arborist Badge]][[Arborist Badge|Arborist]]&lt;/li&gt;
+&lt;li&gt;[[File:Mentorship Badge.png|80px|link=Mentorship Badge]][[Mentorship Badge|Mentorship]]&lt;/li&gt;
+&lt;li&gt;[[File:Knot Tying Badge.png|80px|link=Knot Tying Badge]][[Knot Tying Badge|Knot Tying]]&lt;/li&gt;
+&lt;li&gt;[[File:Emergency Preparedness Badge.png|80px|link=Emergency Preparedness Badge]][[Emergency Preparedness Badge|Emergency Preparedness]]&lt;/li&gt;
+&lt;li&gt;[[File:High Altitude Badge.png|80px|link=High Altitude Badge]][[High Altitude Badge|High Altitude]]&lt;/li&gt;
+&lt;li&gt;[[File:Plunderer Badge.png|80px|link=Plunderer Badge]][[Plunderer Badge|Plunderer]]&lt;/li&gt;
+&lt;li&gt;[[File:Bookworm Badge.png|80px|link=Bookworm Badge]][[Bookworm Badge|Bookworm]]&lt;/li&gt;
+&lt;li&gt;[[File:Endurance Badge.png|80px|link=Endurance Badge]][[Endurance Badge|Endurance]]&lt;/li&gt;
+&lt;li&gt;[[File:Nomad Badge.png|80px|link=Nomad Badge]][[Nomad Badge|Nomad]]&lt;/li&gt;
+&lt;li&gt;[[File:Ultimate Badge.png|80px|link=Ultimate Badge]][[Ultimate Badge|Ultimate]]&lt;/li&gt;
+&lt;li&gt;[[File:Cool Cucumber Badge.png|80px|link=Cool Cucumber Badge]][[Cool Cucumber Badge|Cool Cucumber]]&lt;/li&gt;
+&lt;li&gt;[[File:Needlepoint Badge.png|80px|link=Needlepoint Badge]][[Needlepoint Badge|Needlepoint]]&lt;/li&gt;
+&lt;li&gt;[[File:Aeronautics Badge.png|80px|link=Aeronautics Badge]][[Aeronautics Badge|Aeronautics]]&lt;/li&gt;
+&lt;li&gt;[[File:24 Karat Badge.png|80px|link=24 Karat Badge]][[24 Karat Badge|24 Karat]]&lt;/li&gt;
+&lt;li&gt;[[File:Resourcefulness Badge.png|80px|link=Resourcefulness Badge]][[Resourcefulness Badge|Resourcefulness]]&lt;/li&gt;
+&lt;li&gt;[[File:Daredevil Badge.png|80px|link=Daredevil Badge]][[Daredevil Badge|Daredevil]]&lt;/li&gt;
+&lt;li&gt;[[File:Megaentomology Badge.png|80px|link=Megaentomology Badge]][[Megaentomology Badge|Megaentomology]]&lt;/li&gt;
+&lt;li&gt;[[File:Astronomy Badge.png|80px|link=Astronomy Badge]][[Astronomy Badge|Astronomy]]&lt;/li&gt;
+&lt;li&gt;[[File:Bundled Up Badge.png|80px|link=Bundled Up Badge]][[Bundled Up Badge|Bundled Up]]&lt;/li&gt;
+&lt;li&gt;[[File:Forestry Badge.png|80px|link=Forestry Badge]][[Forestry Badge|Forestry]]&lt;/li&gt;
+&lt;li&gt;[[File:Tread Lightly Badge.png|80px|link=Tread Lightly Badge]][[Tread Lightly Badge|Tread Lightly]]&lt;/li&gt;
+&lt;li&gt;[[File:Web Security Badge.png|80px|link=Web Security Badge]][[Web Security Badge|Web Security]]&lt;/li&gt;
+&lt;li&gt;[[File:Undead Encounter Badge.png|80px|link=Undead Encounter Badge]][[Undead Encounter Badge|Undead Encounter]]&lt;/li&gt;
+&lt;li&gt;[[File:Advanced Mycology Badge.png|80px|link=Advanced Mycology Badge]][[Advanced Mycology Badge|Advanced Mycology]]&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;[[File:Disaster Response Badge.png|80px|link=Disaster Response Badge]][[Disaster Response Badge|Disaster Response]]&lt;/li&gt;
+&lt;li&gt;[[File:Calcium Intake Badge.png|80px|link=Calcium Intake Badge]][[Calcium Intake Badge|Calcium Intake]]&lt;/li&gt;
+&lt;li&gt;[[File:Competitive Eating Badge.png|80px|link=Competitive Eating Badge]][[Competitive Eating Badge|Competitive Eating]]&lt;/li&gt;
+&lt;li&gt;[[File:Applied Esoterica Badge.png|80px|link=Applied Esoterica Badge]][[Applied Esoterica Badge|Applied Esoterica]]&lt;/li&gt;
+&lt;li&gt;[[File:Mycoacrobatics Badge.png|80px|link=Mycoacrobatics Badge]][[Mycoacrobatics Badge|Mycoacrobatics]]&lt;/li&gt;
+&lt;li&gt;[[File:Cryptogastronomy Badge.png|80px|link=Cryptogastronomy Badge]][[Cryptogastronomy Badge|Cryptogastronomy]]&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+{{Main page box/end}}
+
+== Badge details ==
+{| class="wikitable sortable"
+ ! class="unsortable" | Icon
+ ! Badge
+ ! class="unsortable" |  Criteria
+ ! Reward
+|-
+ | id="24 Karat Badge" | {{Badge|24 Karat|link=0|size=64px}}
+ | 24 Karat Badge
+ | Offer The [[Kiln]] a worthy sacrifice.
+Steps {{c|contains spoilers}}:
+# {{Spoiler|While in the [[Mesa]], locate the entrance to the [[Tomb]].}}
+#{{Spoiler|Navigate the parkour puzzle and collect the [[Ancient Idol]] at the end.}}
+# {{Spoiler|Carry the idol to the [[Kiln]] where it must be dropped into the lava. All living players receive this badge when the idol is destroyed, regardless of who threw it into the lava.}}
+ | {{Item|Bing Bong Hat|label=Bing Bong Beanie}}
+|-
+ | id="Advanced Mycology Badge" | {{Badge|Advanced Mycology|link=0|size=64px}}
+ | Advanced Mycology Badge
+ | Try all 5 types of [[Shroomberry]] in a single expedition.
+
+* When a player feeds another, the feeding player receives credit towards the badge.
+* Granted immediately upon eating your 5th type.
+| {{Item|Hat Antlers|link=Antlers|label=Antlers}}
+|-
+ | id="Aeronautics Badge" | {{Badge|Aeronautics|link=0|size=64px}}
+ | Aeronautics Badge
+ | Achieve flight.
+
+* Requires a total of six {{Item|Balloon}}s, individual or from {{Item|Balloon Bunch}}.
+** Equip all six balloons and float to receive the badge.
+| {{Item|Astronaut Helmet|link=Astronaut Helmet|label=Astronaut}} &lt;br&gt; {{Item|Astronaut Outfit}}
+|-
+ | id="Alpinist Badge" | {{Badge|Alpinist|link=0|size=64px}}
+ | Alpinist Badge
+ | Climb past the [[ALPINE]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Aviator Cap|link=Aviator Cap|label=Aviator Hat}}
+|-
+ | id="Animal Serenading Badge" | {{Badge|Animal Serenading|link=0|size=64px}}
+ | Animal Serenading Badge
+ | Play the {{Item|Bugle}} for a [[Capybara]].
+
+* Capybaras are found in the [[Alpine]] and [[Mesa]].
+* {{Item|Bugle of Friendship}} or {{Item|Scoutmaster's Bugle}} can also used for this badge.
+ | {{Item|Kril Hat|link=Kril Hat|label=Crab Hat}}
+|-
+ | id="Applied Esoterica Badge" | {{Badge|Applied Esoterica|link=0|size=64px}}
+ | Applied Esoterica Badge
+ | Ressurect a friend using [[The Book of Bones|unholy means]].
+
+* Granted to the player who performs the resurrection
+| {{Item|Fit SkeleOnesie|link=Skeleton Onesie|label=Skeleton Onesie}}
+|-
+ | id="Arborist Badge" | {{Badge|Arborist|link=0|size=64px}}
+ | Arborist Badge
+ | Reach the top of a really big tree.
+
+* Big trees are found in the [[Tropics]].
+* Granted immediately upon reaching the top of the largest bough.
+ | {{Item|Eyes Realistic|link=Realistic Eyes|label=Real Eyes}}
+|-
+ | id="Astronomy Badge" | {{Badge|Astronomy|link=0|size=64px}}
+ | Astronomy Badge
+ | Look a little too closely at the blazing sun.
+
+* Use the {{Item|Binoculars}} to look at the sun in the [[Mesa]].
+ | {{Item|Accessory Matrix Glasses|label=Matrix Glasses|link=Matrix Glasses}}
+|-
+ | id="Balloon Badge" | {{Badge|Balloon|link=0|size=64px}}
+ | Balloon Badge
+ | Escape the [[island]] without taking fall damage.
+
+* Granted to any living players who did not take fall damage, even if they were resurrected during the expedition.
+| {{Item|Russell's Outfit Shorts|link=Russell's Outfit|label=Balloon Outfit}}
+|-
+ | id="Beachcomber Badge" | {{Badge|Beachcomber|link=0|size=64px}}
+ | Beachcomber Badge
+ | Climb past the [[SHORE]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Straw Hat}}
+|-
+ | id="Bing Bong Badge" | {{Badge|Bing Bong|link=0|size=64px}}
+ | Bing Bong Badge
+ | Escape the [[island]] with {{Item|Bing Bong}}.
+
+* All players, alive or dead, earn this Badge when escaping so long as one living player has Bing Bong in their invenroty.
+ | {{Item|Propeller Hat}}
+|-
+ | id="Bookworm Badge" | {{Badge|Bookworm|link=0|size=64px}}
+ | Bookworm Badge
+ | Read all of [[Scoutmaster Myres]]'s journal entries.
+
+* {{Item|Scroll}}s can randomly be found at Campfires. Each subsequent scroll that a player opens will be the next page that the player who opened it requires. If three scrolls have previously been obtained, the journal 4 will be found.
+* Obtained immediately upon opening the final scroll.
+ | {{Item|Accessory Broken Glasses|label=Broken Glasses|link=Broken Glasses}}
+|-
+ | id="Bouldering Badge" | {{Badge|Bouldering|link=0|size=64px}}
+ | Bouldering Badge
+ | Place 10 {{Item|Piton|label=Pitons}}.
+
+* Tracked across multiple expeditions.
+* Granted immediately upon placing your 10th total Piton.
+| {{Item|Eyes Starry|link=Starry Eyes|label=Anime Eyes}}
+|-
+ | id="Bundled Up Badge" | {{Badge|Bundled Up|link=0|size=64px}}
+ | Bundled Up Badge
+ | Climb past the [[ALPINE]] without ever having more than 20% {{Cold}}.
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{item|Fit Ice Blue|link=Ice Blue|label=Ice Blue}} &lt;br&gt; {{item|Fit Ice Pink|link=Ice Pink|label=Ice Pink}}
+|-
+ | id="Calcium Intake Badge" | {{Badge|Calcium Intake|link=0|size=64px}}
+ | Calcium Intake Badge
+ | Block 100 total damage with the [[Fortified Milk]].
+
+* "Damage" refers to any affliction besides {{Weight}}.
+
+* Tracked across multiple expeditions.
+* Granted immediately upon blocking the final required damage.
+| {{Item|Accessory ThirdEye|link=Third Eye|label=Third Eye}}
+|-
+ | id="Clutch Badge" | {{Badge|Clutch|link=0|size=64px}}
+ | Clutch Badge
+ | Revive 3 [[scout]]s in a single expedition.
+* A single player revived multiple times counts multiple times for this badge.
+* Granted immediately upon reviving your third scout.
+ | {{Item|Sailor's Hat|link=Sailor's Hat|label=Sailor Hat}}
+|-
+ | id="Competitive Eating Badge" | {{Badge|Competitive Eating|link=0|size=64px}}
+ | Competitive Eating Badge
+ | Eat 3 [[Hot Dog]]s in 5 seconds or less.
+
+* Granted immediately upon eating the final hot dog.
+| {{Item|Hat DrinkHat|link=Drink Hat|label=Drink Hat}}
+|-
+ | id="Cooking Badge" | {{Badge|Cooking|link=0|size=64px}}
+ | Cooking Badge
+ | Cook 20 meals at campfires.
+
+* Tracked across multiple expeditions.
+* Any item cooked at a campfire adds to the progress for this badge, regardless of if it is edible.
+* Granted immediately upon cooking your 20th item.
+| {{Item|Chef's Hat|link=Chef's Hat|label=Chef Hat}}
+|-
+ | id="Cool Cucumber Badge" | {{Badge|Cool Cucumber|link=0|size=64px}}
+ | Cool Cucumber Badge
+ | Climb past the [[MESA]] without ever having more than 10% {{Heat}}.
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Gallon Hat}}
+{{Item|Cowboy Outfit}}
+ |-
+ | id="Cryptogastronomy Badge" | {{Badge|Cryptogastronomy|link=0|size=64px}}
+ | Cryptogastronomy Badge
+ | Cook and eat a [[Mandrake]].
+
+* Immediately granted to a player who eats or is fed a cooked mandrake.
+| {{Item|Hat Sprout|link=Sprout Hat|label=Sprout Hat}}
+|-
+ | id="Daredevil Badge" | {{Badge|Daredevil|link=0|size=64px}}
+ | Daredevil Badge
+ | Shoot across the [[MESA]] canyon in a {{Item|Scout Cannon}}.
+
+* Immediately granted to a player who lands within the target zone after being launched from the cannon.
+| {{Item|Racing Helmet}}
+|-
+ | id="Disaster Response Badge" | {{Badge|Disaster Response|link=0|size=64px}}
+ | Disaster Response Badge
+ | Pull an unconscious friend 30m with the [[Rescue Claw]].
+
+* Immediately granted to the player using the item.
+| {{Item|Hat ClimbingHelmet|link=Climbing Helmet|label=Climbing Helmet}}
+{{Item|Fit Climber|link=Climber Outfit|label=Climber Outfit}}
+|-
+ | id="Emergency Preparedness Badge" | {{Badge|Emergency Preparedness|link=0|size=64px}}
+ | Emergency Preparedness Badge
+ | Heal an unconscious friend with an item to save them from death.
+
+* Immediately granted upon using an item that reduces an unconscious player's total afflictions below 100.
+* Only applies to direct item applications. Items like the {{Item|Faerie Lantern}} or {{Item|Remedy Fungus}} will not grant this badge.
+| {{Item|Sailor's Outfit Shorts|link=Sailor's Outfit|label=Sailor Outfit}}
+|-
+ | id="Endurance Badge" | {{Badge|Endurance|link=0|size=64px}}
+ | Endurance Badge
+ | Climb 50m upwards without touching the ground.
+
+* Granted immediately upon reaching the 50m mark.
+* The player must climb the full length, grabbing onto a {{Item|Piton}} or other climbing tool qualifies as touching the ground.
+| {{Item|Ninja Headband}}
+|-
+ | id="Esoterica Badge" | {{Badge|Esoterica|link=0|size=64px}}
+ | Esoterica Badge
+ | Obtain a [[mystical item]].
+
+* Granted immediately upon picking up the item.
+| {{Item|Wizard Hat}}
+|-
+ | id="First Aid Badge" | {{Badge|First Aid|link=0|size=64px}}
+ | First Aid Badge
+ | Heal your friends for 100 points of {{Injury}} in a single expedition.
+
+* Granted to the healing player.
+* Only counts direct item applications. Usage of items like the {{Item|Faerie Lantern}} or {{Item|Remedy Fungus}} will not count towards this badge.
+| {{Item|Medic Helmet|link=Medic Helmet|label=Medic Hat}}
+|-
+ | id="Foraging Badge" | {{Badge|Foraging|link=0|size=64px}}
+ | Foraging Badge
+ | Eat 5 different berries in one expedition.
+* Counts unique items, i.e. a {{Item|Green Crispberry}} is considered a different berry from a {{Item|Red Crispberry}}.
+* {{Item|Red Shroomberry|label=Shroomberries}} count towards this badge.
+* Feeding a berry to another scout counts towards your own badge progress, rather than theirs.
+* Granted immediately upon eating the final berry.
+ | {{Item|Mouth Tongue|link=Tongue Mouth|label=Wacky Mouth}}
+|-
+ | id="Forestry Badge" | {{Badge|Forestry|link=0|size=64px}}
+ | Forestry Badge
+ | Climb past the [[ROOTS]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Hat Gnome|link=Gnome Hat|label=Gnome Hat}}
+{{Item|Fit Gnome|link=Gnome Outfit|label=Gnome Outfit}}
+|-
+ | id="Gourmand Badge" | {{Badge|Gourmand|link=0|size=64px}}
+ | Gourmand Badge
+ | Escape the [[island]] after cooking and eating a {{Item|Half-Coconut}}, {{Item|Honeycomb}}, {{Item|Yellow Winterberry}}, and an {{Item|Egg}}.
+
+* Feeding another player one of the required items adds towards your own progress rather than the fed player's.
+* The item must have been cooked at least once by any means. Well-Done, Burnt, and Incinerated items also count towards the badge.
+* Granted upon escaping the island alive after meeting the requirements.
+| {{Item|Mouth Aggro|label=Aggro Mouth|link=Aggro Mouth}} &lt;br&gt; {{Item|Eyes Monster|link=Monster Eyes|label=Aggro Eyes}}
+|-
+ | id="Happy Camper Badge" | {{Badge|Happy Camper|link=0|size=64px}}
+ | Happy Camper Badge
+ | Receive 5 [[Morale Boost|Morale Boosts]] from [[Campfire|campfires]].
+
+* Granted immediately upon receiving the final Morale Boost.
+* Granted to any living player in range.
+| {{Item|School Uniform Shorts|link=School Uniform|label=Cookie Outfit}}
+|-
+ | id="Hasty Badge" | {{Badge|Hasty|link=0|size=64px}}
+ | Hasty Badge
+ | Escape the [[island]] in under an hour.
+* Escaping in an hour ''exactly'' also counts.
+* Granted to all living players at the end of a qualifying expedition.
+ | {{Item|Messenger Cap|link=Messenger Cap|label=Courier Hat}}
+|-
+ | id="High Altitude Badge" | {{Badge|High Altitude|link=0|size=64px}}
+ | High Altitude Badge
+ | Climb 5000m in total.
+
+* A single expedition is {{formatnum:1920}}m.
+* Progress is counted in 5m increments.
+* No progress is given before reaching 25m.
+* Granted immediately upon reaching the required height.
+ | {{Item|Headband|link=Headband|label=Bandana}}
+|-
+ | id="Knot Tying Badge" | {{Badge|Knot Tying|link=0|size=64px}}
+ | Knot Tying Badge
+ | Place 100m of [[rope]] in a single expedition.
+
+* This includes {{Item|Rope Spool}}, {{Item|Anti-Rope Spool}}, {{Item|Rope Cannon}}, and {{Item|Anti-Rope Cannon}}.
+* Both rope spools have 12.5m of rope. Both rope cannons have 7.5m of rope.
+* Granted immediately upon placing the final required rope.
+| {{Item|Accessory Ribbon Bow|link=Ribbon Bow|label=Bow}}
+|-
+ | id="Leave No Trace Badge" | {{Badge|Leave No Trace|link=0|size=64px}}
+ | Leave No Trace Badge
+ | Escape the island without placing anything on the mountain.
+* Avoid using any item that requires being placed or mounted to a surface, including {{Item|Rope Spool}} and {{Item|Rope Cannon}} and their [[Anti-Rope]] variants), {{Item|Piton}}, {{Item|Portable Stove}}, {{Item|Scout Cannon}}, and {{Item|Scout Effigy}}.
+* Thrown items such as the  {{Item|Shelf Fungus}} and {{Item|Magic Bean}} are safe for this achievement.
+* Granted to all living players upon escaping the island if none of the prohibited items were used.
+ | {{Item|Accessory Incognito Face|link=Incognito Face|label=Groucho}}
+|-
+ | id="Lone Wolf Badge" | {{Badge|Lone Wolf|link=0|size=64px}}
+ | Lone Wolf Badge
+ | Escape the [[island]] in a solo expedition.
+ | {{Item|Wolf Ears}}
+|-
+ | id="Megaentomology Badge" | {{Badge|Megaentomology|link=0|size=64px}}
+ | Megaentomology Badge
+ | Survive an [[Antlion]] attack.
+* Requires taking damage from an Antlion and then escaping alive by walking some distance away from the antlion mound.
+ | {{Item|Accessory Scar2|link=Scar 2|label=Scar 2}}
+|-
+ | id="Mentorship Badge" | {{Badge|Mentorship|link=0|size=64px}}
+ | Mentorship Badge
+ | Have a 1-on-1 with the [[Scoutmaster Myres|Scoutmaster]].
+
+* Granted immediately upon being within a certain range of the scoutmaster while holding their aggro.
+| {{Item|Eyes Inverted|label=Inverted Eyes|link=Inverted Eyes}}
+|-
+ | id="Mycoacrobatics Badge" | {{Badge|Mycoacrobatics|link=0|size=64px}}
+ | Mycoacrobatics Badge
+ | Bounce up 40m off a [[Bounce Fungus|mushroom]].
+
+* Works with any mushroom you can bounce off.
+
+* Granted immediately upon bouncing the required height.
+
+* Climbing 40m up a vine or chain after bouncing off a mushroom will also work.
+| {{Item|Hat Fairy|link=Fairy Hat|label=Fairy Hat}}
+{{Item|Fit Fairy|link=Fairy Outfit|label=Fairy Outfit}}
+|-
+ | id="Mycology Badge" | {{Badge|Mycology|link=0|size=64px}}
+ | Mycology Badge
+ | Eat four different non-toxic [[Food#Mushrooms|mushrooms]] in a single expedition.
+
+* Feeding another player counts towards your own count instead of theirs.
+* {{Item|Red Shroomberry|label=Shroomberries}} do not count towards this badge.
+* Granted immediately upon eating the final [[Mushroom]].
+| {{Item|Mushroom Cap|link=Mushroom Cap|label=Mushroom Hat}}
+|-
+ | id="Naturalist Badge" | {{Badge|Naturalist|link=0|size=64px}}
+ | Naturalist Badge
+ | Escape the [[island]] without eating any [[packaged food]].
+* Any [[natural food]] is safe for this badge, including {{Item|Cure-All}}, {{Item|Pandora's Lunchbox}}, {{Item|Marshmallow}}s, and {{Item|Hot Dog}}.
+* Feeding another player counts towards your own badge progress, rather than theirs.
+* Granted to any living players who meet the requirements after escaping the island.
+ | {{Item|Flower Garland|link=Flower Garland|label=Midsummer Hat}}
+|-
+ | id="Needlepoint Badge" | {{Badge|Needlepoint|link=0|size=64px}}
+ | Needlepoint Badge
+ | Have a lot of [[Cactus|Cactuses]] stuck to you.
+
+* Requires sticking five {{Item|Cactus|label=Cacti}} to the player, which will cause loss of consciousness. The cacti can either be picked off at the last moment solo or with the help of other players.
+* A cactus held in hand does not count towards this badge.
+ | {{Item|Sun Hat}}
+|-
+ | id="Nomad Badge" | {{Badge|Nomad|link=0|size=64px}}
+ | Nomad Badge
+ | Climb past the [[MESA]].
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Desert Hat}}
+|-
+ | id="Participation Badge" | {{Badge|Participation|link=0|size=64px}}
+ | Participation Badge
+ | Have a friend escape the [[island]] without you.
+
+* Granted to all dead players upon escaping the island.
+| {{Item|Castaway Outfit Shorts|link=Castaway Outfit|label=Castaway Outfit}}
+|-
+ | id="Peak Badge" | {{Badge|Peak|link=0|size=64px}}
+ | Peak Badge
+ | Reach [[Peak (biome)|The Peak]].
+
+* Granted to all living players upon escaping the island.
+| {{Item|Stetson Hat|link=Stetson Hat|label=Scoutmaster Hat}}
+|-
+ | id="Plunderer Badge" | {{Badge|Plunderer|link=0|size=64px}}
+ | Plunderer Badge
+ | Open 15 [[Luggage]]s in a single expedition.
+
+* Granted to a player immediately after opening their 15th luggage.
+| {{Item|Accessory Eyepatch|label=Eyepatch|link=Eyepatch}}
+|-
+ | id="Resourcefulness Badge" | {{Badge|Resourcefulness|link=0|size=64px}}
+ | Resourcefulness Badge
+ | Give in to your hunger.
+
+* Requires [[cannibalism]] or eating a {{item|Cooked Bird}} with cannibalism disabled.
+ | {{Item|Mouth Labu|label=Labu Mouth|link=Labu Mouth}}
+|-
+ | id="Survivalist Badge" | {{Badge|Survivalist|link=0|size=64px}}
+ | Survivalist Badge
+ | Escape the [[island]] without ever losing consciousness.
+
+* Losing consciousness for any reason disqualifies you for this badge, not just dying.
+* Granted to each living player who meets the requirement upon escaping the island.
+| {{Item|Scoutmaster Outfit Shorts|link=Scoutmaster Outfit|label=Scoutmaster Outfit}}
+|-
+ | id="Tread Lightly Badge" | {{Badge|Tread Lightly|link=0|size=64px}}
+ | Tread Lightly Badge
+ | Climb past the [[ROOTS]] without ever having more than 25% spores.
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Hat PlagueDoctor|link=Plague Doctor Hat|label=Plague Doctor Hat}}
+{{Item|Fit PlagueDoctor|link=Plague Doctor Outfit|label=Plague Doctor Outfit}}
+|-
+ | id="Toxicology Badge" | {{Badge|Toxicology|link=0|size=64px}}
+ | Toxicology Badge
+ | Restore 200 total {{poison}} by using items.
+
+* Can be completed during the course of multiple expeditions.
+* Healing another player counts to your own badge progress, not theirs.
+* Granted immediately upon reaching the required total.
+ | {{Item|Mouth Vampire|link=Vampire Fangs|label=Vamp}}
+|-
+ | id="Trailblazer Badge" | {{Badge|Trailblazer|link=0|size=64px}}
+ | Trailblazer Badge
+ | Climb past the [[TROPICS]].
+
+* Granted to all living players when the campfire at the end is lit, even if they were just revived.
+| {{Item|Pith Helmet|label=Fedora|link=Fedora}}
+|-
+ | id="Ultimate Badge" | {{Badge|Ultimate|link=0|size=64px}}
+ | Ultimate Badge
+ | Catch a {{Item|Flying Disc}} from 100m away.
+
+* Granted upon picking up a qualifying disc.
+* A disc that lands in water is not considered to have touched the ground, allowing the badge to be obtained in a solo expedition.
+| {{Item|Visor}}
+|-
+ | id="Undead Encounter Badge" | {{Badge|Undead Encounter|link=0|size=64px}}
+ | Undead Encounter Badge
+ | Cure yourself from a [[zombie]] bite.
+
+* Granted to a player who is bitten by a zombie after they have {{Spores|0}}.
+| {{Item|Hat Pumpkin|link=Pumpkin Hat|label=Pumpkin Hat}}
+|-
+ | id="Volcanology Badge" | {{Badge|Volcanology|link=0|size=64px}}
+ | Volcanology Badge
+ | Climb past the [[CALDERA]].
+
+* Granted to all living players who meet the requirements when the campfire at the end is lit, even if they were just revived.
+| {{Item|Tropical Outfit Shorts|link=Tropical Outfit|label=Tropical Outfit}}
+|-
+ | id="Web Security Badge" | {{Badge|Web Security|link=0|size=64px}}
+ | Web Security Badge
+ | Escape a [[spider]]'s web and survive.
+
+* Granted to the player immediately upon escaping the web.
+| {{Item|Hat Mummy|link=Mummy Hat|label=Mummy Hat}}
+{{Item|Fit Mummy|link=Mummy Outfit|label=Mummy Outfit}}
+|-
+|}
+
+== Original badges ==
+'''Original badges''' consist of all the badges introduced before the [[Mesa]] update ([[1.20.a]]). Obtaining all the original badges unlocks the {{Item|Hat Crown|link=Crown|label=Crown}}. The original badges take up the first two rows on the Accolades screen, from {{Badge|Participation}} to {{Badge|Endurance}}, inclusive.
+
+{{Collapsible block
+| title = List of the original badges
+| content =
+  {{Hlist
+  | class = inline
+  | {{Badge|Participation}}
+  | {{Badge|Beachcomber}}
+  | {{Badge|Trailblazer}}
+  | {{Badge|Alpinist}}
+  | {{Badge|Volcanology}}
+  | {{Badge|Peak}}
+  | {{Badge|Cooking}}
+  | {{Badge|Happy Camper}}
+  | {{Badge|Bouldering}}
+  | {{Badge|Toxicology}}
+  | {{Badge|Foraging}}
+  | {{Badge|Esoterica}}
+  | {{Badge|Lone Wolf}}
+  | {{Badge|Clutch}}
+  | {{Badge|Balloon}}
+  | {{Badge|Leave No Trace}}
+  | {{Badge|Hasty}}
+  | {{Badge|Bing Bong}}
+  | {{Badge|Naturalist}}
+  | {{Badge|Gourmand}}
+  | {{Badge|Mycology}}
+  | {{Badge|First Aid}}
+  | {{Badge|Survivalist}}
+  | {{Badge|Animal Serenading}}
+  | {{Badge|Arborist}}
+  | {{Badge|Mentorship}}
+  | {{Badge|Knot Tying}}
+  | {{Badge|Emergency Preparedness}}
+  | {{Badge|High Altitude}}
+  | {{Badge|Plunderer}}
+  | {{Badge|Bookworm}}
+  | {{Badge|Endurance}}
+  }}
+}}
+
+== Patch history ==
+{{patch|1.0|
+* Introduced. }}
+{{patch|1.20.a|
+* Added 10 new badges to collect!
+** 24 Karat Badge, Aeronautics Badge, Astronomy Badge, Cool Cucumber Badge, Daredevil Badge, Megaentomology Badge, Needlepoint Badge, Nomad Badge, Resourcefulness Badge, Ultimate Badge. }}
+{{patch|1.30.a|
+* Added Bundled Up Badge. }}
+{{patch|1.40.a|
+* Added 11 new badges to earn, each with associated cosmetics to unlock as rewards! }}
+
+[[Category:PEAK]]</text></revision>
+  </page>
+  <page>
+    <title>User:PLord/sandbox/Badges/styles.css</title>
+    <ns>2</ns>
+    <id>2225</id>
+    <revision><id>6332</id><timestamp>2025-11-10T18:30:01Z</timestamp><text>.badge-list {
+    --gap: 10px;
+    text-align: center;
+    font-family: var(--wiki-content-heading-font-family);
+    font-size: 130%;
+}
+
+.badge-list &gt; ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 2px;
+    gap: var(--gap);
+}
+
+.badge-list &gt; ul &gt; li {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    flex: max(calc((100% / 9) - var(--gap)), 5em) 1 1;
+    transition: 0.1s ease-in;
+}
+
+.badge-list &gt; ul &gt; li:hover {
+    background-color: color-mix(in srgb, var(--wiki-content-link-color) 20%, transparent);
+}
+
+.badge-list &gt; ul &gt; li:hover a {
+    text-decoration: none;
+    color: var(--wiki-content-link-color);
+}
+
+.badge-list &gt; ul &gt; li &gt; a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    padding: 5px;
+    color: var(--wiki-content-text-color);
+}
+
+.badge-list &gt; ul &gt; li &gt; a:first-child {
+    height: 100%;
+}
+
+.badge-list.stretch,
+.badge-list.stretch &gt; ul {
+    height: 100%;
+}
+
+.badge-list.side-image li {
+    flex-flow: row nowrap;
+}
+
+.badge-list.plain &gt; ul &gt; li {
+    outline-color: transparent;
+}</text></revision>
+  </page>
+  <page>
+    <title>User:PLord/sandbox/badge box demo/styles.css</title>
+    <ns>2</ns>
+    <id>2227</id>
+    <revision><id>10384</id><timestamp>2026-08-14T17:37:22Z</timestamp><text></text></revision>
+  </page>
+  <page>
+    <title>User:RSMind12/sandbox</title>
+    <ns>2</ns>
+    <id>2308</id>
+    <revision><id>11055</id><timestamp>2026-08-22T01:00:57Z</timestamp><text>local p = {}
+
+local SLOTS = {
+	Regular = {{n = 1, q = 2/3}, {n = 2, q = 1/3}},
+	Big     = {{n = 2, q = 2/3}, {n = 3, q = 1/3}},
+	["Explorer's"] = {{n = 2, q = 1}},
+	-- (not needed for Ancient Luggage and Statue)
+	Clown   = {{n = 6, q = 1}},
+}
+-- n: number of slots
+-- q: probability of those slots being selected
+
+local NO_DUPES = { Regular = true, Big = true }
+
+-- tab order
+local BIOMES = { "Shore", "Tropics", "Roots", "Alpine", "Mesa", "Caldera/Kiln", "Gloom/Citadel" }
+
+-- DATA
+-- Regular and Big Luggage, grouped by biome:
+local REGULAR_LUGGAGE_ITEMS = {
+
+	Shore = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Tropics = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Antidote", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Lantern", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Roots = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Antidote", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Parasol", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Alpine = {
+		{ "Heat Pack", 100 },
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Lantern", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	Mesa = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Sunscreen", 20 },
+		{ "Parasol", 20 },
+		{ "Airline Food", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Dynamite", 15 },
+		{ "Portable Stove", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Big Lollipop", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	["Caldera/Kiln"] = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+		{ "Pirate's Compass", 3 },
+	},
+
+	["Gloom/Citadel"] = {
+		{ "Bandages", 50 },
+		{ "Sports Drink", 50 },
+		{ "Trail Mix", 50 },
+		{ "Candlestick", 50 },
+		{ "Energy Drink", 35 },
+		{ "Granola Bar", 35 },
+		{ "Rope Spool", 35 },
+		{ "Balloon", 20 },
+		{ "First Aid Kit", 20 },
+		{ "Fortified Milk", 20 },
+		{ "Piton", 20 },
+		{ "Airline Food", 15 },
+		{ "Big Lollipop", 15 },
+		{ "Chain Launcher", 15 },
+		{ "Fanny Pack", 15 },
+		{ "Flare", 15 },
+		{ "Rescue Claw", 15 },
+		{ "Rope Cannon", 15 },
+		{ "Scout Cookies", 15 },
+		{ "Balloon Bunch", 6 },
+		{ "Blowgun", 6 },
+		{ "Checkpoint Flag", 6 },
+		{ "Glider", 6 },
+		{ "Jetpack", 6 },
+		{ "Rocketpack", 6 },
+		{ "Scout Cannon", 6 },
+	},
+}
+
+-- Explorer's Luggage
+local EXPLORERS_LUGGAGE_ITEMS = {
+	{ "Energy Drink", 35 },
+	{ "Rope Spool", 35 },
+	{ "First Aid Kit", 20 },
+	{ "Piton", 23 },
+	{ "Chain Launcher", 15 },
+	{ "Fanny Pack", 15 },
+	{ "Glider", 6 },
+	{ "Jetpack", 6 },
+	{ "Rescue Claw", 15 },
+	{ "Rope Cannon", 15 },
+}
+
+-- Ancient Luggage
+local ANCIENT_LUGGAGE_ITEMS = {
+	{ "Anti-Rope Cannon", 15 },
+	{ "Anti-Rope Spool", 15 },
+	{ "Anti-Zooka", 15 },
+	{ "Book of Bones", 15 },
+	{ "Bugle of Friendship", 15 },
+	{ "Cure-All", 15 },
+	{ "Cursed Skull", 15 },
+	{ "Faerie Lantern", 15 },
+	{ "Pandora's Lunchbox", 15 },
+	{ "Ritual Dagger", 15 },
+	{ "Scout Effigy", 15 },
+	{ "Scoutmaster's Bugle", 6 },
+}
+
+-- Clown Luggage
+local CLOWN_LUGGAGE_ITEMS = {
+	{ "Yellow Berrynana Peel", 50 },
+	{ "Balloon", 20 },
+	{ "Bugle", 20 },
+	{ "Parasol", 20 },
+	{ "Big Lollipop", 15 },
+	{ "Dynamite", 15 },
+	{ "Balloon Bunch", 6 },
+	{ "Rocketpack", 6 },
+	{ "Scout Cannon", 6 },
+}
+
+-- Ancient Statue
+local ANCIENT_STATUE_ITEMS = {
+	{ "Anti-Rope Cannon", 15 },
+	{ "Anti-Rope Spool", 15 },
+	{ "Anti-Zooka", 15 },
+	{ "Book of Bones", 15 },
+	{ "Bugle of Friendship", 15 },
+	{ "Cure-All", 15 },
+	{ "Faerie Lantern", 15 },
+	{ "Pandora's Lunchbox", 15 },
+	{ "Ritual Dagger", 15 },
+	{ "Scout Effigy", 15 },
+	{ "Scoutmaster's Bugle", 6 },
+}
+
+
+-- MATH
+local function totalChancePercent(pPercent, slotsDist)
+	local pFrac = pPercent / 100
+	local total = 0
+	for _, slot in ipairs(slotsDist) do
+		total = total + slot.q * (1 - (1 - pFrac) ^ slot.n)
+	end
+	return total * 100
+end
+
+local function averagePerBox(pPercent, slotsDist)
+	local pFrac = pPercent / 100
+	local expectedN = 0
+	for _, slot in ipairs(slotsDist) do
+		expectedN = expectedN + slot.q * slot.n
+	end
+	return pFrac * expectedN
+end
+
+
+local function probItemInNDraws(itemsWithWeights, itemIndex, totalWeight, n)
+	local wi = itemsWithWeights[itemIndex][2]
+	local T = totalWeight
+
+	if n &lt;= 0 then
+		return 0
+	end
+
+	local prob = wi / T
+
+	if n &gt;= 2 then
+		for j, itemJ in ipairs(itemsWithWeights) do
+			if j ~= itemIndex then
+				local wj = itemJ[2]
+				prob = prob + (wj / T) * (wi / (T - wj))
+			end
+		end
+	end
+
+	if n &gt;= 3 then
+		for j, itemJ in ipairs(itemsWithWeights) do
+			if j ~= itemIndex then
+				local wj = itemJ[2]
+				for l, itemL in ipairs(itemsWithWeights) do
+					if l ~= itemIndex and l ~= j then
+						local wl = itemL[2]
+						prob = prob + (wj / T) * (wl / (T - wj)) * (wi / (T - wj - wl))
+					end
+				end
+			end
+		end
+	end
+	return prob
+end
+
+local function totalChancePercentNoDupes(itemsWithWeights, itemIndex, totalWeight, slotsDist)
+	local total = 0
+	for _, slot in ipairs(slotsDist) do
+		total = total + slot.q * probItemInNDraws(itemsWithWeights, itemIndex, totalWeight, slot.n)
+	end
+	return total * 100
+end
+
+
+-- FORMATTING
+local function trimZeros(s)
+	if s:find("%.") then
+		s = s:gsub("0+$", ""):gsub("%.$", "")
+	end
+	return s
+end
+
+local function fmtPercent(x, decimals)
+	return trimZeros(string.format("%." .. decimals .. "f", x)) .. "%"
+end
+
+
+-- TABLE BUILDING
+local function sortByChance(items)
+	local sorted = {}
+	for i, item in ipairs(items) do
+		sorted[i] = item
+	end
+	table.sort(sorted, function(a, b)
+		if a[2] ~= b[2] then
+			return a[2] &gt; b[2]
+		end
+		return a[1] &lt; b[1]
+	end)
+	return sorted
+end
+
+-- notes (refs) for column headers.
+local NOTE_CHANCE_PER_SLOT = "Item spawn odds per luggage slot."
+local NOTE_TOTAL_CHANCE_NO_DUPES = "Chance of the item appearing in the box, accounting for the number of slots the box can have and the changing pool of items (no duplicates in Regular and Big Luggage)."
+local NOTE_TOTAL_CHANCE = "Chance of at least one copy of the item appearing in the box, accounting for the number of slots the box has."
+local NOTE_COUNT_PER_BOX = "Average number of copies found per box, accounting for the number of slots the box can have."
+
+local REF_GROUP = "n"
+
+local function headerWithNote(frame, label, refName, noteText, showNotes, dim)
+	local labelHtml = label
+	if dim then
+		labelHtml = '&lt;span style="opacity: 0.7;"&gt;' .. label .. "&lt;/span&gt;"
+	end
+	if not showNotes then
+		return labelHtml
+	end
+	local refHtml = frame:extensionTag{ name = "ref", args = { name = refName, group = REF_GROUP }, content = noteText }
+	return labelHtml .. refHtml
+end
+
+-- build for luggages that CAN roll duplicates (Explorer's, Clown)
+-- shows Chance per slot, Total chance, and Avg. count per box
+local function buildFullTable(frame, items, slotsDist, caption, showNotes)
+	local sorted = sortByChance(items)
+
+	local out = { '{| class="wikitable sortable mw-collapsible"' }
+	if caption then table.insert(out, "|+ " .. caption) end
+
+	local header = '! style="min-width: 130px;" | Item'
+		.. " !! " .. headerWithNote(frame, "Chance per slot", "cps", NOTE_CHANCE_PER_SLOT, showNotes, true)
+		.. " !! " .. headerWithNote(frame, "Total chance", "tot", NOTE_TOTAL_CHANCE, showNotes, false)
+		.. " !! " .. headerWithNote(frame, "Avg. count per box", "apb", NOTE_COUNT_PER_BOX, showNotes, false)
+	table.insert(out, header)
+
+	for _, item in ipairs(sorted) do
+		local name, chance = item[1], item[2]
+		local itemCell = frame:expandTemplate{ title = "Item", args = { name } }
+		table.insert(out, "|-")
+		table.insert(out, "| " .. itemCell)
+		table.insert(out, '| &lt;span style="opacity: 0.7;"&gt;' .. fmtPercent(chance, 1) .. "&lt;/span&gt;")
+		table.insert(out, "| " .. fmtPercent(totalChancePercent(chance, slotsDist), 2))
+		table.insert(out, "| " .. trimZeros(string.format("%.2f", averagePerBox(chance, slotsDist))))
+	end
+	table.insert(out, "|}")
+	return table.concat(out, "\n")
+end
+
+-- build for luggages that CANNOT roll duplicates (Regular, Big)
+-- shows Chance per slot and Total chance
+local function buildFullTableNoDupes(frame, items, slotsDist, caption, showNotes)
+	local sorted = sortByChance(items)
+	local totalWeight = 0
+	for _, item in ipairs(sorted) do
+		totalWeight = totalWeight + item[2]
+	end
+
+	local out = { '{| class="wikitable sortable mw-collapsible"' }
+	if caption then table.insert(out, "|+ " .. caption) end
+
+	local header = '! style="min-width: 130px;" | Item'
+		.. " !! " .. headerWithNote(frame, "Chance per slot", "cps", NOTE_CHANCE_PER_SLOT, showNotes, true)
+		.. " !! " .. headerWithNote(frame, "Total chance", "tot-nodupe", NOTE_TOTAL_CHANCE_NO_DUPES, showNotes, false)
+	table.insert(out, header)
+
+	for i, item in ipairs(sorted) do
+		local name, chance = item[1], item[2]
+		local itemCell = frame:expandTemplate{ title = "Item", args = { name } }
+		table.insert(out, "|-")
+		table.insert(out, "| " .. itemCell)
+		table.insert(out, '| &lt;span style="opacity: 0.7;"&gt;' .. fmtPercent(chance, 1) .. "&lt;/span&gt;")
+		table.insert(out, "| " .. fmtPercent(totalChancePercentNoDupes(sorted, i, totalWeight, slotsDist), 2))
+	end
+	table.insert(out, "|}")
+	return table.concat(out, "\n")
+end
+
+-- item exclusion based on number of players for Ancient Luggage/Statue
+local function excludeAndRenormalize(items, excludeNames)
+	local excludeSet = {}
+	for _, name in ipairs(excludeNames) do
+		excludeSet[name] = true
+	end
+
+	local totalWeight, excludedWeight = 0, 0
+	for _, item in ipairs(items) do
+		totalWeight = totalWeight + item[2]
+		if excludeSet[item[1]] then
+			excludedWeight = excludedWeight + item[2]
+		end
+	end
+
+	local out = {}
+	for _, item in ipairs(items) do
+		if not excludeSet[item[1]] then
+			table.insert(out, { item[1], item[2] / (totalWeight - excludedWeight) * 100 })
+		end
+	end
+	return out
+end
+
+-- build for Ancient Luggage/Statue 
+-- shows Item and Chance
+local function buildAncientTable(frame, items, caption)
+	local out = {
+		'{| class="wikitable sortable mw-collapsible"',
+		"|+ " .. caption,
+		'! style="min-width: 130px;" | Item !! Chance',
+	}
+	for _, item in ipairs(sortByChance(items)) do
+		local name, chance = item[1], item[2]
+		local itemCell = frame:expandTemplate{ title = "Item", args = { name } }
+		table.insert(out, "|-")
+		table.insert(out, "| " .. itemCell)
+		table.insert(out, "| " .. fmtPercent(chance, 1))
+	end
+	table.insert(out, "|}")
+	return table.concat(out, "\n")
+end
+
+-- Solo/Co-op tabs for Ancients (Co-op shown first / default tab)
+local function buildAncientTabbedTable(frame, items, caption, excludeNames)
+	local solo = excludeAndRenormalize(items, excludeNames)
+
+	local out = { "&lt;tabber&gt;" }
+	table.insert(out, "Co-op=")
+	table.insert(out, buildAncientTable(frame, items, caption .. " Items - Co-op"))
+	table.insert(out, "|-|")
+	table.insert(out, "Solo=")
+	table.insert(out, buildAncientTable(frame, solo, caption .. " Items - Solo"))
+	table.insert(out, "&lt;/tabber&gt;")
+	return table.concat(out, "\n")
+end
+
+-- biome tabs for Regular/Big
+local function buildTabbedTable(frame, luggageType, caption, showNotes)
+	local slotsDist = SLOTS[luggageType]
+	local out = { "&lt;tabber&gt;" }
+	for i, biome in ipairs(BIOMES) do
+		if i &gt; 1 then table.insert(out, "|-|") end
+		table.insert(out, biome .. "=")
+		table.insert(out, buildFullTableNoDupes(frame, REGULAR_LUGGAGE_ITEMS[biome], slotsDist, caption .. " Luggage Items - " .. biome, showNotes))
+	end
+	table.insert(out, "&lt;/tabber&gt;")
+	return table.concat(out, "\n")
+end
+
+-- REQUEST FUNCTIONS
+local BUILDERS = {
+	regular = { needsPreprocess = true, run = function(frame, showNotes) return buildTabbedTable(frame, "Regular", "Regular", showNotes) end },
+	big = { needsPreprocess = true, run = function(frame, showNotes) return buildTabbedTable(frame, "Big", "Big", showNotes) end },
+	["explorer's"] = { needsPreprocess = false, run = function(frame, showNotes) return buildFullTable(frame, EXPLORERS_LUGGAGE_ITEMS, SLOTS["Explorer's"], "Explorer's Luggage Items", showNotes) end },
+	clown = { needsPreprocess = false, run = function(frame, showNotes) return buildFullTable(frame, CLOWN_LUGGAGE_ITEMS, SLOTS.Clown, "Clown Luggage Items", showNotes) end },
+	ancient = { needsPreprocess = true, run = function(frame) return buildAncientTabbedTable(frame, ANCIENT_LUGGAGE_ITEMS, "Ancient Luggage", { "Ritual Dagger", "Cursed Skull", "Scout Effigy", "Bugle of Friendship" }) end },
+	["ancient statue"] = { needsPreprocess = true, run = function(frame) return buildAncientTabbedTable(frame, ANCIENT_STATUE_ITEMS, "Ancient Statue", { "Ritual Dagger", "Scout Effigy", "Bugle of Friendship" }) end },
+}
+
+function p.main(frame)
+	local args = frame.args
+	if not args[1] and frame:getParent() then
+		args = frame:getParent().args
+	end
+
+	local ltype = args[1] and mw.text.trim(args[1])
+	if not ltype or ltype == "" then
+		return '&lt;strong class="error"&gt;Loot table: give a type, e.g. {{Loot table|Regular Luggage}}&lt;/strong&gt;'
+	end
+
+	-- case-insensitive. Luggage types require a trailing "luggage", e.g. "Regular Luggage",
+	-- "regular luggage", "Ancient Luggage". "Ancient Statue" is not a luggage and is called
+	-- without that suffix, e.g. {{Loot table|Ancient Statue}}.
+	local lowered = ltype:lower()
+	local key
+	if lowered == "ancient statue" then
+		key = lowered
+	elseif lowered:match("^ancient statue%s+luggage$") then
+		key = nil -- "Ancient Statue" is not a luggage; reject the "...Luggage" form
+	else
+		local stripped, hadLuggage = lowered:gsub("%s*luggage%s*$", "")
+		stripped = mw.text.trim(stripped)
+		key = (hadLuggage &gt; 0 and stripped ~= "") and stripped or nil
+	end
+
+	local entry = key and BUILDERS[key]
+	if not entry then
+		return '&lt;strong class="error"&gt;Loot table: unknown type "' .. ltype .. "\" (Regular Luggage, Big Luggage, Explorer's Luggage, Clown Luggage, Ancient Luggage, Ancient Statue)&lt;/strong&gt;"
+	end
+
+	-- "notes=false" disables (foot)notes for that table call
+	local notesArg = args.notes and mw.text.trim(args.notes):lower()
+	local showNotes = notesArg ~= "false"
+
+	local result = entry.run(frame, showNotes)
+
+	if entry.needsPreprocess then
+		return frame:preprocess(result)
+	end
+	return result
+end
+
+return p</text></revision>
+  </page>
+  <page>
+    <title>User:Vaughnpeak</title>
+    <ns>2</ns>
+    <id>2311</id>
+    <revision><id>7446</id><timestamp>2025-12-02T22:19:24Z</timestamp><text>{{Infobox user
+| Status = Active
+| Languages = English
+| Pronouns = He/him
+| Service = Editor
+| Joined = December 2, 2025
+| Sash   = 1
+| Badges = Beachcomber, Esoterica, Trailblazer, Happy Camper, Volcanology, High Altitude, First Aid, Plunderer, Cooking, Foraging, Nomad, Animal Serenading, Forestry, Web Security, Daredevil 
+}}
+
+I like peak - I am a newbie.</text></revision>
+  </page>
+  <page>
+    <title>User:Pulse daemon/sandbox</title>
+    <ns>2</ns>
+    <id>2366</id>
+    <revision><id>7765</id><timestamp>2025-12-25T21:01:17Z</timestamp><text>{{Infobox_item/sandbox|Uses=3|UseTime=4}}
+
+{{Infobox_item/sandbox|Uses=3}}
+{{Infobox_item/sandbox|UseTime=5|Curse=25|Hunger=25|Bonus=40|CurseCooked=-25|HungerCooked=50}}
+{{Infobox_item/sandbox}}</text></revision>
+  </page>
+  <page>
+    <title>User:Pulse daemon</title>
+    <ns>2</ns>
+    <id>2369</id>
+    <revision><id>11722</id><timestamp>2026-09-07T22:07:55Z</timestamp><text>{{Infobox user
+| Status = Active
+| Languages = English, French
+| Pronouns = He/him
+| Service = Editor
+| Joined = 27 November 2025 {{c|Peak Wiki}}
+| Sash   = 9
+| Badges = 24 Karat:1, Advanced Mycology:1, Aeronautics:1, Alpinist:1, Animal Serenading:1, Applied Esoterica:1,
+Arborist:1, Archery:1, Astronomy:1, Balloon:1, Beachcomber:1, Bellringer:1,
+Bing Bong:1, Bookworm:1, Bouldering:1, Bundled Up:1, Calcium Intake:1, Clutch:1,
+Competitive Eating:1, Cooking:1, Cool Cucumber:1, Cryptogastronomy:1, Daredevil:1, Disaster Response:1,
+Emergency Preparedness:1, Endurance:1, Esoterica:1, Exorcist:1, First Aid:1, Foraging:1,
+Forestry:1, Gourmand:1, Hasty:1, Hang Gliding:1, Happy Camper:1, High Altitude:1, Jester:1,
+Knot Tying:1, Last Resort:1, Leave No Trace:1, Lone Wolf:1, Medieval History:1, Megaentomology:1,
+Mentorship:1, Mycoacrobatics:1, Mycology:1, Naturalist:1, Needlepoint:1, Nomad:1,
+Participation:1, Peak:1, Plunderer:1, Resourcefulness:1, Rule Zero:1,
+Survivalist:1, Toxicology:1, Trailblazer:1, Tread Lightly:1, Ultimate:0, Undead Encounter:1,
+Volcanology:1, Wanderer:1, Web Security:1, Well Rested:1
+}}
+
+I like playing games and watching anime. I have been enjoying Peak with my friends occasionally but I have mostly been playing solo. Feel free to reach out to me on my [[User_talk:Pulse_daemon|talk page]] or on [https://steamcommunity.com/id/pulsedaemon/ Steam].</text></revision>
+  </page>
+  <page>
+    <title>User:PinkNotepad</title>
+    <ns>2</ns>
+    <id>2588</id>
+    <revision><id>8651</id><timestamp>2026-04-02T12:50:18Z</timestamp><text>{{Infobox user
+| Name = PinkNotepad
+| Status = Around
+| Joined = April 2, 2026
+| Service = Editor, Photographer
+| Languages = English
+
+| Sash = 8
+| Badges = 24 Karat,Advanced Mycology,Aeronautics,Alpinist,Animal Serenading,Applied Esoterica,Arborist,Astronomy,Balloon,Beachcomber,Bing Bong,Bookworm,Bouldering,Bundled Up,Calcium Intake,Clutch,Competitive Eating,Cool Cucumber,Cooking,Cryptogastronomy,Daredevil,Disaster Response,Emergency Preparedness,Endurance,Esoterica,First Aid,Foraging,Forestry,Gourmand,Happy Camper,High Altitude,Knot Tying,Lone Wolf,Leave No Trace,Megaentomology,Mentorship,Mycoacrobatics,Mycology,Naturalist,Needlepoint,Nomad,Participation,Peak,Plunderer,Resourcefulness,Speed Climber,Survivalist,Trailblazer,Toxicology,Tread Lightly,Undead Encounter,Ultimate,Volcanology,Web Security
+}}
+
+Hi, I'm Notepad.
+
+I do small edits and take a picture here and there.</text></revision>
+  </page>
+  <page>
+    <title>User:PLord/sandbox2</title>
+    <ns>2</ns>
+    <id>2810</id>
+    <revision><id>10146</id><timestamp>2026-08-13T20:25:16Z</timestamp><text>&lt;!--{{Main page box/start
+ | title = External links
+}} 
+... why can't we add custom style to mp-body? ...
+--&gt;&lt;div class="mp-box" style="grid-area:external;" id="mp-box-external" data-box-id="external"&gt;
+&lt;h2&gt; External links &lt;/h2&gt;&lt;div class="mp-body" style="justify-content: center;"&gt;
+&lt;div class="mp-links columns-3"&gt;
+* {{MP link|Official PEAK website|link=https://peakpeakpeak.com/|image=PEAK KeyArt 1080p Rounded.png|size=128px}}
+* {{MP link|Official PEAK Discord|link=https://discord.gg/peakgame|image=Discord.svg|size=64x64px}}
+* {{MP link|PEAK on Steam|link=https://s.team/a/3527290|image=Steam.svg|size=64x64px}}
+&lt;/div&gt;
+
+&lt;div class="mp-links columns-2"&gt;
+* {{MP link|Aggro Crab on X|link=https://x.com/AggroCrabGames|image=X Logo Round.png|size=64x64px}}
+* {{MP link|Landfall on X|link=https://x.com/LandfallGames|image=X Logo Round.png|size=64x64px}}
+&lt;/div&gt;
+{{Main page box/end}}&lt;noinclude&gt;[[Category:Main page boxes]]&lt;/noinclude&gt;&lt;!-- don't edit this line --&gt;</text></revision>
+  </page>
+  <page>
+    <title>User:PLord/Ascents table</title>
+    <ns>2</ns>
+    <id>2876</id>
+    <revision><id>10776</id><timestamp>2026-08-18T00:32:16Z</timestamp><text>{| class="wikitable"
+! colspan="3" | Ascents
+|-
+! Description
+! Rewards for completion
+! Tips
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | {{Anchor|Tenderfoot}}Tenderfoot
+|-
+|
+* Climbing takes less [[stamina]].
+*: &lt;small&gt;(30% lower consumption)&lt;/small&gt;
+* {{Hunger}} grows more slowly.
+*: &lt;small&gt;(30% slower growth)&lt;/small&gt;
+* No [[Fog|time limit]] nor [[Zombie|Zombies]].
+| None
+| [[Ascents#Tenderfoot|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Peak {{Anchor|Peak}}
+|-
+|
+* The [[Island]]'s default difficulty.
+| {{Sash|1}}
+| [[Ascents#Peak|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 1 {{Anchor|Ascent 1}}
+|-
+|
+* {{Damage|label=Fall damage}} is greater.
+*: &lt;small&gt;(all fall damage is multiplied by 2)&lt;/small&gt;
+| {{Sash|2}}
+| [[Ascents#Ascent 1|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 2 {{Anchor|Ascent 2}}
+|-
+|
+* {{Hunger}} grows faster.
+*: &lt;small&gt;(60% faster growth)&lt;/small&gt;
+* ''And all previous modifiers.''
+| {{Sash|3}}
+| [[Ascents#Ascent 2|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 3 {{Anchor|Ascent 3}}
+|-
+|
+* Items have increased {{Weight}}.
+*: &lt;small&gt;(flat +2.5 weight for all items)&lt;/small&gt;
+* ''And all previous modifiers.''
+| {{Sash|4}}
+| [[Ascents#Ascent 3|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 4 {{Anchor|Ascent 4}}
+|-
+|
+* There are no {{Item|Flare}}s atop the [[Peak (biome)|Peak]].
+*: &lt;small&gt;(You must bring your '''own''' Flare)&lt;/small&gt;
+* ''And all previous modifiers.''
+| {{Sash|5}}
+| [[Ascents#Ascent 4|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 5 {{Anchor|Ascent 5}}
+|-
+|
+* The [[night]] is {{Cold}}.
+*: &lt;small&gt;(~100 Cold damage total, or 2.5 Cold every 5 seconds)&lt;/small&gt;
+* ''And all previous modifiers.''
+| {{Sash|6}}
+| [[Ascents#Ascent 5|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 6 {{Anchor|Ascent 6}}
+|-
+|
+* Climbing takes additional [[stamina]].
+*: &lt;small&gt;(40% higher consumption)&lt;/small&gt;
+* ''And all previous modifiers.''
+| {{Sash|7}}
+| [[Ascents#Ascent 6|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 7 {{Anchor|Ascent 7}}
+|-
+|
+* Start {{curse|label=Cursed}} and take more curse from revival.
+*: &lt;small&gt;(Players spawn with 10 Curse and get +15 when revived using the [[Ancient statue]])&lt;/small&gt;
+* ''And all previous modifiers.''
+| {{Sash|8}}&lt;br&gt;{{Item|Goat Horns}}
+| [[Ascents#Ascent 7|Link]]
+|-
+! colspan="3" style="background-color: var(--wiki-sidebar-background-color);" | Ascent 8 {{anchor|Ascent 8}}
+|-
+|
+* {{Spoiler|You must free [[The Scoutmaster]]'s soul to win.}}
+*: {{Spoiler|&lt;small&gt;You must bring all [[Amulets]] to the [[Peak (biome)|Peak]] and go through [[Nadir]] to escape the island.&lt;/small&gt;}}
+* ''And all previous modifiers.''
+| {{Sash|9}}
+| [[Ascents#Ascent 8|Link]]
+|}</text></revision>
+  </page>
+  <page>
+    <title>User:Pro Gamerz123</title>
+    <ns>2</ns>
+    <id>2916</id>
+    <revision><id>10566</id><timestamp>2026-08-16T04:07:10Z</timestamp><text>= The Peak Scout =
+'''A very trained being to survive any survival obstacles'''
+
+'''Has been trained by the leader: Scoutmaster Myers'''
+
+'''Can be customized in the lobby'''
+
+
+
+[[File:Peak Scout.png|right|422x422px]]</text></revision>
+  </page>
+  <page>
+    <title>User:SalGames828</title>
+    <ns>2</ns>
+    <id>3032</id>
+    <revision><id>11658</id><timestamp>2026-09-05T19:33:09Z</timestamp><text>{{Infobox user
+| Name = SalGames828
+| image = SalGames828Profile.png
+| Pronouns = He/Him/His
+| Sash = 9
+| Best = 0:56:46.8
+| Peaks = 29
+| Badges = all
+}}</text></revision>
+  </page>
+  <page>
+    <title>User:SavageAlien/patchtest</title>
+    <ns>2</ns>
+    <id>3133</id>
+    <revision><id>12110</id><timestamp>2026-10-06T18:10:49Z</timestamp><text>== Plain wikitext ==
+'''Example 0:'''
+* bullet point (single)
+
+'''Example 1:'''
+* bullet point
+** nested bullet point
+* bullet point
+
+'''Example 2:'''
+* bullet point
+*** nested bullet point
+* bullet point
+
+'''Example 3:'''
+* bullet point
+*** nested bullet point
+** nested bullet point
+* bullet point
+
+== Template: Patch ==
+'''Example 0:''' &lt;br&gt;
+{{patch|1.0|
+* bullet point (single) }}
+
+'''Example 1:''' &lt;br&gt;
+{{patch|1.0|
+* bullet point
+** nested bullet point
+* bullet point }}
+
+'''Example 2:''' &lt;br&gt;
+{{patch|1.0|
+* bullet point
+*** nested bullet point
+* bullet point }}
+
+'''Example 3:''' &lt;br&gt;
+{{patch|1.0|
+* bullet point
+*** nested bullet point
+** nested bullet point
+* bullet point }}
+
+== Sandbox ==
+'''Example 0:''' &lt;br&gt;
+{{patch/sandbox|1.0|
+* bullet point (single) }}
+
+'''Example 1:''' &lt;br&gt;
+{{patch/sandbox|1.0|
+* bullet point
+** nested bullet point
+* bullet point }}
+
+'''Example 2:''' &lt;br&gt;
+{{patch/sandbox|1.0|
+* bullet point
+*** nested bullet point
+* bullet point }}
+
+'''Example 3:''' &lt;br&gt;
+{{patch/sandbox|1.0|
+* bullet point
+*** nested bullet point
+** nested bullet point
+* bullet point }}</text></revision>
+  </page>
+</dump>

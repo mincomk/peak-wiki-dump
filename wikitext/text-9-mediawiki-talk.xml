@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>MediaWiki talk:Common.css</title>
+    <ns>9</ns>
+    <id>1369</id>
+    <revision><id>3608</id><timestamp>2025-09-05T15:45:18Z</timestamp><text>== Dark mode image inversion ==
+
+Images from the [[Guidebook]] would really benefit from being inverted in dark mode. I've attempted to do some CSS in my sandbox, but found out we already have a class for that (&lt;code&gt;invert-on-dark&lt;/code&gt;).
+
+The problem is that simply doing &lt;code&gt;filter: invert(1)&lt;/code&gt; also inverts the border &lt;small&gt;(CSS be damned)&lt;/small&gt;, so it looks weird with thumb images. I couldn't find a usable workaround other than hardcoding inverted border colors so the browser would invert them back, but that seems janky... Anyway, I'm not that experienced with CSS so I'm out of ideas currently. [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 21:21, 4 September 2025 (UTC)
+
+:Actually, since those images contain colors, inversion is suboptimal. I say we just add a light background to them, which is better than no background. That would also preserve original colors. I've made the relevant CSS class in my [[User:Aw4yland/common.css|sandbox]]. [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 21:35, 4 September 2025 (UTC)
+:I have added a background to the images themselves for now. They were completely illegible in the dark mode before. The background color is taken from the light mode. I've checked how the [[stamina bar|page]] looks with the new versions in both modes, and I'm happy to report it doesn't flashbang me even on mobile.
+:If anybody needs the original images, they are saved in the revisions.
+:Having a custom CSS class for similar cases in the future would be great, but if nobody wants to bother any further, feel free to remove the topic. [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 15:45, 5 September 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>MediaWiki talk:Sidebar</title>
+    <ns>9</ns>
+    <id>1370</id>
+    <revision><id>4835</id><timestamp>2025-09-24T12:11:51Z</timestamp><text>== Rename link for clarity ==
+
+Rename "Challenges" to "Ascents" (like with the page). I feel like people would be looking for ''ascents'' first and foremost, and "challenges" doesn't mean much currently. [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 06:44, 28 August 2025 (UTC)
+
+== Add link to Stamina bar ==
+
+[[Stamina bar]] [[User:Mathog|Mathog]] ([[User talk:Mathog|talk]]) 11:56, 24 September 2025 (UTC)</text></revision>
+  </page>
+</dump>

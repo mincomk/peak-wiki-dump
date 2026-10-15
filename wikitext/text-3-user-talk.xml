@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>User talk:SavageAlien</title>
+    <ns>3</ns>
+    <id>978</id>
+    <revision><id>7370</id><timestamp>2025-12-02T05:48:02Z</timestamp><text>== Copying patch notes exactly ==
+
+Re: [[Ancient Idol]] edit – why do you want keep the patch lines exactly as written in the released patch notes? Tweaking them makes it more understandable. And what if there's a change not in the patch notes? [[User:Nixinova|Nixinova]] ([[User talk:Nixinova|talk]]) 00:36, 16 August 2025 (UTC)
+
+:Preserving the secrecy of the original is more fun, and doesn't harm the information being presented. I've adjusted the patch note in question to be less wordy to meet in the middle. [[User:SavageAlien|SavageAlien]] ([[User talk:SavageAlien|talk]]) 15:24, 17 August 2025 (UTC)
+::I don't think "being fun" should be the primary presentation of content. Hiding "ancient idol" under a tooltip isnt accessible on mobile, for instance. Sure a funner tone can be kept when it doesn't interfere with readability, but in that case it does. [[User:Nixinova|Nixinova]] ([[User talk:Nixinova|talk]]) 07:15, 18 August 2025 (UTC)
+
+== [[Ancient Idol]] bonus stamina usage ==
+
+{{Quote|Stamina can still reach zero, but {{Bonus}} will not be consumed (unless running and jumping at the same time).}}
+
+I am not sure if this is correct. There aren't too many actions players can make while actively holding an item. The only ones that come to mind are sprint jumping, climbing vines/chains and holding onto a piton (which restores stamina). Taking the Ancient Idol out while climbing vines/chains will also cause bonus stamina to be depleted. [[User:Pulse daemon|Pulse daemon]] ([[User talk:Pulse daemon|talk]]) 05:48, 2 December 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>User talk:Achaveles</title>
+    <ns>3</ns>
+    <id>1601</id>
+    <revision><id>3844</id><timestamp>2025-09-06T23:39:19Z</timestamp><text>== Welcome! ==
+
+Hello there! Welcome to our wiki! I see you've made some edits, keep it up! It's always good to see more people making edits. Your use of the visual editor (No shame in that, mind you! It's a great tool in its own right.) makes me assume you're quite new to the wiki business, so I decided to explain a few moments.
+
+You may have noticed I've reverted one of your [https://peak.wiki.gg/wiki/Passport?diff=prev&amp;oldid=3446 changes] earlier. Please do not take this personally: we try to stay as close to the game as possible, and the file names and the official Discord server are the second closest thing we have to the game. We still don't have any kind of contribution guidelines, so that's pretty much entirely on us.
+
+Another thing I wanted to mention is the [[Items]] page. This page is in a weird state right now. We already have [[Equipment]] and [[Food]] that cover most items in the game, and the [[Items]] page was intended to just be a list of all items. The problem with this page is the ''redundancy'' it introduces, since any change in an item's stats will have to be duplicated there as well, which is not ideal. I think there are better ways to approach this page, but discussions with other users are required, and since the page is mostly redundant, it's definitely a lower priority for us.
+
+Anyway, if you'd like to continue contributing to this wiki, I suggest you leave [[Items]] alone for now and instead turn your attention to improving [[Equipment]]. Alternatively, take a look at our [[Meta:To-do list|To-do list]] or improve a [[Special:RandomPage|random page]]. There is ''a lot'' of pages that need clean up and/or expansion, so any help would be appreciated.
+
+On a personal note, I ''really'' recommend learning the basics of Wikitext (the source code you see upon pressing "Edit Source"). It can have a bit of a learning curve, but makes certain things like adding templates much faster if you know what you're doing. Templates allow you to quickly add stuff like {{Item|Balloon}} and {{Hunger|20}}. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents MediaWiki help] is a good place to learn about Wikitext in general, and viewing the source code of different pages can help get an idea on how to use our custom templates and on formatting in general.
+
+Good luck!
+
+&lt;small&gt;P.S.: Talk pages like this are public and can be viewed and replied to by anyone.&lt;/small&gt; [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 09:02, 6 September 2025 (UTC)
+
+:Thanks for the advice, at first I was just focusing on what I knew could change, I'll be sure to be a lot more structured from now on.
+:I'll also look into some Wikitext basics so I'll look it up before I make anymore changes.
+:Thanks again, I'll need that luck! [[User:Achaveles|Achaveles]] ([[User talk:Achaveles|talk]]) 23:39, 6 September 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>User talk:Elin</title>
+    <ns>3</ns>
+    <id>1819</id>
+    <revision><id>4551</id><timestamp>2025-09-17T04:53:03Z</timestamp><text></text></revision>
+  </page>
+  <page>
+    <title>User talk:RSMind12</title>
+    <ns>3</ns>
+    <id>1993</id>
+    <revision><id>7756</id><timestamp>2025-12-25T00:16:00Z</timestamp><text>== Luggage loot tables ==
+
+Hi can you explain the steps for finding the chance percentages for luggage loot tables? This would be useful to document for future updates when the tables may need updating. [[User:SavageAlien|SavageAlien]] ([[User talk:SavageAlien|talk]]) 18:26, 20 October 2025 (UTC)
+
+:The method I used was manually getting each item's weight in each pool, then doing the math manually. On [[Meta:Spawn pools]], [[User:Aw4yland|Aw4yland]] has a script you can throw into the Unity Explorer console to have the game just tell you all the values [[User:RSMind12|RSMind12]] ([[User talk:RSMind12|talk]]) 04:14, 21 October 2025 (UTC)
+
+== Rescue Claw categorization ==
+
+Would the Rescue Claw not be in the Consumable table instead of the Usable table, it has 3 uses before it is disappears, which is more similar to the rest of the items on the Consumable table, such as Sunscreen which also has three uses. From what I inferred the items on the Usable table do not disappear when used, thus it would be more fitting to place the Rescue Claw in the Consumable table. [[User:Cheems723|Cheems723]] ([[User talk:Cheems723|talk]]) 09:15, 8 November 2025 (UTC)
+
+:Now that you say it, I could go either way. Honestly, the categories on that page are awful. [[User:RSMind12|RSMind12]] ([[User talk:RSMind12|talk]]) 09:18, 8 November 2025 (UTC)
+
+== Scorpion poison ==
+
+{{Quote|The amount of poison will always cause the scout's afflictions to total to '''102.5''' (assuming they don't gain or lose any for the duration).}}
+
+Would you happen to know how this works? Is the poison gain determined when getting stung? e.g. If I have 20 injury, get stung and use a bandage to clear the injury, do I only gain 82.5 poison? After experimenting, I noticed that it seems that a minimum of ~50 poison is inflicted. [[User:Pulse daemon|Pulse daemon]] ([[User talk:Pulse daemon|talk]]) 16:38, 24 December 2025 (UTC)
+
+:As per Scorpion::InflictAttack(), it works as described above, but you are correct that I missed there is a minimum value of 50 for the poison over time portion, making a total minimum of 52.5. Will update [[User:RSMind12|RSMind12]] ([[User talk:RSMind12|talk]]) 00:16, 25 December 2025 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>User talk:PLord</title>
+    <ns>3</ns>
+    <id>2249</id>
+    <revision><id>6641</id><timestamp>2025-11-12T12:48:21Z</timestamp><text>== Mandrake Trivia line removal ==
+
+"09:47, 12 November 2025 PLord talk contribs  2,158 bytes −145  (Moved sound effect mechanic to trivia, deleted double information)"
+
+In this change, you removed the line:
+ "* The Mandrake uses the exact same model as the '''Medicinal Root''' until it is uprooted, so there is no way to know which one it is in advance"
+What is your reasoning for doing this? In your summary you put "deleted double information", is this in reference to the removed line, and the double information being a line from the beginning:
+ "It has a 50% chance to spawn instead of a  [[Medicinal Root]] and has the same appearance and interaction prompt while in the ground."
+While this does state that it has the same appearance as the '''Medicinal Root''', it does not explicitly state that they have the exact same model before being uprooted(which they do), and the removed line stated that they did indeed have the same model, and to have additional information is the point of the "Trivia" section. [[User:Cheems723|Cheems723]] ([[User talk:Cheems723|talk]]) 10:15, 12 November 2025 (UTC)
+
+:To re-add the line, and make it more fitting for the trivia section, the line could be changed to "The '''Mandrake''' uses the exact same model as the '''Medicinal Root''' until it is uprooted." [[User:Cheems723|Cheems723]] ([[User talk:Cheems723|talk]]) 10:19, 12 November 2025 (UTC)
+::Then "same appearance" could simply be replaced with "same model" in the text body, but same appearance implies same model and it's a simpler way of saying it for an average reader. Also main the reason for the change is that until yesterday it was written "similar appearance" in which case in made sense to have the trivia section for the model, now the text conveys the same information for gameplay but with less text. [[User:PLord|PLord]] ([[User talk:PLord|talk]]) 12:35, 12 November 2025 (UTC)
+:::If you believe it's important to state it is the "same model" feel free to edit in your suggestion [[User:PLord|PLord]] ([[User talk:PLord|talk]]) 12:37, 12 November 2025 (UTC)
+::::But you usually expect to see new/unknown information in the trivia section, so not sure if some more or less the same information but written differently is important to have. [[User:PLord|PLord]]</text></revision>
+  </page>
+  <page>
+    <title>User talk:Hello I'm peak fanman im new but I want to ;ern how to play peak</title>
+    <ns>3</ns>
+    <id>2606</id>
+    <revision><id>8738</id><timestamp>2026-04-27T15:58:34Z</timestamp><text>hello what do you do with the basket ball in peak?</text></revision>
+  </page>
+  <page>
+    <title>User talk:Diggy da Beast</title>
+    <ns>3</ns>
+    <id>2619</id>
+    <revision><id>8792</id><timestamp>2026-06-16T01:39:02Z</timestamp><text>== You took my Fandom name, lol :') ==
+
+Why you do this to me? XP [[User:Diggy da Beast from Fandom|Diggy da Beast from Fandom]] ([[User talk:Diggy da Beast from Fandom|talk]]) 01:39, 16 June 2026 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>User talk:Pro Gamerz123</title>
+    <ns>3</ns>
+    <id>2918</id>
+    <revision><id>10569</id><timestamp>2026-08-16T04:13:37Z</timestamp><text>ScoutMaster Myers</text></revision>
+  </page>
+  <page>
+    <title>User talk:CHUNGUSS</title>
+    <ns>3</ns>
+    <id>3009</id>
+    <revision><id>11093</id><timestamp>2026-08-22T19:17:31Z</timestamp><text>== Preview option ==
+
+Please use the preview button (next to the Save button) to preview edits before you save them, and therefore not fill up [[Special:RecentChanges|Recent Changes]] and people's notifications with a ton of small fixes. [[User:PLord|PLord]] ([[User talk:PLord|talk]]) 20:56, 21 August 2026 (UTC)
+
+:Sorry, i had no idea that existed, i just figured that you had to repeatedly troubleshoot, really sorry. [[User:CHUNGUSS|CHUNGUSS]] ([[User talk:CHUNGUSS|talk]]) 20:59, 21 August 2026 (UTC)
+::No problem, you learn as you go. [[User:PLord|PLord]] ([[User talk:PLord|talk]]) 21:23, 21 August 2026 (UTC)
+
+== Zombie Phobia ==
+
+I feel like having a page for zombie phobia isn't necessary, we could easily fit it in as a part of the Zombie page, heck [[Bugle?]] has more content and they're trying to merge it with the BBno$ concert.
+check out the Spore Emitter. Alternatively, we could put it in a special setting page with Bug Phobia, Cannibalism off, and the likes. [[User:CHUNGUSS|CHUNGUSS]] ([[User talk:CHUNGUSS|talk]]) 19:16, 22 August 2026 (UTC)
+
+:Wait, they stopped trying to merge [[Bugle?]], sorry [[User:CHUNGUSS|CHUNGUSS]] ([[User talk:CHUNGUSS|talk]]) 19:17, 22 August 2026 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>User talk:CrashCstr</title>
+    <ns>3</ns>
+    <id>3124</id>
+    <revision><id>11624</id><timestamp>2026-09-04T09:33:55Z</timestamp><text>== Preview button ==
+
+Just wanna let you know there is a preview button next to "Save Changes", you don't have to save the page and open editing dozens of times. [[User:PLord|PLord]] ([[User talk:PLord|talk]]) 09:33, 4 September 2026 (UTC)</text></revision>
+  </page>
+  <page>
+    <title>User talk:Lemondoge1/common.css</title>
+    <ns>3</ns>
+    <id>3146</id>
+    <revision><id>11804</id><timestamp>2026-09-09T22:00:25Z</timestamp><text>== Spoiler template ==
+
+Please let me know if there's any feedback you have about the spoiler template  we use here. [[User:SavageAlien|SavageAlien]] ([[User talk:SavageAlien|talk]]) 22:00, 9 September 2026 (UTC)</text></revision>
+  </page>
+</dump>

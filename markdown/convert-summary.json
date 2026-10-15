@@ -1,0 +1,14 @@
+{
+  "out": "peak-dump/markdown",
+  "pages_ok": 357,
+  "pages_total": 357,
+  "seconds": 188.3,
+  "api_requests": 358,
+  "throttled_429": 4,
+  "internal_links_rewritten": 40022,
+  "combined": "peak-dump/markdown/PEAK-Wiki.md",
+  "combined_bytes": 1903562,
+  "missing_image_count": 0,
+  "missing_images": [],
+  "errors": []
+}

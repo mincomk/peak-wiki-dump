@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>Meta:Copyrights</title>
+    <ns>4</ns>
+    <id>9</id>
+    <revision><id>17</id><timestamp>2025-07-02T00:03:08Z</timestamp><text>&lt;!--''[[GAME]]'' content and materials are the intellectual property of their respective owners.
+
+--&gt;Content that you make available on {{SITENAME}} is licensed by you to us under our [{{int:wikigg-tos-url}} Terms of Service]. Do not make content available on {{SITENAME}} where you do not have the necessary rights to grant this license.
+
+All textual and graphical content on {{SITENAME}} that we may lawfully license is licensed to you under the [https://creativecommons.org/licenses/by-sa/4.0 Creative Commons Attribution-ShareAlike 4.0] license.
+
+[[Category:Legal notices]]</text></revision>
+  </page>
+  <page>
+    <title>Meta:To-do list</title>
+    <ns>4</ns>
+    <id>777</id>
+    <revision><id>9062</id><timestamp>2026-08-11T18:10:02Z</timestamp><text>The '''To-do list''' is a collection of tasks being tracked for the PEAK Wiki.
+
+== Special pages ==
+Special Wiki tracking pages that may be useful.
+{| class="wikitable
+|-
+| [[:Category:Stubs]] || Stubs: Pages with little to no content that should be expanded further.
+|-
+| [[:Category:Pages in need of improvement]] || Pages marked as needing improvement to meet a better standard.
+|-
+| [[:Category:Pages needing confirmation]] || Pages with unconfirmed information that may or may not be correct.
+|-
+| [[Special:WantedPages]] || Non-existing pages with that are being linked to on wiki pages. They should either be created as full pages, redirects, or have the links removed if the link isn't necessary.
+|-
+| [[:Category:Pages with broken file links]] || Non-existing files being linked to on wiki pages. The file has not been uploaded or the filename was linked incorrect.
+|-
+| [[Special:UnusedFiles]] || Potentially useful files that have been detected as not in use on pages. However - some may already be in use via templates and wiki CSS. Use these files on appropriate pages.
+|}
+
+== To-do list ==
+=== The Final Ascent ===
+For tracking to-do list specifically related to The Final Ascent update.
+
+=== Pages ===
+* Cleanup all [[biome]] pages. Image layout is currently awkward.
+* Add missing images to [[Spider]] and [[Stamina bar#Special Effects]]
+* Make a patch notes page with notes sorted chronologically (in a table or other formatting?)
+
+* Mechanics:
+** &lt;s&gt;[[Movement]]&lt;/s&gt; [[Climbing]] (create separate page and document details)
+
+* Use [[Special:UnusedFiles|unused images]] (in galleries or in thumbs) - if of good quality and relevant to the article. '''Note:''' Some images in this list are used by the wiki CSS and as a result will be flagged as unused regardless.
+* Categorize [[NPC]]s and creatures (people have been searching for "enemies" and "creatures")
+
+=== Images ===
+See [[Meta:Image guide]] for info on how to help.
+
+* [[Backpack]] UI
+
+== WIP ==
+* WIP: Advanced [[Food]] sorting based on feedback requesting easier browsing of different food types
+* WIP: Update [[Template:Infobox item]] with better support for cooking results such as being broken or destroyed
+* WIP: Make the [[Hazards]] page useful (list all hazards and add links/redirects)
+
+== Wiki meta ==
+* Add contribution style guide. Example: [https://deeprockgalactic.wiki.gg/wiki/Deep_Rock_Galactic_Wiki DRG wiki] and [https://deeprockgalactic.wiki.gg/wiki/Deep_Rock_Galactic_Wiki:Community_portal community portal]
+** Post-poned until other WIP projects can be finalized. [[User:SavageAlien|SavageAlien]]
+
+* Decide what kind of meters to use on the wiki (for some reason, 1 Unity meter = 1.6 PEAK meters). The game also seems to be inconsistent about this.
+
+== See also ==
+* [[Meta:Spawn pools]]
+* [[Meta:Technical notes]]</text></revision>
+  </page>
+  <page>
+    <title>Meta:Spawn pools</title>
+    <ns>4</ns>
+    <id>1228</id>
+    <revision><id>9268</id><timestamp>2026-08-12T02:00:59Z</timestamp><text>== Elevation Data ==
+Ripped with Unity Explorer on {{Patch|2.0.a}}Data from:&lt;pre&gt;
+HideAndDontSave/LuggageSmall&lt;Luggage&gt;.Spawner.heightBasedSpawnPools[n]
+&lt;/pre&gt;
+{| class="wikitable"
+|+
+!biomeRequirement
+!minimumHeight
+!minimumZ
+!spawnPool
+|-
+|—
+|0
+| -1000
+|LuggageBeach
+|-
+|Tropics
+|200
+|100
+|LuggageJungle
+|-
+|Roots
+|200
+|100
+|LuggageRoots
+|-
+|Alpine
+|470
+|550
+|LuggageTundra
+|-
+|Mesa
+|470
+|550
+|LuggageMesa
+|-
+|Volcano
+|740
+|1300
+|LuggageCaldera
+|-
+|Swamp
+|740
+|1300
+|LuggageGloom
+|-
+|Temple
+|740
+|1300
+|LuggageCitadel
+|}
+
+== Loot Data ==
+Ripped with Unity Explorer on [[2.0.a]].
+
+{| class="wikitable"
+|+ Rarity
+! Rarity
+! Weight
+|-
+| Common || 100
+|-
+| Uncommon || 50
+|-
+| Rare || 30
+|-
+| Epic || 20
+|-
+| Legendary || 15
+|-
+| Mythic || 5
+|-
+| RidiculouslyRare || 1
+|}
+
+C# code:
+&lt;pre&gt;foreach (var pool in Enum.GetValues(typeof(SpawnPool)).Cast&lt;SpawnPool&gt;())
+{
+    LootData.PrintOdds(pool);
+}&lt;/pre&gt;
+
+Output:
+&lt;pre&gt;
+[Unity] None contains items:
+
+[Unity] Unused1 contains items:
+
+[Unity] Unused2 contains items:
+
+[Unity] MushroomCluster contains items:
+Mushroom Normie (12.3% (Uncommon))
+Mushroom Lace (12.3% (Uncommon))
+Mushroom Cluster (12.3% (Uncommon))
+Mushroom Chubby (12.3% (Uncommon))
+MedicinalRoot (12.3% (Uncommon))
+Mandrake_Hidden (12.3% (Uncommon))
+Mushroom Normie Poison (8.6% (Rare))
+Mushroom Lace Poison (8.6% (Rare))
+Mushroom Cluster Poison (8.6% (Rare))
+
+[Unity] BerryBushBeach contains items:
+Apple Berry Green (42.5% (Common))
+Apple Berry Red (42.5% (Common))
+Apple Berry Yellow (14.8% (Rare))
+
+[Unity] BerryBushJungle contains items:
+Apple Berry Green (35% (Common))
+Apple Berry Red (35% (Common))
+Pepper Berry (17.5% (Uncommon))
+Apple Berry Yellow (12.2% (Rare))
+
+[Unity] SpikyVine contains items:
+Clusterberry Black (33.3% (Common))
+Clusterberry Red (33.3% (Common))
+Clusterberry Yellow (33.3% (Common))
+
+[Unity] CoconutTree contains items:
+Item_Coconut (100% (Common))
+
+[Unity] WillowTreeJungle contains items:
+Kingberry Green (50% (Common))
+Kingberry Purple (25% (Uncommon))
+Kingberry Yellow (25% (Uncommon))
+
+[Unity] JungleVine contains items:
+Berrynana Yellow (48.7% (Common))
+Berrynana Blue (17% (Rare))
+Berrynana Brown (17% (Rare))
+Berrynana Pink (17% (Rare))
+
+[Unity] WinterberryTree contains items:
+Winterberry Orange (97% (Common))
+Winterberry Yellow (2.9% (RidiculouslyRare))
+
+[Unity] LuggageBeach contains items:
+Bandages (10% (Uncommon))
+Sports Drink (10% (Uncommon))
+TrailMix (10% (Uncommon))
+Energy Drink (7% (Rare))
+Granola Bar (7% (Rare))
+RopeSpool (7% (Rare))
+ClimbingSpike (4% (Epic))
+FirstAidKit (4% (Epic))
+Balloon (4% (Epic))
+FortifiedMilk (4% (Epic))
+Airplane Food (3% (Legendary))
+ChainShooter (3% (Legendary))
+Flare (3% (Legendary))
+Lollipop (3% (Legendary))
+RopeShooter (3% (Legendary))
+ScoutCookies (3% (Legendary))
+RescueHook (3% (Legendary))
+Fannypack (3% (Legendary))
+Flag_Plantable_Checkpoint (1.2% (Mythic))
+HealingDart Variant (1.2% (Mythic))
+ScoutCannonItem (1.2% (Mythic))
+BalloonBunch (1.2% (Mythic))
+Jetpack (1.2% (Mythic))
+Rocketpack (1.2% (Mythic))
+Glider (1.2% (Mythic))
+Pirate Compass (0.6% (RidiculouslyRare))
+
+[Unity] LuggageJungle contains items:
+Bandages (8.7% (Uncommon))
+Sports Drink (8.7% (Uncommon))
+TrailMix (8.7% (Uncommon))
+Antidote (6.1% (Rare))
+Energy Drink (6.1% (Rare))
+Granola Bar (6.1% (Rare))
+RopeSpool (6.1% (Rare))
+ClimbingSpike (3.5% (Epic))
+FirstAidKit (3.5% (Epic))
+Lantern (3.5% (Epic))
+Balloon (3.5% (Epic))
+FortifiedMilk (3.5% (Epic))
+Airplane Food (2.6% (Legendary))
+ChainShooter (2.6% (Legendary))
+Flare (2.6% (Legendary))
+Lollipop (2.6% (Legendary))
+PortableStovetopItem (2.6% (Legendary))
+RopeShooter (2.6% (Legendary))
+ScoutCookies (2.6% (Legendary))
+RescueHook (2.6% (Legendary))
+Fannypack (2.6% (Legendary))
+Flag_Plantable_Checkpoint (1% (Mythic))
+HealingDart Variant (1% (Mythic))
+ScoutCannonItem (1% (Mythic))
+BalloonBunch (1% (Mythic))
+Jetpack (1% (Mythic))
+Rocketpack (1% (Mythic))
+Glider (1% (Mythic))
+Pirate Compass (0.5% (RidiculouslyRare))
+
+[Unity] LuggageTundra contains items:
+Heat Pack (15.7% (Common))
+Bandages (7.8% (Uncommon))
+Sports Drink (7.8% (Uncommon))
+TrailMix (7.8% (Uncommon))
+Energy Drink (5.5% (Rare))
+Granola Bar (5.5% (Rare))
+RopeSpool (5.5% (Rare))
+ClimbingSpike (3.1% (Epic))
+FirstAidKit (3.1% (Epic))
+Lantern (3.1% (Epic))
+Balloon (3.1% (Epic))
+FortifiedMilk (3.1% (Epic))
+Airplane Food (2.3% (Legendary))
+ChainShooter (2.3% (Legendary))
+Flare (2.3% (Legendary))
+Lollipop (2.3% (Legendary))
+PortableStovetopItem (2.3% (Legendary))
+RopeShooter (2.3% (Legendary))
+ScoutCookies (2.3% (Legendary))
+RescueHook (2.3% (Legendary))
+Fannypack (2.3% (Legendary))
+Flag_Plantable_Checkpoint (0.9% (Mythic))
+HealingDart Variant (0.9% (Mythic))
+ScoutCannonItem (0.9% (Mythic))
+BalloonBunch (0.9% (Mythic))
+Jetpack (0.9% (Mythic))
+Rocketpack (0.9% (Mythic))
+Glider (0.9% (Mythic))
+Pirate Compass (0.4% (RidiculouslyRare))
+
+[Unity] LuggageCaldera contains items:
+Bandages (10% (Uncommon))
+Sports Drink (10% (Uncommon))
+TrailMix (10% (Uncommon))
+Energy Drink (7% (Rare))
+Granola Bar (7% (Rare))
+RopeSpool (7% (Rare))
+ClimbingSpike (4% (Epic))
+FirstAidKit (4% (Epic))
+Balloon (4% (Epic))
+FortifiedMilk (4% (Epic))
+Airplane Food (3% (Legendary))
+ChainShooter (3% (Legendary))
+Flare (3% (Legendary))
+Lollipop (3% (Legendary))
+RopeShooter (3% (Legendary))
+ScoutCookies (3% (Legendary))
+RescueHook (3% (Legendary))
+Fannypack (3% (Legendary))
+Flag_Plantable_Checkpoint (1.2% (Mythic))
+HealingDart Variant (1.2% (Mythic))
+ScoutCannonItem (1.2% (Mythic))
+BalloonBunch (1.2% (Mythic))
+Jetpack (1.2% (Mythic))
+Rocketpack (1.2% (Mythic))
+Glider (1.2% (Mythic))
+Pirate Compass (0.6% (RidiculouslyRare))
+
+[Unity] LuggageClimber contains items:
+Energy Drink (19.2% (Rare))
+RopeSpool (19.2% (Rare))
+ClimbingSpike (10.9% (Epic))
+FirstAidKit (10.9% (Epic))
+ChainShooter (8.2% (Legendary))
+RopeShooter (8.2% (Legendary))
+RescueHook (8.2% (Legendary))
+Fannypack (8.2% (Legendary))
+Jetpack (3.2% (Mythic))
+Glider (3.2% (Mythic))
+
+[Unity] LuggageAncient contains items:
+Energy Drink (30.4% (Rare))
+ClimbingSpike (17.3% (Epic))
+Airplane Food (13% (Legendary))
+Lollipop (13% (Legendary))
+ScoutEffigy (13% (Legendary))
+AntiZooka (13% (Legendary))
+
+[Unity] LuggageCursed contains items:
+Anti-Rope Spool (8.7% (Legendary))
+Bugle_Magic (8.7% (Legendary))
+Cure-All (8.7% (Legendary))
+Cursed Skull (8.7% (Legendary))
+Lantern_Faerie (8.7% (Legendary))
+PandorasBox (8.7% (Legendary))
+RopeShooterAnti (8.7% (Legendary))
+ScoutEffigy (8.7% (Legendary))
+BookOfBones (8.7% (Legendary))
+RitualDagger (8.7% (Legendary))
+AntiZooka (8.7% (Legendary))
+Bugle_Scoutmaster Variant (3.5% (Mythic))
+
+[Unity] RespawnCoffin contains items:
+Anti-Rope Spool (9.6% (Legendary))
+Bugle_Magic (9.6% (Legendary))
+Cure-All (9.6% (Legendary))
+Lantern_Faerie (9.6% (Legendary))
+PandorasBox (9.6% (Legendary))
+RopeShooterAnti (9.6% (Legendary))
+ScoutEffigy (9.6% (Legendary))
+BookOfBones (9.6% (Legendary))
+RitualDagger (9.6% (Legendary))
+AntiZooka (9.6% (Legendary))
+Bugle_Scoutmaster Variant (3.8% (Mythic))
+
+[Unity] Nest contains items:
+NestEgg (50% (Common))
+NestEgg_Raven (50% (Common))
+
+[Unity] GuidebookPageBeach contains items:
+GuidebookPage (25% (Common))
+GuidebookPage_1_Mushrooms (25% (Common))
+GuidebookPage_2_Campfire (25% (Common))
+GuidebookPage_0_Intro (25% (Common))
+
+[Unity] GuidebookPageTropics contains items:
+GuidebookPage_1_Mushrooms (20% (Common))
+GuidebookPage_3_Revival (20% (Common))
+GuidebookPage_2_Campfire (20% (Common))
+GuidebookPage_4_Poison (20% (Common))
+GuidebookPage_5_Zombies (20% (Common))
+
+[Unity] GuidebookPageAlpine contains items:
+GuidebookPage_6_BodyHeat (16.6% (Common))
+GuidebookPage_10_Sleepy (16.6% (Common))
+GuidebookPage_11_Awake (16.6% (Common))
+GuidebookPage_7_BurningSun (16.6% (Common))
+GuidebookPage_8_Magma (16.6% (Common))
+GuidebookPage_9_Gloom (16.6% (Common))
+
+[Unity] Cactus contains items:
+Prickleberry_Red (86.9% (Common))
+Prickleberry_Gold (13% (Legendary))
+
+[Unity] Redwood contains items:
+ShelfShroom (33.3% (Common))
+BounceShroom (33.3% (Common))
+CloudFungus (33.3% (Common))
+
+[Unity] LuggageMesa contains items:
+Bandages (8.7% (Uncommon))
+Sports Drink (8.7% (Uncommon))
+TrailMix (8.7% (Uncommon))
+Energy Drink (6.1% (Rare))
+Granola Bar (6.1% (Rare))
+RopeSpool (6.1% (Rare))
+ClimbingSpike (3.5% (Epic))
+FirstAidKit (3.5% (Epic))
+Parasol (3.5% (Epic))
+Sunscreen (3.5% (Epic))
+Balloon (3.5% (Epic))
+FortifiedMilk (3.5% (Epic))
+Airplane Food (2.6% (Legendary))
+ChainShooter (2.6% (Legendary))
+Flare (2.6% (Legendary))
+Lollipop (2.6% (Legendary))
+PortableStovetopItem (2.6% (Legendary))
+RopeShooter (2.6% (Legendary))
+ScoutCookies (2.6% (Legendary))
+RescueHook (2.6% (Legendary))
+Dynamite (2.6% (Legendary))
+Fannypack (2.6% (Legendary))
+Flag_Plantable_Checkpoint (1% (Mythic))
+HealingDart Variant (1% (Mythic))
+ScoutCannonItem (1% (Mythic))
+BalloonBunch (1% (Mythic))
+Jetpack (1% (Mythic))
+Rocketpack (1% (Mythic))
+Glider (1% (Mythic))
+Pirate Compass (0.5% (RidiculouslyRare))
+
+[Unity] Campfire contains items:
+Marshmallow (58.8% (Uncommon))
+Glizzy (41.1% (Rare))
+
+[Unity] LuggageRoots contains items:
+Bandages (8.8% (Uncommon))
+Sports Drink (8.8% (Uncommon))
+TrailMix (8.8% (Uncommon))
+Antidote (6.1% (Rare))
+Energy Drink (6.1% (Rare))
+Granola Bar (6.1% (Rare))
+RopeSpool (6.1% (Rare))
+ClimbingSpike (3.5% (Epic))
+FirstAidKit (3.5% (Epic))
+Balloon (3.5% (Epic))
+FortifiedMilk (3.5% (Epic))
+Airplane Food (2.6% (Legendary))
+ChainShooter (2.6% (Legendary))
+Flare (2.6% (Legendary))
+Lollipop (2.6% (Legendary))
+PortableStovetopItem (2.6% (Legendary))
+RopeShooter (2.6% (Legendary))
+ScoutCookies (2.6% (Legendary))
+RescueHook (2.6% (Legendary))
+Parasol_Roots Variant (2.6% (Legendary))
+Fannypack (2.6% (Legendary))
+Flag_Plantable_Checkpoint (1% (Mythic))
+HealingDart Variant (1% (Mythic))
+ScoutCannonItem (1% (Mythic))
+BalloonBunch (1% (Mythic))
+Jetpack (1% (Mythic))
+Rocketpack (1% (Mythic))
+Glider (1% (Mythic))
+Pirate Compass (0.5% (RidiculouslyRare))
+
+[Unity] All contains items:
+
+[Unity] LuggageGloom contains items:
+Bandages (9.1% (Uncommon))
+Sports Drink (9.1% (Uncommon))
+TrailMix (9.1% (Uncommon))
+Candle (9.1% (Uncommon))
+Energy Drink (6.3% (Rare))
+Granola Bar (6.3% (Rare))
+RopeSpool (6.3% (Rare))
+ClimbingSpike (3.6% (Epic))
+FirstAidKit (3.6% (Epic))
+Balloon (3.6% (Epic))
+FortifiedMilk (3.6% (Epic))
+Airplane Food (2.7% (Legendary))
+ChainShooter (2.7% (Legendary))
+Flare (2.7% (Legendary))
+Lollipop (2.7% (Legendary))
+RopeShooter (2.7% (Legendary))
+ScoutCookies (2.7% (Legendary))
+RescueHook (2.7% (Legendary))
+Fannypack (2.7% (Legendary))
+Flag_Plantable_Checkpoint (1% (Mythic))
+HealingDart Variant (1% (Mythic))
+ScoutCannonItem (1% (Mythic))
+BalloonBunch (1% (Mythic))
+Jetpack (1% (Mythic))
+Rocketpack (1% (Mythic))
+Glider (1% (Mythic))
+
+[Unity] LuggageCitadel contains items:
+Bandages (9.1% (Uncommon))
+Sports Drink (9.1% (Uncommon))
+TrailMix (9.1% (Uncommon))
+Candle (9.1% (Uncommon))
+Energy Drink (6.3% (Rare))
+Granola Bar (6.3% (Rare))
+RopeSpool (6.3% (Rare))
+ClimbingSpike (3.6% (Epic))
+FirstAidKit (3.6% (Epic))
+Balloon (3.6% (Epic))
+FortifiedMilk (3.6% (Epic))
+Airplane Food (2.7% (Legendary))
+ChainShooter (2.7% (Legendary))
+Flare (2.7% (Legendary))
+Lollipop (2.7% (Legendary))
+RopeShooter (2.7% (Legendary))
+ScoutCookies (2.7% (Legendary))
+RescueHook (2.7% (Legendary))
+Fannypack (2.7% (Legendary))
+Flag_Plantable_Checkpoint (1% (Mythic))
+HealingDart Variant (1% (Mythic))
+ScoutCannonItem (1% (Mythic))
+BalloonBunch (1% (Mythic))
+Jetpack (1% (Mythic))
+Rocketpack (1% (Mythic))
+Glider (1% (Mythic))
+
+[Unity] LuggageClown contains items:
+Berrynana Peel Yellow (31.6% (Uncommon))
+Bugle (12.6% (Epic))
+Parasol (12.6% (Epic))
+Balloon (12.6% (Epic))
+Lollipop (9.4% (Legendary))
+Dynamite (9.4% (Legendary))
+ScoutCannonItem (3.7% (Mythic))
+BalloonBunch (3.7% (Mythic))
+Rocketpack (3.7% (Mythic))
+&lt;/pre&gt;</text></revision>
+  </page>
+  <page>
+    <title>Meta:Technical notes</title>
+    <ns>4</ns>
+    <id>1657</id>
+    <revision><id>6798</id><timestamp>2025-11-15T04:11:57Z</timestamp><text>This is a page to document various findings from the game's sources which may help in writing actual articles. It may also help dataminers double check each other's findings.
+__FORCETOC__
+
+== Climbing ==
+* Relevant classes: &lt;code&gt;CharacterClimbing&lt;/code&gt;
+* "ClimbHandle" refers to pitons/pickaxes
+* (Possible jank?) Stand near a climbable wall, look away from the wall, click, immediately release, and quickly turn back towards the wall. You should now be climbing even though you're not holding down the climb action. The game tracks the time since the last climb press in &lt;code&gt;CharacterData.sincePressClimb&lt;/code&gt;, which is set in &lt;code&gt;Character.UpdateVariablesFixed()&lt;/code&gt;.
+* Code path for starting a climb (CharacterClimbing if not specified otherwise):
+*# &lt;code&gt;Update()&lt;/code&gt; &amp;mdash; handles lunges, screen shake, among other things.
+*# &lt;code&gt;TryToStartWallClimb()&lt;/code&gt; &amp;mdash; does a raycast along viewing direction (and possibly two more "thick" raycasts/capsule casts, ''why though?'') and determines if wall is climbable.
+*# &lt;code&gt;StartClimbRpc()&lt;/code&gt; &amp;mdash; consumes stamina and sets vars in &lt;code&gt;CharacterData&lt;/code&gt;
+*** Pay close attention to &lt;code&gt;playerSlide&lt;/code&gt;, which seems to hold player's inertia?
+* Actual climbing (&lt;code&gt;FixedUpdate()&lt;/code&gt; -&gt; &lt;code&gt;Climbing()&lt;/code&gt;)
+** Climbing uses its own coordinate system relative to the current climb plane. This system's up and left vectors are built at the start of &lt;code&gt;GetRequestedPosition()&lt;/code&gt;.
+** &lt;code&gt;playerSlide&lt;/code&gt; is also somehow factored in there, but I forget the details and too lazy currently to reverse engineer.
+** &lt;code&gt;SampleWall()&lt;/code&gt; is the main stuff. It uses your current inputs and &lt;code&gt;playerSlide&lt;/code&gt; to calculate your new position. It also checks for fall damage (after some weird angle checks whose purpose I still don't understand), but I was not able to cause this type of damage during testing.
+
+== See also ==
+* [[Meta:Spawn pools]]</text></revision>
+  </page>
+  <page>
+    <title>Meta:Cosmetic names</title>
+    <ns>4</ns>
+    <id>1690</id>
+    <revision><id>4360</id><timestamp>2025-09-11T18:20:41Z</timestamp><text>== About == 
+This is a list of cosmetics that may need to have their names changed based on their texture file names. It's better to avoid fan-made terms where possible, and cosmetics are a big part of the game.
+
+Clothing category would need renaming since the files refer to them as "Fit" and not "Clothing".
+
+We will discuss and eventually reach out to Aggro Crab to collect their input on which names they prefer.
+
+== Accessories ==
+{| class="wikitable" 
+|+ Accessories
+|-
+! Image
+! Wiki Name
+! Name from Texture File
+|-
+| [[File: Accessory Ribbon Bow.png |64px]]
+| Ribbon Bow
+| Bow
+|-
+| [[File:Accessory Incognito Face.png |64px]]
+| Incognito Face
+| Groucho
+|-
+|}
+
+== Eyes ==
+{| class="wikitable" 
+|+ Eyes
+|-
+! Image
+! Wiki Name
+! Name from Texture File
+|-
+| [[File:Eyes Cry.png |64px]]
+| Crying Eyes
+| Cry
+|-
+| [[File:Eyes Concern.png |64px]]
+| Concerned Eyes
+| Concern 
+|-
+| [[File:Eyes Starry.png |64px]]
+| Starry Eyes
+| Anime
+|-
+| [[File:Eyes Realistic.png |64px]]
+| Realistic Eyes
+| Real
+|-
+| [[File:Eyes Monster.png |64px]]
+| Monster Eyes
+| Aggro
+|-
+|}
+
+== Mouths ==
+{| class="wikitable" 
+|+ Mouths
+|-
+! Image
+! Wiki Name
+! Name from Texture File
+|-
+| [[File:Mouth Vampire.png |64px]]
+| Vampire Fangs
+| Vamp
+|-
+| [[File:Mouth Tongue.png |64px]]
+| Tongue
+| Wacky
+|-
+|}
+
+== Clothing / Outfits / Fits ==
+The current Category name ("Clothing") would need to be renamed since the files refer to this category as "Fit"
+{| class="wikitable" 
+|+ Outfits / Fits
+|-
+! Image
+! Wiki Name
+! Name from Texture File
+|-
+| [[File:School Uniform Shorts.png |64px]]
+| School Uniform
+| Cookie
+|-
+| [[File:Russell's Outfit Shorts.png |64px]]
+| Russell's Outfit
+| Balloon
+|-
+|}
+
+== Hats ==
+{| class="wikitable" 
+|+ Hats
+|-
+! Image
+! Wiki Name
+! Name from Texture File
+|-
+| [[File:Pith Helmet.png |64px]]
+| Fedora
+| Pith Helmet
+|-
+| [[File:Aviator Cap.png |64px]]
+| Aviator Cap
+| Aviator
+|-
+| [[File:Flower Garland.png |64px]]
+| Flower Garland
+| Midsummer
+|-
+| [[File:Kril Hat.png |64px]]
+| Kril
+| Crab
+|-
+| [[File:Messenger Cap.png |64px]]
+| Messenger
+| Courier
+|-
+| [[File:Stetson Hat.png |64px]]
+| Stetson
+| Scoutmaster
+|-
+| [[File:Headband.png |64px]]
+| Headband
+| Bandana
+|-
+|}</text></revision>
+  </page>
+  <page>
+    <title>Meta:Image guide</title>
+    <ns>4</ns>
+    <id>1811</id>
+    <revision><id>4483</id><timestamp>2025-09-14T22:08:01Z</timestamp><text>{{Ambox
+| color = SlateBlue
+| title = Work In Progress
+| icon = Speed Climber Badge.png
+| message = This guide is a work-in-progress.
+}}
+
+Every wiki needs pictures, and some pictures must be taken in-game. A screenshot is usually enough, but with a little bit of effort your photography results can be elevated to the next level&amp;trade;.
+
+== General guidelines ==
+[[File:Scorpion closeup.png|thumb|right|For reference (picture taken with mods)]]
+When making in-game pictures, adhere to these guidelines:
+# Make sure the subject is '''clearly visible'''.
+# The subject should generally be '''in the center''' of the image. You can find another angle or crop the resulting image to achieve that. Sometimes, however, there are multiple subjects, so centering all of them is impossible. In that case, try to balance them equally.
+# Make sure your game is running at the '''highest graphics settings'''. Depending on your specs, your system may lag, but that should be OK if your goal is to quickly snap a few screenshots. If you really can't use the highest graphics settings even for a bit, use the highest settings your system can actually handle. Just make sure that the result isn't a blurry pixelated mess. Also make sure you and &amp;mdash; if possible &amp;mdash; the subject are stationary, as the game uses some temporal effects that may screw with the result on lower settings.
+# '''Adjust your FOV''' accordingly. Generally, an FOV of '''60''' degrees gives a good result with a decent level of zoom, but sometimes higher FOVs may be needed. The rule of thumb is: the closer you are to the subject and the smaller it is, the lower FOV you should use. An FOV of 60 should work pretty great in general, though.
+# Make sure your image actually '''has a purpose''' and illustrates something about the subject and/or the game. The wiki is a compendium of knowledge, not a photo exhibition. If you really want to share your pretty pictures with the world, there are better places. The [https://discord.gg/peakgame official Discord] is one of them (it even has a dedicated channel for fanart!).
+# Try to '''avoid getting the UI in the way'''. There are certain mods you can use to hide it, but if you don't feel like modding, just make sure it doesn't obscure the subject(s).
+
+== Capturing screenshots ==
+As social media shows, capturing screenshots is, quite sadly, not yet common knowledge. This guide assumes you're on Windows 10/11 (because why would you even use a Steam Deck for wiki photograpy?). If that's the case, you have several options:
+# Press {{Key|Keyboard|Printscreen}} '''PrtSc''' ("print screen"), which stores a screenshot to the clipboard. You can then paste its contents in your graphics editor of choice. '''Paint''' comes pre-installed on your system, so you can use it to paste your screenshot there and save it as a &lt;code&gt;.PNG&lt;/code&gt; or a &lt;code&gt;.JPG&lt;/code&gt; file. '''Paint.NET''' (different beast from Paint!) is another good choice, but you'll have to install it first. Also, '''Win+V''' shows your clipboard history, so you can take multiple screenshots and then retrieve them from there.
+# Pressing '''Win+Shift+S''', which allows you to select what part of the ''screen'' you actually want to ''sho(o)t''. The result is also copied to the clipboard.
+# Using an external program, like the free and open-source '''[https://getsharex.com/ ShareX]'''.
+
+== [[User:Aw4yland|Aw4yland]]'s tech stack ==
+Software:
+* [https://getsharex.com/ ShareX]
+* [https://www.faststone.org/ FastStone Image Viewer] (viewer, crop, converter)
+* [https://www.getpaint.net/ Paint.NET] (occasionally)
+
+Mods:
+* [https://thunderstore.io/c/peak/p/Luluberlu/FlyMode/ FlyMode] for flying around
+* [https://thunderstore.io/c/peak/p/megalon2d/PeakCinema/ PeakCinema] for freecam (sometimes more convenient than flying)
+* [https://github.com/originalnicodr/CinematicUnityExplorer/releases/tag/1.3.0 Cinematic Unity Explorer] for a lot of stuff, but mainly for hiding the UI on {{Key|Keyboard|Delete}} '''Delete'''
+* [https://thunderstore.io/c/peak/p/keklick1337/AdvancedConsole/ AdvancedConsole] for godmode and other things (e.g. to not perish in the [[Mesa]]'s sun)</text></revision>
+  </page>
+</dump>

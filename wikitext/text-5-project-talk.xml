@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dump>
+  <page>
+    <title>Meta talk:To-do list</title>
+    <ns>5</ns>
+    <id>1368</id>
+    <revision><id>3091</id><timestamp>2025-08-28T06:22:45Z</timestamp><text>== Biome Templates ==
+
+The wiki could use some templates for biomes to identify them more easily. Some suggestions:
+* [[File:Conch.png|32px]] [[Shore]], {{Cold|label=}} [[Alpine]] (quick &amp; dirty mockup without CSS) (just images)
+* Badges could be appropriate icons. Unfortunately, there isn't a great one to differentiate the Caldera and The Kiln. One could be custom made for one of them?
+** {{Badge|Beachcomber|link=}} [[Shore]]
+** {{Badge|Trailblazer|link=}} [[Tropics]]
+** {{Badge|Alpinist|link=}} [[Alpine]]
+** {{Badge|Nomad|link=}} [[Mesa]]
+** {{Badge|Volcanology|link=}} [[Caldera]]
+** {{Badge|Volcanology|link=}} [[The Kiln]]
+** {{Badge|Peak|link=}} [[Peak (biome)]]
+
+&lt;small&gt;''(moved from page body to talk page)''&lt;/small&gt; [[User:Aw4yland|Aw4yland]] ([[User talk:Aw4yland|talk]]) 06:22, 28 August 2025 (UTC)</text></revision>
+  </page>
+</dump>
